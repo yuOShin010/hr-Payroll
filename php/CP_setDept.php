@@ -1,8 +1,28 @@
+<?php
+    require_once('../php/classes/payrollClass.php');
+    $pdo = $classPayroll->openConnection();
 
-    <?php
-      require_once('../php/classes/payrollClass.php');
-      $pdo = $classPayroll->openConnection();
-    ?>
+    if(isset($_POST['search_d1'])){
+        $search_Eid = $_POST['search_E_ID'];
+
+        $sql = "SELECT * FROM employee WHERE employee_id = ? AND isActive = 1";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$search_Eid]);
+        
+        if($stmt->rowCount() > 0){
+            while($row = $stmt->fetch()){
+                $E_ID = $row['employee_id'];
+                $fname = $row['first_name'];
+                $lname = $row['last_name'];
+                $email = $row['email'];
+                $contact = $row['contact'];
+            }
+        }
+    }
+        
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,29 +68,29 @@
     </style>
 
     <body>
-    
-        <form action="../php/CP_setDept.php" method="post">
-            <div>
-                <label>Search For Employee E_ID:</label>
-                <input type="number" name="search_E_ID" id="search_E_ID" >
-                <button type="submit" name="search_d1" id="search_d1">-></button>
-            </div>
-        </form>
+            <form action="" method="post">
+                <div>
+                    <label>Search For Employee E_ID:</label>
+                    <input type="number" name="search_E_ID" id="search_E_ID" >
+                    <button type="submit" name="search_d1" id="search_d1">-></button>
+                </div>
+            </form>
+
 
         <form action="" method="post">
 
                 <label>E_ID:</label>
-                <input disabled type="number" name="E_ID" id="E_ID" ><br>
+                <input type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID ?>"><br>
                 <label>First Name:</label>
-                <input disabled type="text" name="fname" id="fname" ><br>
+                <input type="text" name="fname" id="fname" value="<?php echo $fname ?>"><br>
                 <label>Last Name:</label>
-                <input disabled type="text" name="lname" id="lname" ><br>
+                <input type="text" name="lname" id="lname" value="<?php echo $lname ?>"><br>
                 <label>Email:</label>
-                <input disabled type="email" name="email" id="email" ><br>
+                <input type="email" name="email" id="email" value="<?php echo $email ?>"><br>
                 <label>Contact:</label>
-                <input disabled type="number" name="contact" id="contact" ><br>
+                <input type="number" name="contact" id="contact" value="<?php echo $contact ?>"><br>
                 <label>Employee Dept:</label>
-                <select disabled name="dept" id="dept" required>
+                <select name="dept_id" id="dept_id" required>
                     <option selected disabled value="">- Select -</option>
                     <option value="1">BSIT</option>
                     <option value="2">BSOA</option>
@@ -89,7 +109,7 @@
                     <option value="BSTM">
                 </datalist> <br> -->
                 <label>Position:</label>
-                <select disabled name="position" id="position" required>
+                <select name="position_id" id="position_id" required>
                     <option selected disabled value="">- Select -</option>
                     <option value="1">Dept. Head</option>
                     <option value="2">Teacher</option>
@@ -98,18 +118,34 @@
                     <option value="5">Utility</option>
                 </select><br>
 
-            <div>
-                <button disabled type="submit" name="setDepartment">Save</button>
-                <button disabled="disabled">Update</button>
-            </div>
+                <button type="submit" name="setDepartment">Save</button>
+                <button type="submit" name="updateDept" id="updateDept">Update</button>
+                <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
 
         </form>
+
+        <?php                
+            
+            if(isset($_POST['setDepartment'])){
+                $E_ID = $_POST['E_ID'];
+                $dept_ID = $_POST['dept_id'];
+                $position_ID = $_POST['position_id'];
+
+                $sql = "INSERT INTO tbl_employee_department_position (employee_id, dept_id,position_id)
+                 VALUES (?,?,?)";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$E_ID, $dept_ID, $position_ID]);
+
+                echo "Successfully Submitted!";
+            }
+    
+        ?>
 
             <br><br>   <hr>   <br><br>      
 
 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
 
-        <div>
+       
             <table>
                 <thead>
                     <tr>
@@ -156,7 +192,7 @@
                     <?php }} ?>
                 </tbody>
             </table>
-        </div>   
+       
         
     </body>
 </html>
