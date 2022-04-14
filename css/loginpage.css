@@ -1,0 +1,83 @@
+/*DEFAULTING*/
+html{
+    background-image: url(https://imgs.search.brave.com/0D9rQ9LAmBdROD4oEfjI0VHhSniRcJ2LME-qQNwMvVw/rs:fit:1073:644:1/g:ce/aHR0cHM6Ly93d3cu/aXN0dWR5Lm9yZy51/ay93cC1jb250ZW50/L3VwbG9hZHMvMjAx/OC8wMS9QQVlST0xM/LU1BTkFHRU1FTlQt/VUsuanBn);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+* {
+    margin: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+
+}
+/*END-------------------------------------------------------*/
+/*LOGIN page*/
+.div-login {
+    margin: 10em 0 0 43em;
+    height: 45em;
+    width: 30em;
+    background-color: rgb(245, 245, 245);
+    border-radius: 7px;
+    box-shadow: 1px 3px 10px 3px rgba(27, 27, 27, 0.692);
+}
+
+
+
+.text1 {
+    margin: 26em 0 0 -7em;
+    width: 20em;
+    height: 3em;
+    padding: 3px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0 0 5px rgb(148, 148, 148);
+}
+
+.text1:hover {
+    box-shadow: 2px 2px 4px 5px rgba(2, 2, 2, 0.849);
+    transition: all 0.2s ease-in-out;
+}
+
+.text2 {
+    margin: 0 0 0 -7em;
+    width: 20em;
+    height: 3em;
+    padding: 3px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 0 0 5px rgb(148, 148, 148);
+}
+
+button {
+    margin: 6em 0 0 0;
+    width: 10em;
+    height: 2em;
+    padding: 3px;
+    color: white;
+    background-color: rgba(27, 118, 204, 0.795);
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 0 2px 2px rgb(139, 138, 138);
+}
+button:hover {
+    background-color: rgba(13, 90, 206, 0.76);
+}
+.passlogo{
+    margin: 407px 0 0 4em;
+    height: 39px;
+    width: 30px;
+    float: left;
+    
+}
+
+.adminlogo{
+    margin: -51px 0 0 -23px;
+    height: 25px;
+    width: 25px;
+    float: left;
+    
+}
+/*END-------------------------------------------------------------*/

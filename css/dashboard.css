@@ -1,0 +1,103 @@
+/*DEFAULTING*/
+
+html {
+    background-color: #c7c7c7;
+}
+* {
+    margin: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+    text-align: center;
+
+}
+/*END-------------------------------------------------------*/
+
+.home-sidebar {
+    padding: 5px;
+    float: left;
+    width: 2em;
+    height: 997px;
+    background-color: #FFFFFF;
+    border-right: 1px #FFFFFF;
+}
+.home-logo {
+    
+    height: 22px;
+    float: left;
+}
+
+.admin-dashboard {
+
+    color: white;
+    float: left;
+    width: 20em;
+    background-color: #182431e8;
+}
+
+.top-bar {
+    font-family: 'Rajdhani', sans-serif;
+    color: rgb(252, 250, 250);
+    height: 3em;
+    background-color: #182431;
+    border-bottom: 1px solid white;
+    box-shadow: 0 0 4px 1px rgb(247, 247, 247);
+}
+
+.secondtop-bar{
+    height: 48px;
+    background-color: white;
+    box-shadow: 0 0 4px 2px rgb(65, 65, 65);
+}
+
+.head1 {
+    float: left;
+    font-size: medium;
+    margin: 10px 0 0 0;
+    padding: 10px 7.0em 2em 20px;
+    font-family: 'Quicksand', sans-serif;
+   
+}
+
+ul {
+    margin: 5em 0 0 -8px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+ul li {
+    display: block;
+}
+
+ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+}
+
+ul li a:hover {
+    background-color: #5c7da0;
+    transition: all 0.2s ease-in-out;
+}
+
+hr{
+    margin: 10em 0 0 0;
+}
+footer {
+   margin: 3.5em 0 0 0; 
+   font-family: 'Quicksand', sans-serif;
+}
+
+h1{
+    padding: 0 0 0 40px;
+    float: left;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 p {
+    margin: 14px 0 0 11px;
+    float: right;
+    font-size: 12px;
+}
+
+
