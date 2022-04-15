@@ -15,22 +15,25 @@
 </head>
 
 <body id="body1">
-
+    
     <div class="container">
         <form action="" method="post">
         <p id="p1">OPERATOR</p>
         <input class="user" type="text" name="op_username" id="op_username" placeholder="Username"><br><br>
         <input class="pass" type="password" name="op_password" id="op_password" placeholder="Password"><br>
-        <input type="checkbox" onclick="myFunction()">Show Password <br><br>            <!--  this checkbox is for show password -->   
+        <input class="check-box" type="checkbox" onclick="myFunction()">Show Password <br><br>            <!--  this checkbox is for show password -->   
         <button class="login-btn" type="submit" name="op_login" id="login-button"> Login </button>
         <h6> <a href="">GO TO ADMIN-DASHBOARD</a></h6>
         <h6>Forgot Password?</h6>
         </form>
     </div>
-    <div>
-        <table>
-            <h5>Don't have an account? <a href="UI_register_OP.php">Sign up</a></h5>
-        </table>
+    <div class="container2">
+        <div class="up">
+            <h1>If you don't have an account yet you can <a href="UI_register_OP.php">Sign up</a> here</h1>
+        </div>
+        <div class="down">
+            <h1>or go back to the <a href="./dashboard.php"> Admin Dashboard</a></h1>
+        </div>
     </div>
 
 </body>
