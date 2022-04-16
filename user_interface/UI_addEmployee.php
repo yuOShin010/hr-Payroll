@@ -24,13 +24,13 @@
                     <h1>SymTech | <p>HR payroll</p></h1>
               </header>
             <ul>
-                <li> <a href="UI_login_OP.php">Login Operator</a></li>
-                <li> <a href="#">Login Employee</a></li>
+                <li> <a href="#">Dashboard Overview</a></li>
                 <li> <a href="#">Employee</a></li>
                 <li> <a href="#">Department</a></li>
                 <li> <a href="#">Scheduling</a></li>
-                <li> <a href="#">Payslip</a></li>
+                <li> <a href="#">Payroll</a></li>
                 <li> <a href="#">Employee Salary Report</a></li>
+                <li> <a href="#">Payslip Report</a></li>
                 <li> <a href="#">Company Report</a></li>
                 <li> <a href="#">Expenses</a></li>
                 <li> <a href="#">Employee Information</a></li>

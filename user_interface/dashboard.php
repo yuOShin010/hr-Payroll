@@ -27,8 +27,9 @@
                 <li> <a href="#">Employee</a></li>
                 <li> <a href="#">Department</a></li>
                 <li> <a href="#">Scheduling</a></li>
-                <li> <a href="#">Payslip</a></li>
+                <li> <a href="#">Payroll</a></li>
                 <li> <a href="#">Employee Salary Report</a></li>
+                <li> <a href="#">Payslip Report</a></li>
                 <li> <a href="#">Company Report</a></li>
                 <li> <a href="#">Expenses</a></li>
                 <li> <a href="#">Employee Information</a></li>

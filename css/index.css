@@ -1,9 +1,11 @@
 /*DEFAULTING*/
-html{
+
+
+/* html {
     background-image: url(https://imgs.search.brave.com/0D9rQ9LAmBdROD4oEfjI0VHhSniRcJ2LME-qQNwMvVw/rs:fit:1073:644:1/g:ce/aHR0cHM6Ly93d3cu/aXN0dWR5Lm9yZy51/ay93cC1jb250ZW50/L3VwbG9hZHMvMjAx/OC8wMS9QQVlST0xM/LU1BTkFHRU1FTlQt/VUsuanBn);
     background-size: cover;
     background-repeat: no-repeat;
-}
+} */
 
 * {
     margin: 0;
@@ -11,13 +13,19 @@ html{
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-
 }
+
+
 /*ENDO*/
 
+
+/* OLD CODE---------------------------------------------------------------------------- */
+
+
 /*INDEX*/
-.front{
-    
+
+
+/* .front {
     padding-top: 5em;
     text-align: center;
     float: left;
@@ -27,18 +35,19 @@ html{
     background-color: rgba(66, 65, 65, 0.295);
     border: 1px solid white;
     border-radius: 10px;
-    box-shadow: 5px 5px 10px 5px rgba(36, 36, 36, 0.856);
-    
-}
+    box-shadow: 10px 5px 5px 5px rgba(36, 36, 36, 0.856);
+} */
 
-h1 {
+
+/* h1 {
     font-size: 53px;
 }
 
-h3, h1{
-    
+h3,
+h1 {
     margin: 150px;
 }
+
 h3 a {
     padding: 5px;
     background-color: antiquewhite;
@@ -51,7 +60,7 @@ h3 a {
 h3 a:hover {
     background-color: rgb(252, 252, 252);
     box-shadow: 1px 1px 5px 1px rgba(233, 231, 229, 0.774);
-}
+} */
+
+
 /*END-------------------------------------------------------------*/
-
-
