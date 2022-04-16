@@ -9,107 +9,110 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/UI-add.css">
         <title>addEmployee | Symtech</title>
     </head>
 
-    <style>
-        body {
-            background-color: #6C6169;
-        }
-
-        form {
-            text-align: center;
-            margin-top: 5px;       
-        }
-
-        label, input , textarea, select{
-            margin-top: 10px;
-        }
-
-        button {
-            margin-top: 8px;
-        }
-
-        table{
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        table, tr, th, td{
-            border:1px solid black;
-        }
-
-        th, td{
-            padding: 10px 20px;
-        }
-    </style>
-
     <body>
+        <!-- DASHBOARD -->
 
-        <form action="../php/CP_search_em.php" method="post">
-            <div>
-                <label>Search For Employee E_ID:</label>
-                <input type="number" name="search_E_ID" id="search_E_ID" >
-                <button type="submit" name="search_e" id="search_e">-></button>
+        <div class="admin-dashboard"> 
+            <div class="home-sidebar">
+                <img  class="home-logo" src="https://img.icons8.com/glyph-neue/2x/home-page.png" alt="logo">
             </div>
-        </form>
+              <header class="top-bar">
+                    <h1>SymTech | <p>HR payroll</p></h1>
+              </header>
+            <ul>
+                <li> <a href="UI_login_OP.php">Login Operator</a></li>
+                <li> <a href="#">Login Employee</a></li>
+                <li> <a href="#">Employee</a></li>
+                <li> <a href="#">Department</a></li>
+                <li> <a href="#">Scheduling</a></li>
+                <li> <a href="#">Payslip</a></li>
+                <li> <a href="#">Employee Salary Report</a></li>
+                <li> <a href="#">Company Report</a></li>
+                <li> <a href="#">Expenses</a></li>
+                <li> <a href="#">Employee Information</a></li>
+            </ul>
+            <hr>
+            <footer>
+                <p>No copy right</p>
+            </footer>
+        </div>
+        <header class="secondtop-bar">
+             2nd top
+        </header>
 
+        <!-- END DASHBOARD -->
+        <div class="container">
+            <form action="../php/CP_search_em.php" method="post">
+                <div class="search-engine">
+                    <label>Search For Employee ID </label>
+                    <input type="number" name="search_E_ID" id="search_E_ID" >
+                    <button type="submit" name="search_e" id="search_e">-></button>
+                </div>
+            </form>
+            <form action="../php/CP_add_em.php" method="post">
+                <div class="container-content">
+                    <label>E_ID:</label>
+                    <input type="number" name="E_ID" id="E_ID" required><br>
 
-        <form action="../php/CP_add_em.php" method="post">
-            <div>
-                <label>E_ID:</label>
-                <input type="number" name="E_ID" id="E_ID" required><br>
-                <label>First Name:</label>
-                <input type="text" name="fname" id="fname" required><br>
-                <label>M.I:</label>
-                <input type="text" name="mi" id="mi" required><br>
-                <label>Last Name:</label>
-                <input type="text" name="lname" id="lname" required><br>
-                <label>Age:</label>
-                <input type="number" name="age" id="age" required><br>
-                <label>Email:</label>
-                <input type="email" name="email" id="email" required><br>
-                <label>Contact:</label>
-                <input type="number" name="contact" id="contact" required><br>
-                <label>Gender:</label>
-                <select name="gender" id="gender" required>
-                    <option selected disabled value="">- Select -</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select> <br>
-                <label>Employee Stats:</label>
-                <select name="stats" id="stats" required>
-                    <option selected disabled value="">- Select -</option>
-                    <option value="Regular">Regular</option>
-                    <option value="Contructual">Contructual</option>
-                </select><br>
-                <!-- <select name="position" id="position">
-                    <option><section>-Select-</section></option>
-                    <option value="Office Staff">Office Staff</option>
-                    <option value="Teacher">Teacher</option>
-                    <option value="Security Guard">Security Guard</option>
-                    <option value="Utility">Utility</option>
-                </select><br> -->
-                <label>Date Hired:</label>
-                <input type="date" name="date" id="date" required><br>
-            </div>
+                    <label>First Name:</label>
+                    <input type="text" name="fname" id="fname" required><br>
+                   
+                    <label>M.I:</label>
+                    <input type="text" name="mi" id="mi" required><br>
+                   
+                    <label>Last Name:</label>
+                    <input type="text" name="lname" id="lname" required><br>
+                   
+                    <label>Age:</label>
+                    <input type="number" name="age" id="age" required><br>
+                   
+                    <label>Email:</label>
+                    <input type="email" name="email" id="email" required><br>
+                   
+                    <label>Contact:</label>
+                    <input type="number" name="contact" id="contact" required><br>
+                   
+                    <label>Gender:</label>
+                    <select name="gender" id="gender" required>
+                   
+                        <option selected disabled value="">- Select -</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select> <br>
+                    <label>Employee Stats:</label>
+                    <select name="stats" id="stats" required>
+                        <option selected disabled value="">- Select -</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Contructual">Contructual</option>
+                    </select><br>
+                    <!-- <select name="position" id="position">
+                        <option><section>-Select-</section></option>
+                        <option value="Office Staff">Office Staff</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Security Guard">Security Guard</option>
+                        <option value="Utility">Utility</option>
+                    </select><br> -->
+                    <label>Date Hired:</label>
+                    <input type="date" name="date" id="date" required><br>
+                </div>
 
-            <div>
-                <button type="submit" name="addEmployee">Save</button>
-                <button disabled="disabled">Update</button>
-                <button disabled="disabled">Delete</button>
-                <!-- <button type="submit" name="editEmployee">Update</button>
-                <button type="submit" name="deleteEmployee">Delete</button> -->
-            </div>
-        </form>
-
-            <br><br>   <hr>   <br><br>      
+                <div>
+                    <button type="submit" name="addEmployee">Save</button>
+                    <button disabled="disabled">Update</button>
+                    <button disabled="disabled">Delete</button>
+                    <!-- <button type="submit" name="editEmployee">Update</button>
+                    <button type="submit" name="deleteEmployee">Delete</button> -->
+                </div>
+            
+            </form>
+        </div>
+               <hr>        
 
 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
-
         <div>
             <table>
                 <thead>

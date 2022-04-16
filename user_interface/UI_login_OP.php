@@ -11,27 +11,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Operator | Symtech</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/loginOP.css">
 </head>
 
-<style> * { text-align: center ;} </style>
-
 <body id="body1">
-
-    <div>
-    <form action="" method="post">
+    
+    <div class="container">
+        <form action="" method="post">
         <p id="p1">OPERATOR</p>
-        <input type="text" name="op_username" id="op_username" placeholder="Username"><br><br>
-        <input type="password" name="op_password" id="op_password" placeholder="Password"><br>
-        <input type="checkbox" onclick="myFunction()">Show Password <br><br>            <!--  this checkbox is for show password -->   
-        <button type="submit" name="op_login" id="login-button"> Login </button><hr>
+        <input class="user" type="text" name="op_username" id="op_username" placeholder="Username"><br><br>
+        <input class="pass" type="password" name="op_password" id="op_password" placeholder="Password"><br>
+        <input class="check-box" type="checkbox" onclick="myFunction()">Show Password <br><br>            <!--  this checkbox is for show password -->   
+        <button class="login-btn" type="submit" name="op_login" id="login-button"> Login </button>
         <h6> <a href="">GO TO ADMIN-DASHBOARD</a></h6>
         <h6>Forgot Password?</h6>
-    </form></div>
-    <div>
-        <table>
-            <h5>Don't have an account? <a href="UI_register_OP.php">Sign up</a></h5>
-        </table>
+        </form>
+    </div>
+    <div class="container2">
+        <div class="up">
+            <h1>If you don't have an account yet you can <a href="UI_register_OP.php">Sign up</a> here</h1>
+        </div>
+        <div class="down">
+            <h1>or go back to the <a href="./dashboard.php"> Admin Dashboard</a></h1>
+        </div>
     </div>
 
 </body>
