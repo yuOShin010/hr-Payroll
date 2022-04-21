@@ -182,16 +182,16 @@
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$E_ID, $fname, $mi, $lname, $age, $email, $contact, $gender, $stats, $date]);
 
-                header('location: ../user_interface/UI_setDepartment.php');
+                header('location: ../user_interface/UI_addEmployee.php');
             }
         
         }
 
     // set Department --
-        public function setDepartment()
-        {
-            echo "Dito ako nag stop mag codes";
-        }
+        // public function setDepartment()
+        // {
+        //     echo "Dito ako nag stop mag codes";
+        // }
 
 // ---------------------------------------------------- UPDATE SESSION ---------------------------------------------------- //
 

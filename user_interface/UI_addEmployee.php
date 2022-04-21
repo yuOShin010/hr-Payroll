@@ -24,16 +24,15 @@
                     <h1>SymTech | <p>HR payroll</p></h1>
               </header>
             <ul>
-                <li> <a href="UI_login_OP.php">Login Operator</a></li>
-                <li> <a href="#">Login Employee</a></li>
-                <li> <a href="#">Employee</a></li>
-                <li> <a href="#">Department</a></li>
-                <li> <a href="#">Scheduling</a></li>
-                <li> <a href="#">Payslip</a></li>
+                <li> <a href="#">Dashboard Overview</a></li>
+                <li> <a href="../user_interface/UI_addEmployee.php">Employee Management</a></li>
+                <li> <a href="../user_interface/UI_setDepartment.php">Department Management</a></li>
+                <li> <a href="../user_interface/UI_schedule.php">Scheduling Management</a></li>
+                <li> <a href="#">Payroll Management</a></li>
                 <li> <a href="#">Employee Salary Report</a></li>
+                <li> <a href="#">Payslip Report/Print</a></li>
                 <li> <a href="#">Company Report</a></li>
-                <li> <a href="#">Expenses</a></li>
-                <li> <a href="#">Employee Information</a></li>
+                <li> <a href="#">Company Expenses</a></li>
             </ul>
             <hr>
             <footer>
@@ -89,13 +88,7 @@
                         <option value="Regular">Regular</option>
                         <option value="Contructual">Contructual</option>
                     </select><br>
-                    <!-- <select name="position" id="position">
-                        <option><section>-Select-</section></option>
-                        <option value="Office Staff">Office Staff</option>
-                        <option value="Teacher">Teacher</option>
-                        <option value="Security Guard">Security Guard</option>
-                        <option value="Utility">Utility</option>
-                    </select><br> -->
+
                     <label>Date Hired:</label>
                     <input type="date" name="date" id="date" required><br>
                 </div>
@@ -104,8 +97,6 @@
                     <button type="submit" name="addEmployee">Save</button>
                     <button disabled="disabled">Update</button>
                     <button disabled="disabled">Delete</button>
-                    <!-- <button type="submit" name="editEmployee">Update</button>
-                    <button type="submit" name="deleteEmployee">Delete</button> -->
                 </div>
             
             </form>
