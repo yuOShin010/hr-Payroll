@@ -18,12 +18,19 @@
 <body id="body1">
 
     <div id="login" class="div-login">
+        <h1>Login Administrator</h1>
         <form action="" method="post" class="form1">
-                <img class="passlogo" src="https://img.icons8.com/external-colours-bomsymbols-/2x/external-admin-car-engine-dashboard-lights-full-colors-set-2-colours-bomsymbols-.png" alt="logo">
-                <input class="text1" type="text" name="username1" id="username2" placeholder="Username"><br><br>
-                <img class="adminlogo" src="https://img.icons8.com/pastel-glyph/2x/user-male-circle.png" alt="logo">
-                <input class="text2" type="password" name="password1" id="password2" placeholder="Password"><br><br>
-                <button type="submit" name="submit1" id="login-button"> Login </button>
+            <div class="textbox">
+                <!-- <img class="passlogo" src="https://img.icons8.com/external-colours-bomsymbols-/2x/external-admin-car-engine-dashboard-lights-full-colors-set-2-colours-bomsymbols-.png" alt="logo"> -->
+                <input class="text" type="text" name="username1" id="username2" placeholder="Username"><br><br>
+            </div>    
+            <div class="textbox">
+                <!-- <img class="adminlogo" src="https://img.icons8.com/pastel-glyph/2x/user-male-circle.png" alt="logo"> -->
+                <input class="text" type="password" name="password1" id="password2" placeholder="Password"><br><br>
+            </div>
+            <div class="btn">
+                <button class="login_btn" type="submit" name="submit1" id="login-button"> Login </button>
+            </div>
         </form>
     </div>
     
