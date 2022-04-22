@@ -58,7 +58,7 @@
                     } else {
 
 
-                        echo ("<script LANGUAGE='JavaScript'> window.alert('Your username or password is incorrect...');  window.location.href='http://localhost/hr_payroll/index.php'; </script>");                        
+                        echo ("<script LANGUAGE='JavaScript'> window.alert('Your username or password is incorrect...');  window.location.href='../index.php'; </script>");                        
                     
                     
                     }
@@ -92,12 +92,12 @@
                     $stmt->execute([$email, $pass, $fname, $mname, $lname]);
 
                     echo ("<script LANGUAGE='JavaScript'> window.alert('Succesful Register');
-                    window.location.href='http://localhost/hr_payroll/user_interface/dashboard.php'; </script>");
+                    window.location.href='../user_interface/dashboard.php'; </script>");
 
                 } else {
 
                     echo ("<script LANGUAGE='JavaScript'> window.alert('Email is already exists ---->  Use other Email');
-                    window.location.href='http://localhost/hr_payroll/user_interface/UI_register_OP.php'; </script>");
+                    window.location.href='../user_interface/UI_register_OP.php'; </script>");
 
                 }
 
@@ -128,14 +128,14 @@
 
                     
                     echo ("<script LANGUAGE='JavaScript'> window.alert('Login Operator Successful');
-                    window.location.href='http://localhost/hr_payroll/user_interface/UI_addEmployee.php'; </script>");
+                    window.location.href='../user_interface/UI_addEmployee.php'; </script>");
                 
                 
                 } else {   
 
 
                     echo ("<script LANGUAGE='JavaScript'> window.alert('Login Operator FAILED!');
-                    window.location.href='http://localhost/hr_payroll/user_interface/UI_login_OP.php'; </script>");
+                    window.location.href='../user_interface/UI_login_OP.php'; </script>");
 
 
                 }
