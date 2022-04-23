@@ -190,7 +190,7 @@
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$E_ID, $fname, $mi, $lname, $age, $email, $contact, $gender, $stats, $date]);
 
-                header('location: ../operator/UI_addEmployee.php');
+                
             }
         
         }

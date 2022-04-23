@@ -20,7 +20,7 @@
 
 
     <div id="login" class="div-login">
-        <h1><img src="https://cdn-user-icons.flaticon.com/69537/69537777/1650714009164.svg?token=exp=1650714988~hmac=f223772fbef10bcd9709a424efa5a91a" alt="logo"></h1>
+        <h1><img src="https://cdn-icons-png.flaticon.com/512/7211/7211042.png" alt="logo"></h1>
         <p>Administrator</p>
             <form action="" method="post" class="form1">
             <div class="textbox">
