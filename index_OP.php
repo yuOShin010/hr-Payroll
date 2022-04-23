@@ -10,8 +10,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Operator | Symtech</title>
     <link rel="stylesheet" href="css/loginOP.css">
+    <title>Login Operator | Symtech</title>
+   
     
 </head>
 
@@ -30,14 +31,16 @@
                     echo $_GET['Invalid'];                            
                 }
             ?>  
-            
         <form action="" method="post">
-        <p id="p1">LOGIN OPERATOR</p>
-        <input class="user" type="text" name="op_username" id="op_username" placeholder="Username"><br><br>
-        <input class="pass" type="password" name="op_password" id="op_password" placeholder="Password"><br>
-        <input class="check-box" type="checkbox" onclick="myFunction()">Show Password <br><br>            <!--  this checkbox is for show password -->   
-        <button class="login-btn" type="submit" name="op_login" id="login-button"> Login </button>
-        <h6>Forgot Password?</h6>
+        <p id="p1"><img src="https://cdn-icons-png.flaticon.com/512/7211/7211060.png" alt="logo"></p>
+        <p>Operator</p>
+        <div class="container-content">
+            <input class="us" type="text" name="op_username" id="op_username" placeholder="Username"><br><br>
+            <input class="pw" type="password" name="op_password" id="op_password" placeholder="Password"><br>
+            <input class="check-box" type="checkbox" onclick="myFunction()">Show Password <br><br>            <!--  this checkbox is for show password -->   
+            <button class="login-btn" type="submit" name="op_login" id="login-button"> Login </button>
+            <h6>Forgot Password?</h6>
+        </div>
         </form>
     </div>
     
