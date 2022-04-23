@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('../php/classes/payrollClass.php');
     $pdo = $classPayroll->openConnection();
 ?>
@@ -13,6 +14,14 @@
         <title>Schedule | Symtech</title>
     </head>
 
+    <style>
+
+        #btn {
+            height: 10px;
+            width: 10px;
+        }
+    </style>
+
     <body>
         <!-- DASHBOARD -->
 
@@ -24,15 +33,15 @@
                     <h1>SymTech | <p>HR payroll</p></h1>
               </header>
             <ul>
-                <li> <a href="#">Dashboard Overview</a></li>
-                <li> <a href="../user_interface/UI_addEmployee.php">Employee Management</a></li>
-                <li> <a href="../user_interface/UI_setDepartment.php">Department Management</a></li>
-                <li> <a href="../user_interface/UI_schedule.php">Scheduling Management</a></li>
-                <li> <a href="#">Payroll Management</a></li>
+                 <!-- <li> <a href="../operator/UI_dash_overview.php">Dashboard Overview</a></li> -->
+                 <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
+                <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
+                <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
+                <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
                 <li> <a href="#">Employee Salary Report</a></li>
                 <li> <a href="#">Payslip Report/Print</a></li>
                 <li> <a href="#">Company Report</a></li>
-                <li> <a href="#">Company Expenses</a></li>
+                <!--<li> <a href="#">Company Expenses</a></li> -->
             </ul>
             <hr>
             <footer>
@@ -40,7 +49,21 @@
             </footer>
         </div>
         <header class="secondtop-bar">
-             2nd top
+
+        <?php 
+
+            if(isset($_SESSION['User']))
+            {
+                echo '<h1>'.' Welcome ' . $_SESSION['User'].'</h1>';
+                echo '<a href="logout_OP.php?logout">Logout</a>';
+            }
+            else
+            {
+                header("location:../index_OP.php");
+            }
+
+        ?>
+
         </header>
 
         <!-- END DASHBOARD -->
@@ -54,8 +77,8 @@
 
                 $sql = "SELECT A.id,
                 B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
-                C.dept_code,
-                D.position_desc
+                C.dept_id, C.dept_code,
+                D.position_id, D.position_desc
                 FROM tbl_employee_department_position AS A
                 LEFT JOIN employee AS B
                 ON A.employee_id = B.employee_id
@@ -77,13 +100,15 @@
                         $lname = $row['last_name'];
                         $email = $row['email'];
                         $contact = $row['contact'];
+                        $dept_id = $row['dept_id'];
                         $dept_code = $row['dept_code'];
+                        $position_id = $row['position_id'];
                         $position_desc = $row['position_desc'];
                     }
                 }
         ?>
         <div class="container">
-            <form action="../user_interface/UI_schedule.php" method="post">
+            <form action="../operator/UI_schedule.php" method="post">
                 <div class="search-engine">
                     <label>Search For Employee ID </label>
                     <input type="number" name="search_E_ID" id="search_E_ID" >
@@ -93,7 +118,7 @@
 
             <form action="../php/CP_schedule.php" method="post">
                 <div class="container-content">
-                <label>E_ID:</label>
+                    <label>E_ID:</label>
                     <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
                     <label>First Name:</label>
                     <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
@@ -104,24 +129,25 @@
                     <label>Contact:</label>
                     <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
                     <label>Employee Dept:</label>
-                    <input readonly type="text" name="dept_id" id="dept_id" value="<?php echo $dept_code ?>"><br>
+                    <select name="dept_id" id="dept_id" required>
+                        <option selected value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
+                    </select><br>
                     <label>Position:</label>
-                    <input readonly type="text" name="position_id" id="position_id" value="<?php echo $position_desc ?>"><br><br>
+                    <select name="position_id" id="position_id" required>
+                        <option selected value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
+                    </select><br><br>
+                    
                     <label>Total WorkHrs:</label>
                     <input type="number" name="workHrs" id="workHrs"><br>
                     <label>From:</label>
                     <input type="date" name="d_from" id="d_from"><br>
                     <label>To:</label>
-                    <input type="date" name="d_to" id="d_to"><br>
-                    <input type="button" onclick="computeDays()"><br><br>
-                    <!-- <button onclick="computeDays()" ></button><br><br>   button here for Compute days Work -->
-                     <!-- <p id="result"></p> -->
-                    <label>Days Work</label>
-                    <input readonly type="" name="daysWork" id="result" >
-                    
-                    <br><br>
+                    <input type="date" name="d_to" id="d_to">
+                    <input type="button" onclick="computeDays()" id="btn"><br><br> <!-- button here for Compute days Work -->
+                    <label>Days Work:</label>
+                    <input readonly type="" name="daysWork" id="daysWork" ><br><br>
 
-                    <button type="submit" name="setDepartment">Save</button>
+                    <button type="submit" name="set_schedule">Save</button>
                     <button disabled type="submit" name="updateDept" id="updateDept">Update</button>
             </form>
         </div>
@@ -189,12 +215,13 @@
         </table>
         <?php    
             }
+//  <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
 
             if($activeform){    // This is the main user interface (no value indicated) --
         ?>
-    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+  
         <div class="container">
-            <form action="../user_interface/UI_schedule.php" method="post">
+            <form action="../operator/UI_schedule.php" method="post">
                 <div class="search-engine">
                     <label>Search For Employee ID </label>
                     <input type="number" name="search_E_ID" id="search_E_ID" >
@@ -224,8 +251,8 @@
                     <input type="date" name="d_from" id="d_from"><br>
                     <label>To:</label>
                     <input type="date" name="d_to" id="d_to">
-                    <button name="computeDays" id="computeDays"></button><br><br>
-                    <label>Days Work</label>
+                    <input type="button" id="btn"><br><br>
+                    <label>Days Work:</label>
                     <input type="number" name="daysWork" id="daysWork">
                     <br><br>
 
@@ -270,7 +297,7 @@
                     LEFT JOIN position AS D
                     ON A.position_id = D.position_id
                     LEFT JOIN schedule AS E
-                    ON A.sched_id = E.sched_id
+                    ON A.employee_id = E.employee_id
                     WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
 
                     $stmt = $pdo->prepare($sql);
@@ -310,7 +337,7 @@
         const dateTwo = new Date(d2);
         const time = Math.abs(dateTwo - dateOne);
         const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-        document.getElementById("result").value=days+1;
+        document.getElementById("daysWork").value=days+1;
         
     }
 

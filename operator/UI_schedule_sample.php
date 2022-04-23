@@ -7,6 +7,9 @@
     <title>Schedule | Symtech</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script type="text/javascript" src="test.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 </head>
 <body>
     <form action="" method="post">
@@ -33,7 +36,7 @@
                 <input type="date" name="dateTo" id="dateTo">
                 </div>
 
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <div class="btn-group btn-group-toggle btn-group-vertical" data-toggle="buttons">
                     <label class="btn btn-primary">
                         <input type="checkbox" autocomplete="off">
                         Sunday
@@ -70,21 +73,34 @@
                 </div>
 
                 <div class="mb-5" >
-                    <form action="time.php" method="post">
+                <!-- ../php/CP_schedule.php -->
+                    <form action="" method="post">
                     <button type="submit" class="btn btn-info btn-sm mt-2" name="all" id="all">all</button>
                     <small>if Time in&out is Same (click all) </small>
                         <div class="mb-5">
                         <label>Time-in</label>
-                        <input type="time" name="timeIn" id="timeIn" value="09:00 AM"><br>
+                        <input type="time" name="timeIn" id="timeIn"><br>
                         <label>Time-Out</label>
                         <input type="time" name="timeOut" id="timeOut">
                         </div> 
 
+                        <?php
+                            if(isset($_POST['all'])){
+                                $timeIn = $_POST['timeIn'];
+                                $timeOut = $_POST['timeOut'];
+                        
+                                echo "Your time in is: ".$timeIn; 
+                                echo "Your time Out is: ".$timeOut; 
+                        
+                        
+                             }
+                        ?>
+
                         <div class="mb-5">
                         <label for="timeIn2">Time-in</label>
-                        <input type="time" name="timeIn2" id="timeIn2"><br>
+                        <input type="time" name="timeIn2" id="timeIn2" value="<?echo $timeIn;?>"><br>
                         <label for="timeOut2">Time-Out</label>
-                        <input type="time" name="timeOut2" id="timeOut2">
+                        <input type="time" name="timeOut2" id="timeOut2" value="<?echo $timeOut;?>">
                         </div>
 
                         <div class="mb-5">

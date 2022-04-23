@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('../php/classes/payrollClass.php');
     $classPayroll->register_op();
 ?>
@@ -11,7 +12,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Operator | Symtech</title>
 </head>
+ <header>
+    <?php
 
+        if(isset($_SESSION['User']))
+        {
+            echo '<a href="logout_admin.php?logout">Logout</a>';
+        }
+        else
+        {
+            header("location:../index_AD.php");
+        }
+
+    ?>
+    
+ </header>
 <style> * { text-align: center ;} </style>
 
 <body>

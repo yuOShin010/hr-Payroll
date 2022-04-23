@@ -1,8 +1,8 @@
-
-    <?php
-      require_once('../php/classes/payrollClass.php');
-      $pdo = $classPayroll->openConnection();
-    ?>
+<?php
+session_start();
+require_once('../php/classes/payrollClass.php');
+$pdo = $classPayroll->openConnection();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,15 +24,15 @@
                     <h1>SymTech | <p>HR payroll</p></h1>
               </header>
             <ul>
-                <li> <a href="#">Dashboard Overview</a></li>
-                <li> <a href="../user_interface/UI_addEmployee.php">Employee Management</a></li>
-                <li> <a href="../user_interface/UI_setDepartment.php">Department Management</a></li>
-                <li> <a href="../user_interface/UI_schedule.php">Scheduling Management</a></li>
-                <li> <a href="#">Payroll Management</a></li>
+                 <!-- <li> <a href="../operator/UI_dash_overview.php">Dashboard Overview</a></li> -->
+                 <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
+                <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
+                <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
+                <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
                 <li> <a href="#">Employee Salary Report</a></li>
                 <li> <a href="#">Payslip Report/Print</a></li>
                 <li> <a href="#">Company Report</a></li>
-                <li> <a href="#">Company Expenses</a></li>
+                <!--<li> <a href="#">Company Expenses</a></li> -->
             </ul>
             <hr>
             <footer>
@@ -40,7 +40,19 @@
             </footer>
         </div>
         <header class="secondtop-bar">
-             2nd top
+            <?php 
+
+            if(isset($_SESSION['User']))
+            {
+                echo '<h1>'.' Welcome ' . $_SESSION['User'].'</h1>';
+                echo '<a href="logout_OP.php?logout">Logout</a>';
+            }
+            else
+            {
+                header("location:../index_OP.php");
+            }
+            
+            ?>
         </header>
 
         <!-- END DASHBOARD -->

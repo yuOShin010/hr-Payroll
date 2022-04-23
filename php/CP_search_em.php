@@ -47,7 +47,7 @@
 
 // ------------------------------------------------------------------------------------------------------------------------------------------- //
 
-            header("Location: ../user_interface/UI_addEmployee.php");
+            header("Location: ../operator/UI_addEmployee.php");
 
             }
 

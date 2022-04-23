@@ -38,33 +38,41 @@
 
         public function loginAdmin()
         {
+            $pdo = $this->openConnection();
+            session_start();
 
-
+            
             try
-            {
+            { 
                 if(isset($_POST['submit1']))
                 {
+                    
                     $username = $_POST["username1"];
                     $password = $_POST["password1"];   
                 
-
-                    if($username == ("") && $password == (""))
+                    if(empty($username) || empty($password))
                     {
-
-                      
-                        header("Location: dashboard.php");
-
-
-                    } else {
-
-
-                        echo ("<script LANGUAGE='JavaScript'> window.alert('Your username or password is incorrect...');  window.location.href='http://localhost/hr_payroll/index.php'; </script>");                        
-                    
-                    
+                         header("location:index_AD.php?Empty= Please Fill in the Blanks");
                     }
-                
+
+                    else
+                    {
+                        $sql = "SELECT * FROM `admin` WHERE email_ad = ? AND pass_ad = ?";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([$username,$password]);
+            
+                        if($stmt->fetch())
+                        {
+                            $_SESSION['User'] = $username;
+                            header("location:admin/UI_dashboard_ad.php");
+                        }
+                        else
+                        {
+                            header("location:index_AD.php?Invalid= Please Enter Correct User Name and Password ");
+                        }
+                   }
                 }
-                throw new Exception();
+                    throw new Exception();
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
@@ -92,12 +100,12 @@
                     $stmt->execute([$email, $pass, $fname, $mname, $lname]);
 
                     echo ("<script LANGUAGE='JavaScript'> window.alert('Succesful Register');
-                    window.location.href='http://localhost/hr_payroll/user_interface/dashboard.php'; </script>");
+                    window.location.href='../admin/UI_dashboard_ad.php'; </script>");
 
                 } else {
 
                     echo ("<script LANGUAGE='JavaScript'> window.alert('Email is already exists ---->  Use other Email');
-                    window.location.href='http://localhost/hr_payroll/user_interface/UI_register_OP.php'; </script>");
+                    window.location.href='../admin/UI_register_OP.php'; </script>");
 
                 }
 
@@ -111,36 +119,36 @@
 
         public function loginOperator()
         {
-            
+            $pdo = $this->openConnection();
+            session_start();
+
             if(isset($_POST['op_login']))
             {
                 $username = $_POST["op_username"];
-                $password = md5($_POST["op_password"]);  
+                $password = md5($_POST["op_password"]);
                 
-                $pdo = $this->openConnection();
-                $sql = ("SELECT * FROM operator WHERE op_email = ? AND op_password = ?");
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([$username, $password]);
-                $total = $stmt->rowCount();
-
-                if($total > 0)
+                if(empty($username) || empty($password))
                 {
-
-                    
-                    echo ("<script LANGUAGE='JavaScript'> window.alert('Login Operator Successful');
-                    window.location.href='http://localhost/hr_payroll/user_interface/UI_addEmployee.php'; </script>");
-                
-                
-                } else {   
-
-
-                    echo ("<script LANGUAGE='JavaScript'> window.alert('Login Operator FAILED!');
-                    window.location.href='http://localhost/hr_payroll/user_interface/UI_login_OP.php'; </script>");
-
-
+                    header("location:index_OP.php?Empty= Please Fill in the Blanks");
                 }
-
-            } 
+                
+                else
+                {
+                    $sql = ("SELECT * FROM operator WHERE op_email = ? AND op_password = ?");
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([$username,$password]);
+        
+                    if($row = $stmt->fetch())
+                    {
+                        $_SESSION['User'] = $row['op_fname'];
+                        header("location:operator/welcome_OP.php");
+                    }
+                    else
+                    {
+                        header("location:index_OP.php?Invalid= Please Enter Correct User Name and Password ");
+                    }
+               }
+            }
 
         } 
 
@@ -182,7 +190,7 @@
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$E_ID, $fname, $mi, $lname, $age, $email, $contact, $gender, $stats, $date]);
 
-                header('location: ../user_interface/UI_addEmployee.php');
+                header('location: ../operator/UI_addEmployee.php');
             }
         
         }
@@ -236,14 +244,14 @@
                  $stmt = $pdo->prepare($sql);
                  $stmt->execute([$E_ID]);
 
-                 header("Location: ../user_interface/UI_addEmployee.php");
-                //  echo ("<script LANGUAGE='JavaScript'>window.location.href='http://localhost/hr_payroll/user_interface/UI_addEmployee.php'; </script>");  
+                 header("Location: ../operator/UI_addEmployee.php");
+                //  echo ("<script LANGUAGE='JavaScript'>window.location.href='http://localhost/hr_payroll/operator/UI_addEmployee.php'; </script>");  
             }    // Hard Deletion
                 // $E_ID = $_POST["E_ID"];
                 // $sql = "DELETE FROM users WHERE userID = ?;";
                 // $stmt = $pdo->prepare($sql);
                 // $stmt->execute([$E_ID]);           
-                // header("Location: ../user_interface/UI_addEmployee.php");
+                // header("Location: ../operator/UI_addEmployee.php");
         }
 
     }
