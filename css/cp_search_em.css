@@ -117,15 +117,40 @@ h1 p {
 /* SEARCH ENGINE */
 
 
-input, select{
-    width: 20em;
+.search-engine label{
+    margin: -4em 0 0  3.2em;
+    float: left;
+    width: 247px;
+    display: inline-block;
+    text-align: left;
+    padding-bottom: 5px;
+    color: white;
+}
+.search-engine input {
+    margin: 0 0 0 -58em;
+    transform: translate(6%, -5vh);
     height: 30px;
-    border-radius: 4px;
-    transition: all 0.5s ease-in-out;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+.search-engine button {
+    display: inline-block;
+    position: absolute;
+    margin: -2.4em 0 0 3em;
+    border-radius: 10px;    
 }
 
-input:hover, select:hover {
-    box-shadow: inset 0 0 1px 2px #000000e8;
+.container-content input {
+    margin: 12px 0 0 0;
+    height: 30px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
 }
 
 .container-content input:hover {

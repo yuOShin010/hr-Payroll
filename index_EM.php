@@ -10,15 +10,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Operator | Symtech</title>
+    <title>Login Employee | Symtech</title>
     <link rel="stylesheet" href="css/loginOP.css">
 </head>
 
 <body id="body1">
     
     <div class="container">
+            <h1 id="p1">LOGIN EMPLOYEE</h1>
         <form action="" method="post">
-        <p id="p1">LOGIN EMPLOYEE</p>
         <input class="user" type="text" name="op_username" id="op_username" placeholder="Username"><br><br>
         <input class="pass" type="password" name="op_password" id="op_password" placeholder="Password"><br>
         <input class="check-box" type="checkbox" onclick="myFunction()">Show Password <br><br>            <!--  this checkbox is for show password -->   
@@ -49,6 +49,4 @@
                 }
             }           
         </script>
-
-
 </html>

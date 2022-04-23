@@ -10,6 +10,7 @@ $pdo = $classPayroll->openConnection();
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/UI-add.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <title>addEmployee | Symtech</title>
     </head>
 
@@ -20,9 +21,9 @@ $pdo = $classPayroll->openConnection();
             <div class="home-sidebar">
                 <img  class="home-logo" src="https://img.icons8.com/glyph-neue/2x/home-page.png" alt="logo">
             </div>
-              <header class="top-bar">
+              <div class="top-bar">
                     <h1>SymTech | <p>HR payroll</p></h1>
-              </header>
+              </div>
             <ul>
                  <!-- <li> <a href="../operator/UI_dash_overview.php">Dashboard Overview</a></li> -->
                  <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
@@ -35,6 +36,7 @@ $pdo = $classPayroll->openConnection();
                 <!--<li> <a href="#">Company Expenses</a></li> -->
             </ul>
             <hr>
+
             <footer>
                 <p>No copy right</p>
             </footer>
@@ -59,65 +61,83 @@ $pdo = $classPayroll->openConnection();
         <div class="container">
             <form action="../php/CP_search_em.php" method="post">
                 <div class="search-engine">
-                    <label>Search For Employee ID </label>
                     <input type="number" name="search_E_ID" id="search_E_ID" >
+                    <label>Search For Employee ID </label>
                     <button type="submit" name="search_e" id="search_e">-></button>
                 </div>
             </form>
-            <form action="../php/CP_add_em.php" method="post">
-                <div class="container-content">
-                    <label>E_ID:</label>
-                    <input type="number" name="E_ID" id="E_ID" required><br>
-
-                    <label>First Name:</label>
-                    <input type="text" name="fname" id="fname" required><br>
-                   
-                    <label>M.I:</label>
-                    <input type="text" name="mi" id="mi" required><br>
-                   
-                    <label>Last Name:</label>
-                    <input type="text" name="lname" id="lname" required><br>
-                   
-                    <label>Age:</label>
-                    <input type="number" name="age" id="age" required><br>
-                   
-                    <label>Email:</label>
-                    <input type="email" name="email" id="email" required><br>
-                   
-                    <label>Contact:</label>
-                    <input type="number" name="contact" id="contact" required><br>
-                   
-                    <label>Gender:</label>
-                    <select name="gender" id="gender" required>
-                   
-                        <option selected disabled value="">- Select -</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select> <br>
-                    <label>Employee Stats:</label>
-                    <select name="stats" id="stats" required>
-                        <option selected disabled value="">- Select -</option>
-                        <option value="Regular">Regular</option>
-                        <option value="Contructual">Contructual</option>
-                    </select><br>
-
-                    <label>Date Hired:</label>
-                    <input type="date" name="date" id="date" required><br>
-                </div>
-
-                <div>
-                    <button type="submit" name="addEmployee">Save</button>
-                    <button disabled="disabled">Update</button>
-                    <button disabled="disabled">Delete</button>
-                </div>
             
-            </form>
-        </div>
-               <hr>        
+            <div class="container2">
+                <form action="../php/CP_add_em.php" method="post">
+                    <div class="container-content">
+                        <input type="number" name="E_ID" id="E_ID" required><br>
+                        <label>E_ID:</label>
+                    </div>
+
+                    <div class="container-content">
+                        <input type="text" name="fname" id="fname" required><br>
+                        <label>First Name:</label>
+                    </div> 
+                    <div class="container-content">
+                        <input type="text" name="mi" id="mi" required><br>
+                        <label>M.I:</label>
+                    </div> 
+                    <div class="container-content"> 
+                        <input type="text" name="lname" id="lname" required><br>
+                        <label>Last Name:</label>
+                    </div> 
+                    <div class="container-content"> 
+                        <input type="number" name="age" id="age" required><br>
+                        <label>Age:</label>
+                    </div> 
+                    <div class="container-content"> 
+                        <input type="email" name="email" id="email" required><br>
+                        <label>Email:</label>
+                    </div>   
+                    <div class="container-content">  
+                        <input type="number" name="contact" id="contact" required><br>
+                        <label>Contact:</label>
+                    </div> 
+
+                    <div class="container-content">
+                        <input type="date" name="date" id="date" required><br>
+                        <label>Date Hired:</label>
+                    </div>
+                    
+                    <div class="container-content-select"> 
+                        <select name="gender" id="gender" required>
+                                <label>Gender:</label>  
+                                <option selected disabled value="">- Select -</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        
+                    </div>
+
+                    <div class="container-content-select1">
+                        <label>Employee Stats:</label>
+                            <select name="stats" id="stats" required>
+                            <option selected disabled value="">Select</option>
+                            <option value="Regular">Regular</option>
+                            <option value="Contructual">Contructual</option>
+                        </select>
+                        
+                    </div>
+                    
+
+                    <div class="container-content">
+                        <button class="save" type="submit" name="addEmployee">Save</button>
+                        <button disabled="disabled">Update</button>
+                        <button disabled="disabled">Delete</button>
+                    </div>
+                
+                </form>
+            </div>
+        </div>       
 
 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
-        <div>
-            <table>
+        <div class="output">
+            <table class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>Employee ID</th>
