@@ -46,17 +46,17 @@
             </div>
             <div class="container-content">  
                 <label class="fn">First Name:</label>
-                <input type="text" name="op_fn" placeholder="Arjay" id="op_fn" required>
+                <input type="text" name="op_fn" placeholder="Jayson" id="op_fn" required>
                 <span></span>
             </div>   
             <div class="container-content">
                 <label class="mn">Middle Name:</label>
-                <input type="text" name="op_mn" placeholder="Aripal" id="op_mn" required>
+                <input type="text" name="op_mn" placeholder="Balate" id="op_mn" required>
                 <span></span>
             </div>
             <div class="container-content">    
                 <label class="ln">Last Name:</label>
-                <input type="text" name="op_ln" placeholder="Laurito" id="op_ln" required>    
+                <input type="text" name="op_ln" placeholder="Garcia" id="op_ln" required>    
                 <span></span>
             </div class="container-content">
             <div class="btn">

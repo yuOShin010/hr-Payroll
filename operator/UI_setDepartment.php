@@ -133,15 +133,15 @@
                 <form action="../php/CP_setDept.php" method="post">
     
                     <label>E_ID:</label>
-                    <input disabled type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
+                    <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
                     <label>First Name:</label>
-                    <input disabled type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
+                    <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
                     <label>Last Name:</label>
-                    <input disabled type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
+                    <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
                     <label>Email:</label>
-                    <input disabled type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
+                    <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
                     <label>Contact:</label>
-                    <input disabled type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
+                    <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
                     <label>Employee Dept:</label>
                     <select name="dept_id" id="dept_id" required>
                         <option selected disabled value="">- Select -</option>
@@ -247,15 +247,15 @@
             <form action="../php/CP_setDept.php/" method="post">
 
                 <label>E_ID:</label>
-                <input disabled type="number" name="E_ID" id="E_ID2" value="<?php echo $E_ID ?>"><br>
+                <input readonly type="number" name="E_ID" id="E_ID2" value="<?php echo $E_ID ?>"><br>
                 <label>First Name:</label>
-                <input disabled type="text" name="fname" id="fname2" value="<?php echo $fname ?>"><br>
+                <input readonly type="text" name="fname" id="fname2" value="<?php echo $fname ?>"><br>
                 <label>Last Name:</label>
-                <input disabled type="text" name="lname" id="lname2" value="<?php echo $lname ?>"><br>
+                <input readonly type="text" name="lname" id="lname2" value="<?php echo $lname ?>"><br>
                 <label>Email:</label>
-                <input disabled type="email" name="email" id="email2" value="<?php echo $email ?>"><br>
+                <input readonly type="email" name="email" id="email2" value="<?php echo $email ?>"><br>
                 <label>Contact:</label>
-                <input disabled type="number" name="contact" id="contact2" value="<?php echo $contact ?>"><br>
+                <input readonly type="number" name="contact" id="contact2" value="<?php echo $contact ?>"><br>
                 <label>Employee Dept:</label>
                 <select name="dept_id" id="dept_id" required>
                 <option selected disabled value="<?php echo $dept_code ;?>"><?php echo $dept_code ;?></option>
