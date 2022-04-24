@@ -17,7 +17,7 @@
 
 <body id="body1">
 
-
+    
 
     <div id="login" class="div-login">
         <h1><img src="https://cdn-user-icons.flaticon.com/69537/69537777/1650714009164.svg?token=exp=1650714988~hmac=f223772fbef10bcd9709a424efa5a91a" alt="logo"></h1>
@@ -35,22 +35,8 @@
                 <button class="login_btn" type="submit" name="submit1" id="login-button"> Login </button>
             </div>
 
-            <div>
-                 <input class="check-box" type="checkbox" onclick="myFunction()">Show Password
-            </div>
         </form>
     </div>
+    
 </body>
-
-     <script>
-            function myFunction() 
-            {
-                var x = document.getElementById("op_password");
-                if (x.type === "password") {
-                    x.type = "text";
-                } else {
-                    x.type = "password";
-                }
-            }           
-        </script>
 </html>
