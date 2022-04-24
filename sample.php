@@ -12,7 +12,7 @@
    
 <div class="container">
    <form action="sample.php" method="post">
-  From <input readonly name="date" class=" datepicker" autocomplete="off">
+  Select date start <input readonly name="date" class=" datepicker" autocomplete="off">
   <button type="submit" name="submit" class="btn btn-primary btn-sm">asdasd</button>
   </form>
 </div>
