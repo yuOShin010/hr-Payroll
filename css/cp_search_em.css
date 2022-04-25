@@ -1,9 +1,9 @@
 /*DEFAULTING*/
+
 body {
-    background: linear-gradient(138deg, rgb(7, 0, 36), rgb(14, 220, 203)   );
+    background: linear-gradient(138deg, rgb(7, 0, 36), rgb(14, 220, 203));
     height: 110vh;
     overflow: hidden;
-
 }
 
 * {
@@ -13,6 +13,8 @@ body {
     text-align: center;
     font-family: 'Quicksand', sans-serif;
 }
+
+
 /*END-------------------------------------------------------*/
 
 .home-sidebar {
@@ -26,7 +28,6 @@ body {
 
 .home-logo {
     height: 30px;
-
 }
 
 .admin-dashboard {
@@ -44,20 +45,22 @@ body {
     background-color: #182431;
     border-bottom: 1px solid white;
     box-shadow: 0 0 4px 1px rgb(247, 247, 247);
-    
 }
 
-.top-bar h1{
+.top-bar h1 {
     position: absolute;
     padding: 0 0 0 40px;
     float: left;
     font-family: 'Quicksand', sans-serif;
 }
+
+
 /* .secondtop-bar {
     height: 48px;
     background-color: white;
     box-shadow: 0 0 4px 2px rgb(65, 65, 65);
 } */
+
 
 /* .head1 {
     float: left;
@@ -93,11 +96,11 @@ hr {
     margin: 10em 0 0 0;
 }
 
+
 /* footer {
     margin: 3.5em 0 0 0;
     font-family: 'Quicksand', sans-serif;
 } */
-
 
 h1 p {
     margin: 14px 0 0 11px;
@@ -114,11 +117,11 @@ h1 p {
     left: 20em;
 }
 
+
 /* SEARCH ENGINE */
 
-
-.search-engine label{
-    margin: -4em 0 0  3.2em;
+.search-engine label {
+    margin: -4em 0 0 3.2em;
     float: left;
     width: 247px;
     display: inline-block;
@@ -126,6 +129,7 @@ h1 p {
     padding-bottom: 5px;
     color: white;
 }
+
 .search-engine input {
     margin: 0 0 0 -58em;
     transform: translate(6%, -5vh);
@@ -136,11 +140,12 @@ h1 p {
     outline: none;
     transition: all 0.3s ease-in-out;
 }
+
 .search-engine button {
     display: inline-block;
     position: absolute;
     margin: -2.4em 0 0 3em;
-    border-radius: 10px;    
+    border-radius: 10px;
 }
 
 .container-content input {
@@ -157,7 +162,8 @@ h1 p {
     box-shadow: 0 0 1px 2px #6898f8;
 }
 
-.container-content-select label, select{
+.container-content-select label,
+select {
     margin: 10em 0 0 -34em;
     display: inline-block;
     text-align: left;
@@ -165,12 +171,13 @@ h1 p {
 }
 
 .container-content-select select:hover,
-.container-content-select1 #stats:hover{
+.container-content-select1 #stats:hover {
     background-color: rgba(7, 0, 36, 0.313);
     color: white;
 }
+
 .container-content-select select,
-.container-content-select1 #stats{
+.container-content-select1 #stats {
     border-radius: 7px;
     padding: 5px;
     transition: all 0.2s ease-in-out;
@@ -178,44 +185,46 @@ h1 p {
     outline: none;
 }
 
-.container-content-select1 label, #stats {
-    
+.container-content-select1 label,
+#stats {
     transform: translate(-18em, -2em);
     text-align: left;
     padding-bottom: 5px;
 }
 
-.container2{
-    position: absolute
+.container2 {
+    position: absolute;
     margin: 1em 0 0 0;
     width: 100em;
 }
 
-.container2 .container-content{
+.container2 .container-content {
     display: inline-block;
     float: left;
     margin-right: 3em;
     width: 25%;
 }
-.container-content button{
+
+.container-content button {
     margin: 5em 0 0 1em;
     border-radius: 7px;
     height: 45px;
-    width: 85px; 
+    width: 85px;
 }
-.container-content .save{
+
+.container-content .save {
     background-color: #FFFFFF;
     outline: none;
     border: 2px solid rgb(7, 255, 7);
     transition: all 0.2s ease-in-out;
 }
-.container-content .save:hover{
-    background-color:rgb(7, 224, 0);
+
+.container-content .save:hover {
+    background-color: rgb(7, 224, 0);
     color: white;
-    
 }
 
-.container-content label{
+.container-content label {
     margin: 0 0 0 -3em;
     width: 247px;
     display: inline-block;
@@ -224,17 +233,17 @@ h1 p {
 }
 
 .output {
-        border-radius: 5px;
-        margin: 31.7em 0 0 20em;
-        position: absolute;
-        background-color: #1f1f1f;
-        width: 86.8em;
-        height: 17em;
-        overflow-x: hidden;
-        overflow-y: auto;
-        text-align: center;
+    border-radius: 5px;
+    margin: 31.7em 0 0 20em;
+    position: absolute;
+    background-color: #1f1f1f;
+    width: 86.8em;
+    height: 17em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
 }
 
-table{
+table {
     border-collapse: collapse;
 }

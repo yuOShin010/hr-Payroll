@@ -90,22 +90,22 @@ $pdo = $classPayroll->openConnection();
 
             <div class="container">
             <form action="UI_addEmployee.php" method="post">      <!-- form search-->
-                <div class="search-engine">
+                    
+                    <div class="search-engine">
                     <input type="number" name="search_E_ID" id="search_E_ID" >
-                    <label>Search For Employee ID </label>
                     <button type="submit" name="search_e" id="search_e">-></button>
                 </div>
             </form>
 
 
-        <div class="container">
+        <div class="container2">
              <form action="../php/process.php" method="post">      <!-- form -->
              <div class="search-engine">
                     <input type="number" name="E_ID" id="E_ID" value="<?php echo "$E_ID" ;?>" required><br>
-                    <label>E_ID:</label>
+                    <label>Employee Id:</label>
              </div>  
              
-             <div class="container2">
+             <div class="container-content">
                     <input type="text" name="fname" id="fname" value="<?php echo "$fname" ;?>" required><br>      
                     <label>First Name:</label>
              </div>
