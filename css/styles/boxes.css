@@ -1,0 +1,15 @@
+.us-input-shape,
+.pw-input-shape {
+    width: 20em;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.login-btn {
+    height: 35px;
+    width: 10%;
+    border: none;
+    border-radius: 10px;
+}

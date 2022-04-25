@@ -1,7 +1,9 @@
 /*DEFAULTING*/
 
-html {
-    background-color: #c7c7c7;
+body {
+    background: linear-gradient(138deg, rgb(7, 0, 36), rgb(14, 220, 203));
+    height: 110vh;
+    overflow: hidden;
 }
 
 * {
@@ -9,29 +11,30 @@ html {
     margin: 0;
     box-sizing: border-box;
     text-align: center;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Montserrat", sans-serif
 }
 
 
 /*END-------------------------------------------------------*/
 
 .home-sidebar {
-    padding: 5px;
+    position: absolute;
+    height: 100vh;
     float: left;
     width: 2em;
-    height: 997px;
     background-color: #FFFFFF;
     border-right: 1px #FFFFFF;
 }
 
 .home-logo {
-    height: 22px;
-    float: left;
+    margin-top: 0.4em;
+    height: 30px;
 }
 
 .admin-dashboard {
     color: white;
     float: left;
+    height: 100vh;
     width: 20em;
     background-color: #182431e8;
 }
@@ -45,22 +48,32 @@ html {
     box-shadow: 0 0 4px 1px rgb(247, 247, 247);
 }
 
-.secondtop-bar {
+.top-bar h1 {
+    position: absolute;
+    padding: 0 0 0 40px;
+    float: left;
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+/* .secondtop-bar {
     height: 48px;
     background-color: white;
     box-shadow: 0 0 4px 2px rgb(65, 65, 65);
-}
+} */
 
-.head1 {
+
+/* .head1 {
     float: left;
     font-size: medium;
     margin: 10px 0 0 0;
     padding: 10px 7.0em 2em 20px;
     font-family: 'Quicksand', sans-serif;
-}
+} */
 
 ul {
-    margin: 5em 0 0 -8px;
+    padding-top: 5em;
+    margin: 12em 0 0 -8px;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -84,58 +97,14 @@ hr {
     margin: 10em 0 0 0;
 }
 
-footer {
+
+/* footer {
     margin: 3.5em 0 0 0;
     font-family: 'Quicksand', sans-serif;
-}
-
-h1 {
-    padding: 0 0 0 40px;
-    float: left;
-    font-family: 'Quicksand', sans-serif;
-}
+} */
 
 h1 p {
     margin: 14px 0 0 11px;
     float: right;
     font-size: 12px;
-}
-
-
-/* CONTAINER */
-
-.container {
-    margin: 1em 21em;
-    height: 35rem;
-    width: 65.8em;
-    background-color: #e2e2e2;
-    border-radius: 10px;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.52);
-}
-
-
-/* SEARCH ENGINE */
-
-.search-engine {
-    margin: auto auto auto auto;
-    padding: 2em 0 0 0;
-    height: 3em;
-    width: 20em;
-    font-weight: bold;
-}
-
-input, select{
-    width: 20em;
-    height: 30px;
-    border-radius: 4px;
-    transition: all 0.5s ease-in-out;
-}
-
-input:hover, select:hover {
-    box-shadow: inset 0 0 1px 2px #000000e8;
-}
-
-.container-content {
-    margin: 2em 0;
-    background-color: aqua;
 }

@@ -27,6 +27,7 @@ body {
 }
 
 .home-logo {
+    margin-top: 0.4em;
     height: 30px;
 }
 
@@ -134,6 +135,11 @@ h1 p {
 
 .search-engine input:hover {
     box-shadow: 0 0 1px 2px #6898f8;
+}
+
+.search-engine button {
+    height: 40px;
+    width: 45px;
 }
 
 
