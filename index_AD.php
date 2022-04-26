@@ -39,4 +39,20 @@
     </div>
     
 </body>
+<<<<<<< HEAD
+=======
+
+<script>
+    function myFunction() 
+    {
+        var x = document.getElementById("op_password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }           
+</script>
+
+>>>>>>> e9395c0d407dbf039563c5fa4488b8748ffc61d3
 </html>
