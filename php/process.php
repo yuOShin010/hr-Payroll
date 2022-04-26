@@ -57,3 +57,15 @@
                 window.location.href='../operator/UI_setDepartment.php'; </script>");
         }
 
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+                                // for scheduling management module process --
+
+
+
+
+
+
+
+
+

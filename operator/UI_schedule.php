@@ -143,7 +143,7 @@
                     <input type="date" name="d_from" id="d_from"><br>
                     <label>To:</label>
                     <input type="date" name="d_to" id="d_to">
-                    <input type="button" onclick="computeDays()" id="btn"><br><br> <!-- button here for Compute days Work -->
+                    <input type="button" id="btn"><br><br> <!-- button here for Compute days Work -->
                     <label>Days Work:</label>
                     <input readonly type="" name="daysWork" id="daysWork" ><br><br>
 
@@ -251,7 +251,7 @@
                     <input type="date" name="d_from" id="d_from"><br>
                     <label>To:</label>
                     <input type="date" name="d_to" id="d_to">
-                    <input type="button" id="btn"><br><br>
+                    <input type="button" onclick="computeDays()" id="btn"><br><br>
                     <label>Days Work:</label>
                     <input type="number" name="daysWork" id="daysWork">
                     <br><br>

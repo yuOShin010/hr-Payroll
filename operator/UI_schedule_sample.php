@@ -154,5 +154,48 @@
         }
     ?>
 
+</div>
+
+<div class=" btn-group-vertical" data-toggle="buttons">
+                <label class="btn btn-primary">
+                    <input type="checkbox" autocomplete="off">
+                    <?php echo date('D', strtotime($date))." ".$date." <br/>";?>
+                </label>
+
+                <label class="btn btn-primary">
+                    <input type="checkbox" autocomplete="off" >
+                    <?php echo date('D', strtotime($date. '+ 1 days'))." ".date('m/d/yy', strtotime($date. '+ 1 days')) ." <br/>";?>
+                </label>
+
+                <label class="btn btn-primary">
+                    <input type="checkbox" autocomplete="off">
+                    <?php echo date('D', strtotime($date. '+ 2 days'))." ".date('m/d/yy', strtotime($date. '+ 2 days')) ." <br/>";?>
+                </label>
+                <label class="btn btn-primary">
+                    <input type="checkbox" autocomplete="off">
+                    <?php  echo date('D', strtotime($date. '+ 3 days'))." ".date('m/d/yy', strtotime($date. '+ 3 days')) ." <br/>";?>
+                </label>
+
+                <label class="btn btn-primary">
+                    <input type="checkbox" autocomplete="off" >
+                    <?php echo date('D', strtotime($date. '+ 4 days'))." ".date('m/d/yy', strtotime($date. '+ 4 days')) ." <br/>";?>
+                </label>
+
+                <label class="btn btn-primary">
+                    <input type="checkbox" autocomplete="off">
+                    <?php echo date('D', strtotime($date. '+ 5 days'))." ".date('m/d/yy', strtotime($date. '+ 5 days')) ." <br/>";?>
+                </label>
+
+                <label class="btn btn-primary">
+                    <input type="checkbox" autocomplete="off">
+                    <?php echo date('D', strtotime($date. '+ 6 days'))." ".date('m/d/yy', strtotime($date. '+ 6 days')) ." <br/>";?>
+                </label>
+            </div>
+
+            <?php //} ?>
+
 </body>
 </html>
+
+
+

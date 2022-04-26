@@ -42,15 +42,16 @@
     </div>
 </body>
 
-     <script>
-            function myFunction() 
-            {
-                var x = document.getElementById("op_password");
-                if (x.type === "password") {
-                    x.type = "text";
-                } else {
-                    x.type = "password";
-                }
-            }           
-        </script>
+<script>
+    function myFunction() 
+    {
+        var x = document.getElementById("op_password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }           
+</script>
+
 </html>
