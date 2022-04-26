@@ -3,14 +3,15 @@
 html {
     background-color: #c7c7c7;
 }
+
 * {
     margin: 0;
     margin: 0;
     box-sizing: border-box;
-    
     text-align: center;
-
 }
+
+
 /*END-------------------------------------------------------*/
 
 .home-sidebar {
@@ -21,14 +22,13 @@ html {
     background-color: #FFFFFF;
     border-right: 1px #FFFFFF;
 }
+
 .home-logo {
-    
     height: 22px;
     float: left;
 }
 
 .admin-dashboard {
-
     color: white;
     float: left;
     width: 20em;
@@ -44,7 +44,7 @@ html {
     box-shadow: 0 0 4px 1px rgb(247, 247, 247);
 }
 
-.secondtop-bar{
+.secondtop-bar {
     height: 48px;
     background-color: white;
     box-shadow: 0 0 4px 2px rgb(65, 65, 65);
@@ -56,7 +56,6 @@ html {
     margin: 10px 0 0 0;
     padding: 10px 7.0em 2em 20px;
     font-family: 'Quicksand', sans-serif;
-   
 }
 
 ul {
@@ -80,15 +79,16 @@ ul li a:hover {
     transition: all 0.2s ease-in-out;
 }
 
-hr{
+hr {
     margin: 10em 0 0 0;
 }
+
 footer {
-   margin: 3.5em 0 0 0; 
-   font-family: 'Quicksand', sans-serif;
+    margin: 3.5em 0 0 0;
+    font-family: 'Quicksand', sans-serif;
 }
 
-h1{
+h1 {
     padding: 0 0 0 40px;
     float: left;
     font-family: 'Quicksand', sans-serif;
@@ -99,5 +99,3 @@ h1 p {
     float: right;
     font-size: 12px;
 }
-
-
