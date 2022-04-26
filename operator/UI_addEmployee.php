@@ -89,77 +89,83 @@ $pdo = $classPayroll->openConnection();
             ?>
 
             <div class="container">
-            <form action="UI_addEmployee.php" method="post">      <!-- form search-->
-                <div class="search-engine">
-                    <input type="number" name="search_E_ID" id="search_E_ID" >
-                    <label>Search For Employee ID </label>
-                    <button type="submit" name="search_e" id="search_e">-></button>
+                    <form action="UI_addEmployee.php" method="post">      <!-- form search-->
+                        <div class="search-engine">
+                            <label>Search For Employee ID </label>
+                            <input type="number" name="search_E_ID" id="search_E_ID" >
+                            <button type="submit" name="search_e" id="search_e">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            
 
 
-        <div class="container">
+        <div class="container2">
              <form action="../php/process.php" method="post">      <!-- form -->
-             <div class="search-engine">
-                    <input type="number" name="E_ID" id="E_ID" value="<?php echo "$E_ID" ;?>" required><br>
-                    <label>E_ID:</label>
-             </div>  
-             
-             <div class="container2">
-                    <input type="text" name="fname" id="fname" value="<?php echo "$fname" ;?>" required><br>      
-                    <label>First Name:</label>
-             </div>
-             <div class="container-content">     
-                    <input type="text" name="mi" id="mi" value="<?php echo "$mi" ;?>" required><br>
-                    <label>M.I:</label>
-             </div>
-             <div class="container-content">     
-                    <input type="text" name="lname" id="lname" value="<?php echo "$lname" ;?>" required><br>
-                    <label>Last Name:</label>
-             </div>    
-             <div class="container-content"> 
-                    <input type="number" name="age" id="age" value="<?php echo "$age" ;?>" required><br>
-                    <label>Age:</label>
-             </div>   
-             <div class="container-content"> 
-                    <input type="email" name="email" id="email" value="<?php echo "$email" ;?>" required><br>
-                    <label>Email:</label>
-             </div>
-             <div class="container-content">       
-                    <input type="number" name="contact" id="contact" value="<?php echo "$contact" ;?>" required><br>
-                    <label>Contact:</label>
-             </div>     
-
-             <div class="container-content">
-                    <label>Date Hired:</label>
-                    <input type="date" name="date" id="date" value="<?php echo "$date" ;?>" required><br>
-                    
-             </div>
-             <div class="container-content-select">
-                    <select name="gender" id="gender" required>
-                        <label>Gender:</label>
-                        <option selected disabled value="<?php echo "$gender" ;?>"><?php echo "$gender" ;?></option>
-                        <optgroup label="-Select New-"></optgroup>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select> 
+                <div class="search-engine">
+                        <input type="number" name="E_ID" id="E_ID" value="<?php echo "$E_ID" ;?>" required><br>
+                        <label>Employee Id:</label>
+                </div>  
+                
+                <div class="container-content">
+                        <input type="text" name="fname" id="fname" value="<?php echo "$fname" ;?>" required><br>      
+                        <label>First Name:</label>
                 </div>
-             <div class="container-content-select1">
-                    <label>Employee Stats:</label>
-                    <select name="stats" id="stats" required>
-                        <option selected disabled value="<?php echo "$stats" ;?>"><?php echo "$stats" ;?></option>
-                        <optgroup label="-Select New-"></optgroup>
-                        <option value="Regular">Regular</option>
-                        <option value="Contructual">Contructual</option>
-                    </select>
-             </div>
-                    <div>
-                        <button disabled>Save</button>
-                        <button type="submit" name="editEmployee">Update</button>
-                        <button type="submit" name="deleteEmployee">Delete</button>
+                <div class="container-content">     
+                        <input type="text" name="mi" id="mi" value="<?php echo "$mi" ;?>" required><br>
+                        <label>M.I:</label>
+                </div>
+                <div class="container-content">     
+                        <input type="text" name="lname" id="lname" value="<?php echo "$lname" ;?>" required><br>
+                        <label>Last Name:</label>
+                </div>    
+                <div class="container-content"> 
+                        <input type="number" name="age" id="age" value="<?php echo "$age" ;?>" required><br>
+                        <label>Age:</label>
+                </div>   
+                <div class="container-content"> 
+                        <input type="email" name="email" id="email" value="<?php echo "$email" ;?>" required><br>
+                        <label>Email:</label>
+                </div>
+                <div class="container-content">       
+                        <input type="number" name="contact" id="contact" value="<?php echo "$contact" ;?>" required><br>
+                        <label>Contact:</label>
+                </div>     
+
+                <div class="container-content">
+                        <label>Date Hired:</label>
+                        <input type="date" name="date" id="date" value="<?php echo "$date" ;?>" required><br>
+                        
+                </div>
+                <div class="container-content-select">
+                        <select name="gender" id="gender" required>
+                            <label>Gender:</label>
+                            <option selected disabled value="<?php echo "$gender" ;?>"><?php echo "$gender" ;?></option>
+                            <optgroup label="-Select New-"></optgroup>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select> 
                     </div>
+                <div class="container-content-select1">
+                        <label>Employee Stats:</label>
+                        <select name="stats" id="stats" required>
+                            <option selected disabled value="<?php echo "$stats" ;?>"><?php echo "$stats" ;?></option>
+                            <optgroup label="-Select New-"></optgroup>
+                            <option value="Regular">Regular</option>
+                            <option value="Contructual">Contructual</option>
+                        </select>
+                </div>
+                        <div>
+                            <button disabled>Save</button>
+                            <button type="submit" name="editEmployee">Update</button>
+                            <button type="submit" name="deleteEmployee">Delete</button>
+                        </div>
                 </form>
-            </div> 
+        </div> 
         
         
 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ADD EMPLOYEE MODULE ---------------------------------------->

@@ -10,7 +10,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/UI-add.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/dashboard.css">
         <title>Schedule | Symtech</title>
     </head>
 
@@ -115,40 +116,62 @@
                     <button type="submit" name="search" id="search">-></button>
                 </div>
             </form>
+        </div>
 
+        <div class="container2">
             <form action="../php/CP_schedule.php" method="post">
                 <div class="container-content">
+                    <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
                     <label>E_ID:</label>
-                    <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
+                </div>
+                <div class="container-content">  
+                    <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
                     <label>First Name:</label>
-                    <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
+                </div>
+                <div class="container-content">  
+                    <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
                     <label>Last Name:</label>
-                    <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
+                </div>
+                <div class="container-content">    
+                    <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
                     <label>Email:</label>
-                    <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
+                </div>
+                <div class="container-content">    
+                    <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
                     <label>Contact:</label>
-                    <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
-                    <label>Employee Dept:</label>
+                </div>   
+                <div class="container-content-select">
                     <select name="dept_id" id="dept_id" required>
+                    <label>Employee Dept:</label>
                         <option selected value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
-                    </select><br>
-                    <label>Position:</label>
+                    </select>
+                </div>
+                <div class="container-content-select">
                     <select name="position_id" id="position_id" required>
+                    <label>Position:</label>
                         <option selected value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
-                    </select><br><br>
-                    
-                    <label>Total WorkHrs:</label>
+                    </select>
+                </div>
+                <div class="container-content-select">
                     <input type="number" name="workHrs" id="workHrs"><br>
-                    <label>From:</label>
+                    <label>Total WorkHrs:</label>
                     <input type="date" name="d_from" id="d_from"><br>
-                    <label>To:</label>
+                    <label>From:</label>
                     <input type="date" name="d_to" id="d_to">
+<<<<<<< HEAD
+                    <label>To:</label>
+                    <input type="button" onclick="computeDays()" id="btn"><br><br> <!-- button here for Compute days Work -->
+=======
                     <input type="button" id="btn"><br><br> <!-- button here for Compute days Work -->
                     <label>Days Work:</label>
+>>>>>>> e9395c0d407dbf039563c5fa4488b8748ffc61d3
                     <input readonly type="" name="daysWork" id="daysWork" ><br><br>
-
+                    <label>Days Work:</label>
+                </div>
+                <div class="container-content-select">
                     <button type="submit" name="set_schedule">Save</button>
-                    <button disabled type="submit" name="updateDept" id="updateDept">Update</button>
+                   <button disabled type="submit" name="updateDept" id="updateDept">Update</button>
+                </div>
             </form>
         </div>
                <hr>        

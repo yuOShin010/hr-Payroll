@@ -17,7 +17,7 @@
 
 <body id="body1">
 
-
+    
 
     <div id="login" class="div-login">
         <h1><img src="https://cdn-icons-png.flaticon.com/512/7211/7211042.png" alt="logo"></h1>
@@ -35,12 +35,12 @@
                 <button class="login_btn" type="submit" name="submit1" id="login-button"> Login </button>
             </div>
 
-            <div>
-                 <input class="check-box" type="checkbox" onclick="myFunction()">Show Password
-            </div>
         </form>
     </div>
+    
 </body>
+<<<<<<< HEAD
+=======
 
 <script>
     function myFunction() 
@@ -54,4 +54,5 @@
     }           
 </script>
 
+>>>>>>> e9395c0d407dbf039563c5fa4488b8748ffc61d3
 </html>
