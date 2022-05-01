@@ -123,7 +123,12 @@ h1 p {
 
 
 /* SEARCH ENGINE */
+.search-engine {
+  
+    width: 42%;
+    height: 4em;
 
+}
 .search-engine input {
     border-radius: 20px;
     width: 25em;
@@ -131,16 +136,20 @@ h1 p {
 
 .search-engine input {
     float: left;
+ 
 }
 
 .search-engine input:hover {
     box-shadow: 0 0 1px 2px #6898f8;
 }
 
-.search-engine button {
+.search-engine button{
     height: 40px;
-    width: 45px;
+    width: 40px;
+    margin: 0 0 0 -5em;
+
 }
+
 
 
 /* END--------------------------- */
@@ -165,12 +174,13 @@ select:hover {
     box-shadow: 0 0 1px 2px #6898f8;
 }
 
-.container-content-select label,
-select {
-    margin: 10em 0 0 -24em;
-    display: fixed;
-}
+.container-content-select label {
+    margin: 10em 0 0 24em;
 
+}
+.container-content-select{
+    margin: 10px 0 0 21em;
+}
 .container-content-select select:hover,
 .container-content-select1 #stats:hover {
     background-color: rgba(7, 0, 36, 0.313);
@@ -179,6 +189,7 @@ select {
 
 .container-content-select select,
 .container-content-select1 #stats {
+
     border-radius: 7px;
     padding: 5px;
     transition: all 0.2s ease-in-out;
@@ -207,7 +218,7 @@ select {
 }
 
 .container-content button {
-    margin: 5em 0 0 1em;
+    margin: -10em 0 0 1em;
     border-radius: 7px;
     height: 45px;
     width: 85px;
@@ -232,7 +243,9 @@ select {
     text-align: left;
     padding-bottom: 5px;
 }
-
+.container-content:nth-child(7) label{
+    margin: 10px 0 0 0;
+}
 .output {
     border-radius: 5px;
     margin: 31.7em 0 0 20em;

@@ -35,10 +35,7 @@
                 <li> <a href="#">Company Report</a></li>
                 <!--<li> <a href="#">Company Expenses</a></li> -->
             </ul>
-            <hr>
-            <footer>
-                <p>No copy right</p>
-            </footer>
+          
         </div>
         <header class="secondtop-bar">
         <?php 

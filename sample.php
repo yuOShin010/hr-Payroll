@@ -7,6 +7,7 @@
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -75,5 +76,15 @@
         //     let date = new Date();
         //     document.getElementById("daysWork").innerHTML=date;
         // }
+
+          
+    function datePassing(){
+        first_date = new Date ($('#date1').val());
+        output_f = new Date(first_date.setdate(first_date.getdate()+6)).toISOString().split(".");
+        output_s = output_f[0].split('T');
+        $('#day_from').val(output_f).split('T');
+        $('#day_from').val(output_s[0]);
+        
+    }
     </script>
 </html>
