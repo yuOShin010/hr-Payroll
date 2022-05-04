@@ -10,32 +10,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Set Department | Symtech</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/default.css">
+    <title>Department Management</title>
+
+    <script>
+            function show() {
+                document.getElementById('navigation').classList.toggle('active');
+            }   
+
+</script>
+
+
 </head>
 
 <!-- DASHBOARD -->
 
-<div class="admin-dashboard"> 
-        <div class="home-sidebar">
-            <img  class="home-logo" src="https://img.icons8.com/glyph-neue/2x/home-page.png" alt="logo">
+<div id="navigation"> 
+            
+            <div class="toggle-btn" onclick="show()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul>
+                <div class="side-bar">
+                    <h3>SymTech</h3>
+                </div>
+                <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
+                <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
+                <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
+                <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
+                <li> <a href="../operator/UI_employeeSalary.php">Employee Salary Report</a></li>
+                <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
+                <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
+            </ul>
+           
         </div>
-            <header class="top-bar">
-                <h1>SymTech | <p>HR payroll</p></h1>
-            </header>
-        <ul>
-            <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
-            <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
-            <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
-            <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
-            <li> <a href="../operator/UI_employeeSalary.php">Employee Salary Report</a></li>
-            <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
-            <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
-        </ul>
-       
-    </div>
-    <header class="secondtop-bar">
 
     <?php 
 
@@ -126,45 +140,45 @@
                         <input type="number" name="srch" id="srch" >
                         <button type="submit" name="srch1" id="srch1">-></button>
                     </form>
-                </div>
+                
 
-            <form action="../php/process.php" method="post">                         <!-- form set department -->
-                <label>E_ID:</label>
-                <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
-                <label>First Name:</label>
-                <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
-                <label>Last Name:</label>
-                <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
-                <label>Email:</label>
-                <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
-                <label>Contact:</label>
-                <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
-                <label>Employee Dept:</label>
-                <select name="dept_id" id="dept_id" required>
-                    <option selected disabled value="">- Select -</option>
-                    <option value="1">BSIT</option>
-                    <option value="2">BSOA</option>
-                    <option value="3">BSED</option>
-                    <option value="4">BEED</option>
-                    <option value="5">BSCRIM</option>
-                    <option value="6">BSTM</option>
-                </select> <br>
-                <label>Position:</label>
-                <select name="position_id" id="position_id" required>
-                    <option selected disabled value="">- Select -</option>
-                    <option value="1">Dept. Head</option>
-                    <option value="2">Teacher</option>
-                    <option value="3">Office Staff</option>
-                    <option value="4">Secretary</option>
-                    <option value="5">Utility</option>
-                </select><br>
+                    <form action="../php/process.php" method="post">                         <!-- form set department -->
+                        <label>E_ID:</label>
+                        <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
+                        <label>First Name:</label>
+                        <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
+                        <label>Last Name:</label>
+                        <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
+                        <label>Email:</label>
+                        <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
+                        <label>Contact:</label>
+                        <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
+                        <label>Employee Dept:</label>
+                        <select name="dept_id" id="dept_id" required>
+                            <option selected disabled value="">- Select -</option>
+                            <option value="1">BSIT</option>
+                            <option value="2">BSOA</option>
+                            <option value="3">BSED</option>
+                            <option value="4">BEED</option>
+                            <option value="5">BSCRIM</option>
+                            <option value="6">BSTM</option>
+                        </select> <br>
+                        <label>Position:</label>
+                        <select name="position_id" id="position_id" required>
+                            <option selected disabled value="">- Select -</option>
+                            <option value="1">Dept. Head</option>
+                            <option value="2">Teacher</option>
+                            <option value="3">Office Staff</option>
+                            <option value="4">Secretary</option>
+                            <option value="5">Utility</option>
+                        </select><br>
 
-                <button type="submit" name="setDepartment" onclick="undisableTxt()">Save</button>
-                <button disabled type="submit" name="updateDept" id="updateDept">Update</button>
-                <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
+                        <button type="submit" name="setDepartment" onclick="undisableTxt()">Save</button>
+                        <button disabled type="submit" name="updateDept" id="updateDept">Update</button>
+                        <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
 
-            </form>
-
+                        </form>
+            </div>
         
 
             <br><br>   <hr>   <br><br>      

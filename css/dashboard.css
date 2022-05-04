@@ -1,17 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: "Montserrat", sans-serif;
-}
 
 #navigation {
     position: absolute;
     width: 300px;
     height: 100vh;
-    background: rgb(53, 1, 53);
+    background: rgb(41, 36, 41);
     left: -300px;
     transition: all 0.3s ease-in-out;
 }
@@ -20,11 +12,29 @@ body {
     left: 0;
 }
 
-#navigation ul li a {
+#navigation ul li{
+    
     list-style-type: none;
+    display: block;
+    transition: all 0.2s ease-in-out;
+    
+}
+#navigation ul li a:hover{
+    background-color: violet;
+}
+
+#navigation ul li a {
+    text-decoration: none;
     color: aliceblue;
     font-size: 23px;
-    padding: 20px 24px;
+    text-align: center;
+    margin: 0 -1.5em;
+    list-style-type: none;
+    display: block;
+    height: 5em;
+    width: 300px;
+    padding-top: 1.5em;
+    transition: all 0.2s ease-in-out;
 }
 
 #navigation .toggle-btn {
@@ -41,6 +51,16 @@ body {
     margin-top: 4px;
     border-radius: 20px;
 }
+
+
+.side-bar{
+    margin: 10px;
+    color: aliceblue;
+    padding-bottom: 6em;
+}
+
+
+
 
 
 
