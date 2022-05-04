@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/UI_payroll.css">
+    <link rel="stylesheet" href="../css/UI_employeeSalary.css">
     <title>Payroll | Symtech</title>
 </head>
 <body>
@@ -42,7 +42,7 @@
 
             if(isset($_SESSION['User']))
             {
-                echo '<h1>'.'WELCOME TO PAYROLL MANAGEMENT'.'</h1>';
+                echo '<h1>'. 'WELCOME TO PAYROLL Employee Salary Report' .'</h1>';
                 echo '<a href="logout_OP.php?logout">Logout</a>';
             }
             else
@@ -55,5 +55,6 @@
 
         <!-- END DASHBOARD -->
 
+        
 </body>
 </html>

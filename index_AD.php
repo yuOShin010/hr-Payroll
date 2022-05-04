@@ -31,13 +31,16 @@
                 <!-- <img class="adminlogo" src="https://img.icons8.com/pastel-glyph/2x/user-male-circle.png" alt="logo"> -->
                 <input class="text" type="password" name="password1" id="password2" placeholder="Password"><br><br>
             </div>
+            
+            <div>
+                 <input class="check-box" type="checkbox" onclick="myFunction()">Show Password
+            </div>
+
             <div class="btn">
                 <button class="login_btn" type="submit" name="submit1" id="login-button"> Login </button>
             </div>
 
-            <div>
-                 <input class="check-box" type="checkbox" onclick="myFunction()">Show Password
-            </div>
+            
         </form>
     </div>
 </body>
@@ -45,7 +48,7 @@
 <script>
     function myFunction() 
     {
-        var x = document.getElementById("op_password");
+        var x = document.getElementById("password2");
         if (x.type === "password") {
             x.type = "text";
         } else {

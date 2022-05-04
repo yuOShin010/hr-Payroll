@@ -24,15 +24,13 @@
                 <h1>SymTech | <p>HR payroll</p></h1>
             </header>
         <ul>
-            <!-- <li> <a href="../operator/UI_dash_overview.php">Dashboard Overview</a></li> -->
             <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
             <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
             <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
             <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
-            <li> <a href="#">Employee Salary Report</a></li>
-            <li> <a href="#">Payslip Report/Print</a></li>
-            <li> <a href="#">Company Report</a></li>
-            <!--<li> <a href="#">Company Expenses</a></li> -->
+            <li> <a href="../operator/UI_employeeSalary.php">Employee Salary Report</a></li>
+            <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
+            <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
         </ul>
         <hr>
         <footer>
