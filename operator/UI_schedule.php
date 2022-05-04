@@ -20,7 +20,7 @@
             <div class="home-sidebar">
                 <img  class="home-logo" src="https://img.icons8.com/glyph-neue/2x/home-page.png" alt="logo">
             </div>
-              <header class="top-bar">
+              <div class="top-bar">
                     <h1>SymTech | <p>HR payroll</p></h1>
               </header>
             <ul>
@@ -32,11 +32,11 @@
                 <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
                 <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
             </ul>
-            <hr>
-            <footer>
-                <p>No copy right</p>
-            </footer>
-        </div>
+           
+            </div>
+        
+           
+    
         <header class="secondtop-bar">
         <?php 
 
@@ -102,32 +102,51 @@
                     <button type="submit" name="search" id="search">-></button>
                 </div>
             </form>
+        </div>
 
+        <div class="container2">
             <form action="../php/CP_schedule.php" method="post">
                 <div class="container-content">
+                    <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
                     <label>E_ID:</label>
-                    <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
+                </div>
+                <div class="container-content">  
+                    <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
                     <label>First Name:</label>
-                    <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
+                </div>
+                <div class="container-content">  
+                    <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
                     <label>Last Name:</label>
-                    <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
+                </div>
+                <div class="container-content">    
+                    <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
                     <label>Email:</label>
-                    <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
+                </div>
+                <div class="container-content">    
+                    <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
                     <label>Contact:</label>
-                    <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
-                    <label>Employee Dept:</label>
+                </div>   
+                <div class="container-content-select">
                     <select name="dept_id" id="dept_id" required>
+                    <label>Employee Dept:</label>
                         <option selected value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
-                    </select><br>
-                    <label>Position:</label>
+                    </select>
+                </div>
+                <div class="container-content-select">
                     <select name="position_id" id="position_id" required>
+                    <label>Position:</label>
                         <option selected value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
                     </select><br><br>
                     
                     
                     
+                    <input readonly type="" name="daysWork" id="daysWork" ><br><br>
+                    <label>Days Work:</label>
+                </div>
+                <div class="container-content-select">
                     <button type="submit" name="set_schedule">Save</button>
-                    <button disabled type="submit" name="updateDept" id="updateDept">Update</button>
+                   <button disabled type="submit" name="updateDept" id="updateDept">Update</button>
+                </div>
             </form>
         </div>
                <hr>        

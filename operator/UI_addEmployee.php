@@ -18,14 +18,14 @@ $pdo = $classPayroll->openConnection();
         <!-- DASHBOARD -->
 
         <div class="admin-dashboard"> 
-            <div class="home-sidebar">
+            <div class="home-sidebar"> 
                 <img  class="home-logo" src="https://img.icons8.com/glyph-neue/2x/home-page.png" alt="logo">
             </div>
               <div class="top-bar">
                     <h1>SymTech | <p>HR payroll</p></h1>
               </div>
             <ul>
-                 <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
+                <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
                 <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
                 <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
                 <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
@@ -33,11 +33,7 @@ $pdo = $classPayroll->openConnection();
                 <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
                 <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
             </ul>
-            <hr>
-
-            <footer>
-                <p>No copy right</p>
-            </footer>
+           
         </div>
         <header class="secondtop-bar">
             <?php 
@@ -86,79 +82,7 @@ $pdo = $classPayroll->openConnection();
             }
             ?>
 
-            <div class="container">
-            <form action="UI_addEmployee.php" method="post">      <!-- form search-->
-                <div class="search-engine">
-                    <input type="number" name="search_E_ID" id="search_E_ID" >
-                    <label>Search For Employee ID </label>
-                    <button type="submit" name="search_e" id="search_e">-></button>
-                </div>
-            </form>
-
-
-        <div class="container">
-             <form action="../php/process.php" method="post">      <!-- form -->
-             <div class="search-engine">
-                    <input type="number" name="E_ID" id="E_ID" value="<?php echo "$E_ID" ;?>" required><br>
-                    <label>E_ID:</label>
-             </div>  
-             
-             <div class="container2">
-                    <input type="text" name="fname" id="fname" value="<?php echo "$fname" ;?>" required><br>      
-                    <label>First Name:</label>
-             </div>
-             <div class="container-content">     
-                    <input type="text" name="mi" id="mi" value="<?php echo "$mi" ;?>" required><br>
-                    <label>M.I:</label>
-             </div>
-             <div class="container-content">     
-                    <input type="text" name="lname" id="lname" value="<?php echo "$lname" ;?>" required><br>
-                    <label>Last Name:</label>
-             </div>    
-             <div class="container-content"> 
-                    <input type="number" name="age" id="age" value="<?php echo "$age" ;?>" required><br>
-                    <label>Age:</label>
-             </div>   
-             <div class="container-content"> 
-                    <input type="email" name="email" id="email" value="<?php echo "$email" ;?>" required><br>
-                    <label>Email:</label>
-             </div>
-             <div class="container-content">       
-                    <input type="number" name="contact" id="contact" value="<?php echo "$contact" ;?>" required><br>
-                    <label>Contact:</label>
-             </div>     
-
-             <div class="container-content">
-                    <label>Date Hired:</label>
-                    <input type="date" name="date" id="date" value="<?php echo "$date" ;?>" required><br>
-                    
-             </div>
-             <div class="container-content-select">
-                    <select name="gender" id="gender" required>
-                        <label>Gender:</label>
-                        <option selected disabled value="<?php echo "$gender" ;?>"><?php echo "$gender" ;?></option>
-                        <optgroup label="-Select New-"></optgroup>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select> 
-                </div>
-             <div class="container-content-select1">
-                    <label>Employee Stats:</label>
-                    <select name="stats" id="stats" required>
-                        <option selected disabled value="<?php echo "$stats" ;?>"><?php echo "$stats" ;?></option>
-                        <optgroup label="-Select New-"></optgroup>
-                        <option value="Regular">Regular</option>
-                        <option value="Contructual">Contructual</option>
-                    </select>
-             </div>
-                    <div>
-                        <button disabled>Save</button>
-                        <button type="submit" name="editEmployee">Update</button>
-                        <button type="submit" name="deleteEmployee">Delete</button>
-                    </div>
-                </form>
-            </div> 
-        
+         
         
 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ADD EMPLOYEE MODULE ---------------------------------------->
 
@@ -213,10 +137,12 @@ $pdo = $classPayroll->openConnection();
         ?>
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
         <div class="container">
-            <form action="UI_addEmployee.php" method="post">    <!-- form search-->
+
+
+        <form action="UI_addEmployee.php" method="post">    <!-- form search-->
                 <div class="search-engine">
-                    <input type="number" name="search_E_ID" id="search_E_ID" >
-                    <label>Search For Employee ID </label>
+                    <input placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID" >
+                 
                     <button type="submit" name="search_e" id="search_e">-></button>
                 </div>
             </form>
@@ -261,7 +187,7 @@ $pdo = $classPayroll->openConnection();
                     <div class="container-content-select"> 
                         <select name="gender" id="gender" required>
                                 <label>Gender:</label>  
-                                <option selected disabled value="">- Select -</option>
+                                <option selected disabled value="">- Gender -</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>

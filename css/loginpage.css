@@ -64,12 +64,12 @@ img {
 }
 
 .textbox:first-child {
-    margin-top: 5em;
+    margin-top: 6em;
 }
 
 .textbox input {
     width: 20em;
-    height: 3.8em;
+    height: 3.6em;
     border: none;
     padding: 3px;
     outline: none;
@@ -78,7 +78,7 @@ img {
     box-shadow: inset 0 0 5px rgb(84, 84, 84);
 }
 
-.textbox input:hover {
+input:hover {
     outline: 1px solid rgb(155, 155, 155);
     transition: all 0.2s ease-in-out;
 }
@@ -99,18 +99,20 @@ img {
     padding-bottom: 40px;
 }
 
-.btn .login_btn {
-    margin: 3em 0 0 0;
-    width: 5em;
-    height: 30px;
+.login_btn {
+    width: 10em;
+    height: 2em;
     border: none;
-    border-radius: 9px;
-    background-color: rgb(14, 220, 203);
+    padding: 3px;
+    color: white;
+    margin: 1rem 0 0 0;
+    border-radius: 6px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0 0 10px 2px rgba(7, 0, 36, 0.313);
+    border: 1px rgba(46, 130, 208, 0.795);
+    background-color: rgba(27, 118, 204, 0.795);
 }
 
-.btn .login_btn:hover {
+.login_btn:hover {
     background-color: rgb(7, 0, 36);
     color: white;
     box-shadow: 0 0 10px 2px rgba(60, 31, 176, 0.313), 0 0 10px 2px rgba(7, 0, 36, 0.313);
