@@ -10,17 +10,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="../css/UI_payroll.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <title>Payroll | Symtech</title>
-=======
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/default.css">   
-    <title>Payroll Management</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <title>Company</title>
 
 
     <script>
@@ -31,11 +25,9 @@
 
 </script>
 
->>>>>>> a42d05ac03cf0d6f4eb930bd0e8148326c24f816
 </head>
 <body>
     <!-- DASHBOARD -->
-
     <div id="navigation"> 
             
             <div class="toggle-btn" onclick="show()">
@@ -45,7 +37,7 @@
             </div>
             
             <ul>
-                <div class="side-bar">
+            <div class="side-bar">
                     <h3>SymTech</h3>
                 </div>
                 <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
@@ -62,7 +54,7 @@
 
             if(isset($_SESSION['User']))
             {
-                echo '<h1>'.'WELCOME TO PAYROLL MANAGEMENT'.'</h1>';
+                echo '<h1>'.'Welcome to Company Report'.'</h1>';
                 echo '<a href="logout_OP.php?logout">Logout</a>';
             }
             else

@@ -1,9 +1,14 @@
-/*DEFAULTING*/
 
-html {
-    background-color: #c7c7c7;
+#navigation {
+    position: absolute;
+    width: 300px;
+    height: 100vh;
+    background: rgb(41, 36, 41);
+    left: -300px;
+    transition: all 0.3s ease-in-out;
 }
 
+<<<<<<< HEAD
 * {
     margin: 0;
     margin: 0;
@@ -69,16 +74,38 @@ ul li {
 
 ul li a {
     display: block;
-    text-decoration: none;
-    color: white;
-    padding: 20px;
+=======
+#navigation.active {
+    left: 0;
 }
 
-ul li a:hover {
-    background-color: #5c7da0;
+#navigation ul li{
+    
+    list-style-type: none;
+    display: block;
+    transition: all 0.2s ease-in-out;
+    
+}
+#navigation ul li a:hover{
+    background-color: violet;
+}
+
+#navigation ul li a {
+>>>>>>> a42d05ac03cf0d6f4eb930bd0e8148326c24f816
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 23px;
+    text-align: center;
+    margin: 0 -1.5em;
+    list-style-type: none;
+    display: block;
+    height: 5em;
+    width: 300px;
+    padding-top: 1.5em;
     transition: all 0.2s ease-in-out;
 }
 
+<<<<<<< HEAD
 hr {
     margin: 10em 0 0 0;
 }
@@ -99,3 +126,32 @@ h1 p {
     float: right;
     font-size: 12px;
 }
+=======
+#navigation .toggle-btn {
+    position: absolute;
+    top: 30px;
+    left: 330px;
+}
+
+.toggle-btn span {
+    width: 30px;
+    height: 4px;
+    background: #000;
+    display: block;
+    margin-top: 4px;
+    border-radius: 20px;
+}
+
+
+.side-bar{
+    margin: 10px;
+    color: aliceblue;
+    padding-bottom: 6em;
+}
+
+
+
+
+
+
+>>>>>>> a42d05ac03cf0d6f4eb930bd0e8148326c24f816

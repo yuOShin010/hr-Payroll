@@ -9,53 +9,48 @@ $pdo = $classPayroll->openConnection();
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/UI-add.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <title>addEmployee | Symtech</title>
+        <link rel="stylesheet" href="../css/dashboard.css">
+        <link rel="stylesheet" href="../css/default.css">
+        <title>Employee Management</title>
+
+        <script>
+
+        function show() {
+            document.getElementById('navigation').classList.toggle('active');
+        }   
+
+        </script>
+
+
     </head>
 
     <body>
         <!-- DASHBOARD -->
 
-        <div class="admin-dashboard"> 
-            <div class="home-sidebar">
-                <img  class="home-logo" src="https://img.icons8.com/glyph-neue/2x/home-page.png" alt="logo">
+        <div id="navigation"> 
+            
+            <div class="toggle-btn" onclick="show()">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-              <div class="top-bar">
-                    <h1>SymTech | <p>HR payroll</p></h1>
-              </div>
+            
             <ul>
-                 <!-- <li> <a href="../operator/UI_dash_overview.php">Dashboard Overview</a></li> -->
-                 <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
+                <div class="side-bar">
+                    <h3>SymTech</h3>
+                </div>
+                <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
                 <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
                 <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
                 <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
-                <li> <a href="#">Employee Salary Report</a></li>
-                <li> <a href="#">Payslip Report/Print</a></li>
-                <li> <a href="#">Company Report</a></li>
-                <!--<li> <a href="#">Company Expenses</a></li> -->
+                <li> <a href="../operator/UI_employeeSalary.php">Employee Salary Report</a></li>
+                <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
+                <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
             </ul>
-            <hr>
-
-            <footer>
-                <p>No copy right</p>
-            </footer>
+           
         </div>
-        <header class="secondtop-bar">
-            <?php 
-
-            if(isset($_SESSION['User']))
-            {
-                echo '<h1>'.' Welcome ' . $_SESSION['User'].'</h1>';
-                echo '<a href="logout_OP.php?logout">Logout</a>';
-            }
-            else
-            {
-                header("location:../index_OP.php");
-            }
-            
-            ?>
-        </header>
 
         <!-- END DASHBOARD -->
         <?php
@@ -64,10 +59,10 @@ $pdo = $classPayroll->openConnection();
             if(isset($_POST['search_e'])){
                 $activeForm = false;
 
-                $search_e_id = $_POST["search_E_ID"];
-                $sql_search = "SELECT * FROM `employee` WHERE `employee_id` = ? AND isActive = 1";
-                $stmt = $pdo->prepare($sql_search);
-                $stmt->execute([$search_e_id]);
+                $search = $_POST["search_E_ID"];
+                $sql = "SELECT * FROM `employee` WHERE employee_id = ? AND isActive = 1";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$search]);
 
                 if($stmt->rowCount() > 0)
                 {
@@ -86,85 +81,92 @@ $pdo = $classPayroll->openConnection();
                 }
 
             }
-            ?>
-
+?>
             <div class="container">
-            <form action="UI_addEmployee.php" method="post">      <!-- form search-->
-                    
-                    <div class="search-engine">
-                    <input type="number" name="search_E_ID" id="search_E_ID" >
+
+
+        <form action="UI_addEmployee.php" method="post">    <!-- form search-->
+                <div class="search-engine">
+                    <input placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID" >
+                 
                     <button type="submit" name="search_e" id="search_e">-></button>
                 </div>
             </form>
-
-
-        <div class="container2">
-             <form action="../php/process.php" method="post">      <!-- form -->
-             <div class="search-engine">
-                    <input type="number" name="E_ID" id="E_ID" value="<?php echo "$E_ID" ;?>" required><br>
-                    <label>Employee Id:</label>
-             </div>  
-             
-             <div class="container-content">
-                    <input type="text" name="fname" id="fname" value="<?php echo "$fname" ;?>" required><br>      
-                    <label>First Name:</label>
-             </div>
-             <div class="container-content">     
-                    <input type="text" name="mi" id="mi" value="<?php echo "$mi" ;?>" required><br>
-                    <label>M.I:</label>
-             </div>
-             <div class="container-content">     
-                    <input type="text" name="lname" id="lname" value="<?php echo "$lname" ;?>" required><br>
-                    <label>Last Name:</label>
-             </div>    
-             <div class="container-content"> 
-                    <input type="number" name="age" id="age" value="<?php echo "$age" ;?>" required><br>
-                    <label>Age:</label>
-             </div>   
-             <div class="container-content"> 
-                    <input type="email" name="email" id="email" value="<?php echo "$email" ;?>" required><br>
-                    <label>Email:</label>
-             </div>
-             <div class="container-content">       
-                    <input type="number" name="contact" id="contact" value="<?php echo "$contact" ;?>" required><br>
-                    <label>Contact:</label>
-             </div>     
-
-             <div class="container-content">
-                    <label>Date Hired:</label>
-                    <input type="date" name="date" id="date" value="<?php echo "$date" ;?>" required><br>
-                    
-             </div>
-             <div class="container-content-select">
-                    <select name="gender" id="gender" required>
-                        <label>Gender:</label>
-                        <option selected disabled value="<?php echo "$gender" ;?>"><?php echo "$gender" ;?></option>
-                        <optgroup label="-Select New-"></optgroup>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select> 
-                </div>
-             <div class="container-content-select1">
-                    <label>Employee Stats:</label>
-                    <select name="stats" id="stats" required>
-                        <option selected disabled value="<?php echo "$stats" ;?>"><?php echo "$stats" ;?></option>
-                        <optgroup label="-Select New-"></optgroup>
-                        <option value="Regular">Regular</option>
-                        <option value="Contructual">Contructual</option>
-                    </select>
-             </div>
-                    <div>
-                        <button disabled>Save</button>
-                        <button type="submit" name="editEmployee">Update</button>
-                        <button type="submit" name="deleteEmployee">Delete</button>
+            
+            <div class="container2">
+                <form action="../php/process.php" method="post">      <!-- form -->
+                    <div class="container-content">
+                        <input type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID;?>"><br>
+                        <label>E_ID:</label>
                     </div>
+
+                    <div class="container-content">
+                        <input type="text" name="fname" id="fname" value="<?php echo $fname;?>"><br>
+                        <label>First Name:</label>
+                    </div> 
+                    <div class="container-content">
+                        <input type="text" name="mi" id="mi" value="<?php echo $mi;?>"><br>
+                        <label>M.I:</label>
+                    </div> 
+                    <div class="container-content"> 
+                        <input type="text" name="lname" id="lname" value="<?php echo $lname;?>"><br>
+                        <label>Last Name:</label>
+                    </div> 
+                    <div class="container-content"> 
+                        <input type="number" name="age" id="age" value="<?php echo $age;?>"><br>
+                        <label>Age:</label>
+                    </div> 
+                    <div class="container-content"> 
+                        <input type="email" name="email" id="email" value="<?php echo $email;?>"><br>
+                        <label>Email:</label>
+                    </div>   
+                    <div class="container-content">  
+                        <input type="number" name="contact" id="contact" value="<?php echo $contact;?>"><br>
+                        <label>Contact:</label>
+                    </div> 
+
+                    <div class="container-content">
+                        <input type="date" name="date" id="date" value="<?php echo $date;?>"><br>
+                        <label>Date Hired:</label>
+                    </div>
+                    
+                    <div class="container-content-select"> 
+                        <select name="gender" id="gender" value="<?php echo $gender;?>">
+                                <label>Gender:</label>  
+                                <option selected readonly value="<?php echo $gender;?>">Current: <?php echo $gender;?></option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        
+                    </div>
+
+                    <div class="container-content-select1">
+                        <label>Employee Stats:</label>
+                            <select name="stats" id="stats" >
+                                <option selected readonly value="<?php echo $stats;?>">Current: <?php echo $stats;?></option>
+                                <option value="Regular">Regular</option>
+                                <option value="Contructual">Contructual</option>
+                            </select>
+                        
+                    </div>
+                    
+
+                    <div class="container-content">
+                        <button disabled class="save" type="submit" name="addEmployee">Save</button>
+                        <button type="submit" name="editEmployee" >Update</button>
+                        <button type="submit" name="deleteEmployee" >Delete</button>
+                    </div>
+                
                 </form>
-            </div> 
-        
+            </div>
+        </div>       
+            
+
+         
         
 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ADD EMPLOYEE MODULE ---------------------------------------->
 
-        <div>
+        <div class="table">
             <table>
                 <thead>
                     <tr>
@@ -215,16 +217,18 @@ $pdo = $classPayroll->openConnection();
         ?>
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
         <div class="container">
-            <form action="UI_addEmployee.php" method="post">    <!-- form search-->
+
+
+        <form action="UI_addEmployee.php" method="post">    <!-- form search-->
                 <div class="search-engine">
-                    <input type="number" name="search_E_ID" id="search_E_ID" >
-                    <label>Search For Employee ID </label>
+                    <input placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID" >
+                 
                     <button type="submit" name="search_e" id="search_e">-></button>
                 </div>
             </form>
             
             <div class="container2">
-                <form action="../php/CP_add_em.php" method="post">      <!-- form -->
+                <form action="../php/process.php" method="post">      <!-- form -->
                     <div class="container-content">
                         <input type="number" name="E_ID" id="E_ID" required><br>
                         <label>E_ID:</label>
@@ -263,7 +267,7 @@ $pdo = $classPayroll->openConnection();
                     <div class="container-content-select"> 
                         <select name="gender" id="gender" required>
                                 <label>Gender:</label>  
-                                <option selected disabled value="">- Select -</option>
+                                <option selected disabled value="">- Gender -</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>

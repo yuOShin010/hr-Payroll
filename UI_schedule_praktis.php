@@ -6,55 +6,55 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/default.css">
-    <title>Schedule Management</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/UI-add.css">
+        <title>Schedule | Symtech</title>
+    </head>
 
-    <script>
+    <style>
 
-        function show() {
-            document.getElementById('navigation').classList.toggle('active');
-        }   
+        #btn {
+            height: 10px;
+            width: 10px;
+        }
+    </style>
 
-</script>
+    <body>
+        <!-- DASHBOARD -->
 
-</head>
-<body>
-    <!-- DASHBOARD -->
-
-    <div id="navigation"> 
-            
-            <div class="toggle-btn" onclick="show()">
-                <span></span>
-                <span></span>
-                <span></span>
+        <div class="admin-dashboard"> 
+            <div class="home-sidebar">
+                <img  class="home-logo" src="https://img.icons8.com/glyph-neue/2x/home-page.png" alt="logo">
             </div>
-            
+              <header class="top-bar">
+                    <h1>SymTech | <p>HR payroll</p></h1>
+              </header>
             <ul>
-                <div class="side-bar">
-                    <h3>SymTech</h3>
-                </div>
-                <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
+                 <!-- <li> <a href="../operator/UI_dash_overview.php">Dashboard Overview</a></li> -->
+                 <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
                 <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
                 <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
                 <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
-                <li> <a href="../operator/UI_employeeSalary.php">Employee Salary Report</a></li>
-                <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
-                <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
+                <li> <a href="#">Employee Salary Report</a></li>
+                <li> <a href="#">Payslip Report/Print</a></li>
+                <li> <a href="#">Company Report</a></li>
+                <!--<li> <a href="#">Company Expenses</a></li> -->
             </ul>
-           
+            <hr>
+            <footer>
+                <p>No copy right</p>
+            </footer>
         </div>
+        <header class="secondtop-bar">
+
         <?php 
 
             if(isset($_SESSION['User']))
             {
-                echo '<h1>'.' Welcome to Schedule Management '.'</h1>';
+                echo '<h1>'.' Welcome ' . $_SESSION['User'].'</h1>';
                 echo '<a href="logout_OP.php?logout">Logout</a>';
             }
             else
@@ -63,6 +63,7 @@
             }
 
         ?>
+
         </header>
 
         <!-- END DASHBOARD -->
@@ -114,51 +115,40 @@
                     <button type="submit" name="search" id="search">-></button>
                 </div>
             </form>
-        </div>
 
-        <div class="container2">
             <form action="../php/CP_schedule.php" method="post">
                 <div class="container-content">
-                    <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
                     <label>E_ID:</label>
-                </div>
-                <div class="container-content">  
-                    <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
+                    <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
                     <label>First Name:</label>
-                </div>
-                <div class="container-content">  
-                    <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
+                    <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
                     <label>Last Name:</label>
-                </div>
-                <div class="container-content">    
-                    <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
+                    <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
                     <label>Email:</label>
-                </div>
-                <div class="container-content">    
-                    <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
+                    <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
                     <label>Contact:</label>
-                </div>   
-                <div class="container-content-select">
-                    <select name="dept_id" id="dept_id" required>
+                    <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
                     <label>Employee Dept:</label>
+                    <select name="dept_id" id="dept_id" required>
                         <option selected value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
-                    </select>
-                </div>
-                <div class="container-content-select">
-                    <select name="position_id" id="position_id" required>
+                    </select><br>
                     <label>Position:</label>
+                    <select name="position_id" id="position_id" required>
                         <option selected value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
                     </select><br><br>
                     
-                    
-                    
-                    <input readonly type="" name="daysWork" id="daysWork" ><br><br>
+                    <label>Total WorkHrs:</label>
+                    <input type="number" name="workHrs" id="workHrs"><br>
+                    <label>From:</label>
+                    <input type="date" name="d_from" id="d_from"><br>
+                    <label>To:</label>
+                    <input type="date" name="d_to" id="d_to">
+                    <input type="button" id="btn"><br><br> <!-- button here for Compute days Work -->
                     <label>Days Work:</label>
-                </div>
-                <div class="container-content-select">
+                    <input readonly type="" name="daysWork" id="daysWork" ><br><br>
+
                     <button type="submit" name="set_schedule">Save</button>
-                   <button disabled type="submit" name="updateDept" id="updateDept">Update</button>
-                </div>
+                    <button disabled type="submit" name="updateDept" id="updateDept">Update</button>
             </form>
         </div>
                <hr>        
@@ -255,60 +245,16 @@
                     <input type="text" name="dept_id" id="dept_id"><br>
                     <label>Position:</label>
                     <input type="text" name="position_id" id="position_id"><br><br>
-
-                    <form action="" method="post">
-        <input type="radio" name="cut" value="weekly" id="" required >Weekly
-        <input type="radio" name="cut" value="halfMonth" id="" required >half A Month
-        <button type="submit" name="btnCut">**</button>
-    </form>
-    <br>
-    <hr>
-    <br>
-
-    <?php 
-        if(isset($_POST['btnCut'])){
-            $cutOff = $_POST['cut'];
-
-            if($cutOff == "weekly"){
-    ?>
-                <label>DATE FROM:</label>
-                <input type="date" name="from" id="dateFrom" style="margin-bottom: 10px;">
-                <br>
-                <label>DATE TO:</label>    
-                <input type="date" name="to" id="dateTo" readonly>
-                <button onclick="dateManipulateWeek()">**</button>   <!-- Button Here -->
-                <hr>
-                <label><input type="checkbox" name="" id="out1"> <span> SUN </span> </label>   <input type="time" name="" id="T_I1" style="margin-left: 10px;">   <input type="time" name="" id="T_O1">   <br>
-                <label><input type="checkbox" name="" id="out2"> <span> MON </span> </label>   <input type="time" name="" id="T_I2" style="margin-left: 10px;">   <input type="time" name="" id="T_O2">   <br>
-                <label><input type="checkbox" name="" id="out3"> <span> TUE </span> </label>   <input type="time" name="" id="T_I3" style="margin-left: 10px;">   <input type="time" name="" id="T_O3">   <br>
-                <label><input type="checkbox" name="" id="out4"> <span> WED </span> </label>   <input type="time" name="" id="T_I4" style="margin-left: 10px;">   <input type="time" name="" id="T_O4">   <button onclick="set_allTime()">**</button>   <br>
-                <label><input type="checkbox" name="" id="out5"> <span> THU </span> </label>   <input type="time" name="" id="T_I5" style="margin-left: 10px;">   <input type="time" name="" id="T_O5">   <br>
-                <label><input type="checkbox" name="" id="out6"> <span> FRI </span> </label>   <input type="time" name="" id="T_I6" style="margin-left: 10px;">   <input type="time" name="" id="T_O6">   <br>
-                <label><input type="checkbox" name="" id="out7"> <span> SAT </span> </label>   <input type="time" name="" id="T_I7" style="margin-left: 10px;">   <input type="time" name="" id="T_O7">   <br>
-
-    <?php } elseif($cutOff == "halfMonth"){   //  end of if ($cutOff == weekly) -->
-        ?>  
-
-                <label>DATE FROM:</label>
-                <input type="date" name="from" id="dateFrom" style="margin-bottom: 10px;">
-                <br>
-                <label>DATE TO:</label>    
-                <input type="date" name="to" id="dateTo" readonly>
-                <button onclick="dateManipulateMonth()">**</button>     <!-- Button Here -->
-                <hr>
-                <label><input type="checkbox" name="" id="out1"> <span> SUN </span> </label>   <input type="time" name="" id="T_I1" style="margin-left: 10px;">   <input type="time" name="" id="T_O1">   <br>
-                <label><input type="checkbox" name="" id="out2"> <span> MON </span> </label>   <input type="time" name="" id="T_I2" style="margin-left: 10px;">   <input type="time" name="" id="T_O2">   <br>
-                <label><input type="checkbox" name="" id="out3"> <span> TUE </span> </label>   <input type="time" name="" id="T_I3" style="margin-left: 10px;">   <input type="time" name="" id="T_O3">   <br>
-                <label><input type="checkbox" name="" id="out4"> <span> WED </span> </label>   <input type="time" name="" id="T_I4" style="margin-left: 10px;">   <input type="time" name="" id="T_O4">   <button onclick="set_allTime()">**</button>   <br>
-                <label><input type="checkbox" name="" id="out5"> <span> THU </span> </label>   <input type="time" name="" id="T_I5" style="margin-left: 10px;">   <input type="time" name="" id="T_O5">   <br>
-                <label><input type="checkbox" name="" id="out6"> <span> FRI </span> </label>   <input type="time" name="" id="T_I6" style="margin-left: 10px;">   <input type="time" name="" id="T_O6">   <br>
-                <label><input type="checkbox" name="" id="out7"> <span> SAT </span> </label>   <input type="time" name="" id="T_I7" style="margin-left: 10px;">   <input type="time" name="" id="T_O7">   <br>
-                
-
-        <?php } ?> <!-- end of elseif ($cutOff == halfMonth) -->
-          
-    <?php } ?>
-                   
+                    <label>Total WorkHrs:</label>
+                    <input type="number" name="workHrs" id="workHrs"><br>
+                    <label>From:</label>
+                    <input type="date" name="d_from" id="d_from"><br>
+                    <label>To:</label>
+                    <input type="date" name="d_to" id="d_to">
+                    <input type="button" onclick="computeDays()" id="btn"><br><br>
+                    <label>Days Work:</label>
+                    <input type="number" name="daysWork" id="daysWork">
+                    <br><br>
 
                     <button disabled type="submit">Save</button>
                     <button disabled type="submit">Update</button>
@@ -376,8 +322,25 @@
                 <?php }} ?>
             </tbody>
         </table>   
-                            
+        
         <?php } ?>
 
-</body>
+    </body>
+
+<script>
+
+    function computeDays() {
+        var d1 = document.getElementById('d_from').value;
+        var d2 = document.getElementById('d_to').value;
+        
+        const dateOne = new Date(d1);
+        const dateTwo = new Date(d2);
+        const time = Math.abs(dateTwo - dateOne);
+        const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+        document.getElementById("daysWork").value=days+1;
+        
+    }
+
+</script>
+
 </html>
