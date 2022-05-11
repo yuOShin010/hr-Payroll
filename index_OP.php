@@ -10,16 +10,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/loginOP.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
     <title>Login Operator | Symtech</title>
    
     
 </head>
 
 <body id="body1">
-    
-    <div class="container">
+        
+    <div class="container">    
+        <div class="top-bar stacktop">
+                <h1>SymTech</h1> <h1>.</h1> <h1>|</h1> <p>Payroll Management System</p>
 
+                <ul>
+                    <li>About</li>
+                    <li>Feedback</li>
+                    <li>Contact</li>
+                </ul>
+        </div>
             <?php
                 if(@$_GET['Empty']==true)
                 {
@@ -31,16 +40,30 @@
                     echo $_GET['Invalid'];                            
                 }
             ?>  
-        <form action="" method="post">
-        <p id="p1"><img src="https://cdn-icons-png.flaticon.com/512/7211/7211060.png" alt="logo"></p>
-        <p>Operator</p>
-        <div class="container-content">
-            <input class="us" type="text" name="op_username" id="op_username" placeholder="Username"><br><br>
-            <input class="pw" type="password" name="op_password" id="op_password" placeholder="Password"><br>
-            <input class="check-box" type="checkbox" onclick="myFunction()">Show Password <br><br>            <!--  this checkbox is for show password -->   
-            <button class="login-btn" type="submit" name="op_login" id="login-button"> Login </button>
-            <h6>Forgot Password?</h6>
+
+        <div class="first-text">
+            <p>The</p>
+            <p>right</p>
+            <p>choice</p>
+            <p>is</p>
+            <p>your</p>
+            <p>₱</p>
+            <p>rice</p>
+            
         </div>
+        <form action="" method="post">
+            <div class="form">
+                 <div class="title">
+                <h1>SymTech</h1> <h1>.</h1>
+            </div>
+            <div class="inside-form">
+                <input type="text" name="op_username" id="op_username" placeholder="Username">
+                <input type="password" name="op_password" id="op_password" placeholder="Password">
+                <label>Show Password</label>
+                <input class="check-box" type="checkbox" onclick="myFunction()"> <!--  this checkbox is for show password -->   
+                <button class="login-btn" type="submit" name="op_login" id="login-button"> Login </button>
+                <h6>Forgot Password?</h6>
+            </div>
         </form>
     </div>
     
@@ -56,7 +79,20 @@
                 } else {
                     x.type = "password";
                 }
-            }           
+            } 
+            // $(document).ready(function(){
+                
+            //     var header = $(".stacktop");
+            //     $(window).scroll(function(){
+            //     var scroll = $(window).scrolTop();
+
+            //         if(scroll >= 100) {
+            //             header.removeClass("stacktop").addClass("darkheader");
+            //         } else {
+            //             header.removeClass("darkheader").addClass("stacktop");
+            //         }
+            //     });
+            // });     
         </script>
 
 

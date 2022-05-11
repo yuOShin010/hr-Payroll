@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Leelawadee UI;
+}
+
+body {
+    background: #ececec;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    height: 200vh;
+    width: 100%;
+}
+
+.container .topbar {
+    position: fixed;
+    border-bottom: 1px solid gray;
+    height: 87px;
+    width: 100%;
+    margin: -22px 0;
+    background-color: black;
+    color: white;
+}
+
+.topbar ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.topbar ul li {
+    padding: 20px;
+    margin: 10px 19px;
+    list-style-type: none;
+    font-size: 20px;
+    transition: all 0.2s ease;
+}
+
+.topbar ul li:hover {
+    background-color: #00cafe;
+    color: #000000;
+}
+
+.content {
+    display: contents;
+    width: 50%;
+    height: 30vh;
+}
+
+.content .context {
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: Leelawadee UI;
+    margin: 146px;
+}
+
+.welcome:first-child h1 {
+    font-size: 35px;
+}
+
+.welcome h1:first-child a {
+    position: fixed;
+    margin: -337px 811px;
+    text-decoration: none;
+    font-weight: lighter;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+}
+
+.welcome h1:first-child a:hover {
+    color: #00cafe;
+}
+
+.context {
+    width: 65%;
+    margin: -213px 357px;
+}
+
+.context p {
+    text-align: center;
+    filter: drop-shadow(-2px 2px 2px black);
+}
+
+.getting {
+    margin: 41px -194px;
+    padding: 15px;
+    height: 100px;
+    width: 470px;
+    display: flex;
+    justify-content: center;
+}
+
+.getting h1 a {
+    padding: 5px;
+    text-decoration: none;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    color: rgb(0, 0, 0);
+}
+
+.getting a:hover {
+    color: #00cafe;
+    text-shadow: 2px 2px black;
+    filter: drop-shadow(-29px 25px 2px rgba(0, 0, 0, 0.637));
+}
+
+
+/* End of container 1 */
+
+.container2 {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}

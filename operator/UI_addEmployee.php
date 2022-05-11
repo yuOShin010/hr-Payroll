@@ -21,6 +21,11 @@ $pdo = $classPayroll->openConnection();
             document.getElementById('navigation').classList.toggle('active');
         }   
 
+        $('#navigation').click(function(){
+             $(".toggle-btn").toggleClass(close);
+
+        });
+
         </script>
 
 
@@ -30,17 +35,18 @@ $pdo = $classPayroll->openConnection();
         <!-- DASHBOARD -->
 
         <div id="navigation"> 
-            
-            <div class="toggle-btn" onclick="show()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div id="nav">
+                <div class="toggle-btn" onclick="show()">
+                    <span class="line top"></span>
+                    <span class="line middle"></span>
+                    <span class="line buttom"></span>
+                </div>
             </div>
-            
-            <ul>
-                <div class="side-bar">
+            <div class="side-bar">
                     <h3>SymTech</h3>
                 </div>
+            <ul>
+                
                 <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
                 <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
                 <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>

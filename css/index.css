@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+#body1 {
+    background-image: url(https://st2.depositphotos.com/1346781/5892/i/950/depositphotos_58928787-stock-photo-cash-money-and-a-calculator.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.686);
+    height: 100vh;
+    width: 100%;
+}
+
+.top-bar {
+    background-color: #000000d3;
+    height: 67px;
+    border-bottom: 1px solid #00cbfe72;
+    display: flex;
+    width: 100%;
+}
+
+.top-bar p {
+    margin: 17px 10px;
+    color: #ececec;
+    font-family: Leelawadee UI;
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+.top-bar h1 {
+    margin: 0 10px;
+    color: #ececec;
+    font-size: 45px;
+    font-family: Leelawadee UI;
+    font-weight: normal;
+}
+
+.top-bar h1:nth-child(2) {
+    margin: -0.4em 0;
+    font-size: 70px;
+    font-family: Leelawadee UI;
+    font-weight: bold;
+    color: #00cafe;
+}
+
+.top-bar h1:nth-child(3) {
+    margin: -0.1em 0.1em;
+    font-size: 50px;
+    font-weight: lighter;
+    font-family: Leelawadee UI;
+}
+
+.first-text {
+    display: flex;
+    color: #f2f2f2;
+    text-shadow: 5px 5px 10px #000000;
+}
+
+.first-text p:first-child {
+    font-size: 120px;
+    font-family: impact;
+    margin: 101px 50px;
+}
+
+.first-text p:nth-child(2) {
+    font-size: 60px;
+    font-family: Franklin Gothic Book;
+    margin: 150px -40px;
+    text-decoration: 10px underline;
+}
+
+.first-text p:nth-child(3) {
+    font-size: 112px;
+    font-family: Impact;
+    margin: 109px 48px;
+}
+
+.first-text p:nth-child(4) {
+    font-size: 54px;
+    font-family: Impact;
+    margin: 267px -690px;
+}
+
+.first-text p:nth-child(5) {
+    font-size: 91px;
+    font-family: MingLiU_HKSCS-ExtB;
+    margin: 234px 715px;
+}
+
+.first-text p:nth-child(6) {
+    font-size: 240px;
+    font-family: Haettenschweiler;
+    margin: 183px -700px;
+}
+
+.first-text p:nth-child(7) {
+    font-size: 230px;
+    font-family: Haettenschweiler;
+    margin: 183px 720px;
+    letter-spacing: 20px;
+}
+
+.topbar ul {
+    height: 85px;
+    display: flex;
+    padding-left: 550px;
+    cursor: pointer;
+}
+
+.top-bar ul li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 28px;
+    font-family: Leelawadee UI;
+    font-size: 17px;
+    color: #00cafe;
+    transition: all 0.1s ease;
+}
+
+.top-bar ul li:hover {
+    background-color: #00cafe;
+    color: #000000;
+}
+
+.form {
+    position: fixed;
+    border: none;
+    background-color: #ffff;
+    height: 74vh;
+    width: 27%;
+    margin: -529px 1032px;
+    transition: all 0.3s ease-in-out;
+    transform: translate(6%, 0%);
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px #000000, -4px -4px 10px #000000a0;
+}
+
+.inside-form input {
+    font-size: 16px;
+    padding-left: 20px;
+    height: 45px;
+    width: 320px;
+    border-radius: 8px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.inside-form {
+    margin: 263px 67px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.inside-form input[type="checkbox" i] {
+    position: relative;
+    margin: -31px -68px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.inside-form label {
+    margin: 11px 108px;
+}
+
+.title h1:first-child {
+    margin: 43px 0;
+    text-align: center;
+    color: #000000;
+    font-size: 45px;
+    font-family: Leelawadee UI;
+    font-weight: normal;
+    filter: drop-shadow(5px 4px 2px #000000ac);
+}
+
+.inside-form h6 {
+    font-size: 14px;
+    margin: -151px 110px;
+    width: 114px;
+}
+
+.title h1:nth-child(2) {
+    margin: -133px 330px;
+    font-size: 70px;
+    font-family: Leelawadee UI;
+    font-weight: bold;
+    color: #00cafe;
+}
+
+.inside-form .login-btn {
+    height: 40px;
+    width: 158px;
+    position: relative;
+    margin: 167px 87px;
+    border: none;
+    border-radius: 7px;
+    background-color: #6d6d6d;
+}

@@ -10,13 +10,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
     <title>Login Employee | Symtech</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="css/loginOP.css">
-    <link rel="stylesheet" href="../css/styles/boxes.css">
-=======
-    <link rel="stylesheet" href="./css/styles/boxes.css">
->>>>>>> a42d05ac03cf0d6f4eb930bd0e8148326c24f816
 </head>
 
 <body id="body1">
