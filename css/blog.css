@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,100 +9,126 @@
     font-family: Leelawadee UI;
 }
 
-body {
-    background: #ececec;
-    display: flex;
-    flex-direction: column;
-}
-
-.container {
-    height: 200vh;
-    width: 100%;
-}
-
-.container .topbar {
+.topbar {
     position: fixed;
-    border-bottom: 1px solid gray;
-    height: 87px;
+    height: 137px;
     width: 100%;
-    margin: -22px 0;
-    background-color: black;
-    color: white;
+    background-color: darkslategrey;
+    margin: -232px 0;
+    transition: all 0.3s ease;
 }
 
 .topbar ul {
     display: flex;
+    margin: 65px 325px;
     justify-content: center;
-    flex-direction: row;
-    cursor: pointer;
-}
-
-.topbar ul li {
-    padding: 20px;
-    margin: 10px 19px;
     list-style-type: none;
-    font-size: 20px;
-    transition: all 0.2s ease;
 }
 
-.topbar ul li:hover {
-    background-color: #00cafe;
-    color: #000000;
+ul li a {
+    color: white;
+    padding: 7px 23px;
+    text-decoration: none;
+    font-size: 20px;
+    filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
+    border-top: 5px solid rgb(236, 231, 231);
+    transition: all 0.4s ease;
+}
+
+ul li a:hover {
+    color: aqua;
+    cursor: pointer;
+    border-bottom: 2px solid rgb(236, 231, 231);
+    border-right: 2px solid rgb(236, 231, 231);
+    border-left: 2px solid rgb(236, 231, 231);
+    border-top: 15px solid rgb(236, 231, 231);
+    border-radius: 8px;
+    padding: 23px 23px;
+}
+
+
+/* ul li a {
+    padding: 10px 40px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
+    border-top: 5px solid rgb(236, 231, 231);
+    transition: all 0.4s ease;
+}
+
+ul li a:hover {
+    color: aqua;
+    cursor: pointer;
+    border-bottom: 2px solid rgb(236, 231, 231);
+    border-right: 2px solid rgb(236, 231, 231);
+    border-left: 2px solid rgb(236, 231, 231);
+    border-radius: 8px;
+} */
+
+.container {
+    height: 74vh;
 }
 
 .content {
-    display: contents;
-    width: 50%;
-    height: 30vh;
+    margin: 231px 198px;
+    width: 80%;
 }
 
-.content .context {
-    font-size: 25px;
+.logout-right {
+    color: white;
+    margin: 29px 48px;
+    float: right;
+    text-decoration: none;
+    font-size: 21px;
+}
+
+.logout-border {
+    padding: 7px 23px;
+}
+
+.f-content {
+    height: 120vh;
+}
+
+.s-content {
+    height: 100vh;
+    background-color: rgb(9, 57, 57);
+}
+
+.t-content {
+    height: 100vh;
+    background-color: rgb(20, 34, 34);
+}
+
+.f-content {
+    height: 100vh;
+    background-color: rgb(175, 175, 175);
+}
+
+.fth-content {
+    height: 100vh;
+    background-color: rgb(9, 9, 9);
+}
+
+.cont2-fh1 {
     font-weight: lighter;
+    margin: 164px 0;
+    float: left;
+}
+
+.cont2-color {
+    color: aliceblue;
 }
 
 .welcome {
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-family: Leelawadee UI;
-    margin: 146px;
-}
-
-.welcome:first-child h1 {
-    font-size: 35px;
-}
-
-.welcome h1:first-child a {
-    position: fixed;
-    margin: -337px 811px;
-    text-decoration: none;
-    font-weight: lighter;
-    font-size: 30px;
-    color: rgb(255, 255, 255);
-}
-
-.welcome h1:first-child a:hover {
-    color: #00cafe;
-}
-
-.context {
-    width: 65%;
-    margin: -213px 357px;
-}
-
-.context p {
-    text-align: center;
-    filter: drop-shadow(-2px 2px 2px black);
-}
-
-.getting {
-    margin: 41px -194px;
-    padding: 15px;
-    height: 100px;
-    width: 470px;
-    display: flex;
     justify-content: center;
+    padding-bottom: 2em;
+}
+
+.welcome h1 {
+    font-weight: lighter;
 }
 
 .getting h1 a {
@@ -106,21 +136,11 @@ body {
     text-decoration: none;
     background-color: transparent;
     transition: all 0.3s ease;
-    color: rgb(0, 0, 0);
+    color: rgb(7, 119, 205);
 }
 
 .getting a:hover {
     color: #00cafe;
     text-shadow: 2px 2px black;
     filter: drop-shadow(-29px 25px 2px rgba(0, 0, 0, 0.637));
-}
-
-
-/* End of container 1 */
-
-.container2 {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    background-color: rgb(255, 255, 255);
 }

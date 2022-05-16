@@ -11,7 +11,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/index.css">
+    <!-- <link rel="stylesheet" href="./css/index.css">  -->
+    <link rel="stylesheet" href="./css/login.css">
     <title>Login Operator | Symtech</title>
    
     
@@ -20,14 +21,18 @@
 <body id="body1">
         
     <div class="container">    
-        <div class="top-bar stacktop">
-                <h1>SymTech</h1> <h1>.</h1> <h1>|</h1> <p>Payroll Management System</p>
+        <div class="nav-top">
+                <h1 class="title-left">SymTech</h1> <h1 class="dot-left">.</h1> 
+                <h1 class="line-left">|</h1> 
+                <p class="par">Payroll Management System</p>
 
                 <ul>
                     <li>About</li>
                     <li>Feedback</li>
                     <li>Contact</li>
                 </ul>
+        <div style="clear:both"></div>
+
         </div>
             <?php
                 if(@$_GET['Empty']==true)
@@ -41,32 +46,35 @@
                 }
             ?>  
 
-        <div class="first-text">
-            <p>The</p>
-            <p>right</p>
-            <p>choice</p>
-            <p>is</p>
-            <p>your</p>
-            <p>₱</p>
-            <p>rice</p>
-            
+        <div class="banner">
+            <p class="frst">The</p>
+            <p class="snd">right</p>
+            <p class="thrd">choice</p>
+            <p class="fth">is</p>
+            <p class="f5th">your</p>
+            <p class="sxth">₱</p>
+            <p class="svth">rice</p>
         </div>
-        <form action="" method="post">
-            <div class="form">
-                 <div class="title">
-                <h1>SymTech</h1> <h1>.</h1>
-            </div>
-            <div class="inside-form">
-                <input type="text" name="op_username" id="op_username" placeholder="Username">
-                <input type="password" name="op_password" id="op_password" placeholder="Password">
-                <label>Show Password</label>
-                <input class="check-box" type="checkbox" onclick="myFunction()"> <!--  this checkbox is for show password -->   
-                <button class="login-btn" type="submit" name="op_login" id="login-button"> Login </button>
-                <h6>Forgot Password?</h6>
-            </div>
-        </form>
+
+        <div class="form">
+            <form action="" method="post">
+                <div class="form-title">
+                    <h1>SymTech</h1> <h1>.</h1>
+                </div>
+           
+                <div class="cont-form">
+                    <input class="box-size" type="text" name="op_username" id="op_username" placeholder="Username">
+                    <input class="box-size" type="password" name="op_password" id="op_password" placeholder="Password">
+                    <label>
+                    <input class="check-box" type="checkbox" onclick="myFunction()"> <!--  this checkbox is for show password -->   
+                    Show Password
+                    </label>
+                    <button class="login-btn" type="submit" name="op_login" id="login-button"> Login </button>
+                    <h6>Forgot Password?</h6>
+                </div>
+            </form>
+        </div>
     </div>
-    
 </body>
 
 
