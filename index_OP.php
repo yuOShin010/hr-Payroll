@@ -1,6 +1,6 @@
 <?php
-    require_once('php/classes/payrollClass.php');
-    $classPayroll->loginOperator();
+require_once('php/classes/payrollClass.php');
+$classPayroll->loginOperator();
 ?>
 
 <!DOCTYPE html>
@@ -14,39 +14,29 @@
     <!-- <link rel="stylesheet" href="./css/index.css">  -->
     <link rel="stylesheet" href="./css/login.css">
     <title>Login Operator | Symtech</title>
-   
-    
+
+
 </head>
 
 <body id="body1">
-        
-    <div class="container">    
-        <div class="nav-top">
-                <h1 class="title-left">SymTech</h1> <h1 class="dot-left">.</h1> 
-                <h1 class="line-left">|</h1> 
-                <p class="par">Payroll Management System</p>
 
-                <ul>
-                    <li>About</li>
-                    <li>Feedback</li>
-                    <li>Contact</li>
-                </ul>
-        <div style="clear:both"></div>
+    <div class="container">
+        <div class="nav-top">
+            <h1 class="title-left">SymTech</h1>
+            <h1 class="dot-left">.</h1>
+            <h1 class="line-left">|</h1>
+            <p class="par">Payroll Management System</p>
+
+            <ul>
+                <li>About</li>
+                <li>Feedback</li>
+                <li>Contact</li>
+            </ul>
+            <div style="clear:both"></div>
 
         </div>
-            <?php
-                if(@$_GET['Empty']==true)
-                {
-                    echo $_GET['Empty'];                                
-                }
 
-                if(@$_GET['Invalid']==true)
-                {
-                    echo $_GET['Invalid'];                            
-                }
-            ?>  
-
-        <div class="banner">
+        <!-- <div class="banner">
             <p class="frst">The</p>
             <p class="snd">right</p>
             <p class="thrd">choice</p>
@@ -54,23 +44,36 @@
             <p class="f5th">your</p>
             <p class="sxth">₱</p>
             <p class="svth">rice</p>
-        </div>
+        </div> -->
 
         <div class="form">
             <form action="" method="post">
                 <div class="form-title">
-                    <h1>SymTech</h1> <h1>.</h1>
+                    <h1>SymTech</h1>
+                    <h1>.</h1>
                 </div>
-           
+
+                <div class="error">
+                    <?php
+                    if (@$_GET['Empty'] == true) {
+                        echo $_GET['Empty'];
+                    }
+
+                    if (@$_GET['Invalid'] == true) {
+                        echo $_GET['Invalid'];
+                    }
+                    ?>
+                </div>
+
                 <div class="cont-form">
                     <input class="box-size" type="text" name="op_username" id="op_username" placeholder="Username">
                     <input class="box-size" type="password" name="op_password" id="op_password" placeholder="Password">
                     <label>
-                    <input class="check-box" type="checkbox" onclick="myFunction()"> <!--  this checkbox is for show password -->   
-                    Show Password
+                        <input class="check-box" type="checkbox" onclick="myFunction()"> <!--  this checkbox is for show password -->
+                        Show Password
                     </label>
                     <button class="login-btn" type="submit" name="op_login" id="login-button"> Login </button>
-                    <h6>Forgot Password?</h6>
+
                 </div>
             </form>
         </div>
@@ -78,32 +81,29 @@
 </body>
 
 
-        <script>
-            function myFunction() 
-            {
-                var x = document.getElementById("op_password");
-                if (x.type === "password") {
-                    x.type = "text";
-                } else {
-                    x.type = "password";
-                }
-            } 
-            // $(document).ready(function(){
-                
-            //     var header = $(".stacktop");
-            //     $(window).scroll(function(){
-            //     var scroll = $(window).scrolTop();
+<script>
+    function myFunction() {
+        var x = document.getElementById("op_password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+    // $(document).ready(function() {
 
-            //         if(scroll >= 100) {
-            //             header.removeClass("stacktop").addClass("darkheader");
-            //         } else {
-            //             header.removeClass("darkheader").addClass("stacktop");
-            //         }
-            //     });
-            // });     
-        </script>
+    //     var header = $(".stacktop");
+    //     $(window).scroll(function() {
+    //         var scroll = $(window).scrollTop();
+
+    //         if (scroll >= 100) {
+    //             header.removeClass("stacktop").addClass("darkheader");
+    //         } else {
+    //             header.removeClass("darkheader").addClass("stacktop");
+    //         }
+    //     });
+    // });
+</script>
 
 
 </html>
-
-
