@@ -23,6 +23,7 @@
 
             if($cutOff == "weekly"){
     ?>
+                
                 <label>DATE FROM:</label>
                 <input type="date" name="from" id="dateFrom" style="margin-bottom: 10px;">
                 <br>
@@ -37,7 +38,8 @@
                 <label><input type="checkbox" name="" id="out5"> <span> THU </span> </label>   <input type="time" name="" id="T_I5" style="margin-left: 10px;">   <input type="time" name="" id="T_O5">   <br>
                 <label><input type="checkbox" name="" id="out6"> <span> FRI </span> </label>   <input type="time" name="" id="T_I6" style="margin-left: 10px;">   <input type="time" name="" id="T_O6">   <br>
                 <label><input type="checkbox" name="" id="out7"> <span> SAT </span> </label>   <input type="time" name="" id="T_I7" style="margin-left: 10px;">   <input type="time" name="" id="T_O7">   <br>
-
+                <button onclick="weeklyBTN()" >Submit</button>
+ 
     <?php } elseif($cutOff == "halfMonth"){   //  end of if ($cutOff == weekly) -->
         ?>  
 
@@ -55,7 +57,7 @@
                 <label><input type="checkbox" name="" id="out5"> <span> THU </span> </label>   <input type="time" name="" id="T_I5" style="margin-left: 10px;">   <input type="time" name="" id="T_O5">   <br>
                 <label><input type="checkbox" name="" id="out6"> <span> FRI </span> </label>   <input type="time" name="" id="T_I6" style="margin-left: 10px;">   <input type="time" name="" id="T_O6">   <br>
                 <label><input type="checkbox" name="" id="out7"> <span> SAT </span> </label>   <input type="time" name="" id="T_I7" style="margin-left: 10px;">   <input type="time" name="" id="T_O7">   <br>
-                
+                <button onclick="haftMonthBTN()" >Submit</button>
 
         <?php } ?> <!-- end of elseif ($cutOff == halfMonth) -->
           
