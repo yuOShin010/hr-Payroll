@@ -35,11 +35,11 @@
                 <span></span>
                 <span></span>
             </div>
-            
-            <ul>
-                <div class="side-bar">
+             <div class="side-bar">
                     <h3>SymTech</h3>
                 </div>
+            <ul>
+               
                 <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
                 <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
                 <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
