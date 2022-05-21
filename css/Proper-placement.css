@@ -1,6 +1,7 @@
 body {
     height: 100vh;
     width: 100%;
+    background: rgb(230, 230, 230);
 }
 
 .container {
@@ -17,8 +18,10 @@ body {
 .output {
     margin: 212px 0;
     overflow: scroll;
+    overflow-x: hidden;
     height: 339px;
     width: 100%;
+    background: black;
 }
 
 .output::-webkit-scrollbar {

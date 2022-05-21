@@ -14,7 +14,9 @@ $pdo = $classPayroll->openConnection();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/add_emplo.css">
+    <link rel="stylesheet" href="../css/proper-placement.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/default.css">
     <title>Department Management</title>
 
     <script>
@@ -40,13 +42,49 @@ $pdo = $classPayroll->openConnection();
     </div>
     <ul>
 
-        <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
-        <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
-        <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
-        <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
-        <li> <a href="../operator/UI_employeeSalary.php">Employee Salary Report</a></li>
-        <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
-        <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
+        <li>
+                <a href="../operator/UI_addEmployee.php">
+                    <i class='bx bxs-user-account'></i>
+                    <p>Employee Management</p>
+                </a>
+
+            </li>
+            <li>
+                <a href="../operator/UI_setDepartment.php">
+                    <i class='bx bxs-building-house'></i>
+                    <p>Department Management</p>
+                </a>
+            </li>
+            <li>
+                <a href="../operator/UI_schedule.php">
+                    <i class='bx bxs-calendar'></i>
+                    <p>Scheduling Management</p>
+                </a>
+            </li>
+            <li>
+                <a href="../operator/UI_payroll.php">
+                    <i class='bx bxs-data'></i>
+                    <p>Payroll Management</p>
+                </a>
+            </li>
+            <li>
+                <a href="../operator/UI_employeeSalary.php">
+                    <i class='bx bx-task'></i>
+                    <p>Employee Salary Report</p>
+                </a>
+            </li>
+            <li>
+                <a href="../operator/UI_payslipReport.php">
+                    <i class='bx bxs-report'></i>
+                    <p>Payslip Report/Print</p>
+                </a>
+            </li>
+            <li>
+                <a href="../operator/UI_companyReport.php">
+                    <i class='bx bx-line-chart-down'></i>
+                    <p>Company Report</p>
+                </a>
+            </li>
     </ul>
 
 </div>
@@ -137,27 +175,29 @@ if (isset($_SESSION['User'])) {
 
                 <form action="../operator/UI_setDepartment.php" method="post">
                     <!-- form search -->
-                    <label>Search For Employee E_ID:
-                        <input type="number" name="srch" id="srch">
-                    </label>
-                    <button type="submit" name="srch1" id="srch1">-></button>
+                    <div class="search-bg">
+                        <div class="search">
+                            <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                            <button type="submit" name="search_e" id="search_e"><i class='bx bx-search size'></i></button>
+                        </div>
+                    </div>
                     <form action="../php/process.php" method="post">
                         <!-- form set department -->
                         <label>
                             E_ID:
-                            <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
+                            <input class="input-style" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
                         </label>
                         <label>First Name:
-                            <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
+                            <input class="input-style" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
                         </label>
                         <label>Last Name:
-                            <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
+                            <input class="input-style" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
                         </label>
                         <label>Email:
-                            <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
+                            <input class="input-style" readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
                         </label>
                         <label>Contact:
-                            <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
+                            <input class="input-style" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
                         </label>
                         <label>Employee Dept:
                             <select name="dept_id" id="dept_id" required>
@@ -244,61 +284,69 @@ if (isset($_SESSION['User'])) {
             if ($setDepartment) {                 // UPDATE SET DEPARTMENT UPDATE OPTION -----
             ?>
 
-                <div>
+                
                     <form action="../operator/UI_setDepartment.php" method="post">
                         <!-- form search -->
-                        <label>Search For Employee E_ID:</label>
-                        <input type="number" name="srch" id="srch">
-                        <button type="submit" name="srch1" id="srch1">-></button>
+                        <div class="search-bg">
+                            <div class="search">
+                                <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                                <button type="submit" name="search_e" id="search_e"><i class='bx bx-search size'></i></button>
+                            </div>
+                        </div>
                     </form>
-                </div>
+                
 
                 <form action="../php/process.php" method="post">
                     <!-- form update department -->
-                    <label>E_ID:</label>
-                    <input readonly type="number" name="E_ID" id="E_ID2" value="<?php echo $E_ID ?>"><br>
-                    <label>First Name:</label>
-                    <input readonly type="text" name="fname" id="fname2" value="<?php echo $fname ?>"><br>
-                    <label>Last Name:</label>
-                    <input readonly type="text" name="lname" id="lname2" value="<?php echo $lname ?>"><br>
-                    <label>Email:</label>
-                    <input readonly type="email" name="email" id="email2" value="<?php echo $email ?>"><br>
+                    <label>E_ID:
+                    <input class="input-style" readonly type="number" name="E_ID" id="E_ID2" value="<?php echo $E_ID ?>"><br>
+                    </label>
+                    <label>First Name:
+                    <input class="input-style" readonly type="text" name="fname" id="fname2" value="<?php echo $fname ?>"><br>
+                    </label>
+                    <label>Last Name:
+                    <input class="input-style" readonly type="text" name="lname" id="lname2" value="<?php echo $lname ?>"><br>
+                    </label>
+                    <label>Email:
+                    <input class="input-style" readonly type="email" name="email" id="email2" value="<?php echo $email ?>"><br>
+                    </label>
                     <label>Contact:</label>
-                    <input readonly type="number" name="contact" id="contact2" value="<?php echo $contact ?>"><br>
-                    <label>Employee Dept:</label>
-                    <select name="dept_id" id="dept_id" required>
-                        <option selected disabled value="<?php echo $dept_code; ?>"><?php echo $dept_code; ?></option>
-                        <optgroup label="-Select New-"></optgroup>
-                        <option value="1">BSIT</option>
-                        <option value="2">BSOA</option>
-                        <option value="3">BSED</option>
-                        <option value="4">BEED</option>
-                        <option value="5">BSCRIM</option>
-                        <option value="6">BSTM</option>
-                    </select> <br>
-                    <label>Position:</label>
-                    <select name="position_id" id="position_id" required>
-                        <option selected disabled value="<?php echo $position_desc; ?>"><?php echo $position_desc; ?></option>
-                        <optgroup label="-Select New-"></optgroup>
-                        <option value="1">Dept. Head</option>
-                        <option value="2">Teacher</option>
-                        <option value="3">Office Staff</option>
-                        <option value="4">Secretary</option>
-                        <option value="5">Utility</option>
-                    </select><br>
+                    <input class="input-style" readonly type="number" name="contact" id="contact2" value="<?php echo $contact ?>"><br>
+                    
+                    <label>Employee Dept:
+                        <select name="dept_id" id="dept_id" required>
+                            <option selected disabled value="<?php echo $dept_code; ?>"><?php echo $dept_code; ?></option>
+                            <optgroup label="-Select New-"></optgroup>
+                            <option value="1">BSIT</option>
+                            <option value="2">BSOA</option>
+                            <option value="3">BSED</option>
+                            <option value="4">BEED</option>
+                            <option value="5">BSCRIM</option>
+                            <option value="6">BSTM</option>
+                        </select>
+                        </label>
+
+                    <label>Position:
+                        <select name="position_id" id="position_id" required>
+                            <option selected disabled value="<?php echo $position_desc; ?>"><?php echo $position_desc; ?></option>
+                            <optgroup label="-Select New-"></optgroup>
+                            <option value="1">Dept. Head</option>
+                            <option value="2">Teacher</option>
+                            <option value="3">Office Staff</option>
+                            <option value="4">Secretary</option>
+                            <option value="5">Utility</option>
+                        </select>
+                    </label>
 
                     <button disabled type="submit" name="setDepartment">Save</button>
                     <button type="submit" name="updateDept" id="updateDept" onclick="undisableTxt2()">Update</button>
                     <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
                 </form>
 
-                <br><br>
-                <hr> <br><br>
-
                 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
-
-                <table>
+            <div class="output">
+                <table class="table table-dark table-striped">
                     <thead>
                         <tr>
                             <th>Employee ID</th>
@@ -355,32 +403,34 @@ if (isset($_SESSION['User'])) {
             <!-- this is the 1st interface of set department module -->
 
             <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
-            <div>
+            
                 <form action="UI_setDepartment.php" method="post">
                     <!-- form search -->
-                    <label>Search For Employee ID:
-                        <input type="number" name="srch" id="srch" placeholder="Search..">
-                    </label>
-                    <button type="submit" name="srch1" id="srch1">-></button>
+                   <div class="search-bg">
+                        <div class="search">
+                            <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                            <button type="submit" name="search_e" id="search_e"><i class='bx bx-search size'></i></button>
+                        </div>
+                    </div>
                 </form>
-            </div>
+            
 
             <form action="" method="">
                 <!-- form no action and button enable -->
                 <label>E_ID:
-                    <input type="number" name="E_ID" id="E_ID">
+                    <input class="input-style" type="number" name="E_ID" id="E_ID">
                 </label>
                 <label>First Name:
-                    <input type="text" name="fname" id="fname">
+                    <input class="input-style" type="text" name="fname" id="fname">
                 </label>
                 <label>Last Name:
-                    <input type="text" name="lname" id="lname">
+                    <input class="input-style" type="text" name="lname" id="lname">
                 </label>
                 <label>Email:
-                    <input type="email" name="email" id="email">
+                    <input class="input-style" type="email" name="email" id="email">
                 </label>
                 <label>Contact:
-                    <input type="number" name="contact" id="contact">
+                    <input class="input-style" type="number" name="contact" id="contact">
                 </label>
                 <label>Employee Dept:
                     <select name="dept" id="dept" required>
