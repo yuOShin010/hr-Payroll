@@ -1,0 +1,34 @@
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+    left: 151px;
+    top: 79px;
+    width: 80%;
+    height: 82vh;
+}
+
+
+/* table properties */
+
+.output {
+    margin: 212px 0;
+    overflow: scroll;
+    height: 339px;
+    width: 100%;
+}
+
+.output::-webkit-scrollbar {
+    width: 10px;
+}
+
+.output::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.output::-webkit-scrollbar-thumb {
+    background: #888;
+}

@@ -1,11 +1,12 @@
 <?php
-    session_start();
-    require_once('../php/classes/payrollClass.php');
-    $pdo = $classPayroll->openConnection();
+session_start();
+require_once('../php/classes/payrollClass.php');
+$pdo = $classPayroll->openConnection();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,72 +14,71 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/add_emplo.css">
     <title>Department Management</title>
 
     <script>
-            function show() {
-                document.getElementById('navigation').classList.toggle('active');
-            }   
-
-</script>
+        function show() {
+            document.getElementById('navigation').classList.toggle('active');
+        }
+    </script>
 
 
 </head>
 
 <!-- DASHBOARD -->
 
-<div id="navigation"> 
-            
-            <div class="toggle-btn" onclick="show()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-             <div class="side-bar">
-                    <h3>SymTech</h3>
-                </div>
-            <ul>
-               
-                <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
-                <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
-                <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
-                <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
-                <li> <a href="../operator/UI_employeeSalary.php">Employee Salary Report</a></li>
-                <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
-                <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
-            </ul>
-           
-        </div>
+<div id="navigation">
 
-    <?php 
+    <div class="toggle-btn" onclick="show()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="side-bar">
+        <h3>SymTech</h3>
+    </div>
+    <ul>
 
-        if(isset($_SESSION['User']))
-        {
-            echo '<h1>'.' Welcome ' . $_SESSION['User'].'</h1>';
-            echo '<a href="logout_OP.php?logout">Logout</a>';
-        }
-        else
-        {
-            header("location:../index_OP.php");
-        }
+        <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
+        <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
+        <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
+        <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
+        <li> <a href="../operator/UI_employeeSalary.php">Employee Salary Report</a></li>
+        <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
+        <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
+    </ul>
 
-    ?>
+</div>
+<header class="tophead">
+    <!-- <p>top head</p> -->
+</header>
+<?php
 
-    </header>
+if (isset($_SESSION['User'])) {
+    echo '<h1>' . ' Welcome ' . $_SESSION['User'] . '</h1>';
+    echo '<a href="logout_OP.php?logout">Logout</a>';
+} else {
+    header("location:../index_OP.php");
+}
 
-    <!-- END DASHBOARD -->
+?>
+
+</header>
+
+<!-- END DASHBOARD -->
 
 <body>
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
-<!-- ../php/CP_setDept.php -->
-<?php 
+    <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
+    <!-- ../php/CP_setDept.php -->\
+    <div class="container">
+        <?php
 
-    $activeForm = true;  // this boolean is for hiding form element
+        $activeForm = true;  // this boolean is for hiding form element
 
-    if(isset($_POST['srch1'])){
-        $activeForm = false;
-        $setDepartment = true;
+        if (isset($_POST['srch1'])) {
+            $activeForm = false;
+            $setDepartment = true;
 
             $search_Eid = $_POST['srch'];
             $sql = "SELECT
@@ -90,117 +90,122 @@
                     ON A.position_id = C.position_id
                     LEFT JOIN department AS D
                     ON A.dept_id = D.dept_id
-                    WHERE B.employee_id = ? AND B.isActive = 1 AND A.id > 0" ;
+                    WHERE B.employee_id = ? AND B.isActive = 1 AND A.id > 0";
             // $sql = "SELECT * FROM tbl_employee_department_position WHERE employee_id = ?";
             // $sql = "SELECT * FROM employee WHERE employee_id = ? AND isActive = 1";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$search_Eid]);
-            
-            if($stmt->rowCount() > 0){
-                while($row = $stmt->fetch()){
-                    
+
+            if ($stmt->rowCount() > 0) {
+                while ($row = $stmt->fetch()) {
+
                     $E_ID = $row['employee_id'];
                     $fname = $row['first_name'];
                     $lname = $row['last_name'];
                     $email = $row['email'];
                     $contact = $row['contact'];
-                // For Updating data Below Credentials    
+                    // For Updating data Below Credentials    
                     $dept_id = $row['dept_id'];
                     $dept_code = $row['dept_code'];
                     $position_id = $row['position_id'];
                     $position_desc = $row['position_desc'];
                 }
-            } elseif(isset($_POST['srch1'])){                                                               // SET DEPARTMENT SAVE OPTION -----
-                
+            } elseif (isset($_POST['srch1'])) {                                                               // SET DEPARTMENT SAVE OPTION -----
+
                 $setDepartment = false;
                 $search_Eid = $_POST['srch'];
                 $sql = "SELECT * FROM employee WHERE employee_id = ? AND isActive = 1";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$search_Eid]);
-            
-                    if($stmt->rowCount() > 0){
-                        while($row = $stmt->fetch()){
-                            
-                            $E_ID = $row['employee_id'];
-                            $fname = $row['first_name'];
-                            $lname = $row['last_name'];
-                            $email = $row['email'];
-                            $contact = $row['contact'];
-                        }
-                    } else {
-                        echo ("<script LANGUAGE='JavaScript'> window.alert('No employee Found ....');
-                window.location.href='../operator/UI_setDepartment.php'; </script>");
+
+                if ($stmt->rowCount() > 0) {
+                    while ($row = $stmt->fetch()) {
+
+                        $E_ID = $row['employee_id'];
+                        $fname = $row['first_name'];
+                        $lname = $row['last_name'];
+                        $email = $row['email'];
+                        $contact = $row['contact'];
                     }
+                } else {
+                    echo ("<script LANGUAGE='JavaScript'> window.alert('No employee Found ....');
+                window.location.href='../operator/UI_setDepartment.php'; </script>");
+                }
 
-                
-                    ?>     
-                <div>
-                    <form action="../operator/UI_setDepartment.php" method="post">      <!-- form search -->
-                        <label>Search For Employee E_ID:</label>
-                        <input type="number" name="srch" id="srch" >
-                        <button type="submit" name="srch1" id="srch1">-></button>
-                    </form>
-                
 
-                    <form action="../php/process.php" method="post">                         <!-- form set department -->
-                        <label>E_ID:</label>
-                        <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
-                        <label>First Name:</label>
-                        <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
-                        <label>Last Name:</label>
-                        <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
-                        <label>Email:</label>
-                        <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
-                        <label>Contact:</label>
-                        <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
-                        <label>Employee Dept:</label>
-                        <select name="dept_id" id="dept_id" required>
-                            <option selected disabled value="">- Select -</option>
-                            <option value="1">BSIT</option>
-                            <option value="2">BSOA</option>
-                            <option value="3">BSED</option>
-                            <option value="4">BEED</option>
-                            <option value="5">BSCRIM</option>
-                            <option value="6">BSTM</option>
-                        </select> <br>
-                        <label>Position:</label>
-                        <select name="position_id" id="position_id" required>
-                            <option selected disabled value="">- Select -</option>
-                            <option value="1">Dept. Head</option>
-                            <option value="2">Teacher</option>
-                            <option value="3">Office Staff</option>
-                            <option value="4">Secretary</option>
-                            <option value="5">Utility</option>
-                        </select><br>
+        ?>
 
+                <form action="../operator/UI_setDepartment.php" method="post">
+                    <!-- form search -->
+                    <label>Search For Employee E_ID:
+                        <input type="number" name="srch" id="srch">
+                    </label>
+                    <button type="submit" name="srch1" id="srch1">-></button>
+                    <form action="../php/process.php" method="post">
+                        <!-- form set department -->
+                        <label>
+                            E_ID:
+                            <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
+                        </label>
+                        <label>First Name:
+                            <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
+                        </label>
+                        <label>Last Name:
+                            <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
+                        </label>
+                        <label>Email:
+                            <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
+                        </label>
+                        <label>Contact:
+                            <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
+                        </label>
+                        <label>Employee Dept:
+                            <select name="dept_id" id="dept_id" required>
+                                <option selected disabled value="">- Select -</option>
+                                <option value="1">BSIT</option>
+                                <option value="2">BSOA</option>
+                                <option value="3">BSED</option>
+                                <option value="4">BEED</option>
+                                <option value="5">BSCRIM</option>
+                                <option value="6">BSTM</option>
+                            </select>
+
+                        </label>
+                        <label>Position:
+                            <select name="position_id" id="position_id" required>
+                                <option selected disabled value="">- Select -</option>
+                                <option value="1">Dept. Head</option>
+                                <option value="2">Teacher</option>
+                                <option value="3">Office Staff</option>
+                                <option value="4">Secretary</option>
+                                <option value="5">Utility</option>
+                            </select><br>
+                        </label>
                         <button type="submit" name="setDepartment" onclick="undisableTxt()">Save</button>
                         <button disabled type="submit" name="updateDept" id="updateDept">Update</button>
                         <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
+                    </form>
+                </form>
 
-                        </form>
-            </div>
-        
 
-            <br><br>   <hr>   <br><br>      
+                <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
-<!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
-        
-            <table>
-                <thead>
-                    <tr>
-                        <th>Employee ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Contact</th>
-                        <th>Department</th>
-                        <th>Position</th>
-                    </tr>
-                </thead>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Department</th>
+                            <th>Position</th>
+                        </tr>
+                    </thead>
 
-                <tbody> 
-                    <?php
+                    <tbody>
+                        <?php
                         $pdo = $classPayroll->openConnection();
 
                         $sql = "SELECT
@@ -217,96 +222,100 @@
                         $stmt = $pdo->prepare($sql);
                         $stmt->execute();
 
-                        if($stmt->rowCount() > 0){
-                            while($row = $stmt->fetch()){
-                    ?>
-                    <tr>
-                        <td><?php echo $row['employee_id']; ?></td>
-                        <td><?php echo $row['first_name']; ?></td>
-                        <td><?php echo $row['last_name']; ?></td>
-                        <td><?php echo $row['email']; ?></td>
-                        <td><?php echo $row['contact']; ?></td>
-                        <td><?php echo $row['dept_code']; ?></td>
-                        <td><?php echo $row['position_desc']; ?></td>
-                    </tr>
-                    <?php }} ?>
-                </tbody>
-            </table>
-        <?php
-            } 
-        
-    if($setDepartment){                 // UPDATE SET DEPARTMENT UPDATE OPTION -----
-?>
+                        if ($stmt->rowCount() > 0) {
+                            while ($row = $stmt->fetch()) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $row['employee_id']; ?></td>
+                                    <td><?php echo $row['first_name']; ?></td>
+                                    <td><?php echo $row['last_name']; ?></td>
+                                    <td><?php echo $row['email']; ?></td>
+                                    <td><?php echo $row['contact']; ?></td>
+                                    <td><?php echo $row['dept_code']; ?></td>
+                                    <td><?php echo $row['position_desc']; ?></td>
+                                </tr>
+                        <?php }
+                        } ?>
+                    </tbody>
+                </table>
+            <?php
+            }
 
-        <div>
-            <form action="../operator/UI_setDepartment.php" method="post">          <!-- form search -->
-                <label>Search For Employee E_ID:</label>
-                <input type="number" name="srch" id="srch" >
-                <button type="submit" name="srch1" id="srch1">-></button>
-            </form>
-        </div>
+            if ($setDepartment) {                 // UPDATE SET DEPARTMENT UPDATE OPTION -----
+            ?>
 
-        <form action="../php/process.php" method="post">                        <!-- form update department -->
-            <label>E_ID:</label>
-            <input readonly type="number" name="E_ID" id="E_ID2" value="<?php echo $E_ID ?>"><br>
-            <label>First Name:</label>
-            <input readonly type="text" name="fname" id="fname2" value="<?php echo $fname ?>"><br>
-            <label>Last Name:</label>
-            <input readonly type="text" name="lname" id="lname2" value="<?php echo $lname ?>"><br>
-            <label>Email:</label>
-            <input readonly type="email" name="email" id="email2" value="<?php echo $email ?>"><br>
-            <label>Contact:</label>
-            <input readonly type="number" name="contact" id="contact2" value="<?php echo $contact ?>"><br>
-            <label>Employee Dept:</label>
-            <select name="dept_id" id="dept_id" required>
-            <option selected disabled value="<?php echo $dept_code ;?>"><?php echo $dept_code ;?></option>
-                <optgroup label="-Select New-"></optgroup>
-                <option value="1">BSIT</option>
-                <option value="2">BSOA</option>
-                <option value="3">BSED</option>
-                <option value="4">BEED</option>
-                <option value="5">BSCRIM</option>
-                <option value="6">BSTM</option>
-            </select> <br>
-            <label>Position:</label>
-            <select name="position_id" id="position_id" required>
-            <option selected disabled value="<?php echo $position_desc ;?>"><?php echo $position_desc ;?></option>
-                <optgroup label="-Select New-"></optgroup>
-                <option value="1">Dept. Head</option>
-                <option value="2">Teacher</option>
-                <option value="3">Office Staff</option>
-                <option value="4">Secretary</option>
-                <option value="5">Utility</option>
-            </select><br>
+                <div>
+                    <form action="../operator/UI_setDepartment.php" method="post">
+                        <!-- form search -->
+                        <label>Search For Employee E_ID:</label>
+                        <input type="number" name="srch" id="srch">
+                        <button type="submit" name="srch1" id="srch1">-></button>
+                    </form>
+                </div>
 
-            <button disabled type="submit" name="setDepartment">Save</button>
-            <button type="submit" name="updateDept" id="updateDept" onclick="undisableTxt2()">Update</button>
-            <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
-        </form>
+                <form action="../php/process.php" method="post">
+                    <!-- form update department -->
+                    <label>E_ID:</label>
+                    <input readonly type="number" name="E_ID" id="E_ID2" value="<?php echo $E_ID ?>"><br>
+                    <label>First Name:</label>
+                    <input readonly type="text" name="fname" id="fname2" value="<?php echo $fname ?>"><br>
+                    <label>Last Name:</label>
+                    <input readonly type="text" name="lname" id="lname2" value="<?php echo $lname ?>"><br>
+                    <label>Email:</label>
+                    <input readonly type="email" name="email" id="email2" value="<?php echo $email ?>"><br>
+                    <label>Contact:</label>
+                    <input readonly type="number" name="contact" id="contact2" value="<?php echo $contact ?>"><br>
+                    <label>Employee Dept:</label>
+                    <select name="dept_id" id="dept_id" required>
+                        <option selected disabled value="<?php echo $dept_code; ?>"><?php echo $dept_code; ?></option>
+                        <optgroup label="-Select New-"></optgroup>
+                        <option value="1">BSIT</option>
+                        <option value="2">BSOA</option>
+                        <option value="3">BSED</option>
+                        <option value="4">BEED</option>
+                        <option value="5">BSCRIM</option>
+                        <option value="6">BSTM</option>
+                    </select> <br>
+                    <label>Position:</label>
+                    <select name="position_id" id="position_id" required>
+                        <option selected disabled value="<?php echo $position_desc; ?>"><?php echo $position_desc; ?></option>
+                        <optgroup label="-Select New-"></optgroup>
+                        <option value="1">Dept. Head</option>
+                        <option value="2">Teacher</option>
+                        <option value="3">Office Staff</option>
+                        <option value="4">Secretary</option>
+                        <option value="5">Utility</option>
+                    </select><br>
 
-        <br><br>   <hr>   <br><br>      
+                    <button disabled type="submit" name="setDepartment">Save</button>
+                    <button type="submit" name="updateDept" id="updateDept" onclick="undisableTxt2()">Update</button>
+                    <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
+                </form>
 
-<!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
+                <br><br>
+                <hr> <br><br>
 
-    
-        <table>
-            <thead>
-                <tr>
-                    <th>Employee ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Contact</th>
-                    <th>Department</th>
-                    <th>Position</th>
-                </tr>
-            </thead>
+                <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
-            <tbody> 
-                <?php
-                    $pdo = $classPayroll->openConnection();
 
-                    $sql = "SELECT
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Department</th>
+                            <th>Position</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php
+                        $pdo = $classPayroll->openConnection();
+
+                        $sql = "SELECT
                     B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact, C.dept_code, D.position_desc
                     FROM tbl_employee_department_position AS A 
                     LEFT JOIN employee AS B
@@ -317,102 +326,111 @@
                     ON A.position_id = D.position_id
                     WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
 
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute();
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute();
 
-                    if($stmt->rowCount() > 0){
-                        while($row = $stmt->fetch()){
-                ?>
-                <tr>
-                    <td><?php echo $row['employee_id']; ?></td>
-                    <td><?php echo $row['first_name']; ?></td>
-                    <td><?php echo $row['last_name']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['contact']; ?></td>
-                    <td><?php echo $row['dept_code']; ?></td>
-                    <td><?php echo $row['position_desc']; ?></td>
-                </tr>
-                <?php }} ?>
-            </tbody>
-        </table>
+                        if ($stmt->rowCount() > 0) {
+                            while ($row = $stmt->fetch()) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $row['employee_id']; ?></td>
+                                    <td><?php echo $row['first_name']; ?></td>
+                                    <td><?php echo $row['last_name']; ?></td>
+                                    <td><?php echo $row['email']; ?></td>
+                                    <td><?php echo $row['contact']; ?></td>
+                                    <td><?php echo $row['dept_code']; ?></td>
+                                    <td><?php echo $row['position_desc']; ?></td>
+                                </tr>
+                        <?php }
+                        } ?>
+                    </tbody>
+                </table>
 
-    <?php
-            
-        }       
-    }  
+            <?php
 
-    if($activeForm){?>  <!-- this is the 1st interface of set department module -->  
-    
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
-        <div>
-            <form action="UI_setDepartment.php" method="post">      <!-- form search -->
-                <label>Search For Employee E_ID:</label>            
-                <input type="number" name="srch" id="srch" >
-                <button type="submit" name="srch1" id="srch1">-></button>
+            }
+        }
+
+        if ($activeForm) { ?>
+            <!-- this is the 1st interface of set department module -->
+
+            <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
+            <div>
+                <form action="UI_setDepartment.php" method="post">
+                    <!-- form search -->
+                    <label>Search For Employee ID:
+                        <input type="number" name="srch" id="srch" placeholder="Search..">
+                    </label>
+                    <button type="submit" name="srch1" id="srch1">-></button>
+                </form>
+            </div>
+
+            <form action="" method="">
+                <!-- form no action and button enable -->
+                <label>E_ID:
+                    <input type="number" name="E_ID" id="E_ID">
+                </label>
+                <label>First Name:
+                    <input type="text" name="fname" id="fname">
+                </label>
+                <label>Last Name:
+                    <input type="text" name="lname" id="lname">
+                </label>
+                <label>Email:
+                    <input type="email" name="email" id="email">
+                </label>
+                <label>Contact:
+                    <input type="number" name="contact" id="contact">
+                </label>
+                <label>Employee Dept:
+                    <select name="dept" id="dept" required>
+                        <option selected disabled value="">- Select -</option>
+                        <option value="1">BSIT</option>
+                        <option value="2">BSOA</option>
+                        <option value="3">BSED</option>
+                        <option value="4">BEED</option>
+                        <option value="5">BSCRIM</option>
+                        <option value="6">BSTM</option>
+                    </select>
+                </label>
+                <label>Position:
+                    <select name="position" id="position" required>
+                        <option selected disabled value="">- Select -</option>
+                        <option value="1">Dept. Head</option>
+                        <option value="2">Teacher</option>
+                        <option value="3">Office Staff</option>
+                        <option value="4">Secretary</option>
+                        <option value="5">Utility</option>
+                    </select>
+                </label>
+                <!-- BUTTONS -->
+                <button disabled type="submit" name="setDepartment">Save</button>
+                <button disabled="disabled">Update</button>
+
+
             </form>
-        </div>
 
-        <form action="" method="">          <!-- form no action and button enable -->
-            <label>E_ID:</label>
-            <input type="number" name="E_ID" id="E_ID" ><br>
-            <label>First Name:</label>
-            <input type="text" name="fname" id="fname" ><br>
-            <label>Last Name:</label>
-            <input type="text" name="lname" id="lname" ><br>
-            <label>Email:</label>
-            <input type="email" name="email" id="email" ><br>
-            <label>Contact:</label>
-            <input type="number" name="contact" id="contact" ><br>
-            <label>Employee Dept:</label>
-            <select name="dept" id="dept" required>
-                <option selected disabled value="">- Select -</option>
-                <option value="1">BSIT</option>
-                <option value="2">BSOA</option>
-                <option value="3">BSED</option>
-                <option value="4">BEED</option>
-                <option value="5">BSCRIM</option>
-                <option value="6">BSTM</option>
-            </select> <br>
-            <label>Position:</label>
-            <select name="position" id="position" required>
-                <option selected disabled value="">- Select -</option>
-                <option value="1">Dept. Head</option>
-                <option value="2">Teacher</option>
-                <option value="3">Office Staff</option>
-                <option value="4">Secretary</option>
-                <option value="5">Utility</option>
-            </select><br>
+            <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
-        <div>
-            <button disabled type="submit" name="setDepartment">Save</button>
-            <button disabled="disabled">Update</button>
-        </div>
+            <div class="output">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Department</th>
+                            <th>Position</th>
+                        </tr>
+                    </thead>
 
-    </form>
+                    <tbody>
+                        <?php
+                        $pdo = $classPayroll->openConnection();
 
-        <br><br>   <hr>   <br><br>      
-
-<!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
-
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Employee ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Contact</th>
-                    <th>Department</th>
-                    <th>Position</th>
-                </tr>
-            </thead>
-
-            <tbody> 
-                <?php
-                    $pdo = $classPayroll->openConnection();
-
-                    $sql = "SELECT
+                        $sql = "SELECT
                     B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact, C.dept_code, D.position_desc
                     FROM tbl_employee_department_position AS A 
                     LEFT JOIN employee AS B
@@ -423,31 +441,32 @@
                     ON A.position_id = D.position_id
                     WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
 
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute();
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute();
 
-                    if($stmt->rowCount() > 0){
-                        while($row = $stmt->fetch()){
-                ?>
-                <tr>
-                    <td><?php echo $row['employee_id']; ?></td>
-                    <td><?php echo $row['first_name']; ?></td>
-                    <td><?php echo $row['last_name']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['contact']; ?></td>
-                    <td><?php echo $row['dept_code']; ?></td>
-                    <td><?php echo $row['position_desc']; ?></td>
-                </tr>
-                <?php }} ?>
-            </tbody>
-        </table>
-    </div>   
-<?php } ?> 
+                        if ($stmt->rowCount() > 0) {
+                            while ($row = $stmt->fetch()) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $row['employee_id']; ?></td>
+                                    <td><?php echo $row['first_name']; ?></td>
+                                    <td><?php echo $row['last_name']; ?></td>
+                                    <td><?php echo $row['email']; ?></td>
+                                    <td><?php echo $row['contact']; ?></td>
+                                    <td><?php echo $row['dept_code']; ?></td>
+                                    <td><?php echo $row['position_desc']; ?></td>
+                                </tr>
+                        <?php }
+                        } ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php } ?>
+    </div>
 </body>
 
 <!-- ------------------------ JAVA SCRIPT ----------------------- -->
 <script>
-
     function undisableTxt() {
         document.getElementById("E_ID1").disabled = false;
         document.getElementById("fname1").disabled = false;
@@ -459,7 +478,6 @@
     function undisableTxt2() {
         document.getElementById("E_ID2").disabled = false;
     }
-
 </script>
 
 

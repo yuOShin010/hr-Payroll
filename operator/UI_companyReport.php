@@ -1,11 +1,12 @@
 <?php
-    session_start();
-    require_once('../php/classes/payrollClass.php');
-    $pdo = $classPayroll->openConnection();
+session_start();
+require_once('../php/classes/payrollClass.php');
+$pdo = $classPayroll->openConnection();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,54 +19,52 @@
 
 
     <script>
-
         function show() {
             document.getElementById('navigation').classList.toggle('active');
-        }   
-
-</script>
+        }
+    </script>
 
 </head>
+
 <body>
     <!-- DASHBOARD -->
-    <div id="navigation"> 
-            
-            <div class="toggle-btn" onclick="show()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="side-bar">
-                    <h3>SymTech</h3>
-                </div>
-            <ul>
-            
-                <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
-                <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
-                <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
-                <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
-                <li> <a href="../operator/UI_employeeSalary.php">Employee Salary Report</a></li>
-                <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
-                <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
-            </ul>
-           
+    <div id="navigation">
+
+        <div class="toggle-btn" onclick="show()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <?php 
+        <div class="side-bar">
+            <h3>SymTech</h3>
+        </div>
+        <ul>
+            <li> <a href="../operator/UI_addEmployee.php">Employee Management</a></li>
+            <li> <a href="../operator/UI_setDepartment.php">Department Management</a></li>
+            <li> <a href="../operator/UI_schedule.php">Scheduling Management</a></li>
+            <li> <a href="../operator/UI_payroll.php">Payroll Management</a></li>
+            <li> <a href="../operator/UI_employeeSalary.php">Employee Salary Report</a></li>
+            <li> <a href="../operator/UI_payslipReport.php">Payslip Report/Print</a></li>
+            <li> <a href="../operator/UI_companyReport.php">Company Report</a></li>
+        </ul>
 
-            if(isset($_SESSION['User']))
-            {
-                echo '<h1>'.'Welcome to Company Report'.'</h1>';
-                echo '<a href="logout_OP.php?logout">Logout</a>';
-            }
-            else
-            {
-                header("location:../index_OP.php");
-            }
+    </div>
+    <header class="tophead">
+        <!-- <p>top head</p> -->
+    </header>
+    <?php
 
-        ?>
-        </header>
+    if (isset($_SESSION['User'])) {
+        echo '<h1>' . 'Welcome to Company Report' . '</h1>';
+        echo '<a href="logout_OP.php?logout">Logout</a>';
+    } else {
+        header("location:../index_OP.php");
+    }
 
-        <!-- END DASHBOARD -->
+    ?>
+
+    <!-- END DASHBOARD -->
 
 </body>
+
 </html>
