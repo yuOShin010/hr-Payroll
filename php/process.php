@@ -62,10 +62,45 @@
                                 // for scheduling management module process --
 
 
+            if(isset($_POST['submit'])){
+                try {
+
+                    $id = $_POST['id'];
+                    $fname = $_POST['fname'];
+                    $lname = $_POST['lname'];
+                    $email = $_POST['email'];
+                    $contact = $_POST['contact'];
+                    $deptID = $_POST['deptID'];
+                    $position = $_POST['positionID'];
+                    $weekly = $_POST['weekly'];
+                    $monthly = $_POST['monthly'];
+                    $sun = $_POST['sun'];
+                    $mon = $_POST['mon'];
+                    $tue = $_POST['tue'];
+                    $wed = $_POST['wed'];
+                    $thu = $_POST['thu'];
+                    $fri = $_POST['fri'];
+                    $sat = $_POST['sat'];
+                    $t_i1 = $_POST['t_i1'];
+                    $t_i2 = $_POST['t_i2'];
+                    $t_i3 = $_POST['t_i3'];
+                    $t_i4 = $_POST['t_i4'];
+                    $t_i5 = $_POST['t_i5'];
+                    $t_i6 = $_POST['t_i6'];
+                    $t_i7 = $_POST['t_i7'];
+                    $t_o1 = $_POST['t_o1'];
+                    $t_o2 = $_POST['t_o2'];
+                    $t_o3 = $_POST['t_o3'];
+                    $t_o4 = $_POST['t_o4'];
+                    $t_o5 = $_POST['t_o5'];
+                    $t_o6 = $_POST['t_o6'];
+                    $t_o7 = $_POST['t_o7'];
 
 
-
-
+                } catch (PDOException $e) {
+                    die($e->getMessage());
+                }
+            }
 
 
 

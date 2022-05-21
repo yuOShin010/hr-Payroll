@@ -134,13 +134,13 @@
                 
                 else
                 {
-                    $sql = ("SELECT * FROM operator WHERE op_email = ? AND op_password = ?");
+                    $sql = ("SELECT * FROM operator WHERE email_op = ? AND password_op = ?");
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([$username,$password]);
         
                     if($row = $stmt->fetch())
                     {
-                        $_SESSION['User'] = $row['op_fname'];
+                        $_SESSION['User'] = $row['fname_op'];
                         header("location:operator/welcome_OP.php");
                     }
                     else
@@ -152,6 +152,55 @@
 
         } 
 
+// ---------------------------------------------------- LOGIN USERS ---------------------------------------------------- // 
+
+        public function loginUsers()
+        {
+            $pdo = $this->openConnection();
+            session_start();
+
+            if(isset($_POST['login']))
+            {
+                $username = $_POST["username"];
+                $password = $_POST["password"];
+                
+                if(empty($username) || empty($password))
+                {
+                    header("location:index_OP.php?Empty= Please Fill in the Blanks");
+                }
+                
+                else
+                {
+                    $sql = "SELECT * FROM users WHERE email_addr = ? AND `password` = ? ";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([$username,$password]);
+        
+                    if($stmt->rowCount() > 0){
+                        while($row = $stmt->fetch()){
+
+                            $_SESSION['User'] = $row['first_name'];
+
+                            if($row['user_type'] == '1'){
+                                header("location: admin/UI_dashboard_ad.php");
+                                
+                            }elseif($row['user_type'] == '2'){
+                                header("location: operator/welcome_op.php");
+                               
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        header("location:index_OP.php?Invalid= Please Enter Correct User Name and Password ");
+                    }
+               }
+            }
+
+            
+
+        }
+
 
 // ---------------------------------------------------- CHECK EMAIL IF EXIST ---------------------------------------------------- //
 
@@ -159,7 +208,7 @@
         {
 
             $pdo = $this->openConnection();
-            $sql = ("SELECT * FROM operator WHERE op_email = ? ");
+            $sql = ("SELECT * FROM users WHERE email_addr = ? ");
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$email]);
             $total = $stmt->rowCount();
@@ -185,12 +234,30 @@
                 $gender = $_POST["gender"];
                 $stats = $_POST["stats"];
                 $date = $_POST["date"];
-        
+                $password = "#".substr($lname,0,2)."8080";
+                $user_type = '3';
+
+            
+                // code here kapag may parehas di tutuloy
+                if($this->check_email_exist($email) == 0){
+
                 $sql = "INSERT INTO employee (employee_id, first_name, middle_in, last_name, age, email, contact, gender, stats, date_hired) VALUES (?,?,?,?,?,?,?,?,?,?);";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$E_ID, $fname, $mi, $lname, $age, $email, $contact, $gender, $stats, $date]);
 
-                
+                $sql = "INSERT INTO users ( first_name, middle_name, surname, email_addr, password,  user_type) VALUES (?,?,?,?,?,?);";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$fname, $mi, $lname, $email, $password, $user_type ]);
+
+                    echo ("<script LANGUAGE='JavaScript'> window.alert('Succesful Register');
+                    window.location.href='../admin/UI_dashboard_ad.php'; </script>");
+
+                } else {
+                    header("location: ../operator/ui_addemployee.php");
+                    echo "Email Exist";
+
+                }
+
             }
         
         }

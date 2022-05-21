@@ -3,7 +3,7 @@
     if(isset($_GET['logout']))
     {
         session_destroy();
-        header("location:../index_AD.php");
+        header("location:../index_op.php");
     }
 
 ?>

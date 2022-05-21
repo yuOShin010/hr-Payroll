@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once('../php/classes/payrollClass.php');
+    require_once('php/classes/payrollClass.php');
     $pdo = $classPayroll->openConnection();
 ?>
 

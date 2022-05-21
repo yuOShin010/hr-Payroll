@@ -1,6 +1,6 @@
 <?php
 require_once('php/classes/payrollClass.php');
-$classPayroll->loginOperator();
+$classPayroll->loginUsers();
 ?>
 
 <!DOCTYPE html>
@@ -66,13 +66,13 @@ $classPayroll->loginOperator();
                 </div>
 
                 <div class="cont-form">
-                    <input class="box-size" type="text" name="op_username" id="op_username" placeholder="Username">
-                    <input class="box-size" type="password" name="op_password" id="op_password" placeholder="Password">
+                    <input class="box-size" type="text" name="username" id="op_username" placeholder="Username">
+                    <input class="box-size" type="password" name="password" id="op_password" placeholder="Password">
                     <label>
                         <input class="check-box" type="checkbox" onclick="myFunction()"> <!--  this checkbox is for show password -->
                         Show Password
                     </label>
-                    <button class="login-btn" type="submit" name="op_login" id="login-button"> Login </button>
+                    <button class="login-btn" type="submit" name="login" id="login-button"> Login </button>
 
                 </div>
             </form>
