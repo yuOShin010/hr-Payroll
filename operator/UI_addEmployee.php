@@ -13,7 +13,8 @@ $pdo = $classPayroll->openConnection();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/add_emplo.css">
+    <link rel="stylesheet" href="../css/proper-placement.css">
+    <link rel="stylesheet" href="../css/default.css">
     <!-- <link rel="stylesheet" href="../css/UI_setDepartment.css"> -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Employee Management</title>
@@ -73,17 +74,20 @@ $pdo = $classPayroll->openConnection();
             </li>
             <li>
                 <a href="../operator/UI_employeeSalary.php">
+                    <i class='bx bx-task'></i>
                     <p>Employee Salary Report</p>
                 </a>
             </li>
             <li>
                 <a href="../operator/UI_payslipReport.php">
+                    <i class='bx bxs-report'></i>
                     <p>Payslip Report/Print</p>
                 </a>
             </li>
             <li>
                 <a href="../operator/UI_companyReport.php">
-                    Company Report
+                    <i class='bx bx-line-chart-down'></i>
+                    <p>Company Report</p>
                 </a>
             </li>
         </ul>
@@ -96,7 +100,7 @@ $pdo = $classPayroll->openConnection();
     </header>
     <!-- <div class="banner">
     </div> -->
-    <div class="container">
+    <div class="container container-style">
 
         <?php
         $activeForm = true;
@@ -129,39 +133,43 @@ $pdo = $classPayroll->openConnection();
 
 
             <form action="UI_addEmployee.php" method="post">
-                <input placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                <button type="submit" name="search_e" id="search_e">-></button>
+                <div class="search-bg">
+                    <div class="search">
+                        <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-search size'></i></button>
+                    </div>
+                </div>
                 <form action="../php/process.php" method="post">
                     <label>
-                        <input type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID; ?>">
+                        <input class="input-style" type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID; ?>">
                         E_ID:
                     </label>
                     <label>
-                        <input type="text" name="fname" id="fname" value="<?php echo $fname; ?>">
+                        <input class="input-style" type="text" name="fname" id="fname" value="<?php echo $fname; ?>">
                         First Name:
                     </label>
                     <label>
-                        <input type="text" name="mi" id="mi" value="<?php echo $mi; ?>">
+                        <input class="input-style" type="text" name="mi" id="mi" value="<?php echo $mi; ?>">
                         M.I:
                     </label>
                     <label>
-                        <input type="text" name="lname" id="lname" value="<?php echo $lname; ?>">
+                        <input class="input-style" type="text" name="lname" id="lname" value="<?php echo $lname; ?>">
                         Last Name:
                     </label>
                     <label>
-                        <input type="number" name="age" id="age" value="<?php echo $age; ?>">
+                        <input class="input-style" type="number" name="age" id="age" value="<?php echo $age; ?>">
                         Age:
                     </label>
                     <label>
-                        <input type="email" name="email" id="email" value="<?php echo $email; ?>">
+                        <input class="input-style" type="email" name="email" id="email" value="<?php echo $email; ?>">
                         Email:
                     </label>
                     <label>
-                        <input type="number" name="contact" id="contact" value="<?php echo $contact; ?>">
+                        <input class="input-style" type="number" name="contact" id="contact" value="<?php echo $contact; ?>">
                         Contact:
                     </label>
                     <label>
-                        <input type="date" name="date" id="date" value="<?php echo $date; ?>">
+                        <input class="input-style" type="date" name="date" id="date" value="<?php echo $date; ?>">
                         Date Hired:
                     </label>
                     <label>
@@ -251,44 +259,45 @@ $pdo = $classPayroll->openConnection();
 
             <form action="UI_addEmployee.php" method="post">
                 <!-- form search-->
-                <div class="search-engine">
-                    <input placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-
-                    <button type="submit" name="search_e" id="search_e">-></button>
+                <div class="search-bg">
+                    <div class="search">
+                        <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-search size'></i></button>
+                    </div>
                 </div>
             </form>
             <form action="../php/process.php" method="post">
                 <!-- form -->
                 <label>
-                    <input type="number" name="E_ID" id="E_ID" required>
+                    <input class="input-style" type="number" name="E_ID" id="E_ID" required>
                     E_ID:
                 </label>
                 <label>
-                    <input type="text" name="fname" id="fname" required>
+                    <input class="input-style" type="text" name="fname" id="fname" required>
                     First Name:
                 </label>
                 <label>
-                    <input type="text" name="mi" id="mi" required>
+                    <input class="input-style" type="text" name="mi" id="mi" required>
                     M.I:
                 </label>
                 <label>
-                    <input type="text" name="lname" id="lname" required>
+                    <input class="input-style" type="text" name="lname" id="lname" required>
                     Last Name:
                 </label>
                 <label>
-                    <input type="number" name="age" id="age" required>
+                    <input class="input-style" type="number" name="age" id="age" required>
                     Age:
                 </label>
                 <label>
-                    <input type="email" name="email" id="email" required>
+                    <input class="input-style" type="email" name="email" id="email" required>
                     Email:
                 </label>
                 <label>
-                    <input type="number" name="contact" id="contact" required>
+                    <input class="input-style" type="number" name="contact" id="contact" required>
                     Contact:
                 </label>
                 <label>
-                    <input type="date" name="date" id="date" required>
+                    <input class="input-style" type="date" name="date" id="date" required>
                     Date Hired:
                 </label>
                 </label>
