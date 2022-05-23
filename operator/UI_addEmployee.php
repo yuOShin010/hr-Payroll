@@ -249,11 +249,11 @@ $pdo = $classPayroll->openConnection();
 
         <?php
         }
+            // <!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
 
         if ($activeForm) {
 
         ?>
-            <!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 
 
@@ -302,14 +302,14 @@ $pdo = $classPayroll->openConnection();
                 </label>
                 </label>
                 <select name="gender" id="gender" required>
-                    <option selected disabled value="">- Gender -</option>
+                    <option selected hidden value="">- Gender -</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
                 <label>Gender:
                     <label>Employee Stats:
                         <select name="stats" id="stats" required>
-                            <option selected disabled value="">Select</option>
+                            <option selected hidden value="">Select</option>
                             <option value="Regular">Regular</option>
                             <option value="Contructual">Contructual</option>
                         </select>
