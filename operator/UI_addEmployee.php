@@ -136,7 +136,7 @@ $pdo = $classPayroll->openConnection();
                 <div class="search-bg">
                     <div class="search">
                         <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-search size'></i></button>
+                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-margin bx-search size'></i></button>
                     </div>
                 </div>
                 <form action="../php/process.php" method="post">

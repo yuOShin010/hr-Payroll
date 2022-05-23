@@ -71,6 +71,7 @@ ul {
     left: -300px;
 }
 
+
 /* #navigation ul li {
     display: flex;
     flex-direction: row;
@@ -84,7 +85,6 @@ ul {
 }
 
 #navigation ul li a {
-    
     text-decoration: none;
     color: aliceblue;
     font-size: 23px;
@@ -120,6 +120,7 @@ hr {
     cursor: pointer;
 }
 
+
 /* .side-bar {
     margin: 10px;
     color: aliceblue;
@@ -145,7 +146,6 @@ hr {
         background-color: rgb(132, 126, 132);
     }
     #navigation ul li a {
-        display: flex;
         text-decoration: none;
         font-size: 17px;
         list-style-type: none;

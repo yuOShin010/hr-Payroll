@@ -10,13 +10,14 @@ body {
     top: 79px;
     width: 80%;
     height: 82vh;
+    background: white;
 }
 
 
 /* table properties */
 
 .output {
-    margin: 212px 0;
+    margin: 51px 0;
     overflow: scroll;
     overflow-x: hidden;
     height: 339px;

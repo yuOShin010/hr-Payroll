@@ -5,7 +5,7 @@
 
 .input-style {
     border: none;
-    border-bottom: 1px solid rgb(55, 55, 55);
+    border-bottom: 1px solid rgb(209 209 209);
     outline: none;
     border-radius: 7px;
     height: 41px;
@@ -56,4 +56,13 @@
 .size{ /*this is the size of search icon*/
     height: 20px;
     width: 20px;
+}
+
+.bx {
+    float: left;
+    height: 20px;
+}
+
+.bx-margin {
+    margin: 23px 23px;
 }
