@@ -87,17 +87,18 @@
             $pdo = $this->openConnection();
             if(isset($_POST['add_op']))
             {
-                $email = $_POST["op_email"];
-                $pass = md5($_POST["op_pass"]);
                 $fname = $_POST["op_fn"];
                 $mname = $_POST["op_mn"];
                 $lname = $_POST["op_ln"];
+                $email = $_POST["op_email"];
+                $pass = md5($_POST["op_pass"]);
+                $user_type = "2" ; 
 
                 if($this->check_email_exist($email) == 0){
                     
-                    $sql = " INSERT INTO operator (`op_email`, `op_password`, `op_fname`, `op_mname`, `op_lname`) VALUES (?,?,?,?,?);";
+                    $sql = " INSERT INTO users (`first_name`, `middle_name`, `surname`, `email_addr`, `password`, `user_type`) VALUES (?,?,?,?,?,?);";
                     $stmt = $pdo->prepare($sql);
-                    $stmt->execute([$email, $pass, $fname, $mname, $lname]);
+                    $stmt->execute([$fname, $mname, $lname, $email, $pass, $user_type]);
 
                     echo ("<script LANGUAGE='JavaScript'> window.alert('Succesful Register');
                     window.location.href='../admin/UI_dashboard_ad.php'; </script>");

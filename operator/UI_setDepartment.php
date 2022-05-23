@@ -90,8 +90,7 @@ $pdo = $classPayroll->openConnection();
 </div>
 <header class="tophead">
     <!-- <p>top head</p> -->
-</header>
-<?php
+    <?php
 
     if (isset($_SESSION['User'])) {
         echo '<h1>' . ' Welcome ' . $_SESSION['User'] . '</h1>';
@@ -104,11 +103,14 @@ $pdo = $classPayroll->openConnection();
 
 </header>
 
+
+</header>
+
 <!-- END DASHBOARD -->
 
 <body>
     <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
-    <!-- ../php/CP_setDept.php -->\
+    <!-- ../php/CP_setDept.php -->
     <div class="container">
         <?php
 
@@ -421,8 +423,8 @@ $pdo = $classPayroll->openConnection();
 
             <form action="" method="">
                 <!-- form no action and button enable -->
-                <label>E_ID:
-                    <input class="input-style" type="number" name="E_ID" id="E_ID">
+                <!-- <label>E_ID:
+                    <input class="input-style" type="number" name="E_ID" id="E_ID"> -->
                 </label>
                 <label>First Name:
                     <input class="input-style" type="text" name="fname" id="fname">

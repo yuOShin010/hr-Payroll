@@ -11,9 +11,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- <link rel="stylesheet" href="../css/UI-add.css"> -->
-        <link rel="stylesheet" href="../css/dashboard.css">
+        <!-- <link rel="stylesheet" href="../css/dashboard.css">
         <link rel="stylesheet" href="../css/proper-placement.css">
-        <link rel="stylesheet" href="../css/default.css">
+        <link rel="stylesheet" href="../css/default.css"> -->
         <title>Schedule | Symtech</title>
     </head>
 
@@ -88,6 +88,16 @@
 
     <header class="tophead">
         <!-- DITO MO LAGAY YUNG LOG OUT MO -->
+        <?php
+
+            if (isset($_SESSION['User'])) {
+                echo '<h1>' . ' Welcome ' . $_SESSION['User'] . '</h1>';
+                echo '<a href="logout_OP.php?logout">Logout</a>';
+            } else {
+                header("location:../index_OP.php");
+            }
+
+        ?>
     </header>
 <!--_________________________________END OF TOPBAR___________________________________________-->
 
@@ -107,7 +117,7 @@
     <?php
     $activeform = true;
 
-    if(isset($_POST['search'])){     // This is the form that Active Save Button to save Set Schedule --
+    if(isset($_POST['search'])){     // This is the form active = false--
         $activeform = false;
         $setSchedule = true;
         $search_EID = $_POST['search_E_ID'];
@@ -132,7 +142,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$search_EID]);
 
-        echo "Success Search";
+        // echo "Success Search";
 
         if($stmt->rowCount() > 0){
             while($row = $stmt->fetch()){
