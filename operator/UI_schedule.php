@@ -10,10 +10,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <link rel="stylesheet" href="../css/UI-add.css"> -->
-        <!-- <link rel="stylesheet" href="../css/dashboard.css">
+        <link rel="stylesheet" href="../css/dashboard.css">
         <link rel="stylesheet" href="../css/proper-placement.css">
-        <link rel="stylesheet" href="../css/default.css"> -->
+        <link rel="stylesheet" href="../css/default.css">
         <title>Schedule | Symtech</title>
     </head>
 
@@ -26,7 +25,7 @@
 </head>
 
 <body>
-    <!-- DASHBOARD -->
+    <!-- DASHBOARD-->
 
     <div id="navigation">
         <div class="toggle-btn" onclick="show()">
@@ -114,7 +113,9 @@
     </header> -->
 
 <!--_________________________________END OF DASHBOARD__________________________________________-->
-    <?php
+   
+<div class="container">
+ <?php
     $activeform = true;
 
     if(isset($_POST['search'])){     // This is the form active = false--
@@ -216,24 +217,25 @@
 
     
         ?>
-        <div class="container">
+        
             <form action="../operator/UI_schedule.php" method="post">
-                <div class="search-engine">
-                    <label>Search For Employee ID </label>
-                    <input type="number" name="search_E_ID" id="search_E_ID" >
-                    <button type="submit" name="search" id="search">-></button>
+                <div class="search-bg">
+                        <div class="search">
+                            <input input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID" >
+                            <button type="submit" name="search" id="search"><i class='bx bx-search size'></i></button>
+                        </div>
                 </div>
             </form>
 
             <form action="../php/process.php" method="post">   <!-- Throw in process.php -->
                 <div class="container-content">
-                    <label>E_ID:</label>
+                    <label>E_ID:
                     <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
-                    <label>First Name:</label>
+                    </label><label>First Name:
                     <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
-                    <label>Last Name:</label>
+                    </label><label>Last Name:
                     <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
-                    <label>Email:</label>
+                    </label><label>Email:</label>
                     <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
                     <label>Contact:</label>
                     <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>

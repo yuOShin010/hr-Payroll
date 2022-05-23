@@ -11,6 +11,8 @@ body {
     width: 80%;
     height: 82vh;
     background: white;
+    overflow-y: scroll;
+    height: 728px;
 }
 
 
@@ -25,14 +27,125 @@ body {
     background: black;
 }
 
-.output::-webkit-scrollbar {
+.output::-webkit-scrollbar,
+.container::-webkit-scrollbar {
     width: 10px;
 }
 
-.output::-webkit-scrollbar-track {
+.output::-webkit-scrollbar-track,
+.container::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
 
-.output::-webkit-scrollbar-thumb {
+.output::-webkit-scrollbar-thumb,
+.container::-webkit-scrollbar-thumb {
     background: #888;
+}
+
+label {
+    margin-left: 58px;
+}
+
+
+/* input placement */
+
+.side-left {
+    margin: 0 60px;
+}
+
+.side-right {
+    margin: -2px 192px;
+}
+
+.options-right {
+    margin: -5px -10px;
+}
+
+.option-size {
+    height: 42px;
+    border: none;
+    background: #d5dbe1;
+    border-radius: 8px;
+    outline: none;
+}
+
+
+/* --------------------groupbox----------------------- */
+
+.b1 {
+    margin: 20px 56px;
+}
+
+.b-size {
+    height: 41px;
+    width: 117px;
+    border: none;
+    border-bottom: 1px solid rgb(209 209 209);
+    outline: none;
+    border-radius: 7px;
+    padding: 19px;
+}
+
+.b2 {
+    margin: 0 -20px;
+}
+
+.b3 {
+    margin: 0 58px;
+}
+
+.b4 {
+    margin: 0 -28px;
+}
+
+.b5 {
+    margin: 0 60px;
+}
+
+.b6 {
+    margin: 0 56px;
+}
+
+.b7 {
+    margin: 0 -25px;
+}
+
+.b8 {
+    margin: 0 51px;
+}
+
+.b9 {
+    margin: 0 -26px;
+}
+
+.b10 {
+    margin: 0 37px;
+}
+
+.b11 {
+    margin: 22px 54px;
+}
+
+.b11-size {
+    height: 41px;
+    width: 237px;
+    border: none;
+    border-bottom: 1px solid rgb(209 209 209);
+    outline: none;
+    border-radius: 7px;
+    padding: 19px;
+}
+
+.b12 {
+    margin: 0 -17px;
+}
+
+.b12-size {
+    height: 41px;
+    width: 117px;
+    border: none;
+    border-bottom: 1px solid rgb(209 209 209);
+    outline: none;
+    border-radius: 7px;
+    padding: 19px;
 }
