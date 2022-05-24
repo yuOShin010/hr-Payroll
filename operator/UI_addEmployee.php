@@ -169,23 +169,23 @@ $pdo = $classPayroll->openConnection();
                         Contact:
                     </label>
                     <label>
-                        <input class="input-style" type="date" name="date" id="date" value="<?php echo $date; ?>">
-                        Date Hired:
-                    </label>
-                    <label>
                         <select name="gender" id="gender" value="<?php echo $gender; ?>">
                             Gender:
-                            <option selected readonly value="<?php echo $gender; ?>">Current: <?php echo $gender; ?></option>
+                            <option selected hidden value="<?php echo $gender; ?>">Current: <?php echo $gender; ?></option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
                     </label>
                     <label>Employee Stats:
                         <select name="stats" id="stats">
-                            <option selected readonly value="<?php echo $stats; ?>">Current: <?php echo $stats; ?></option>
+                            <option selected hidden value="<?php echo $stats; ?>">Current: <?php echo $stats; ?></option>
                             <option value="Regular">Regular</option>
                             <option value="Contructual">Contructual</option>
                         </select>
+                    </label>
+                    <label>
+                        <input class="input-style" type="date" name="date" id="date" value="<?php echo $date; ?>">
+                        Date Hired:
                     </label>
                     <button disabled class="save" type="submit" name="addEmployee">Save</button>
                     <button type="submit" name="editEmployee">Update</button>
