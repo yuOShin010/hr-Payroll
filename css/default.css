@@ -92,3 +92,23 @@ input[type=number]::-webkit-outer-spin-button {
     background: #00f500b8;
     border: none;
 }
+
+.update {
+    background: none;
+    transition: all 0.2s ease;
+}
+
+.update:hover {
+    background: #007de4d5;
+    border: none;
+}
+
+.delete {
+    background: none;
+    transition: all 0.2s ease;
+}
+
+.delete:hover {
+    background: #df0707d5;
+    border: none;
+}

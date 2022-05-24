@@ -136,53 +136,68 @@ $pdo = $classPayroll->openConnection();
                 <div class="search-bg">
                     <div class="search">
                         <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-margin bx-search size'></i></button>
+                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-margin bx-search bx-margin'></i></button>
                     </div>
                 </div>
                 <form action="../php/process.php" method="post">
                     <label>
                         <input class="input-style" type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID; ?>">
-                        E_ID:
+                        <p>Employee ID</p>
                     </label>
                     <label>
                         <input class="input-style" type="text" name="fname" id="fname" value="<?php echo $fname; ?>">
-                        First Name:
+                        <p>First Name</p>
                     </label>
                     <label>
                         <input class="input-style" type="text" name="mi" id="mi" value="<?php echo $mi; ?>">
-                        M.I:
+                       <p>Middle Name</p>
                     </label>
                     <label>
                         <input class="input-style" type="text" name="lname" id="lname" value="<?php echo $lname; ?>">
-                        Last Name:
+                        <p>Last Name</p>
                     </label>
                     <label>
                         <input class="input-style" type="number" name="age" id="age" value="<?php echo $age; ?>">
-                        Age:
+                        <p>Age</p>
                     </label>
                     <label>
                         <input class="input-style" type="email" name="email" id="email" value="<?php echo $email; ?>">
-                        Email:
+                        <p>Email</p>
                     </label>
                     <label>
                         <input class="input-style" type="number" name="contact" id="contact" value="<?php echo $contact; ?>">
-                        Contact:
+                        <p>Contact</p>
                     </label>
                     <label>
+<<<<<<< HEAD
                         <select name="gender" id="gender" value="<?php echo $gender; ?>">
+=======
+                        <input class="input-style" type="date" name="date" id="date" value="<?php echo $date; ?>">
+                        <p>Date Hired</p>
+                    </label><br>
+                    <label class="side-left">
+                        <select class="option-size" name="gender" id="gender" value="<?php echo $gender; ?>">
+>>>>>>> a915234ce63f0625385f5fd2cb1f961c21b283db
                             Gender:
                             <option selected hidden value="<?php echo $gender; ?>">Current: <?php echo $gender; ?></option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
                     </label>
+<<<<<<< HEAD
                     <label>Employee Stats:
                         <select name="stats" id="stats">
                             <option selected hidden value="<?php echo $stats; ?>">Current: <?php echo $stats; ?></option>
+=======
+                    <label class="options-right">Employee Stats:
+                        <select class="option-size" name="stats" id="stats">
+                            <option selected readonly value="<?php echo $stats; ?>">Current: <?php echo $stats; ?></option>
+>>>>>>> a915234ce63f0625385f5fd2cb1f961c21b283db
                             <option value="Regular">Regular</option>
                             <option value="Contructual">Contructual</option>
                         </select>
                     </label>
+<<<<<<< HEAD
                     <label>
                         <input class="input-style" type="date" name="date" id="date" value="<?php echo $date; ?>">
                         Date Hired:
@@ -190,6 +205,11 @@ $pdo = $classPayroll->openConnection();
                     <button disabled class="save" type="submit" name="addEmployee">Save</button>
                     <button type="submit" name="editEmployee">Update</button>
                     <button type="submit" name="deleteEmployee">Delete</button>
+=======
+                    <button class="button" disabled type="submit" name="addEmployee">Save</button>
+                    <button class="button update" type="submit" name="editEmployee">Update</button>
+                    <button class="button delete" type="submit" name="deleteEmployee">Delete</button>
+>>>>>>> a915234ce63f0625385f5fd2cb1f961c21b283db
 
 
 
@@ -262,7 +282,7 @@ $pdo = $classPayroll->openConnection();
                 <div class="search-bg">
                     <div class="search">
                         <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-search size'></i></button>
+                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
                     </div>
                 </div>
             </form>
@@ -270,53 +290,53 @@ $pdo = $classPayroll->openConnection();
                 <!-- form -->
                 <label>
                     <input class="input-style" type="number" name="E_ID" id="E_ID" required>
-                    E_ID:
+                    <p>Employee ID</p>
                 </label>
                 <label>
                     <input class="input-style" type="text" name="fname" id="fname" required>
-                    First Name:
+                    <p>First Name</p>
                 </label>
                 <label>
                     <input class="input-style" type="text" name="mi" id="mi" required>
-                    M.I:
+                    <p>Middle Name</p>
                 </label>
                 <label>
                     <input class="input-style" type="text" name="lname" id="lname" required>
-                    Last Name:
+                    <p>Last Name</p>
                 </label>
                 <label>
                     <input class="input-style" type="number" name="age" id="age" required>
-                    Age:
+                    <p>Age</p>
                 </label>
                 <label>
                     <input class="input-style" type="email" name="email" id="email" required>
-                    Email:
+                    <p>Email</p>
                 </label>
                 <label>
                     <input class="input-style" type="number" name="contact" id="contact" required>
-                    Contact:
+                    <p>Contact</p>
                 </label>
                 <label>
                     <input class="input-style" type="date" name="date" id="date" required>
-                    Date Hired:
+                    <p>Data Hired</p>
+                </label><br>
+                <label class="side-left">Gender:
+                    <select class="option-size" name="gender" id="gender" required>
+                        <option selected hidden value="">- Gender -</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
                 </label>
-                </label>
-                <select name="gender" id="gender" required>
-                    <option selected hidden value="">- Gender -</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-                <label>Gender:
-                    <label>Employee Stats:
-                        <select name="stats" id="stats" required>
+                    <label class="options-right">Employee Stats:
+                        <select class="option-size" name="stats" id="stats" required>
                             <option selected hidden value="">Select</option>
                             <option value="Regular">Regular</option>
                             <option value="Contructual">Contructual</option>
                         </select>
                     </label>
-                    <button class="save" type="submit" name="addEmployee">Save</button>
-                    <button disabled="disabled">Update</button>
-                    <button disabled="disabled">Delete</button>
+                    <button class="button save" type="submit" name="addEmployee">Save</button>
+                    <button class="button" disabled="disabled">Update</button>
+                    <button class="button" disabled="disabled">Delete</button>
                 </label>
 
             </form>
