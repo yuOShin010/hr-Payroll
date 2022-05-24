@@ -181,7 +181,7 @@ $pdo = $classPayroll->openConnection();
                     <div class="search-bg">
                         <div class="search">
                             <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                            <button type="submit" name="search_e" id="search_e"><i class='bx bx-search size'></i></button>
+                            <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
                         </div>
                     </div>
                 </form>
@@ -189,23 +189,27 @@ $pdo = $classPayroll->openConnection();
                 <form action="../php/process.php" method="post">
                     <!-- form set department -->
                     <label>
-                        E_ID:
-                        <input class="input-style" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
+                        <input class="input-style" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
+                        <p>Employee ID</p>
                     </label>
-                    <label>First Name:
-                        <input class="input-style" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
+                    <label>
+                        <input class="input-style" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
+                        <p>First Name</p>
                     </label>
-                    <label>Last Name:
-                        <input class="input-style" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
+                    <label>
+                        <input class="input-style" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
+                        <p>Last Name</p>
                     </label>
-                    <label>Email:
-                        <input class="input-style" readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
+                    <label>
+                        <input class="input-style" readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
+                        <p>Email Name</p>
                     </label>
-                    <label>Contact:
-                        <input class="input-style" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
-                    </label>
-                    <label>Employee Dept:
-                        <select name="dept_id" id="dept_id" required>
+                    <label>
+                        <input class="input-style" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
+                        <p>Contact</p>
+                    </label><br>
+                    <label class="side-left">Employee Department:
+                        <select class="option-size" name="dept_id" id="dept_id" required>
                             <option selected hidden value="">- Select -</option>
                             <option value="1">BSIT</option>
                             <option value="2">BSOA</option>
@@ -214,20 +218,19 @@ $pdo = $classPayroll->openConnection();
                             <option value="5">BSCRIM</option>
                             <option value="6">BSTM</option>
                         </select>
-
-                    </label>
-                    <label>Position:
-                        <select name="position_id" id="position_id" required>
+                    </label
+                    <label class="options-right">Position:
+                        <select class="option-size" name="position_id" id="position_id" required>
                             <option selected hidden value="">- Select -</option>
                             <option value="1">Dept. Head</option>
                             <option value="2">Teacher</option>
                             <option value="3">Office Staff</option>
                             <option value="4">Secretary</option>
                             <option value="5">Utility</option>
-                        </select><br>
+                        </select>
                     </label>
-                    <button type="submit" name="setDepartment" onclick="undisableTxt()">Save</button>
-                    <button disabled type="submit" name="updateDept" id="updateDept">Update</button>
+                    <button class="button" type="submit" name="setDepartment" onclick="undisableTxt()">Save</button>
+                    <button class="button" disabled type="submit" name="updateDept" id="updateDept">Update</button>
                     <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
                 </form>
 
@@ -235,55 +238,57 @@ $pdo = $classPayroll->openConnection();
                 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Employee ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Contact</th>
-                            <th>Department</th>
-                            <th>Position</th>
-                        </tr>
-                    </thead>
+                <div class="output">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>Department</th>
+                                <th>Position</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <?php
-                        $pdo = $classPayroll->openConnection();
+                        <tbody>
+                            <?php
+                            $pdo = $classPayroll->openConnection();
 
-                        $sql = "SELECT
-                        B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
-                        C.dept_code, 
-                        D.position_desc
-                        FROM tbl_employee_department_position AS A 
-                        LEFT JOIN employee AS B
-                        ON A.employee_id = B.employee_id
-                        LEFT JOIN department AS C
-                        ON A.dept_id = C.dept_id
-                        LEFT JOIN position AS D
-                        ON A.position_id = D.position_id
-                        WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
+                            $sql = "SELECT
+                            B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
+                            C.dept_code, 
+                            D.position_desc
+                            FROM tbl_employee_department_position AS A 
+                            LEFT JOIN employee AS B
+                            ON A.employee_id = B.employee_id
+                            LEFT JOIN department AS C
+                            ON A.dept_id = C.dept_id
+                            LEFT JOIN position AS D
+                            ON A.position_id = D.position_id
+                            WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
 
-                        $stmt = $pdo->prepare($sql);
-                        $stmt->execute();
+                            $stmt = $pdo->prepare($sql);
+                            $stmt->execute();
 
-                        if ($stmt->rowCount() > 0) {
-                            while ($row = $stmt->fetch()) {
-                        ?>
-                                <tr>
-                                    <td><?php echo $row['employee_id']; ?></td>
-                                    <td><?php echo $row['first_name']; ?></td>
-                                    <td><?php echo $row['last_name']; ?></td>
-                                    <td><?php echo $row['email']; ?></td>
-                                    <td><?php echo $row['contact']; ?></td>
-                                    <td><?php echo $row['dept_code']; ?></td>
-                                    <td><?php echo $row['position_desc']; ?></td>
-                                </tr>
-                        <?php }
-                        } ?>
-                    </tbody>
-                </table>
+                            if ($stmt->rowCount() > 0) {
+                                while ($row = $stmt->fetch()) {
+                            ?>
+                                    <tr>
+                                        <td><?php echo $row['employee_id']; ?></td>
+                                        <td><?php echo $row['first_name']; ?></td>
+                                        <td><?php echo $row['last_name']; ?></td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo $row['contact']; ?></td>
+                                        <td><?php echo $row['dept_code']; ?></td>
+                                        <td><?php echo $row['position_desc']; ?></td>
+                                    </tr>
+                            <?php }
+                            } ?>
+                        </tbody>
+                    </table>
+                </div>
             <?php
             }
 
@@ -296,7 +301,7 @@ $pdo = $classPayroll->openConnection();
                         <div class="search-bg">
                             <div class="search">
                                 <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                                <button type="submit" name="search_e" id="search_e"><i class='bx bx-search size'></i></button>
+                                <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
                             </div>
                         </div>
                     </form>
@@ -304,23 +309,28 @@ $pdo = $classPayroll->openConnection();
 
                 <form action="../php/process.php" method="post">
                     <!-- form update department -->
-                    <label>E_ID:
-                    <input class="input-style" readonly type="number" name="E_ID" id="E_ID2" value="<?php echo $E_ID ?>"><br>
+                    <label>
+                        <input class="input-style" readonly type="number" name="E_ID" id="E_ID2" value="<?php echo $E_ID ?>">
+                        <p>Employee ID</p>
                     </label>
-                    <label>First Name:
-                    <input class="input-style" readonly type="text" name="fname" id="fname2" value="<?php echo $fname ?>"><br>
+                    <label>
+                        <input class="input-style" readonly type="text" name="fname" id="fname2" value="<?php echo $fname ?>">
+                        <p>First Name</p>
                     </label>
-                    <label>Last Name:
-                    <input class="input-style" readonly type="text" name="lname" id="lname2" value="<?php echo $lname ?>"><br>
+                    <label>
+                        <input class="input-style" readonly type="text" name="lname" id="lname2" value="<?php echo $lname ?>">
+                        <p>Last Name</p>
                     </label>
-                    <label>Email:
-                    <input class="input-style" readonly type="email" name="email" id="email2" value="<?php echo $email ?>"><br>
+                    <label>
+                        <input class="input-style" readonly type="email" name="email" id="email2" value="<?php echo $email ?>">
+                        <p>Email</p>
                     </label>
-                    <label>Contact:</label>
-                    <input class="input-style" readonly type="number" name="contact" id="contact2" value="<?php echo $contact ?>"><br>
-                    
-                    <label>Employee Dept:
-                        <select name="dept_id" id="dept_id" required>
+                    <label>
+                        <input class="input-style" readonly type="number" name="contact" id="contact2" value="<?php echo $contact ?>">
+                        <p>Contact</p>
+                    </label><br>
+                    <label class="side-left">Employee Dept:
+                        <select class="option-size" name="dept_id" id="dept_id" required>
                             <option selected hidden value="<?php echo $dept_code; ?>"><?php echo $dept_code; ?></option>
                             <optgroup label="-Select New-"></optgroup>
                             <option value="1">BSIT</option>
@@ -332,8 +342,8 @@ $pdo = $classPayroll->openConnection();
                         </select>
                         </label>
 
-                    <label>Position:
-                        <select name="position_id" id="position_id" required>
+                    <label class="options-right">Position:
+                        <select class="option-size" name="position_id" id="position_id" required>
                             <option selected hidden value="<?php echo $position_desc; ?>"><?php echo $position_desc; ?></option>
                             <optgroup label="-Select New-"></optgroup>
                             <option value="1">Dept. Head</option>
@@ -344,8 +354,8 @@ $pdo = $classPayroll->openConnection();
                         </select>
                     </label>
 
-                    <button disabled type="submit" name="setDepartment">Save</button>
-                    <button type="submit" name="updateDept" id="updateDept" onclick="undisableTxt2()">Update</button>
+                    <button class="button" disabled type="submit" name="setDepartment">Save</button>
+                    <button class="button update" type="submit" name="updateDept" id="updateDept" onclick="undisableTxt2()">Update</button>
                     <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
                 </form>
 
@@ -415,7 +425,7 @@ $pdo = $classPayroll->openConnection();
                    <div class="search-bg">
                         <div class="search">
                             <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                            <button type="submit" name="search_e" id="search_e"><i class='bx bx-search size'></i></button>
+                            <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
                         </div>
                     </div>
                 </form>
@@ -424,22 +434,26 @@ $pdo = $classPayroll->openConnection();
             <form action="" method="">
                 <!-- form no action and button enable -->
                 <!-- <label>E_ID:
-                    <input class="input-style" type="number" name="E_ID" id="E_ID"> -->
-                </label>
-                <label>First Name:
+                    <input class="input-style" type="number" name="E_ID" id="E_ID">
+                </label> -->
+                <label>
                     <input class="input-style" type="text" name="fname" id="fname">
+                    <p>First Name</p>
                 </label>
-                <label>Last Name:
+                <label>
                     <input class="input-style" type="text" name="lname" id="lname">
+                    <p>Last Name</p>
                 </label>
-                <label>Email:
+                <label>
                     <input class="input-style" type="email" name="email" id="email">
+                    <p>Email</p>
                 </label>
-                <label>Contact:
+                <label>
                     <input class="input-style" type="number" name="contact" id="contact">
-                </label>
-                <label>Employee Dept:
-                    <select name="dept" id="dept" required>
+                    <p>Contact</p>
+                </label><br>
+                <label class="side-left">Employee Department:
+                    <select class="option-size" name="dept" id="dept" required>
                         <option selected hidden value="">- Select -</option>
                         <option value="1">BSIT</option>
                         <option value="2">BSOA</option>
@@ -448,9 +462,10 @@ $pdo = $classPayroll->openConnection();
                         <option value="5">BSCRIM</option>
                         <option value="6">BSTM</option>
                     </select>
+                    
                 </label>
-                <label>Position:
-                    <select name="position" id="position" required>
+                <label class="options-right">Position:
+                    <select class="option-size" name="position" id="position" required>
                         <option selected hidden value="">- Select -</option>
                         <option value="1">Dept. Head</option>
                         <option value="2">Teacher</option>
@@ -460,8 +475,8 @@ $pdo = $classPayroll->openConnection();
                     </select>
                 </label>
                 <!-- BUTTONS -->
-                <button disabled type="submit" name="setDepartment">Save</button>
-                <button disabled="disabled">Update</button>
+                <button class="button" disabled type="submit" name="setDepartment">Save</button>
+                <button class="button" disabled="disabled">Update</button>
 
 
             </form>
