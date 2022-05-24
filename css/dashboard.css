@@ -62,7 +62,7 @@ ul {
     position: fixed;
     width: 300px;
     height: 100vh;
-    background: #004e5d;
+    background: #00323c;
     left: -300px;
     transition: all 0.3s ease-in-out;
 }
@@ -79,10 +79,6 @@ ul {
     display: block;
     transition: all 0.2s ease-in-out;
 } */
-
-#navigation ul li a:hover {
-    background-color: violet;
-}
 
 #navigation ul li a {
     text-decoration: none;
@@ -113,7 +109,7 @@ hr {
 .toggle-btn span {
     width: 35px;
     height: 3px;
-    background: #1991a9;
+    background: #fffffff7;
     display: block;
     margin-top: 4px;
     border-radius: 20px;
@@ -143,7 +139,7 @@ hr {
         transition: all 0.2s ease-in-out;
     }
     #navigation ul li a:hover {
-        background-color: rgb(132, 126, 132);
+        background-color: #004452f7;
     }
     #navigation ul li a {
         text-decoration: none;
@@ -152,7 +148,7 @@ hr {
         display: block;
         width: 292px;
         transition: all 0.2s ease-in-out;
-        color: black;
+        color: #03b1d4f7;
     }
     .side-bar {
         margin: 10px;
