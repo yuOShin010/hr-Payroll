@@ -91,12 +91,12 @@
                 $mname = $_POST["op_mn"];
                 $lname = $_POST["op_ln"];
                 $email = $_POST["op_email"];
-                $pass = md5($_POST["op_pass"]);
+                 $pass = md5($_POST["op_pass"]);
                 $user_type = "2" ; 
 
                 if($this->check_email_exist($email) == 0){
                     
-                    $sql = " INSERT INTO users (`first_name`, `middle_name`, `surname`, `email_addr`, `password`, `user_type`) VALUES (?,?,?,?,?,?);";
+                    $sql = " INSERT INTO employee (`first_name`, `middle_in`, `last_name`, `email`, `password`, `user_type_id`) VALUES (?,?,?,?,?,?);";
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([$fname, $mname, $lname, $email, $pass, $user_type]);
 
@@ -126,7 +126,8 @@
             if(isset($_POST['op_login']))
             {
                 $username = $_POST["op_username"];
-                $password = md5($_POST["op_password"]);
+                $password = $_POST["op_password"];
+                // $password = md5($_POST["op_password"]);
                 
                 if(empty($username) || empty($password))
                 {
@@ -167,33 +168,49 @@
                 
                 if(empty($username) || empty($password))
                 {
-                    header("location:index_OP.php?Empty= Please Fill in the Blanks");
-                }
-                
-                else
-                {
-                    $sql = "SELECT * FROM users WHERE email_addr = ? AND `password` = ? ";
+
+                    header("location:index.php?Empty= Please Fill in the Blanks");
+
+                } else {
+
+                    $sql = "SELECT * FROM users WHERE email_addr = ?";
                     $stmt = $pdo->prepare($sql);
-                    $stmt->execute([$username,$password]);
+                    $stmt->execute([$username]);
         
                     if($stmt->rowCount() > 0){
                         while($row = $stmt->fetch()){
 
                             $_SESSION['User'] = $row['first_name'];
 
-                            if($row['user_type'] == '1'){
-                                header("location: admin/UI_dashboard_ad.php");
-                                
-                            }elseif($row['user_type'] == '2'){
+                            if(($row['user_type'] == 2) && ($row['password'] == md5($password))){
+
                                 header("location: operator/welcome_op.php");
-                               
+
+                            } elseif(($row['user_type'] == 1) && ($row['password'] == $password)){
+
+                                header("location: admin/UI_dashboard_ad.php");
+
+                            } elseif(($row['user_type'] == 3) && ($row['password'] == $password)){
+
+                                header("location: employee/welcome_employee.php");
 
                             }
+                            
+                            else {
+                                header("location:index.php?Invalid= Please Enter Correct User Name and Password ");
+                            }
+
+                            // if($row['user_type'] == '1'){
+                            //     header("location: admin/UI_dashboard_ad.php");   
+                            // }elseif($row['user_type'] == '2'){
+                                
+                            // }
+
                         }
                     }
                     else
                     {
-                        header("location:index_OP.php?Invalid= Please Enter Correct User Name and Password ");
+                        header("location:index.php?Invalid= Please Enter Correct User Name and Password ");
                     }
                }
             }
@@ -236,44 +253,39 @@
                 $stats = $_POST["stats"];
                 $date = $_POST["date"];
                 $password = "#".substr($lname,0,2)."8080";
-                $user_type = '3';
+                $user_type_id = '3';
 
             
                 // code here kapag may parehas di tutuloy
-                if($this->check_email_exist($email) == 0){
+                if(empty($this->check_email_exist($email))){
 
-                $sql = "INSERT INTO employee (employee_id, first_name, middle_in, last_name, age, email, contact, gender, stats, date_hired) VALUES (?,?,?,?,?,?,?,?,?,?);";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([$E_ID, $fname, $mi, $lname, $age, $email, $contact, $gender, $stats, $date]);
+                    $sql = "INSERT INTO employee (first_name, middle_in, last_name, age, email, `password`, contact, gender, stats, date_hired, user_type_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([$fname, $mi, $lname, $age, $email, $password, $contact, $gender, $stats, $date, $user_type_id]);
 
-                $sql = "INSERT INTO users ( first_name, middle_name, surname, email_addr, password,  user_type) VALUES (?,?,?,?,?,?);";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([$fname, $mi, $lname, $email, $password, $user_type ]);
+                // $sql = "INSERT INTO users ( first_name, middle_name, surname, email_addr, password,  user_type) VALUES (?,?,?,?,?,?);";
+                // $stmt = $pdo->prepare($sql);
+                // $stmt->execute([$fname, $mi, $lname, $email, $password, $user_type ]);
 
                     echo ("<script LANGUAGE='JavaScript'> window.alert('Succesful Register');
-                    window.location.href='../admin/UI_dashboard_ad.php'; </script>");
+                    window.location.href='../operator/ui_addemployee'; </script>");
 
-                } else {
+                } else  {
                     header("location: ../operator/ui_addemployee.php");
                     echo "Email Exist";
-
+    
                 }
 
-            }
+            } 
         
         }
-
-    // set Department --
-        // public function setDepartment()
-        // {
-        //     echo "Dito ako nag stop mag codes";
-        // }
 
 // ---------------------------------------------------- UPDATE SESSION ---------------------------------------------------- //
 
         public function update_employee_module()
         {
             $pdo = $this->openConnection();
+            
             if(isset($_POST['editEmployee']))
             {
                 $E_ID = $_POST["E_ID"];
@@ -291,7 +303,13 @@
                 WHERE employee_id = ?;";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([ $fname, $mi, $lname, $age, $email, $contact, $gender, $stats, $date, $E_ID]);
+
+                // $sql = "UPDATE users SET first_name = ?, middle_in = ?, last_name = ?, email = ?, WHERE employee_id = ?;";
+                // $stmt = $pdo->prepare($sql);
+                // $stmt->execute([ $fname, $mi, $lname, $email, $E_ID]);
             
+                echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Update Credentials..');
+                window.location.href='../operator/UI_addEmployee.php'; </script>");
               
             } 
 

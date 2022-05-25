@@ -18,11 +18,11 @@
 
         if(isset($_SESSION['User']))
         {
-            echo '<a href="logout_admin.php?logout">Logout</a>';
+            echo '<a href="../logout.php?logout">Logout</a>';
         }
         else
         {
-            header("location:../index_AD.php");
+            header("location:../index.php");
         }
 
     ?>

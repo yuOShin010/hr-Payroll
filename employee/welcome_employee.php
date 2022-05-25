@@ -3,7 +3,7 @@
 
     if(isset($_SESSION['User']))
     {
-        echo '<h1>'.' Welcome ' . $_SESSION['User'] . '</h1>'.'<br/>';
+        echo '<p>'.' Welcome Employee ' . '<strong style="font-size: 25px;">' . $_SESSION['User'] . '</strong>' . '</p>' ;
         echo '<a href="../logout.php?logout">Logout</a>';
     }
     else
@@ -19,9 +19,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin DashBoard</title>
+    <title>Welcome Employee Page</title>
 </head>
 <body>
-    <a href="UI_register_OP.php">Register</a> 
+
 </body>
 </html>

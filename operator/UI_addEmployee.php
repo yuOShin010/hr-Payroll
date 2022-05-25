@@ -139,6 +139,8 @@ $pdo = $classPayroll->openConnection();
                         <button type="submit" name="search_e" id="search_e"><i class='bx bx-margin bx-search bx-margin'></i></button>
                     </div>
                 </div>
+            </form>
+
                 <form action="../php/process.php" method="post">
                     <label>
                         <input class="input-style" type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID; ?>">
@@ -169,48 +171,28 @@ $pdo = $classPayroll->openConnection();
                         <p>Contact</p>
                     </label>
                     <label>
-<<<<<<< HEAD
-                        <select name="gender" id="gender" value="<?php echo $gender; ?>">
-=======
                         <input class="input-style" type="date" name="date" id="date" value="<?php echo $date; ?>">
                         <p>Date Hired</p>
                     </label><br>
                     <label class="side-left">
                         <select class="option-size" name="gender" id="gender" value="<?php echo $gender; ?>">
->>>>>>> a915234ce63f0625385f5fd2cb1f961c21b283db
                             Gender:
                             <option selected hidden value="<?php echo $gender; ?>">Current: <?php echo $gender; ?></option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
                     </label>
-<<<<<<< HEAD
-                    <label>Employee Stats:
-                        <select name="stats" id="stats">
-                            <option selected hidden value="<?php echo $stats; ?>">Current: <?php echo $stats; ?></option>
-=======
                     <label class="options-right">Employee Stats:
                         <select class="option-size" name="stats" id="stats">
-                            <option selected readonly value="<?php echo $stats; ?>">Current: <?php echo $stats; ?></option>
->>>>>>> a915234ce63f0625385f5fd2cb1f961c21b283db
+                            <option selected hidden value="<?php echo $stats; ?>">Current: <?php echo $stats; ?></option>
                             <option value="Regular">Regular</option>
                             <option value="Contructual">Contructual</option>
                         </select>
                     </label>
-<<<<<<< HEAD
-                    <label>
-                        <input class="input-style" type="date" name="date" id="date" value="<?php echo $date; ?>">
-                        Date Hired:
-                    </label>
-                    <button disabled class="save" type="submit" name="addEmployee">Save</button>
-                    <button type="submit" name="editEmployee">Update</button>
-                    <button type="submit" name="deleteEmployee">Delete</button>
-=======
                     <button class="button" disabled type="submit" name="addEmployee">Save</button>
                     <button class="button update" type="submit" name="editEmployee">Update</button>
                     <button class="button delete" type="submit" name="deleteEmployee">Delete</button>
->>>>>>> a915234ce63f0625385f5fd2cb1f961c21b283db
-
+                </form>
 
 
 
@@ -239,7 +221,7 @@ $pdo = $classPayroll->openConnection();
 
                             <tbody>
                                 <?php
-                                $sql = "SELECT * FROM employee WHERE isActive = 1;";
+                                $sql = "SELECT * FROM employee WHERE isActive = 1 AND user_type_id = 3;";
                                 $stmt = $pdo->prepare($sql);
                                 $stmt->execute();
 
@@ -263,8 +245,8 @@ $pdo = $classPayroll->openConnection();
                             </tbody>
                         </table>
                     </div>
-                </form>
-            </form>
+                
+            
 
 
         <?php
@@ -288,10 +270,10 @@ $pdo = $classPayroll->openConnection();
             </form>
             <form action="../php/process.php" method="post">
                 <!-- form -->
-                <label>
+                <!-- <label>
                     <input class="input-style" type="number" name="E_ID" id="E_ID" required>
                     <p>Employee ID</p>
-                </label>
+                </label> -->
                 <label>
                     <input class="input-style" type="text" name="fname" id="fname" required>
                     <p>First Name</p>
@@ -362,7 +344,7 @@ $pdo = $classPayroll->openConnection();
                     <tbody>
                         <?php
                         $pdo = $classPayroll->openConnection();
-                        $sql = "SELECT * FROM employee WHERE isActive = 1;";
+                        $sql = "SELECT * FROM employee WHERE isActive = 1 AND user_type_id = 3 ;";
                         $stmt = $pdo->prepare($sql);
                         $stmt->execute();
 
