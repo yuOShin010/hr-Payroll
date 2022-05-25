@@ -9,10 +9,9 @@ body {
     left: 151px;
     top: 79px;
     width: 80%;
-    height: 82vh;
     background: white;
     overflow-y: scroll;
-    height: 728px;
+    height: 692px;
 }
 
 
@@ -40,6 +39,7 @@ body {
 .output::-webkit-scrollbar-thumb,
 .container::-webkit-scrollbar-thumb {
     background: #888;
+    border-radius: 8px;
 }
 
 label {
@@ -148,4 +148,12 @@ label {
     outline: none;
     border-radius: 7px;
     padding: 19px;
+}
+
+.b-size:hover {
+    filter: drop-shadow(0 0 3px rgba(2, 119, 188, 0.815));
+}
+
+.srch-btn {
+    display: absolute;
 }
