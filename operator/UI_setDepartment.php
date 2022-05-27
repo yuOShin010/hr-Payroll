@@ -108,7 +108,7 @@ $pdo = $classPayroll->openConnection();
     }
 
 ?>
-
+</header>
 <!-- END DASHBOARD -->
 
 <body>
