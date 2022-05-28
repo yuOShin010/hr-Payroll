@@ -34,11 +34,11 @@ $pdo = $classPayroll->openConnection();
 
     <div id="navigation">
 
-        <div class="toggle-btn" onclick="show()">
+        <!-- <div class="toggle-btn" onclick="show()">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </div> -->
         <div class="side-bar">
             <h3>SymTech</h3>
         </div>

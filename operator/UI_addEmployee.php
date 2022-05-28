@@ -15,6 +15,7 @@ $pdo = $classPayroll->openConnection();
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/proper-placement.css">
     <link rel="stylesheet" href="../css/default.css">
+    <!-- <link rel="stylesheet" href="../css/login.css"> -->
     <!-- <link rel="stylesheet" href="../css/UI_setDepartment.css"> -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Employee Management</title>
@@ -35,16 +36,18 @@ $pdo = $classPayroll->openConnection();
 <body>
     <!-- DASHBOARD -->
     <div id="navigation">
-        <div id="nav">
+            <div class="title">
+                <h1 class="t-left">SymTech</h1>
+                <h1 class="dot">.</h1>
+                
+            </div>
+        <!-- <div id="nav">
             <div class="toggle-btn" onclick="show()">
                 <span class="line top"></span>
                 <span class="line middle"></span>
                 <span class="line buttom"></span>
             </div>
-        </div>
-        <div class="side-bar">
-            <h3>SymTech</h3>
-        </div>
+        </div> -->
         <ul>
             <li>
                 <a href="#">
@@ -105,8 +108,9 @@ $pdo = $classPayroll->openConnection();
     <header class="tophead">
         <!-- DITO MO LAGAY YUNG LOG OUT MO -->
     </header>
-    <!-- <div class="banner">
-    </div> -->
+    <div class="banner">
+        
+    </div>
     <div class="container container-style">
 
         <?php
