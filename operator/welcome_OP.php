@@ -20,7 +20,7 @@ $pdo = $classPayroll->openConnection();
 <body>
     <header class="topbar blurheader" id="blur">
         <div class="logout-right ">
-            <a href="logout_OP.php?logout" class="logout-right">Logout</a>
+            <a href="../logout.php?logout" class="logout-right">Logout</a>
         </div>
 
         <ul class="topbar-items">
@@ -43,7 +43,7 @@ $pdo = $classPayroll->openConnection();
                 if (isset($_SESSION['User'])) {
                     echo '<div class="welcome">' . '<h1>' . ' Welcome ' . $_SESSION['User'] . '</h1>' . '</div>';
                 } else {
-                    header("location:../index_OP.php");
+                    header("location:../index.php");
                 }
 
                 ?>

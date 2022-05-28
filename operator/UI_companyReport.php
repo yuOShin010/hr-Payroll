@@ -103,9 +103,9 @@ $pdo = $classPayroll->openConnection();
 
     if (isset($_SESSION['User'])) {
         echo '<h1>' . 'Welcome to Company Report' . '</h1>';
-        echo '<a href="logout_OP.php?logout">Logout</a>';
+        echo '<a href="../logout.php?logout">Logout</a>';
     } else {
-        header("location:../index_OP.php");
+        header("location:../index.php");
     }
 
     ?>
