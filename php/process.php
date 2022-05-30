@@ -105,81 +105,71 @@
     
         }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+                            //  PAYROLL MANAGEMENT PROCESS MODULE --
 
-            // if(isset($_POST['submit'])){
-            //     try {
+        if(isset($_POST['addPayroll'])){    // Save Button in Payroll management active
+            $E_ID = $_POST['E_ID'];
+            $dept_ID = $_POST['dept_id'];
+            $overtime = $_POST['overtime'];
+            $allowance = $_POST['allowance'];
+            $holidays_work = $_POST['holidays_work'];
+            $leave_days = $_POST['leave_days'];
+            $sss = $_POST['sss'];
+            $tax = $_POST['tax'];
+            $pag_ibig = $_POST['pag_ibig'];
+            $phil_health = $_POST['phil_health'];
+            $sss_loan = $_POST['sss_loan'];
+            $tax_loan = $_POST['tax_loan'];
+            $pag_ibig_loan = $_POST['pag_ibig_loan'];
+            $phil_health_loan = $_POST['phil_health_loan'];
+            $others = $_POST['others'];
+            $total_deductions = $_POST['total_deductions'];
 
-            //         $id = $_POST['id'];
-            //         $fname = $_POST['fname'];
-            //         $lname = $_POST['lname'];
-            //         $email = $_POST['email'];
-            //         $contact = $_POST['contact'];
-            //         $deptID = $_POST['deptID'];
-            //         $position = $_POST['positionID'];
-            //         // $weekly = $_POST['weekly'];
-            //         // $monthly = $_POST['monthly'];
-            //         $selvalue = $_POST['selvalue'];
-            //         $dateFrom = $_POST['dateFrom'];
-            //         $dateTo = $_POST['dateTo'];
-            //         $sun = $_POST['sun'];
-            //         $mon = $_POST['mon'];
-            //         $tue = $_POST['tue'];
-            //         $wed = $_POST['wed'];
-            //         $thu = $_POST['thu'];
-            //         $fri = $_POST['fri'];
-            //         $sat = $_POST['sat'];
-            //         $t_i1 = $_POST['t_i1'];
-            //         $t_i2 = $_POST['t_i2'];
-            //         $t_i3 = $_POST['t_i3'];
-            //         $t_i4 = $_POST['t_i4'];
-            //         $t_i5 = $_POST['t_i5'];
-            //         $t_i6 = $_POST['t_i6'];
-            //         $t_i7 = $_POST['t_i7'];
-            //         $t_o1 = $_POST['t_o1'];
-            //         $t_o2 = $_POST['t_o2'];
-            //         $t_o3 = $_POST['t_o3'];
-            //         $t_o4 = $_POST['t_o4'];
-            //         $t_o5 = $_POST['t_o5'];
-            //         $t_o6 = $_POST['t_o6'];
-            //         $t_o7 = $_POST['t_o7'];
+            // First insertion in table (tbl_employee_payroll)
+            $sql = "INSERT INTO tbl_employee_payroll (employee_id, dept_id) VALUES (?,?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$E_ID, $dept_ID]);
 
-            //         echo $id ;
-            //         echo $fname ;
-            //         echo $lname ;
-            //         echo $email ;
-            //         echo $contact ;
-            //         echo $deptID ;
-            //         echo $position ;
-            //         echo $selvalue ;
-            //         echo $dateFrom ; 
-            //         echo $dateTo ;
-            //         echo $sun ;
-            //         echo $mon ;
-            //         echo $tue ;
-            //         echo $wed ;
-            //         echo $thu ;
-            //         echo $fri ;
-            //         echo $sat ;
-            //         echo $t_i1 ;
-            //         echo $t_i2 ;
-            //         echo $t_i3 ;
-            //         echo $t_i4 ;
-            //         echo $t_i5 ;
-            //         echo $t_i6 ;
-            //         echo $t_i7 ;
-            //         echo $t_o1 ;
-            //         echo $t_o2 ;
-            //         echo $t_o3 ;
-            //         echo $t_o4 ;
-            //         echo $t_o5 ;
-            //         echo $t_o6 ;
-            //         echo $t_o7 ;
-                    
+            // if($stmt){
+            // First insertion in table (payroll)
+                $sql = " INSERT INTO payroll (employee_id, overtime, allowance, holidays_work, leave_days, sss, tax, pag_ibig, phil_health, sss_loan, tax_loan, pag_ibig_loan, phil_health_loan, others, total_deduction) 
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$E_ID, $overtime, $allowance, $holidays_work, $leave_days, $sss, $tax, $pag_ibig, $phil_health, $sss_loan, $tax_loan, $pag_ibig_loan, $phil_health_loan, $others, $total_deductions]);
 
-            //     } catch (PDOException $e) {
-            //         die($e->getMessage());
-            //     }
-            // }
+                echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Insert payroll Data..');
+                    window.location.href='../operator/UI_payroll.php'; </script>");
+           
+
+        }
+
+        if(isset($_POST['updatePayroll'])){
+            $E_ID = $_POST['E_ID'];
+            $overtime = $_POST['overtime'];
+            $allowance = $_POST['allowance'];
+            $holidays_work = $_POST['holidays_work'];
+            $leave_days = $_POST['leave_days'];
+            $sss = $_POST['sss'];
+            $tax = $_POST['tax'];
+            $pag_ibig = $_POST['pag_ibig'];
+            $phil_health = $_POST['phil_health'];
+            $sss_loan = $_POST['sss_loan'];
+            $tax_loan = $_POST['tax_loan'];
+            $pag_ibig_loan = $_POST['pag_ibig_loan'];
+            $phil_health_loan = $_POST['phil_health_loan'];
+            $others = $_POST['others'];
+            $total_deductions = $_POST['total_deductions'];
+
+            $sql = "UPDATE payroll SET overtime = ?, allowance = ?, holidays_work = ?,  leave_days = ? , sss = ?, tax = ?, pag_ibig = ?, phil_health = ?, sss_loan = ?,
+            tax_loan = ?, pag_ibig_loan = ?, phil_health_loan = ?, others = ?, total_deduction = ? WHERE employee_id = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$overtime, $allowance, $holidays_work, $leave_days, $sss, $tax, $pag_ibig, $phil_health, $sss_loan, $tax_loan, $pag_ibig_loan, $phil_health_loan, $others, $total_deductions, $E_ID]);
+
+            echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Update payroll Data..');
+                    window.location.href='../operator/UI_payroll.php'; </script>");
+        }
+           
 
 
 
