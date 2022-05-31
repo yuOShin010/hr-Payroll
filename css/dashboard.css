@@ -54,7 +54,7 @@
 } */
 
 ul {
-    margin: 3em -4px;
+    margin: 3em -7px;
     font-family: "Quicksand", sans-serif;
 }
 
@@ -67,9 +67,10 @@ ul {
     transition: all 0.3s ease-in-out;
 }
 
-#navigation.active {
+
+/* #navigation.active {
     left: -300px;
-}
+} */
 
 
 /* #navigation ul li {
@@ -125,7 +126,7 @@ hr {
 
 @media only screen and (min-width: 1280px) {
     #navigation {
-        position: absolute;
+        position: fixed;
         width: 300px;
         height: 100vh;
         /* background: rgb(41, 36, 41); */
@@ -146,7 +147,7 @@ hr {
         font-size: 17px;
         list-style-type: none;
         display: block;
-        width: 292px;
+        width: 301px;
         transition: all 0.2s ease-in-out;
         color: #03b1d4f7;
     }

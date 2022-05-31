@@ -1,25 +1,29 @@
 .container-style {
-    border-radius: 11px;
+    border-radius: 2px;
     box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 23%);
 }
 
 .input-style {
     border: none;
-    border-bottom: 1px solid rgb(209 209 209);
+    border: 1px solid rgb(209 209 209);
     outline: none;
-    border-radius: 7px;
+    border-radius: 3px;
     height: 41px;
     width: 330px;
     padding-left: 19px;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
 }
 
 .input-style:hover {
-    filter: drop-shadow(0 0 2px rgb(0, 162, 255));
+    border-color: rgb(0, 162, 255);
 }
 
 .input-style:focus {
-    filter: drop-shadow(0 0 2px #07c8eff7);
+    border: none;
+}
+
+.input-style:focus {
+    border-bottom: 2px solid darkgray;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -39,7 +43,7 @@ input[type=number]::-webkit-outer-spin-button {
     border: none;
     margin: 6px -288px;
     border-radius: 40px;
-    border: 3px solid #07c8eff7;
+    border: 1px solid #07c8eff7;
     width: 53px;
     height: 63px;
     padding-left: 61px;
@@ -59,11 +63,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .search-style:hover {
     width: 330px;
+    border: 1px solid #07c8eff7;
 }
 
 .search-style:focus {
     width: 330px;
     height: 63px;
+    border: 1px solid #07c8eff7;
 }
 
 .search {
@@ -97,11 +103,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 .button {
     height: 50px;
-    width: 100px;
+    width: 90px;
     background: white;
     border: none;
-    border-bottom: 4px solid #858585bf;
-    border-radius: 8px;
+    border-bottom: 3px solid #858585bf;
+    border-radius: 2px;
     float: right;
     margin: 87px 18px;
 }
@@ -141,4 +147,23 @@ input[type=number]::-webkit-outer-spin-button {
     width: 80%;
     margin: 4px 309px;
     background-color: #068de5;
+}
+
+.banner2 {
+    height: 60px;
+    width: 80%;
+    margin: 35px 309px;
+    background-color: #068de5;
+}
+
+.container-large {
+    height: 730px;
+}
+
+.container-medium {
+    height: 560px;
+}
+
+.container-small {
+    height: 450px;
 }

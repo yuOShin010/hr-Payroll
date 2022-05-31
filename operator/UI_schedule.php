@@ -107,12 +107,14 @@
 
         ?>
     </header>
+    <div class="banner"></div> <!--this is the banner -->
+
 <!--_________________________________END OF TOPBAR___________________________________________-->
 
 
 <!--_________________________________END OF DASHBOARD__________________________________________-->
    
-    <div class="container container-style">
+    
         <?php
             $activeform = true;
 
@@ -215,7 +217,7 @@
 
             
                 ?>
-                   
+            <div class="container container-style container-medium">
                     <form action="../operator/UI_schedule.php" method="post">
                         <div class="search-bg">
                                 <div class="search">
@@ -246,7 +248,7 @@
                             <label>
                                 <input class="input-style" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
                                 <p>Contact</p>
-                            </label><br>
+                            </label>
                             <label class="side-left">Employee Department:
                                 <select class="option-size" name="dept_id" id="dept_id" required>
                                     <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
@@ -278,9 +280,8 @@
                                 <button class="button save" type="submit" name="set_schedule">Save</button>
                                 <button disabled class="button" type="submit" name="updateDept" id="updateDept">Update</button>
 
-                    </form>
-                
-                            
+                    </form>              
+                </div>           
 
         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
         <div class="output">
@@ -351,7 +352,7 @@
                 if ($setSchedule){ ?>       <!-- UPDATE SCHEDULE ACTIVE UPDATE BTN ----->
 
                     <!-- // For Update Schedule -->
-                    
+                    <div class="container container-style container-medium">        
                         <form action="../operator/UI_schedule.php" method="post">
                             <div class="search-bg">
                                 <div class="search">
@@ -380,7 +381,7 @@
                                 <label>
                                     <input class="input-style" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
                                     <p>Contact</p>
-                                </label><br>
+                                </label>
                                 <label class="side-left">Employee Department:
                                     <select class="option-size" name="dept_id" id="dept_id" required>
                                         <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
@@ -408,7 +409,7 @@
                                 <button class="button update" type="submit" name="updateSchedule">Update</button>
                             </form>
                         </form>
-                    
+                </div>
 
         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
         <div class="output">
@@ -481,7 +482,7 @@
                     if($activeform){    // This is the main user interface (no value indicated) --
                 ?>
         
-            
+        <div class="container container-style container-medium">
                 <form action="../operator/UI_schedule.php" method="post">
                         <div class="search-bg">
                             <div class="search">
@@ -505,7 +506,7 @@
                         <label>
                             <input class="input-style" type="number" name="contact" id="contact1" >
                             <p>Contact</p>
-                        </label><br>
+                        </label>
                         <label>Employee Department:
                             <input class="input-style" type="text" name="dept_id" id="dept_id">
                         </label>
@@ -533,6 +534,7 @@
                         <button class="button" disabled type="submit">Update</button>
                     </form>
                 </form>
+        </div>
         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
         <div class="output">
                 <table class="table table-dark table-striped">
@@ -595,7 +597,6 @@
                     </tbody>
                 </table>   
         </div>
-    </div>
         <?php } ?>
 
     </body>

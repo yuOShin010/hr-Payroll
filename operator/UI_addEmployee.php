@@ -110,7 +110,7 @@ $pdo = $classPayroll->openConnection();
     <div class="banner">
         
     </div>
-    <div class="container container-style">
+    <div class="container container-style container-medium">
 
         <?php
         $activeForm = true;

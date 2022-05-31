@@ -342,7 +342,9 @@ $pdo = $classPayroll->openConnection();
                             <button class="button" disabled>Delete</button>
 
                         </form>
-
+                    </div>
+                    
+                    <section class="banner2"></section> <!--this is the banner -->
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
                         <div class="output">
                             <table class="table table-dark table-striped">
@@ -415,7 +417,6 @@ $pdo = $classPayroll->openConnection();
                                 </tbody>
                             </table>
                         </div>
-                    </div>
                     <?php 
                 }
         }   
@@ -452,7 +453,12 @@ $pdo = $classPayroll->openConnection();
                                 <input class="input-style removearrow" type="number" name="contact" id="contact" required readonly>
                                 <p>Contact</p>
                             </label>
-                            
+                            <label class="options-right super-right">
+                                <select class="option-size super-top" name="dept_id" id="dept_id" required>
+                                    <option selected hidden>  Select  </option>
+                                </select>
+                                <p>Employee Department</p>
+                            </label>
                             <label>
                                 <input class="input-style removearrow" type="number" name="hours_work" id="hours_work" required readonly>
                                 <p>Hours Work</p>
@@ -460,12 +466,6 @@ $pdo = $classPayroll->openConnection();
                             <label>
                                 <input class="input-style removearrow" type="date" name="hours_work" id="hours_work" required readonly>
                                 <p>Date From</p>
-                            </label>
-                            <label class="options-right super-right">
-                                <select class="option-size super-top" name="dept_id" id="dept_id" required>
-                                    <option selected hidden>  Select  </option>
-                                </select>
-                                <p>Employee Department</p>
                             </label>
                             <label>
                                 <input class="input-style removearrow" type="date" name="hours_work" id="hours_work" required readonly>
@@ -521,6 +521,7 @@ $pdo = $classPayroll->openConnection();
 
                         </form>
                     </div>
+                    <section class="banner2"></section> <!--this is the banner -->
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
                         <div class="output">
                             <table class="table table-dark table-striped">

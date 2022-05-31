@@ -110,11 +110,12 @@ $pdo = $classPayroll->openConnection();
 ?>
 </header>
 <!-- END DASHBOARD -->
+<div class="banner"></div> <!--this is the banner -->
 
 <body>
     <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
     <!-- ../php/CP_setDept.php -->
-    <div class="container container-style">
+    
         <?php
 
         $activeForm = true;  // this boolean is for hiding form element
@@ -178,7 +179,7 @@ $pdo = $classPayroll->openConnection();
 
 
         ?>
-
+            <div class="container container-style container-small">
                 <form action="../operator/UI_setDepartment.php" method="post">
                     <!-- form search -->
                     <div class="search-bg">
@@ -237,7 +238,7 @@ $pdo = $classPayroll->openConnection();
                     <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
                 </form>
 
-
+            </div>
                 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
 
@@ -298,7 +299,7 @@ $pdo = $classPayroll->openConnection();
             if ($setDepartment) {                 // UPDATE SET DEPARTMENT UPDATE OPTION -----
             ?>
 
-                
+            <div class="container container-style container-small">
                     <form action="../operator/UI_setDepartment.php" method="post">
                         <!-- form search -->
                         <div class="search-bg">
@@ -361,7 +362,7 @@ $pdo = $classPayroll->openConnection();
                     <button class="button update" type="submit" name="updateDept" id="updateDept" onclick="undisableTxt2()">Update</button>
                     <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
                 </form>
-
+            </div>
                 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
             <div class="output">
@@ -412,7 +413,7 @@ $pdo = $classPayroll->openConnection();
                         } ?>
                     </tbody>
                 </table>
-
+            </div>
             <?php
 
             }
@@ -422,7 +423,7 @@ $pdo = $classPayroll->openConnection();
             <!-- this is the 1st interface of set department module -->
 
             <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
-            
+            <div class="container container-style container-small">
                 <form action="UI_setDepartment.php" method="post">
                     <!-- form search -->
                     <div class="search-bg">
@@ -434,56 +435,54 @@ $pdo = $classPayroll->openConnection();
                 </form>
             
 
-            <form action="" method="">
-                <!-- form no action and button enable -->
-                <!-- <label>E_ID:
-                    <input class="input-style" type="number" name="E_ID" id="E_ID">
-                </label> -->
-                <label>
-                    <input class="input-style" type="text" name="fname" id="fname">
-                    <p>First Name</p>
-                </label>
-                <label>
-                    <input class="input-style" type="text" name="lname" id="lname">
-                    <p>Last Name</p>
-                </label>
-                <label>
-                    <input class="input-style" type="email" name="email" id="email">
-                    <p>Email</p>
-                </label>
-                <label>
-                    <input class="input-style" type="number" name="contact" id="contact">
-                    <p>Contact</p>
-                </label><br>
-                <label class="side-left">Employee Department:
-                    <select class="option-size" name="dept" id="dept" required>
-                        <option selected hidden value="">- Select -</option>
-                        <option value="1">BSIT</option>
-                        <option value="2">BSOA</option>
-                        <option value="3">BSED</option>
-                        <option value="4">BEED</option>
-                        <option value="5">BSCRIM</option>
-                        <option value="6">BSTM</option>
-                    </select>
-                    
-                </label>
-                <label class="options-right">Position:
-                    <select class="option-size" name="position" id="position" required>
-                        <option selected hidden value="">- Select -</option>
-                        <option value="1">Dept. Head</option>
-                        <option value="2">Teacher</option>
-                        <option value="3">Office Staff</option>
-                        <option value="4">Secretary</option>
-                        <option value="5">Utility</option>
-                    </select>
-                </label>
-                <!-- BUTTONS -->
-                <button class="button" disabled type="submit" name="setDepartment">Save</button>
-                <button class="button" disabled="disabled">Update</button>
-
-
-            </form>
-
+                    <form action="" method="">
+                        <!-- form no action and button enable -->
+                        <!-- <label>E_ID:
+                            <input class="input-style" type="number" name="E_ID" id="E_ID">
+                        </label> -->
+                        <label>
+                            <input class="input-style" type="text" name="fname" id="fname">
+                            <p>First Name</p>
+                        </label>
+                        <label>
+                            <input class="input-style" type="text" name="lname" id="lname">
+                            <p>Last Name</p>
+                        </label>
+                        <label>
+                            <input class="input-style" type="email" name="email" id="email">
+                            <p>Email</p>
+                        </label>
+                        <label>
+                            <input class="input-style" type="number" name="contact" id="contact">
+                            <p>Contact</p>
+                        </label><br>
+                        <label class="side-left">Employee Department:
+                            <select class="option-size" name="dept" id="dept" required>
+                                <option selected hidden value="">- Select -</option>
+                                <option value="1">BSIT</option>
+                                <option value="2">BSOA</option>
+                                <option value="3">BSED</option>
+                                <option value="4">BEED</option>
+                                <option value="5">BSCRIM</option>
+                                <option value="6">BSTM</option>
+                            </select>
+                            
+                        </label>
+                        <label class="options-right">Position:
+                            <select class="option-size" name="position" id="position" required>
+                                <option selected hidden value="">- Select -</option>
+                                <option value="1">Dept. Head</option>
+                                <option value="2">Teacher</option>
+                                <option value="3">Office Staff</option>
+                                <option value="4">Secretary</option>
+                                <option value="5">Utility</option>
+                            </select>
+                        </label>
+                        <!-- BUTTONS -->
+                        <button class="button" disabled type="submit" name="setDepartment">Save</button>
+                        <button class="button" disabled="disabled">Update</button>
+                    </form>
+            </div>
             <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
             <div class="output">
@@ -536,7 +535,6 @@ $pdo = $classPayroll->openConnection();
                 </table>
             </div>
         <?php } ?>
-    </div>
 </body>
 
 <!-- ------------------------ JAVA SCRIPT ----------------------- -->
