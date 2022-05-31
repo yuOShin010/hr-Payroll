@@ -99,8 +99,10 @@
         <?php
 
             if (isset($_SESSION['User'])) {
-                echo '<h1>' . ' Welcome ' . $_SESSION['User'] . '</h1>';
-                echo '<a href="../logout.php?logout">Logout</a>';
+                echo '<h1>' . ' Welcome ' . $_SESSION['User'] . '</h1>'; ?>
+
+              <div class="logout-right">  <?php echo '<a href="../logout.php?logout">Logout</a>'; ?> </div> <?php
+
             } else {
                 header("location:../index.php");
             }
@@ -118,7 +120,7 @@
         <?php
             $activeform = true;
 
-            if(isset($_POST['search'])){     // This is the form active = false--
+            if(isset($_POST['search_e'])){     // This is the form active = false--
                 $activeform = false;
                 $setSchedule = true;
                 $search_EID = $_POST['search_E_ID'];
@@ -163,18 +165,12 @@
                         $days_works = $row['days_works'];
                     }
 
-                } elseif (isset($_POST['search'])) {          // SET SCHEDULE SAVE ACTIVE OPTION -----
-
+                } elseif (isset($_POST['search_e'])) {          // SET SCHEDULE SAVE ACTIVE OPTION -----
+                    // $sql = "SELECT * FROM employee WHERE employee_id = ? AND isActive = 1";
+                    // $stmt = $pdo->prepare($sql);
+                    // $stmt->execute([$search_Eid]);
                     $setSchedule = false;
-
                     $search_Eid = $_POST['search_E_ID'];
-
-                    $sql = "SELECT * FROM employee WHERE employee_id = ? AND isActive = 1";
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute([$search_Eid]);
-
-                    
-                                        
                     $sql = "SELECT
                     A.id,
                     B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact, 
@@ -206,13 +202,27 @@
                             $position_desc = $row['position_desc'];
                         }
 
-                    } elseif ($stmt->rowCount() <= 0) {
-                        echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Department first Before Setting Shedule ....');
-                        window.location.href='../operator/UI_schedule.php'; </script>");
+                    } 
+                    // elseif ($stmt->rowCount() <= 0) {
+                    //     echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Department first Before Setting Shedule ....');
+                    //     window.location.href='../operator/UI_schedule.php'; </script>");
 
-                    } else {
+                    // } 
+                    elseif (isset($_POST['search_e'])) {
+                        $search_EID = $_POST['search_E_ID'];
+                        $sql = "SELECT * FROM employee WHERE employee_id = ? AND isActive = 1";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([$search_EID]);
+                        
+                        if ($stmt->rowCount() > 0){
+                           
+                            echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Department first Before Setting Shedule ....');
+                        window.location.href='../operator/UI_schedule.php'; </script>");
+    
+                        }else {
                         echo ("<script LANGUAGE='JavaScript'> window.alert('No employee Found ....');
                         window.location.href='../operator/UI_schedule.php'; </script>");
+                        }
                     }
 
             
@@ -222,7 +232,7 @@
                         <div class="search-bg">
                                 <div class="search">
                                     <input input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID" >
-                                    <button class="srch-btn" type="submit" name="search" id="search"><i class='bx bx-search bx-margin'></i></button>
+                                    <button class="srch-btn" type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
                                 </div>
                         </div>
                     </form>
@@ -270,7 +280,7 @@
                             <label>
                                 <input class="input-style" type="date" name="d_to" id="d_to">
                                 <input class="input-style" type="button" onclick="computeDays()" id="btn"> <!-- button here for Compute days Work -->
-                                <p>From</p>
+                                <p>To</p>
                             </label>
                             <label>
                                 <input class="input-style" readonly type="text" name="daysWork" id="daysWork" >
@@ -360,6 +370,7 @@
                                     <button type="submit" name="search_e" id="search_e"><i class='bx bx-margin bx-search bx-margin'></i></button>
                                 </div>
                             </div>
+                        </form>
                         
                             <form action="../php/process.php" method="post">   <!-- Throw in process.php -->
                                 <label>
@@ -408,8 +419,12 @@
                                 <button class="button" disabled type="submit" name="set_schedule">Save</button>
                                 <button class="button update" type="submit" name="updateSchedule">Update</button>
                             </form>
+<<<<<<< HEAD
                         </form>
                 </div>
+=======
+                    
+>>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416
 
         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
         <div class="output">
@@ -482,7 +497,11 @@
                     if($activeform){    // This is the main user interface (no value indicated) --
                 ?>
         
+<<<<<<< HEAD
         <div class="container container-style container-medium">
+=======
+            
+>>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416
                 <form action="../operator/UI_schedule.php" method="post">
                         <div class="search-bg">
                             <div class="search">
@@ -490,6 +509,7 @@
                                 <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
                             </div>
                         </div>
+                </form>
                     <form action="" method="post"> 
                         <label>
                             <input class="input-style" type="text" name="fname" id="fname1" >
@@ -533,8 +553,11 @@
                         <button class="button" disabled type="submit">Save</button>
                         <button class="button" disabled type="submit">Update</button>
                     </form>
+<<<<<<< HEAD
                 </form>
         </div>
+=======
+>>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416
         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
         <div class="output">
                 <table class="table table-dark table-striped">

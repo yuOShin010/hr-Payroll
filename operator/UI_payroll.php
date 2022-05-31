@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('../php/classes/payrollClass.php');
+require_once('../php/classes/payroll_management_class.php');
 $pdo = $classPayroll->openConnection();
 ?>
 
@@ -34,7 +35,10 @@ $pdo = $classPayroll->openConnection();
 
         <div id="navigation">
 
+<<<<<<< HEAD
         <!-- <div class="toggle-btn" onclick="show()">
+=======
+>>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416
         <div class="toggle-btn" onclick="show()">
             <span></span>
             <span></span>
@@ -105,39 +109,45 @@ $pdo = $classPayroll->openConnection();
 
         if (isset($_SESSION['User'])) {
             echo '<h1>' . 'WELCOME TO PAYROLL MANAGEMENT' . '</h1>';
-            echo '<a href="logout_OP.php?logout">Logout</a>';
+            echo '<a href="../logout.php?logout">Logout</a>';
         } else {
-            header("location:../index_OP.php");
+            header("location:../index.php");
         }
 
         ?>
     </header>
+<<<<<<< HEAD
     <div class="banner"></div> <!--this is the banner -->
         <!------------------------------------------ END DASHBOARD ---------------------------------------->
 
+=======
+    <!------------------------------------------ END DASHBOARD ---------------------------------------->
+    
+>>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416
         <?php $activeForm = true;
 
         if(isset($_POST['search']))    // This is the form active = false--
         {    
             $activeForm = false;
+<<<<<<< HEAD
             $setPayroll = true;
+=======
+            // $setPayroll = true;
+>>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416
             $search_EID = $_POST['search_E_ID'];
 
             $sql = "SELECT
             A.id,
-            B.employee_id, B.isActive, B.first_name, B.last_name, B.email B.contact,
+            B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
             C.dept_id, C.dept_code,
-            D.position_id, D.position_desc,
-            E.total_workHrs, E.d_from, E.d_to, E.days_works
+            E.total_workHrs, E.d_from, E.d_to, E.days_works,
             F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
-            F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.ohters F.total_deduction
+            F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
             FROM tbl_employee_payroll AS A
             LEFT JOIN employee AS B
             ON A.employee_id = B.employee_id
             LEFT JOIN department AS C
             ON A.dept_id = C.dept_id
-            LEFT JOIN position AS D
-            ON A.position_id = D.position_id
             LEFT JOIN schedule AS E
             ON A.employee_id = E.employee_id
             LEFT JOIN payroll AS F
@@ -149,85 +159,62 @@ $pdo = $classPayroll->openConnection();
 
             // echo "Success Search";
 
-            if($stmt->rowCount() > 0)
-            {
-                while($row = $stmt->fetch()){
-                    $E_ID = $row['employee_id'];
-                    $fname = $row['first_name'];
-                    $lname = $row['last_name'];
-                    $email = $row['email'];
-                    $contact = $row['contact'];
-                    $dept_id = $row['dept_id'];
-                    $dept_code = $row['dept_code'];
-                    $position_id = $row['position_id'];
-                    $position_desc = $row['position_desc'];
-                    $total_workHrs = $row['total_workHrs'];
-                    $d_from = $row['d_from'];
-                    $d_to = $row['d_to'];
-                    $days_works = $row['days_works'];
-                    // for update credential
-                    $overtime = $row['overtime'];
-                    $allowance = $row['allowance'];
-                    $holiday_work = $row['holiday_work'];
-                    $leave_days = $row['leave_days'];
-                    // Deductions Below
-                    $sss = $row['sss'];
-                    $tax = $row['tax'];
-                    $pag_ibig = $row['pag_ibig'];
-                    $phil_health = $row['phil_health'];
-                    $sss_loan = $row['sss_loan'];
-                    $tax_loan = $row['tax_loan'];
-                    $pag_ibig_loan = $row['pag_ibig_loan'];
-                    $phil_health_loan = $row['phil_health_loan'];
-                    $ohters = $row['ohters'];
-                    $total_deduction = $row['total_deduction'];
-                }
+            if($stmt->rowCount() > 0){
+                
+                $payroll_manage_class->active_update_payroll();
 
             } elseif (isset($_POST['search']))      // SET SCHEDULE SAVE ACTIVE OPTION -----
 
             {          
-                $setPayroll = false;
+                // $setPayroll = false;
                 $search_Eid = $_POST['search_E_ID'];
-
-                $sql = "SELECT * FROM employee WHERE employee_id = ? AND isActive = 1";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([$search_Eid]);
-            
                 $sql = "SELECT
                 A.id,
-                B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact, 
-                C.position_id, C.position_desc,
-                D.dept_id, D.dept_code
-                FROM tbl_employee_department_position AS A
+                B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
+                C.dept_id, C.dept_code,
+                D.position_id, D.position_desc,
+                E.total_workHrs, E.d_from, E.d_to, E.days_works
+                FROM tbl_employee_schedule AS A 
                 LEFT JOIN employee AS B
                 ON A.employee_id = B.employee_id
-                LEFT JOIN position AS C
-                ON A.position_id = C.position_id
-                LEFT JOIN department AS D
-                ON A.dept_id = D.dept_id
+                LEFT JOIN department AS C
+                ON A.dept_id = C.dept_id
+                LEFT JOIN position AS D
+                ON A.position_id = D.position_id
+                LEFT JOIN schedule AS E
+                ON A.employee_id = E.employee_id
                 WHERE B.employee_id = ? AND B.isActive = 1 AND A.id > 0";
+
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$search_Eid]);
 
                 if ($stmt->rowCount() > 0) {
-                    while ($row = $stmt->fetch()) {
+                    //  $activeform = false;
+                     $payroll_manage_class->active_save_payroll(); // save button active try to insert here
 
-                        $E_ID = $row['employee_id'];
-                        $fname = $row['first_name'];
-                        $lname = $row['last_name'];
-                        $email = $row['email'];
-                        $contact = $row['contact'];
-                        // For Updating data Below Credentials    
-                        $dept_id = $row['dept_id'];
-                        $dept_code = $row['dept_code'];
-                        $position_id = $row['position_id'];
-                        $position_desc = $row['position_desc'];
-                    }
+                } elseif(isset($_POST['search'])){
+                    $search_EID = $_POST['search_E_ID'];
+                    $sql = "SELECT
+                    A.id,
+                    B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact, 
+                    C.position_id, C.position_desc,
+                    D.dept_id, D.dept_code
+                    FROM tbl_employee_department_position AS A
+                    LEFT JOIN employee AS B
+                    ON A.employee_id = B.employee_id
+                    LEFT JOIN position AS C
+                    ON A.position_id = C.position_id
+                    LEFT JOIN department AS D
+                    ON A.dept_id = D.dept_id
+                    WHERE B.employee_id = ? AND B.isActive = 1 AND A.id > 0";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([$search_Eid]);
 
-                } elseif ($stmt->rowCount() <= 0) {
-                    echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Department first Before Setting Shedule ....');
-                    window.location.href='../operator/UI_schedule.php'; </script>");
+                    if ($stmt->rowCount() > 0) {
+                        echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Shedule First, Before inserting data in payroll management');
+                              window.location.href='../operator/UI_payroll.php'; </script>");
 
+<<<<<<< HEAD
                 } else {
                     echo ("<script LANGUAGE='JavaScript'> window.alert('No employee Found ....');
                     window.location.href='../operator/UI_schedule.php'; </script>");
@@ -418,7 +405,25 @@ $pdo = $classPayroll->openConnection();
                             </table>
                         </div>
                     <?php 
+=======
+                    }elseif (isset($_POST['search'])){
+                        $search_EID = $_POST['search_E_ID'];
+                        $sql = "SELECT * FROM employee WHERE employee_id = ? AND isActive = 1";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([$search_EID]);
+    
+                        if ($stmt->rowCount() > 0){
+                            echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Department and Set Shedule, Before inserting data in payroll management');
+                                window.location.href='../operator/UI_payroll.php'; </script>");
+                        } else {
+                            echo ("<script LANGUAGE='JavaScript'> window.alert('No employee Found ....');
+                            window.location.href='../operator/UI_payroll.php'; </script>");
+                        
+                        }
+                    }              
+>>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416
                 }
+            }
         }   
         
         if($activeForm){ ?>       <!-- This is the main user interface (no value indicated) -->
@@ -491,6 +496,9 @@ $pdo = $classPayroll->openConnection();
                                 <input class="b-size" type="number" name="" id="" required placeholder="0">
                             </label>
                             <label class="b5">SSS
+                                <input class="b-size" type="number" name="" id="" required placeholder="0">
+                            </label>
+                            <label class="b5">TAX
                                 <input class="b-size" type="number" name="" id="" required placeholder="0">
                             </label>
                             <label class="b6">Pag-ibig
@@ -571,7 +579,7 @@ $pdo = $classPayroll->openConnection();
 
 
                                     if ($stmt->rowCount() > 0) {
-                                        while ($row = $stmt->fetch()) {
+                                        foreach ($stmt as $row) {
                                     ?>
                                         <tr>
                                             <td><?php echo $row['employee_id']; ?></td>

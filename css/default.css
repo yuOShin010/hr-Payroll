@@ -142,6 +142,7 @@ input[type=number]::-webkit-outer-spin-button {
     border: none;
 }
 
+<<<<<<< HEAD
 .banner {
     height: 60px;
     width: 80%;
@@ -167,3 +168,5 @@ input[type=number]::-webkit-outer-spin-button {
 .container-small {
     height: 450px;
 }
+=======
+>>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416

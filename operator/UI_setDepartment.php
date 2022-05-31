@@ -126,18 +126,18 @@ $pdo = $classPayroll->openConnection();
 
             $search_Eid = $_POST['search_E_ID'];
             $sql = "SELECT
-                A.id,
-                B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact, 
-                C.position_id, C.position_desc,
-                D.dept_id, D.dept_code
-                FROM tbl_employee_department_position AS A
-                LEFT JOIN employee AS B
-                ON A.employee_id = B.employee_id
-                LEFT JOIN position AS C
-                ON A.position_id = C.position_id
-                LEFT JOIN department AS D
-                ON A.dept_id = D.dept_id
-                WHERE B.employee_id = ? AND B.isActive = 1 AND A.id > 0";
+            A.id,
+            B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact, 
+            C.position_id, C.position_desc,
+            D.dept_id, D.dept_code
+            FROM tbl_employee_department_position AS A
+            LEFT JOIN employee AS B
+            ON A.employee_id = B.employee_id
+            LEFT JOIN position AS C
+            ON A.position_id = C.position_id
+            LEFT JOIN department AS D
+            ON A.dept_id = D.dept_id
+            WHERE B.employee_id = ? AND B.isActive = 1 AND A.id > 0";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$search_Eid]);
 
@@ -335,7 +335,7 @@ $pdo = $classPayroll->openConnection();
                     </label><br>
                     <label class="side-left">Employee Dept:
                         <select class="option-size" name="dept_id" id="dept_id" required>
-                            <option selected hidden value="<?php echo $dept_code; ?>"><?php echo $dept_code; ?></option>
+                            <option selected hidden value="<?php echo $dept_id; ?>"><?php echo $dept_code; ?></option>
                             <optgroup label="-Select New-"></optgroup>
                             <option value="1">BSIT</option>
                             <option value="2">BSOA</option>
@@ -348,7 +348,7 @@ $pdo = $classPayroll->openConnection();
 
                     <label class="options-right">Position:
                         <select class="option-size" name="position_id" id="position_id" required>
-                            <option selected hidden value="<?php echo $position_desc; ?>"><?php echo $position_desc; ?></option>
+                            <option selected hidden value="<?php echo $position_id; ?>"><?php echo $position_desc; ?></option>
                             <optgroup label="-Select New-"></optgroup>
                             <option value="1">Dept. Head</option>
                             <option value="2">Teacher</option>

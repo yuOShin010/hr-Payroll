@@ -146,7 +146,7 @@ $pdo = $classPayroll->openConnection();
                 <div class="search-bg">
                     <div class="search">
                         <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-margin bx-search bx-margin'></i></button>
+                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-margin bx-search'></i></button>
                     </div>
                 </div>
             </form>
@@ -347,6 +347,7 @@ $pdo = $classPayroll->openConnection();
                             <th>Gender</th>
                             <th>Stats</th>
                             <th>Date Hired</th>
+                            <th></th>
                         </tr>
                     </thead>
 
@@ -371,6 +372,7 @@ $pdo = $classPayroll->openConnection();
                                     <td><?php echo $row['gender']; ?></td>
                                     <td><?php echo $row['stats']; ?></td>
                                     <td><?php echo $row['date_hired']; ?></td>
+                                    <td> <a href="#">Edit</a> <a href="#">Delete</a></td>
                                 </tr>
                         <?php }
                         } ?>
