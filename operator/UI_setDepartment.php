@@ -13,9 +13,9 @@ $pdo = $classPayroll->openConnection();
     <meta nbame="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/proper-placement.css">
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/default.css">
     <title>Department Management</title>
 
@@ -37,9 +37,10 @@ $pdo = $classPayroll->openConnection();
         <span></span>
         <span></span>
     </div> -->
-    <div class="side-bar">
-        <h3>SymTech</h3>
-    </div>
+            <div class="title">
+                <h1 class="t-left">SymTech</h1>
+                <h1 class="dot">.</h1>
+            </div>
         
         <ul>
             <li>
@@ -96,19 +97,21 @@ $pdo = $classPayroll->openConnection();
     </ul>
 
 </div>
-<header class="tophead">
-    <!-- <p>top head</p> -->
-    <?php
+    <header class="tophead">
+        <!-- <p>top head</p> -->
+        <?php
 
-    if (isset($_SESSION['User'])) {
-        echo '<h1>' . ' Welcome ' . $_SESSION['User'] . '</h1>';
-        echo '<a href="../logout.php?logout">Logout</a>';
-    } else {
-        header("location:../index.php");
-    }
+        if (isset($_SESSION['User'])) {
+            echo '<h1 class="greet">' . 'DEPARTMENT MANAGEMENT' . '</h1>';
+            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg></a>';
+        } else {
+            header("location:../index.php");
+        }
 
-?>
-</header>
+        ?>
+    </header>
 <!-- END DASHBOARD -->
 <div class="banner"></div> <!--this is the banner -->
 
@@ -179,7 +182,7 @@ $pdo = $classPayroll->openConnection();
 
 
         ?>
-            <div class="container container-style container-small">
+            <div class="container container-small">
                 <form action="../operator/UI_setDepartment.php" method="post">
                     <!-- form search -->
                     <div class="search-bg">
@@ -193,23 +196,23 @@ $pdo = $classPayroll->openConnection();
                 <form action="../php/process.php" method="post">
                     <!-- form set department -->
                     <label>
-                        <input class="input-style" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
+                        <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
                         <p>Employee ID</p>
                     </label>
                     <label>
-                        <input class="input-style" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
+                        <input class="input-style inpt-pl20" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
                         <p>First Name</p>
                     </label>
                     <label>
-                        <input class="input-style" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
+                        <input class="input-style inpt-pl20" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
                         <p>Last Name</p>
                     </label>
                     <label>
-                        <input class="input-style" readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
+                        <input class="input-style inpt-pl20" readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
                         <p>Email Name</p>
                     </label>
                     <label>
-                        <input class="input-style" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
+                        <input class="input-style inpt-pl20" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
                         <p>Contact</p>
                     </label><br>
                     <label class="side-left">Employee Department:
@@ -239,6 +242,9 @@ $pdo = $classPayroll->openConnection();
                 </form>
 
             </div>
+
+            <section class="banner2"></section> <!--this is the banner -->
+
                 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
 
@@ -299,7 +305,7 @@ $pdo = $classPayroll->openConnection();
             if ($setDepartment) {                 // UPDATE SET DEPARTMENT UPDATE OPTION -----
             ?>
 
-            <div class="container container-style container-small">
+            <div class="container container-small">
                     <form action="../operator/UI_setDepartment.php" method="post">
                         <!-- form search -->
                         <div class="search-bg">
@@ -314,23 +320,23 @@ $pdo = $classPayroll->openConnection();
                 <form action="../php/process.php" method="post">
                     <!-- form update department -->
                     <label>
-                        <input class="input-style" readonly type="number" name="E_ID" id="E_ID2" value="<?php echo $E_ID ?>">
+                        <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID2" value="<?php echo $E_ID ?>">
                         <p>Employee ID</p>
                     </label>
                     <label>
-                        <input class="input-style" readonly type="text" name="fname" id="fname2" value="<?php echo $fname ?>">
+                        <input class="input-style inpt-pl20" readonly type="text" name="fname" id="fname2" value="<?php echo $fname ?>">
                         <p>First Name</p>
                     </label>
                     <label>
-                        <input class="input-style" readonly type="text" name="lname" id="lname2" value="<?php echo $lname ?>">
+                        <input class="input-style inpt-pl20" readonly type="text" name="lname" id="lname2" value="<?php echo $lname ?>">
                         <p>Last Name</p>
                     </label>
                     <label>
-                        <input class="input-style" readonly type="email" name="email" id="email2" value="<?php echo $email ?>">
+                        <input class="input-style inpt-pl20" readonly type="email" name="email" id="email2" value="<?php echo $email ?>">
                         <p>Email</p>
                     </label>
                     <label>
-                        <input class="input-style" readonly type="number" name="contact" id="contact2" value="<?php echo $contact ?>">
+                        <input class="input-style inpt-pl20" readonly type="number" name="contact" id="contact2" value="<?php echo $contact ?>">
                         <p>Contact</p>
                     </label><br>
                     <label class="side-left">Employee Dept:
@@ -363,6 +369,9 @@ $pdo = $classPayroll->openConnection();
                     <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
                 </form>
             </div>
+
+            <section class="banner2"></section> <!--this is the banner -->
+
                 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
             <div class="output">
@@ -423,7 +432,7 @@ $pdo = $classPayroll->openConnection();
             <!-- this is the 1st interface of set department module -->
 
             <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
-            <div class="container container-style container-small">
+            <div class="container container-small">
                 <form action="UI_setDepartment.php" method="post">
                     <!-- form search -->
                     <div class="search-bg">
@@ -441,19 +450,19 @@ $pdo = $classPayroll->openConnection();
                             <input class="input-style" type="number" name="E_ID" id="E_ID">
                         </label> -->
                         <label>
-                            <input class="input-style" type="text" name="fname" id="fname">
+                            <input class="input-style inpt-pl20" type="text" name="fname" id="fname">
                             <p>First Name</p>
                         </label>
                         <label>
-                            <input class="input-style" type="text" name="lname" id="lname">
+                            <input class="input-style inpt-pl20" type="text" name="lname" id="lname">
                             <p>Last Name</p>
                         </label>
                         <label>
-                            <input class="input-style" type="email" name="email" id="email">
+                            <input class="input-style inpt-pl20" type="email" name="email" id="email">
                             <p>Email</p>
                         </label>
                         <label>
-                            <input class="input-style" type="number" name="contact" id="contact">
+                            <input class="input-style inpt-pl20" type="number" name="contact" id="contact">
                             <p>Contact</p>
                         </label><br>
                         <label class="side-left">Employee Department:
@@ -483,6 +492,9 @@ $pdo = $classPayroll->openConnection();
                         <button class="button" disabled="disabled">Update</button>
                     </form>
             </div>
+
+            <section class="banner2"></section> <!--this is the banner -->
+
             <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
             <div class="output">

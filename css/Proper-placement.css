@@ -11,18 +11,21 @@ body {
     width: 80%;
     background: white;
     height: 692px;
+    border-radius: 2px;
+    box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 23%);
 }
 
 
 /* table properties */
 
 .output {
+    padding: 1px;
     position: relative;
     left: 310px;
-    top: 46px;
+    top: -15px;
     width: 80%;
     background: white;
-    height: 185px;
+    height: 355px;
 }
 
 body::-webkit-scrollbar {
@@ -57,7 +60,7 @@ body::-webkit-scrollbar-thumb {
 } */
 
 label {
-    margin: 0 27px;
+    margin: 0 23px;
     display: inline-table;
 }
 
@@ -87,72 +90,23 @@ label {
 
 /* --------------------groupbox----------------------- */
 
-.b1 {
-    margin: 20px 56px;
+hr {
+    margin: -50px 0;
+}
+
+.b {
+    display: inline-table;
+    width: 10%;
 }
 
 .b-size {
     height: 41px;
     width: 117px;
     border: none;
-    border-bottom: 1px solid rgb(209 209 209);
+    border: 1px solid rgb(209 209 209);
     outline: none;
-    border-radius: 7px;
+    border-radius: 2px;
     padding: 19px;
-}
-
-.b2 {
-    margin: 0 -20px;
-}
-
-.b3 {
-    margin: 0 58px;
-}
-
-.b4 {
-    margin: 0 -28px;
-}
-
-.b5 {
-    margin: 0 60px;
-}
-
-.b6 {
-    margin: 0 56px;
-}
-
-.b7 {
-    margin: 0 -25px;
-}
-
-.b8 {
-    margin: 0 51px;
-}
-
-.b9 {
-    margin: 0 -26px;
-}
-
-.b10 {
-    margin: 0 37px;
-}
-
-.b11 {
-    margin: 22px 54px;
-}
-
-.b11-size {
-    height: 41px;
-    width: 237px;
-    border: none;
-    border-bottom: 1px solid rgb(209 209 209);
-    outline: none;
-    border-radius: 7px;
-    padding: 19px;
-}
-
-.b12 {
-    margin: 0 -17px;
 }
 
 .b12-size {
@@ -166,7 +120,7 @@ label {
 }
 
 .b-size:hover {
-    filter: drop-shadow(0 0 3px rgba(2, 119, 188, 0.815));
+    border-color: rgb(0, 162, 255);
 }
 
 .srch-btn {
@@ -187,12 +141,38 @@ label {
     margin: -2px 10px;
 }
 
-.super-right {
-    margin: 0 57px;
-    display: inline-grid;
-    height: 119px;
+.sel-size {
+    width: 30px;
 }
 
-.super-top {
-    bottom: 23px;
+
+/*________________________Logout Properties________________________ */
+
+.logout {
+    position: absolute;
+    margin: -37px 1535px;
+    height: 35px;
+    color: white;
+    filter: drop-shadow(2px 4px 6px black);
+    transition: all 0.2s ease;
 }
+
+.logout:hover {
+    height: 40px;
+    color: rgb(71, 255, 255);
+}
+
+
+/*________________________END________________________ */
+
+
+/*________________________Greetings Properties________________________ */
+
+.greet {
+    margin: 0 308px;
+    font-weight: lighter;
+    color: #dfe3e7;
+}
+
+
+/*________________________END________________________ */

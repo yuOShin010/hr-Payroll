@@ -10,9 +10,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="../css/dashboard.css">
         <link rel="stylesheet" href="../css/proper-placement.css">
         <link rel="stylesheet" href="../css/default.css">
@@ -36,8 +36,9 @@
             <span></span>
             <span></span>
         </div> -->
-        <div class="side-bar">
-            <h3>SymTech</h3>
+        <div class="title">
+                <h1 class="t-left">SymTech</h1>
+                <h1 class="dot">.</h1>
         </div>
         <ul>
              <li>
@@ -95,17 +96,17 @@
 
     </div>
     <header class="tophead">
-        <!-- DITO MO LAGAY YUNG LOG OUT MO -->
+        <!-- <p>top head</p> -->
         <?php
 
-            if (isset($_SESSION['User'])) {
-                echo '<h1>' . ' Welcome ' . $_SESSION['User'] . '</h1>'; ?>
-
-              <div class="logout-right">  <?php echo '<a href="../logout.php?logout">Logout</a>'; ?> </div> <?php
-
-            } else {
-                header("location:../index.php");
-            }
+        if (isset($_SESSION['User'])) {
+            echo '<h1 class="greet">' . 'SCHEDULING MANAGEMENT' . '</h1>';
+            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg></a>';
+        } else {
+            header("location:../index.php");
+        }
 
         ?>
     </header>
@@ -227,7 +228,7 @@
 
             
                 ?>
-            <div class="container container-style container-medium">
+            <div class="container container-medium">
                     <form action="../operator/UI_schedule.php" method="post">
                         <div class="search-bg">
                                 <div class="search">
@@ -240,23 +241,23 @@
                     <form action="../php/process.php" method="post">   <!-- Throw in process.php -->
                     
                             <label>
-                                <input class="input-style" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
+                                <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
                                 <p>Employee ID</p>
                             </label>
                             <label>
-                                <input class="input-style" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
+                                <input class="input-style inpt-pl20" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
                                 <p>First Name</p>
                             </label>
                             <label>
-                                <input class="input-style" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
+                                <input class="input-style inpt-pl20" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
                                 <p>Last Name</p>
                             </label>
                             <label>
-                                <input class="input-style" readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
+                                <input class="input-style inpt-pl20" readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
                                 <p>Email</p>
                             </label>
                             <label>
-                                <input class="input-style" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
+                                <input class="input-style inpt-pl20" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
                                 <p>Contact</p>
                             </label>
                             <label class="side-left">Employee Department:
@@ -270,20 +271,22 @@
                                 </select>
                             </label>
                             <label>
-                                <input class="input-style" type="number" name="workHrs" id="workHrs">
+                                <input class="input-style inpt-pl20" type="number" name="workHrs" id="workHrs">
                                 <p>Work Hours</p>
                             </label>
                             <label>
-                                <input class="input-style" type="date" name="d_from" id="d_from">
+                                <input class="input-style inpt-pl20" type="date" name="d_from" id="d_from">
                                 <p>From</p>
                             </label>
                             <label>
-                                <input class="input-style" type="date" name="d_to" id="d_to">
-                                <input class="input-style" type="button" onclick="computeDays()" id="btn"> <!-- button here for Compute days Work -->
+                                <input class="input-style inpt-pl20" type="date" name="d_to" id="d_to">
                                 <p>To</p>
                             </label>
                             <label>
-                                <input class="input-style" readonly type="text" name="daysWork" id="daysWork" >
+                                <input class="submit-btn save" type="button" onclick="computeDays()" id="btn">
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" readonly type="text" name="daysWork" id="daysWork" >
                                 <p>Days of Work</p>
                             </label>
 
@@ -293,6 +296,7 @@
                     </form>              
                 </div>           
 
+                <section class="banner2"></section> <!--this is the banner -->
         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
         <div class="output">
                 <table class="table table-dark table-striped">
@@ -362,7 +366,7 @@
                 if ($setSchedule){ ?>       <!-- UPDATE SCHEDULE ACTIVE UPDATE BTN ----->
 
                     <!-- // For Update Schedule -->
-                    <div class="container container-style container-medium">        
+                    <div class="container container-xmedium">        
                         <form action="../operator/UI_schedule.php" method="post">
                             <div class="search-bg">
                                 <div class="search">
@@ -374,25 +378,26 @@
                         
                             <form action="../php/process.php" method="post">   <!-- Throw in process.php -->
                                 <label>
-                                    <input class="input-style" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
+                                    <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
                                     <p>Employee ID</p>
                                 </label>
                                 <label>
-                                    <input class="input-style" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
+                                    <input class="input-style inpt-pl20" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
                                     <p>First Name</p>
                                 </label>
                                 <label>
-                                    <input class="input-style" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
+                                    <input class="input-style inpt-pl20" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
                                     <p>Last Name</p>
                                 </label>
                                 <label>
-                                    <input class="input-style" readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
+                                    <input class="input-style inpt-pl20" readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
                                     <p>Email</p>
                                 </label>
                                 <label>
-                                    <input class="input-style" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
+                                    <input class="input-style inpt-pl20" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
                                     <p>Contact</p>
-                                </label>
+                                </label> 
+                                <br>
                                 <label class="side-left">Employee Department:
                                     <select class="option-size" name="dept_id" id="dept_id" required>
                                         <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
@@ -403,28 +408,32 @@
                                         <option selected hidden value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
                                     </select>
                                 </label>
-                                <label>Total WorkHrs:
-                                    <input class="input-style" class="input-style" type="number" name="workHrs" id="workHrs" value="<?php echo $total_workHrs ?>">
+                                <label>
+                                    <input class="input-style inpt-pl20" type="number" name="workHrs" id="workHrs" value="<?php echo $total_workHrs ?>">
+                                    <p>Total WorkHrs</p>
                                 </label>
-                                <label>From:
-                                    <input class="input-style" type="date" name="d_from" id="d_from" value="<?php echo $d_from ?>">
+                                <label>
+                                    <input class="input-style inpt-pl20" type="date" name="d_from" id="d_from" value="<?php echo $d_from ?>">
+                                    <p>From</p>
                                 </label>
-                                <label>To:
-                                    <input class="input-style" type="date" name="d_to" id="d_to" value="<?php echo $d_to ?>">
-                                    <input class="input-style" type="button" onclick="computeDays()" id="btn"> <!-- button here for Compute days Work -->
+                                <label>
+                                    <input class="input-style inpt-pl20" type="date" name="d_to" id="d_to" value="<?php echo $d_to ?>">
+                                    <p>To</p>
                                 </label>
-                                <label>Days Work:
-                                    <input class="input-style" readonly type="text" name="daysWork" id="daysWork" value="<?php echo $days_works ?>">
+                                <label>
+                                    <input class="submit-btn save" type="button" onclick="computeDays()" id="btn">
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20" readonly type="text" name="daysWork" id="daysWork" value="<?php echo $days_works ?>">
+                                    <p>Days Work</p>
                                 </label>
                                 <button class="button" disabled type="submit" name="set_schedule">Save</button>
                                 <button class="button update" type="submit" name="updateSchedule">Update</button>
                             </form>
-<<<<<<< HEAD
                         </form>
                 </div>
-=======
-                    
->>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416
+
+        <section class="banner2"></section> <!--this is the banner -->
 
         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
         <div class="output">
@@ -497,11 +506,7 @@
                     if($activeform){    // This is the main user interface (no value indicated) --
                 ?>
         
-<<<<<<< HEAD
-        <div class="container container-style container-medium">
-=======
-            
->>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416
+        <div class="container container-medium">
                 <form action="../operator/UI_schedule.php" method="post">
                         <div class="search-bg">
                             <div class="search">
@@ -511,53 +516,69 @@
                         </div>
                 </form>
                     <form action="" method="post"> 
+                        
                         <label>
-                            <input class="input-style" type="text" name="fname" id="fname1" >
-                            <p>Employee ID</p>
-                        </label>
-                        <label>
-                            <input class="input-style" type="text" name="lname" id="lname1" >
+                            <input class="input-style inpt-pl20" type="text" name="lname" id="lname1" >
                             <p>Last Name</p>
                         </label>
                         <label>
-                            <input class="input-style" type="email" name="email" id="email1" >
+                            <input class="input-style inpt-pl20" type="email" name="email" id="email1" >
                             <p>Email</p>
                         </label>
                         <label>
-                            <input class="input-style" type="number" name="contact" id="contact1" >
+                            <input class="input-style inpt-pl20" type="number" name="contact" id="contact1" >
                             <p>Contact</p>
                         </label>
-                        <label>Employee Department:
-                            <input class="input-style" type="text" name="dept_id" id="dept_id">
+
+                        <label class="side-left">Employee Department:
+                            <select class="option-size" name="dept" id="dept" required>
+                                <option selected hidden value="">- Select -</option>
+                                <option value="1">BSIT</option>
+                                <option value="2">BSOA</option>
+                                <option value="3">BSED</option>
+                                <option value="4">BEED</option>
+                                <option value="5">BSCRIM</option>
+                                <option value="6">BSTM</option>
+                            </select>
+                            
                         </label>
-                        <label>Position:
-                            <input class="input-style" type="text" name="position_id" id="position_id">
+                        <label class="options-right">Position:
+                            <select class="option-size" name="position" id="position" required>
+                                <option selected hidden value="">- Select -</option>
+                                <option value="1">Dept. Head</option>
+                                <option value="2">Teacher</option>
+                                <option value="3">Office Staff</option>
+                                <option value="4">Secretary</option>
+                                <option value="5">Utility</option>
+                            </select>
                         </label>
                         <label>
-                            <input class="input-style" type="number" name="workHrs" id="workHrs">
+                            <input class="input-style inpt-pl20" type="number" name="workHrs" id="workHrs">
                             <p>Total WorkHrs</p>
-                        </label>
+                        </label><br>
                         <label>
-                            <input class="input-style" type="date" name="d_from" id="d_from">
+                            <input class="input-style inpt-pl20" type="date" name="d_from" id="d_from">
                             <p>From</p>
                         </label>
                         <label>
-                            <input class="input-style" type="date" name="d_to" id="d_to">
-                            <input type="button save" onclick="computeDays()" id="btn">
+                            <input class="input-style inpt-pl20" type="date" name="d_to" id="d_to">
                             <p>To</p>
                         </label>
                         <label>
-                            <input class="input-style" type="number" name="daysWork" id="daysWork">
+                            <input class="submit-btn save" type="button" onclick="computeDays()" id="btn">
+                        </label>
+                        <label>
+                            <input class="input-style inpt-pl20" type="number" name="daysWork" id="daysWork">
                             <p>Days Work</p>
                         </label>
                         <button class="button" disabled type="submit">Save</button>
                         <button class="button" disabled type="submit">Update</button>
                     </form>
-<<<<<<< HEAD
                 </form>
         </div>
-=======
->>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416
+
+        <section class="banner2"></section> <!--this is the banner -->
+
         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
         <div class="output">
                 <table class="table table-dark table-striped">

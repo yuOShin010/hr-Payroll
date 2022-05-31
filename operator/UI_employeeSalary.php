@@ -96,25 +96,28 @@
             </ul>
            
         </div>
-    <header class="tophead">
-    <!-- <p>top head</p> -->
-    </header>
-        <?php 
+        <header class="tophead">
+        <!-- <p>top head</p> -->
+        <?php
 
-            if(isset($_SESSION['User']))
-            {
-                echo '<h1>'. 'WELCOME TO PAYROLL Employee Salary Report' .'</h1>';
-                echo '<a href="../logout.php?logout">Logout</a>';
-            }
-            else
-            {
-                header("location:../index.php");
-            }
+        if (isset($_SESSION['User'])) {
+            echo '<h1 class="greet">' . 'EMPLOYEE SALARY' . '</h1>';
+            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg></a>';
+        } else {
+            header("location:../index.php");
+        }
 
         ?>
-        </header>
+    </header>
+    <div class="banner"></div> <!--this is the banner -->
 
-        <!-- END DASHBOARD -->
+<!--_________________________________END OF TOPBAR___________________________________________-->
+
+
+<!--_________________________________END OF DASHBOARD__________________________________________-->
+
 
         
 </body>

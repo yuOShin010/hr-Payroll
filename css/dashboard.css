@@ -54,7 +54,7 @@
 } */
 
 ul {
-    margin: 3em -7px;
+    margin: 21px -7px;
     font-family: "Quicksand", sans-serif;
 }
 
@@ -162,4 +162,11 @@ hr {
         height: 60px;
         background: #004e5d;
     }
+    /*________________________footer properties________________________ */
+    .footer {
+        height: 364px;
+        background: #021316f7;
+        margin: -20px 0;
+    }
+    /*________________________END________________________ */
 }

@@ -1,7 +1,18 @@
+/*________________________Container Properties________________________ */
+
 .container-style {
-    border-radius: 2px;
-    box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 23%);
+    margin: 29px 158px;
 }
+
+.container-style label {
+    margin: 29px 0;
+}
+
+
+/*________________________END________________________ */
+
+
+/*________________________Input Properties________________________ */
 
 .input-style {
     border: none;
@@ -9,8 +20,7 @@
     outline: none;
     border-radius: 3px;
     height: 41px;
-    width: 330px;
-    padding-left: 19px;
+    width: 367px;
     transition: all 0.1s ease;
 }
 
@@ -32,6 +42,16 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
 }
+
+.inpt-pl20 {
+    padding-left: 20px;
+}
+
+
+/*________________________END________________________ */
+
+
+/*________________________For Search Icon Properties________________________ */
 
 .search-bg {
     height: 119px;
@@ -87,7 +107,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .size {
-    /*this is the size of search icon*/
     height: 20px;
     width: 20px;
 }
@@ -100,6 +119,12 @@ input[type=number]::-webkit-outer-spin-button {
 .bx-margin {
     margin: 17px 15px;
 }
+
+
+/*________________________END________________________ */
+
+
+/*________________________Button Properties________________________ */
 
 .button {
     height: 50px;
@@ -142,7 +167,12 @@ input[type=number]::-webkit-outer-spin-button {
     border: none;
 }
 
-<<<<<<< HEAD
+
+/*________________________END________________________ */
+
+
+/*________________________Banner properties________________________ */
+
 .banner {
     height: 60px;
     width: 80%;
@@ -153,9 +183,15 @@ input[type=number]::-webkit-outer-spin-button {
 .banner2 {
     height: 60px;
     width: 80%;
-    margin: 35px 309px;
+    margin: 15px 309px;
     background-color: #068de5;
 }
+
+
+/*________________________END________________________ */
+
+
+/*________________________different size of container________________________ */
 
 .container-large {
     height: 730px;
@@ -168,5 +204,43 @@ input[type=number]::-webkit-outer-spin-button {
 .container-small {
     height: 450px;
 }
-=======
->>>>>>> bb90f762814614ba2b30a4d09d051c1f585c0416
+
+.container-xsmall {
+    height: 250px;
+}
+
+.container-xmedium {
+    height: 610px;
+}
+
+
+/*________________________END________________________ */
+
+
+/*________________________Table Properties________________________ */
+
+.output table {
+    width: 97%;
+    margin: 20px;
+    height: 266px;
+}
+
+
+/*________________________END________________________ */
+
+
+/*________________________schedule onclick button________________________ */
+
+.submit-btn {
+    height: 22px;
+    border-radius: 4px;
+    margin: -31px -42px;
+    width: 83px;
+    border: 1px solid rgb(25, 188, 0);
+    outline: none;
+    position: absolute;
+    padding: 22px;
+}
+
+
+/*________________________END________________________ */

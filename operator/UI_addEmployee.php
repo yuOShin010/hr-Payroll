@@ -15,8 +15,6 @@ $pdo = $classPayroll->openConnection();
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/proper-placement.css">
     <link rel="stylesheet" href="../css/default.css">
-    <!-- <link rel="stylesheet" href="../css/login.css"> -->
-    <!-- <link rel="stylesheet" href="../css/UI_setDepartment.css"> -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Employee Management</title>
 
@@ -100,17 +98,32 @@ $pdo = $classPayroll->openConnection();
                 </a>
             </li>
         </ul>
-
+        <footer class="footer">
+            <p>footer</p>
+        </footer>
     </div>
 
     <!-- END DASHBOARD -->
     <header class="tophead">
-        <!-- DITO MO LAGAY YUNG LOG OUT MO -->
+        <?php
+
+            if (isset($_SESSION['User'])) {
+                echo '<h1 class="greet">' . ' Welcome ' . $_SESSION['User'] . '</h1>'; ?>
+
+             <?php echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg></a>'; ?><?php
+
+            } else {
+                header("location:../index.php");
+            }
+
+        ?>
     </header>
     <div class="banner">
         
     </div>
-    <div class="container container-style container-medium">
+    <div class="container container-medium">
 
         <?php
         $activeForm = true;
@@ -153,35 +166,35 @@ $pdo = $classPayroll->openConnection();
 
                 <form action="../php/process.php" method="post">
                     <label>
-                        <input class="input-style" type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID; ?>">
+                        <input class="input-style inpt-pl20" type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID; ?>">
                         <p>Employee ID</p>
                     </label>
                     <label>
-                        <input class="input-style" type="text" name="fname" id="fname" value="<?php echo $fname; ?>">
+                        <input class="input-style inpt-pl20" type="text" name="fname" id="fname" value="<?php echo $fname; ?>">
                         <p>First Name</p>
                     </label>
                     <label>
-                        <input class="input-style" type="text" name="mi" id="mi" value="<?php echo $mi; ?>">
+                        <input class="input-style inpt-pl20" type="text" name="mi" id="mi" value="<?php echo $mi; ?>">
                         <p>Middle Name</p>
                     </label>
                     <label>
-                        <input class="input-style" type="text" name="lname" id="lname" value="<?php echo $lname; ?>">
+                        <input class="input-style inpt-pl20" type="text" name="lname" id="lname" value="<?php echo $lname; ?>">
                         <p>Last Name</p>
                     </label>
                     <label>
-                        <input class="input-style" type="number" name="age" id="age" value="<?php echo $age; ?>">
+                        <input class="input-style inpt-pl20" type="number" name="age" id="age" value="<?php echo $age; ?>">
                         <p>Age</p>
                     </label>
                     <label>
-                        <input class="input-style" type="email" name="email" id="email" value="<?php echo $email; ?>">
+                        <input class="input-style inpt-pl20" type="email" name="email" id="email" value="<?php echo $email; ?>">
                         <p>Email</p>
                     </label>
                     <label>
-                        <input class="input-style" type="number" name="contact" id="contact" value="<?php echo $contact; ?>">
+                        <input class="input-style inpt-pl20" type="number" name="contact" id="contact" value="<?php echo $contact; ?>">
                         <p>Contact</p>
                     </label>
                     <label>
-                        <input class="input-style" type="date" name="date" id="date" value="<?php echo $date; ?>">
+                        <input class="input-style inpt-pl20" type="date" name="date" id="date" value="<?php echo $date; ?>">
                         <p>Date Hired</p>
                     </label><br>
                     <label class="side-left">
@@ -209,7 +222,7 @@ $pdo = $classPayroll->openConnection();
 
 
 
-
+                    <section class="banner2"></section> <!--this is the banner -->
                     <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ADD EMPLOYEE MODULE ---------------------------------------->
 
                     <div class="output">
@@ -285,31 +298,31 @@ $pdo = $classPayroll->openConnection();
                     <p>Employee ID</p>
                 </label> -->
                 <label>
-                    <input class="input-style" type="text" name="fname" id="fname" required>
+                    <input class="input-style inpt-pl20" type="text" name="fname" id="fname" required>
                     <p>First Name</p>
                 </label>
                 <label>
-                    <input class="input-style" type="text" name="mi" id="mi" required>
+                    <input class="input-style inpt-pl20" type="text" name="mi" id="mi" required>
                     <p>Middle Name</p>
                 </label>
                 <label>
-                    <input class="input-style" type="text" name="lname" id="lname" required>
+                    <input class="input-style inpt-pl20" type="text" name="lname" id="lname" required>
                     <p>Last Name</p>
                 </label>
                 <label>
-                    <input class="input-style" type="number" name="age" id="age" required>
+                    <input class="input-style inpt-pl20" type="number" name="age" id="age" required>
                     <p>Age</p>
                 </label>
                 <label>
-                    <input class="input-style" type="email" name="email" id="email" required>
+                    <input class="input-style inpt-pl20" type="email" name="email" id="email" required>
                     <p>Email</p>
                 </label>
                 <label>
-                    <input class="input-style" type="number" name="contact" id="contact" required>
+                    <input class="input-style inpt-pl20" type="number" name="contact" id="contact" required>
                     <p>Contact</p>
                 </label>
                 <label>
-                    <input class="input-style" type="date" name="date" id="date" required>
+                    <input class="input-style inpt-pl20" type="date" name="date" id="date" required>
                     <p>Data Hired</p>
                 </label><br>
                 <label class="side-left">Gender:
@@ -332,6 +345,8 @@ $pdo = $classPayroll->openConnection();
                 </label>
             </form>
     </div>
+
+        <section class="banner2"></section> <!--this is the banner -->
             <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
             <div class="output">
                 <table class="table table-dark table-striped">
