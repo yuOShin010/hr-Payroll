@@ -425,7 +425,7 @@ $pdo = $classPayroll->openConnection();
             
                 <form action="UI_setDepartment.php" method="post">
                     <!-- form search -->
-                   <div class="search-bg">
+                    <div class="search-bg">
                         <div class="search">
                             <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
                             <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>

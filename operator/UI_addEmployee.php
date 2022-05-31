@@ -39,7 +39,6 @@ $pdo = $classPayroll->openConnection();
             <div class="title">
                 <h1 class="t-left">SymTech</h1>
                 <h1 class="dot">.</h1>
-                
             </div>
         <!-- <div id="nav">
             <div class="toggle-btn" onclick="show()">
@@ -56,7 +55,7 @@ $pdo = $classPayroll->openConnection();
                     <p>Dashboard</p>
                 </a>
             </li>
-             <li>
+            <li>
                 <a href="../operator/UI_addEmployee.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" style="float:left;fill: rgba(255, 255, 255, 1);transform: scaleX(-1);msFilter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);"><path d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5 4.5 6.505 4.5 8.5 6.005 12 8 12z"></path></svg>
                     <p>Employee Management</p>
@@ -163,7 +162,7 @@ $pdo = $classPayroll->openConnection();
                     </label>
                     <label>
                         <input class="input-style" type="text" name="mi" id="mi" value="<?php echo $mi; ?>">
-                       <p>Middle Name</p>
+                        <p>Middle Name</p>
                     </label>
                     <label>
                         <input class="input-style" type="text" name="lname" id="lname" value="<?php echo $lname; ?>">
@@ -204,7 +203,7 @@ $pdo = $classPayroll->openConnection();
                     <button class="button update" type="submit" name="editEmployee">Update</button>
                     <button class="button delete" type="submit" name="deleteEmployee">Delete</button>
                 </form>
-
+    </div>
 
 
 
@@ -269,7 +268,7 @@ $pdo = $classPayroll->openConnection();
         ?>
 
 
-
+    
             <form action="UI_addEmployee.php" method="post">
                 <!-- form search-->
                 <div class="search-bg">
@@ -331,9 +330,8 @@ $pdo = $classPayroll->openConnection();
                     <button class="button" disabled="disabled">Update</button>
                     <button class="button" disabled="disabled">Delete</button>
                 </label>
-
             </form>
-
+    </div>
             <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
             <div class="output">
                 <table class="table table-dark table-striped">
@@ -380,7 +378,7 @@ $pdo = $classPayroll->openConnection();
                 </table>
             </div>
         <?php } ?>
-    </div>
+    
 </body>
 
 </html>

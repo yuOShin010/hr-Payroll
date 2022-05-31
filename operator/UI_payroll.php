@@ -21,11 +21,11 @@ $pdo = $classPayroll->openConnection();
         <title>Payroll Management</title>
 
 
-        <script>
+        <!-- <script>
             function show() {
                 document.getElementById('navigation').classList.toggle('active');
             }
-        </script>
+        </script> -->
 
     </head>
 
@@ -34,24 +34,16 @@ $pdo = $classPayroll->openConnection();
 
         <div id="navigation">
 
-<<<<<<< HEAD
         <!-- <div class="toggle-btn" onclick="show()">
-=======
-<<<<<<< HEAD
-            <div class="toggle-btn" onclick="show()">
-                <span></span>
-                <span></span>
-                <span></span>
-=======
         <div class="toggle-btn" onclick="show()">
->>>>>>> da09d241a7023d6f9744d8633665d6d3a7c2304b
             <span></span>
             <span></span>
             <span></span>
         </div> -->
-        <div class="side-bar">
-            <h3>SymTech</h3>
-        </div>
+            <div class="title">
+                    <h1 class="t-left">SymTech</h1>
+                    <h1 class="dot">.</h1>
+            </div>
         <ul>
             <li>
                 <a href="#">
@@ -60,7 +52,7 @@ $pdo = $classPayroll->openConnection();
                     <p>Dashboard</p>
                 </a>
             </li>
-             <li>
+            <li>
                 <a href="../operator/UI_addEmployee.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" style="float:left;fill: rgba(255, 255, 255, 1);transform: scaleX(-1);msFilter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);"><path d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5 4.5 6.505 4.5 8.5 6.005 12 8 12z"></path></svg>
                     <p>Employee Management</p>
@@ -120,86 +112,14 @@ $pdo = $classPayroll->openConnection();
 
         ?>
     </header>
-    <!------------------------------------------ END DASHBOARD ---------------------------------------->
-    <div class="container container-style">
-        <form action="UI_addEmployee.php" method="post">
-            <!-- form search-->
-            <div class="search-bg">
-                <div class="search">
-                    <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                    <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
-                </div>
->>>>>>> b57d4b8b21bd3541f7aeb2580ac9a29c0d65774d
-            </div>
-            <div class="side-bar">
-                <h3>SymTech</h3>
-            </div>
-            <ul>
-                <li>
-                    <a href="../operator/UI_addEmployee.php">
-                        <i class='bx bxs-user-account'></i>
-                        <p>Employee Management</p>
-                    </a>
-
-                </li>
-                <li>
-                    <a href="../operator/UI_setDepartment.php">
-                        <i class='bx bxs-building-house'></i>
-                        <p>Department Management</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="../operator/UI_schedule.php">
-                        <i class='bx bxs-calendar'></i>
-                        <p>Scheduling Management</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="../operator/UI_payroll.php">
-                        <i class='bx bxs-data'></i>
-                        <p>Payroll Management</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="../operator/UI_employeeSalary.php">
-                        <i class='bx bx-task'></i>
-                        <p>Employee Salary Report</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="../operator/UI_payslipReport.php">
-                        <i class='bx bxs-report'></i>
-                        <p>Payslip Report/Print</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="../operator/UI_companyReport.php">
-                        <i class='bx bx-line-chart-down'></i>
-                        <p>Company Report</p>
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-        <header class="tophead">
-            <!-- <p>top head</p> -->
-            <?php
-
-            if (isset($_SESSION['User'])) {
-                echo '<h1>' . 'WELCOME TO PAYROLL MANAGEMENT' . '</h1>';
-                echo '<a href="../logout.php?logout">Logout</a>';
-            } else {
-                header("location:../index.php");
-            }
-
-            ?>
-        </header>
+    <div class="banner"></div> <!--this is the banner -->
         <!------------------------------------------ END DASHBOARD ---------------------------------------->
+
         <?php $activeForm = true;
 
         if(isset($_POST['search']))    // This is the form active = false--
         {    
-            $activeform = false;
+            $activeForm = false;
             $setPayroll = true;
             $search_EID = $_POST['search_E_ID'];
 
@@ -327,7 +247,7 @@ $pdo = $classPayroll->openConnection();
                             <div class="search-bg">
                                 <div class="search">
                                     <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                                    <button type="submit" name="search" id="search"><i class='bx bx-search bx-margin'></i></button>
+                                    <button type="submit" name="search" id="search_e"><i class='bx bx-search bx-margin'></i></button>
                                 </div>
                             </div>
                         </form>
@@ -508,7 +428,7 @@ $pdo = $classPayroll->openConnection();
                             <div class="search-bg">
                                 <div class="search">
                                     <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                                    <button type="submit" name="search" id="search"><i class='bx bx-search bx-margin'></i></button>
+                                    <button type="submit" name="search" id="search_e"><i class='bx bx-search bx-margin'></i></button>
                                 </div>
                             </div>
                         </form>
@@ -532,12 +452,7 @@ $pdo = $classPayroll->openConnection();
                                 <input class="input-style removearrow" type="number" name="contact" id="contact" required readonly>
                                 <p>Contact</p>
                             </label>
-                            <label>
-                                <select name="dept_id" id="dept_id" required>
-                                    <option selected hidden> - Select - </option>
-                                </select>
-                                <p>Employee Department</p>
-                            </label>
+                            
                             <label>
                                 <input class="input-style removearrow" type="number" name="hours_work" id="hours_work" required readonly>
                                 <p>Hours Work</p>
@@ -545,6 +460,12 @@ $pdo = $classPayroll->openConnection();
                             <label>
                                 <input class="input-style removearrow" type="date" name="hours_work" id="hours_work" required readonly>
                                 <p>Date From</p>
+                            </label>
+                            <label class="options-right super-right">
+                                <select class="option-size super-top" name="dept_id" id="dept_id" required>
+                                    <option selected hidden>  Select  </option>
+                                </select>
+                                <p>Employee Department</p>
                             </label>
                             <label>
                                 <input class="input-style removearrow" type="date" name="hours_work" id="hours_work" required readonly>
@@ -599,7 +520,7 @@ $pdo = $classPayroll->openConnection();
                             <button class="button" disabled>Delete</button>
 
                         </form>
-
+                    </div>
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
                         <div class="output">
                             <table class="table table-dark table-striped">
@@ -630,7 +551,6 @@ $pdo = $classPayroll->openConnection();
                                     A.id,
                                     B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
                                     C.dept_id, C.dept_code,
-                                    D.position_id, D.position_desc,
                                     E.total_workHrs, E.d_from, E.d_to, E.days_works,
                                     F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
                                     F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
@@ -639,8 +559,6 @@ $pdo = $classPayroll->openConnection();
                                     ON A.employee_id = B.employee_id
                                     LEFT JOIN department AS C
                                     ON A.dept_id = C.dept_id
-                                    LEFT JOIN position AS D
-                                    ON A.position_id = D.position_id
                                     LEFT JOIN schedule AS E
                                     ON A.employee_id = E.employee_id
                                     LEFT JOIN payroll AS F
@@ -675,7 +593,7 @@ $pdo = $classPayroll->openConnection();
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    
             <?php 
         } ?>
 

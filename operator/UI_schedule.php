@@ -109,20 +109,6 @@
     </header>
 <!--_________________________________END OF TOPBAR___________________________________________-->
 
-<<<<<<< HEAD
-        <!-- </header>
-    <?php
-
-    if (isset($_SESSION['User'])) {
-        echo '<h1>' . ' Schedule Management ' . '</h1>';
-    } else {
-        header("location:../index.php");
-    }
-
-    ?>
-    </header> -->
-=======
->>>>>>> b57d4b8b21bd3541f7aeb2580ac9a29c0d65774d
 
 <!--_________________________________END OF DASHBOARD__________________________________________-->
    
@@ -362,27 +348,7 @@
             <?php    } 
                 
 
-<<<<<<< HEAD
-        <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
-        <table>
-            <thead>
-                <tr>
-                    <th>Employee ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Contact</th>
-                    <th>Department</th>
-                    <th>Position</th>
-                    <th>Total WorkHrs</th>
-                    <th>D-From</th>
-                    <th>D-To</th>
-                    <th>Days of Work</th>
-                </tr>
-            </thead>
-=======
                 if ($setSchedule){ ?>       <!-- UPDATE SCHEDULE ACTIVE UPDATE BTN ----->
->>>>>>> b57d4b8b21bd3541f7aeb2580ac9a29c0d65774d
 
                     <!-- // For Update Schedule -->
                     
@@ -514,156 +480,6 @@
 
                     if($activeform){    // This is the main user interface (no value indicated) --
                 ?>
-<<<<<<< HEAD
-                <tr>
-                    <td><?php echo $row['employee_id']; ?></td>
-                    <td><?php echo $row['first_name']; ?></td>
-                    <td><?php echo $row['last_name']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['contact']; ?></td>
-                    <td><?php echo $row['dept_code']; ?></td>
-                    <td><?php echo $row['position_desc']; ?></td>
-                    <td><?php echo $row['total_workHrs']; ?></td>
-                    <td><?php echo $row['d_from']; ?></td>
-                    <td><?php echo $row['d_to']; ?></td>
-                    <td><?php echo $row['days_works']; ?></td>
-                </tr>
-                <?php }} ?>
-            </tbody>
-        </table>
-        <?php    } 
-        
-
-        if ($setSchedule){ ?>       <!-- UPDATE SCHEDULE ACTIVE UPDATE BTN ----->
-
-                <!-- // For Update Schedule -->
-                <div class="container">
-                    <form action="../operator/UI_schedule.php" method="post">
-                        <div class="search-engine">
-                            <label>Search For Employee ID </label>
-                            <input type="number" name="search_E_ID" id="search_E_ID" >
-                            <button type="submit" name="search" id="search">-></button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="container-content">
-                    <form action="../php/process.php" method="post">   <!-- Throw in process.php -->
-                        <label>E_ID:</label>
-                        <input readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>"><br>
-                        <label>First Name:</label>
-                        <input readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>"><br>
-                        <label>Last Name:</label>
-                        <input readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>"><br>
-                        <label>Email:</label>
-                        <input readonly type="email" name="email" id="email1" value="<?php echo $email ?>"><br>
-                        <label>Contact:</label>
-                        <input readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>"><br>
-                        <label>Employee Dept:</label>
-                        <select name="dept_id" id="dept_id" required>
-                            <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
-                        </select><br>
-                        <label>Position:</label>
-                        <select name="position_id" id="position_id" required>
-                            <option selected hidden value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
-                        </select><br><br>
-                        
-                        <label>Total WorkHrs:</label>
-                        <input type="number" name="workHrs" id="workHrs" value="<?php echo $total_workHrs ?>"><br>
-                        <label>From:</label>
-                        <input type="date" name="d_from" id="d_from" value="<?php echo $d_from ?>"><br>
-                        <label>To:</label>
-                        <input type="date" name="d_to" id="d_to" value="<?php echo $d_to ?>">
-                        <input type="button" onclick="computeDays()" id="btn"><br><br> <!-- button here for Compute days Work -->
-                        <label>Days Work:</label>
-                        <input readonly type="text" name="daysWork" id="daysWork" value="<?php echo $days_works ?>"><br><br>
-
-                        <button disabled type="submit" name="set_schedule">Save</button>
-                        <button type="submit" name="updateSchedule">Update</button>
-                    </form>
-                </div>
-            <hr>        
-
-            <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
-            <table>
-                <thead>
-                    <tr>
-                        <th>Employee ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Contact</th>
-                        <th>Department</th>
-                        <th>Position</th>
-                        <th>Total WorkHrs</th>
-                        <th>D-From</th>
-                        <th>D-To</th>
-                        <th>Days of Work</th>
-                    </tr>
-                </thead>
-
-                <tbody> 
-                    <?php
-                        $pdo = $classPayroll->openConnection();
-
-                        $sql = "SELECT
-                        B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
-                        C.dept_code,
-                        D.position_desc,
-                        E.total_workHrs, E.d_from, E.d_to, E.days_works
-                        FROM tbl_employee_schedule AS A 
-                        LEFT JOIN employee AS B
-                        ON A.employee_id = B.employee_id
-                        LEFT JOIN department AS C
-                        ON A.dept_id = C.dept_id
-                        LEFT JOIN position AS D
-                        ON A.position_id = D.position_id
-                        LEFT JOIN schedule AS E
-                        ON A.employee_id = E.employee_id
-                        WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
-
-                        $stmt = $pdo->prepare($sql);
-                        $stmt->execute();
-
-                        if($stmt->rowCount() > 0){
-                            while($row = $stmt->fetch()){
-                    ?>
-                    <tr>
-                        <td><?php echo $row['employee_id']; ?></td>
-                        <td><?php echo $row['first_name']; ?></td>
-                        <td><?php echo $row['last_name']; ?></td>
-                        <td><?php echo $row['email']; ?></td>
-                        <td><?php echo $row['contact']; ?></td>
-                        <td><?php echo $row['dept_code']; ?></td>
-                        <td><?php echo $row['position_desc']; ?></td>
-                        <td><?php echo $row['total_workHrs']; ?></td>
-                        <td><?php echo $row['d_from']; ?></td>
-                        <td><?php echo $row['d_to']; ?></td>
-                        <td><?php echo $row['days_works']; ?></td>
-                    </tr>
-                    <?php }} ?>
-                </tbody>
-            </table>
-
-
-            <?php 
-        }
-
-    }
-//  <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
-
-            if($activeform){    // This is the main user interface (no value indicated) --
-        ?>
-  
-        <div class="container">
-            <form action="../operator/UI_schedule.php" method="post">
-                <div class="search-engine">
-                    <label>Search For Employee ID </label>
-                    <input type="number" name="search_E_ID" id="search_E_ID" >
-                    <button type="submit" name="search" id="search">-></button>
-                </div>
-            </form>
-=======
         
             
                 <form action="../operator/UI_schedule.php" method="post">
@@ -778,7 +594,6 @@
                         <?php }} ?>
                     </tbody>
                 </table>   
->>>>>>> b57d4b8b21bd3541f7aeb2580ac9a29c0d65774d
         </div>
     </div>
         <?php } ?>
