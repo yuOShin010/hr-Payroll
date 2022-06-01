@@ -21,7 +21,7 @@ $classPayroll->loginUsers();
 
 <body id="body1">
 
-    <div class="container">
+    
         <div class="nav-top">
             <h1 class="title-left">SymTech</h1>
             <h1 class="dot-left">.</h1>
@@ -33,9 +33,8 @@ $classPayroll->loginUsers();
                 <li>Feedback</li>
                 <li>Contact</li>
             </ul>
-            <div style="clear:both"></div>
-
         </div>
+            <div style="clear:both"></div>
 
         <!-- <div class="banner">
             <p class="frst">The</p>
@@ -47,7 +46,7 @@ $classPayroll->loginUsers();
             <p class="svth">rice</p>
         </div> -->
 
-        <div class="form">
+        <div class="container">
             <form action="" method="post">
                 <div class="form-title">
                     <h1>SymTech</h1>
@@ -66,19 +65,20 @@ $classPayroll->loginUsers();
                     ?>
                 </div>
 
-                <div class="cont-form">
+                
+                    <label>
                     <input class="box-size" type="text" name="username" id="op_username" placeholder="Username">
+                    </label>
+                    <label>
                     <input class="box-size" type="password" name="password" id="op_password" placeholder="Password">
+                    </label>
                     <label>
                         <input class="check-box" type="checkbox" onclick="myFunction()"> <!--  this checkbox is for show password -->
                         Show Password
                     </label>
                     <button class="login-btn" type="submit" name="login" id="login-button"> Login </button>
-
-                </div>
             </form>
         </div>
-    </div>
 </body>
 
 

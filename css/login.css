@@ -9,21 +9,24 @@
 }
 
 body {
-    /* background: linear-gradient(128deg, rgb(7, 0, 36), rgb(14, 220, 203)); */
+    display: flex;
+    justify-content: center;
+}
+
+
+/* body {
+    background: linear-gradient(128deg, rgb(7, 0, 36), rgb(14, 220, 203));
     background-color: rgb(202, 202, 202);
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(5px);
-}
-
-.container {
-    height: 100vh;
-    width: 100%;
-}
+} */
 
 .nav-top {
+    position: absolute;
     font-family: Leelawadee UI;
     height: 67px;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.189);
     color: rgb(255, 255, 255);
 }
@@ -92,7 +95,8 @@ ul li:hover {
 
 /* this is the banner's different size and styles */
 
-.frst {
+
+/* .frst {
     font-size: 120px;
     font-family: impact;
     margin: 34px 20px;
@@ -134,24 +138,30 @@ ul li:hover {
     font-family: Haettenschweiler;
     letter-spacing: 20px;
     margin: 232px 615px;
-}
+} */
 
 
 /* end of the banner texts */
 
 .form {
-    display: flex;
-    border: none;
-    background: rgb(228, 228, 228);
-    height: 74vh;
     width: 27%;
+    border: none;
+    height: 74vh;
+    display: flex;
     margin: 59px 956px;
-    transition: all 0.3s ease-in-out;
-    transform: translate(6%, 0%);
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.138);
+    transform: translate(6%, 0%);
     transition: all 1s ease-in-out;
+    background: rgb(228, 228, 228);
+    transition: all 0.3s ease-in-out;
     box-shadow: 1px 1px 3px 1px rgb(89, 89, 89);
+    border: 1px solid rgba(255, 255, 255, 0.138);
+}
+
+.container {
+    height: 72vh;
+    width: 30%;
+    background: rgb(193, 193, 193);
 }
 
 .error {
@@ -196,14 +206,13 @@ ul li:hover {
 }
 
 .box-size {
-    background: rgb(228, 228, 228);
-    height: 56px;
-    width: 330px;
-    border-radius: 7px;
+    height: 44px;
+    width: 77%;
+    padding: 0 12px;
+    border-radius: 3px;
+    border: 2px solid rgb(193, 193, 193);
     margin: 10px 41px;
-    padding-left: 20px;
     font-size: 19px;
-    border: none;
     border-bottom: 2px solid rgb(30, 30, 30);
     transition: all 0.1s ease;
 }

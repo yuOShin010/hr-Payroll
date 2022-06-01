@@ -1,0 +1,98 @@
+* {
+    font-family: "Quicksand", sans-serif;
+    font-weight: lighter;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    height: 72vh;
+    width: 30%;
+    background: rgba(0, 78, 120, 0.686);
+}
+
+.container2 {
+    height: 72vh;
+    width: 30%;
+    background: rgb(193, 193, 193);
+}
+
+.container2 h1 {
+    text-align: center;
+    margin: 23px 0;
+}
+
+.container-content {
+    display: block;
+    margin: 51px 0;
+    height: 48vh;
+    width: 100%;
+}
+
+.container,
+.container2 {
+    margin-top: 145px;
+}
+
+.box-sized {
+    height: 44px;
+    width: 321%;
+    padding: 0 12px;
+    border-radius: 3px;
+    border: 2px solid rgb(193, 193, 193);
+}
+
+.box-sized:hover {
+    border: 2px solid #004e5d;
+}
+
+.container-content label {
+    display: block;
+    margin: 20px 58px;
+    width: 102px;
+}
+
+.tophead {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background: #004e5d;
+}
+
+.logout {
+    position: relative;
+    margin: -29px 1530px;
+    height: 31px;
+    color: #d8d5c0;
+    transition: all 0.2s ease;
+}
+
+.logout:hover {
+    color: rgb(255, 255, 255);
+}
+
+.btn {
+    margin: 10px 188px;
+    width: 113px;
+}
+
+.reg-btn {
+    height: 44px;
+    padding: 5px;
+    color: white;
+    text-shadow: -2px 3px 4px black;
+    border: none;
+    border-radius: 3px;
+    background: linear-gradient(128deg, rgb(80 133 162), rgb(14, 220, 203));
+    transition: all 0.2s ease;
+}
+
+.reg-btn:hover {
+    background: linear-gradient(128deg, rgb(14, 220, 203), rgb(80 133 162));
+}
