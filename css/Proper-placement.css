@@ -1,49 +1,40 @@
-body {
-    height: 100vh;
-    width: 100%;
-    background: rgb(241 241 241);
-}
-
-.container {
-    position: relative;
-    left: 151px;
-    top: 2px;
-    width: 80%;
-    background: white;
-    height: 692px;
-    border-radius: 2px;
-    box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 23%);
-}
-
-
-/* table properties */
-
-.output {
-    padding: 1px;
-    position: relative;
-    left: 310px;
-    top: -15px;
-    width: 80%;
-    background: white;
-    height: 355px;
-}
-
-body::-webkit-scrollbar {
-    width: 9px;
-}
-
-body::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-body::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 8px;
-    height: 50vh;
-}
-
-
-/* .output::-webkit-scrollbar,
+    body {
+        background: rgb(241 241 241);
+        display: grid;
+    }
+    
+    @media only screen and (min-width: 1200px) {
+        .container {
+            left: 151px;
+            top: 2px;
+            width: 80%;
+            background: white;
+            height: 692px;
+            border-radius: 2px;
+            box-shadow: -1px -1px 20px 0px rgba(0, 0, 0, 0.196);
+        }
+        /* table properties */
+        .output {
+            padding: 1px;
+            position: relative;
+            left: 309px;
+            top: 4px;
+            width: 78%;
+            background: white;
+            height: 355px;
+        }
+        body::-webkit-scrollbar {
+            width: 9px;
+        }
+        body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        body::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 8px;
+            height: 50vh;
+        }
+        /* .output::-webkit-scrollbar,
 .container::-webkit-scrollbar {
     width: 9px;
 }
@@ -58,139 +49,128 @@ body::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 8px;
 } */
-
-label {
-    margin: 0 23px;
-    display: inline-table;
-}
-
-
-/* input placement */
-
-.side-left {
-    margin: 0 60px;
-}
-
-.side-right {
-    margin: -2px 192px;
-}
-
-.options-right {
-    margin: -5px 58px;
-}
-
-.option-size {
-    height: 42px;
-    border: none;
-    background: #d5dbe1;
-    border-radius: 8px;
-    outline: none;
-}
-
-
-/* --------------------groupbox----------------------- */
-
-hr {
-    margin: -50px 0;
-}
-
-.b {
-    display: inline-table;
-    width: 10%;
-}
-
-.b-size {
-    height: 41px;
-    width: 117px;
-    border: none;
-    border: 1px solid rgb(209 209 209);
-    outline: none;
-    border-radius: 2px;
-    padding: 19px;
-}
-
-.b12-size {
-    height: 41px;
-    width: 117px;
-    border: none;
-    border-bottom: 1px solid rgb(209 209 209);
-    outline: none;
-    border-radius: 7px;
-    padding: 19px;
-}
-
-.b-size:hover {
-    border-color: rgb(0, 162, 255);
-}
-
-.srch-btn {
-    display: absolute;
-}
-
-.title {
-    display: flex;
-    color: white;
-}
-
-.t-left {
-    font-weight: lighter;
-    font-size: 28px;
-}
-
-.dot {
-    margin: -16px 5px;
-}
-
-.sel-size {
-    width: 30px;
-}
-
-
-/*________________________Logout Properties________________________ */
-
-.logout {
-    position: absolute;
-    margin: -34px 1544px;
-    height: 31px;
-    color: #d8d5c0;
-    transition: all 0.2s ease;
-}
-
-.logout:hover {
-    color: rgb(255, 255, 255);
-}
-
-
-/*________________________END________________________ */
-
-
-/*________________________Greetings Properties________________________ */
-
-.greet {
-    margin: 0 308px;
-    font-weight: lighter;
-    color: #dfe3e7;
-}
-
-
-/*________________________END________________________ */
-
-
-/*________________________icons Properties________________________ */
-
-.back-btn {
-    height: 30px;
-    margin: 14px 17px;
-    border-radius: 400px;
-    position: absolute;
-    transition: all 0.1s ease;
-}
-
-.back-btn:hover {
-    color: #000000;
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-}
-
-
-/*________________________END________________________ *
+        label {
+            margin: 0 23px;
+            display: inline-table;
+        }
+        /* input placement */
+        .side-left {
+            margin: 0 60px;
+        }
+        .side-right {
+            margin: -2px 192px;
+        }
+        .options-right {
+            margin: -5px 58px;
+        }
+        .option-size {
+            height: 42px;
+            border: none;
+            background: #d5dbe1;
+            border-radius: 8px;
+            outline: none;
+        }
+        /* --------------------groupbox----------------------- */
+        hr {
+            margin: -50px 0;
+        }
+        .b {
+            display: inline-table;
+            width: 10%;
+        }
+        .b-size {
+            height: 41px;
+            width: 117px;
+            border: none;
+            border: 1px solid rgb(209 209 209);
+            outline: none;
+            border-radius: 2px;
+            padding: 19px;
+        }
+        .b12-size {
+            height: 41px;
+            width: 117px;
+            border: none;
+            border-bottom: 1px solid rgb(209 209 209);
+            outline: none;
+            border-radius: 7px;
+            padding: 19px;
+        }
+        .b-size:hover {
+            border-color: rgb(0, 162, 255);
+        }
+        .srch-btn {
+            display: absolute;
+        }
+        .title {
+            display: flex;
+            color: white;
+        }
+        .t-left {
+            font-weight: lighter;
+            font-size: 28px;
+        }
+        .dot {
+            margin: -16px 5px;
+        }
+        .sel-size {
+            width: 30px;
+        }
+        /*________________________Logout Properties________________________ */
+        .logout {
+            position: absolute;
+            margin: -34px 1544px;
+            height: 31px;
+            color: #d8d5c0;
+            transition: all 0.2s ease;
+        }
+        .logout:hover {
+            color: rgb(255, 255, 255);
+        }
+        /*________________________END________________________ */
+        /*________________________Greetings Properties________________________ */
+        .greet {
+            margin: 0 308px;
+            font-weight: lighter;
+            color: #dfe3e7;
+        }
+        /*________________________END________________________ */
+        /*________________________icons Properties________________________ */
+        .back-btn {
+            height: 30px;
+            margin: 14px 17px;
+            border-radius: 400px;
+            position: absolute;
+            transition: all 0.1s ease;
+        }
+        .back-btn:hover {
+            color: #000000;
+            position: absolute;
+            background-color: rgb(255, 255, 255);
+        }
+    }
+    /*________________________END________________________ */
+    
+    @media only screen and (min-width: 1900px) {
+        .banner {
+            height: 60px;
+            width: 83.3%;
+            margin: 12px 309px;
+            background-color: #068de5;
+        }
+        .container {
+            left: 151px;
+            top: 2px;
+            width: 80%;
+        }
+        .output {
+            padding: 1px;
+            position: relative;
+            left: 309px;
+            top: -15px;
+            width: 83.3%;
+            background: white;
+            height: 315px;
+            box-shadow: 1px 6px 5px #00000078;
+        }
+    }

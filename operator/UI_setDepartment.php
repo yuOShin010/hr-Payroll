@@ -31,11 +31,17 @@ $pdo = $classPayroll->openConnection();
 </head>
 
 <!-- DASHBOARD -->
-
 <header class="tophead">
         <!-- <p>top head</p> -->
         <?php
 
+<<<<<<< HEAD
+<header class="tophead">
+        <!-- <p>top head</p> -->
+        <?php
+
+=======
+>>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
         if (isset($_SESSION['User'])) {
             echo '<h1 class="greet">' . 'DEPARTMENT MANAGEMENT' . '</h1>';
             echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -114,8 +120,12 @@ $pdo = $classPayroll->openConnection();
     </ul>
 
 </div>
+<<<<<<< HEAD
    
 <!-- END DASHBOARD -->
+=======
+    
+>>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
     <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -183,6 +193,7 @@ $pdo = $classPayroll->openConnection();
                         $contact = $row['contact'];
                     }  ?>
 
+<<<<<<< HEAD
                         <div class="container container-small">
                             <form action="../operator/UI_setDepartment.php" method="post">
                                 <!-- form search -->
@@ -242,6 +253,17 @@ $pdo = $classPayroll->openConnection();
                                 <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
                             </form>
             
+=======
+
+        ?>
+            <div class="container-small">
+                <form action="../operator/UI_setDepartment.php" method="post">
+                    <!-- form search -->
+                    <div class="search-bg">
+                        <div class="search">
+                            <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                            <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
+>>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
                         </div>
             
                         <section class="banner2"></section> <!--this is the banner -->
@@ -320,7 +342,7 @@ $pdo = $classPayroll->openConnection();
             if ($setDepartment) {                 // UPDATE SET DEPARTMENT UPDATE OPTION -----
             ?>
 
-            <div class="container container-small">
+            <div class="container-small">
                     <form action="../operator/UI_setDepartment.php" method="post">
                         <!-- form search -->
                         <div class="search-bg">
@@ -447,7 +469,7 @@ $pdo = $classPayroll->openConnection();
             <!-- this is the 1st interface of set department module -->
 
             <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
-            <div class="container container-small">
+            <div class="container-small">
                 <form action="UI_setDepartment.php" method="post">
                     <!-- form search -->
                     <div class="search-bg">
