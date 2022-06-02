@@ -1,17 +1,3 @@
-/*________________________Container Properties________________________ */
-
-.container-style {
-    margin: 29px 158px;
-}
-
-.container-style label {
-    margin: 29px 0;
-}
-
-
-/*________________________END________________________ */
-
-
 /*________________________Input Properties________________________ */
 
 .input-style {
@@ -52,12 +38,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 /*________________________For Search Icon Properties________________________ */
-
-.search-bg {
-    height: 119px;
-    width: 100%;
-    display: flex;
-}
 
 .search-style {
     border: none;
@@ -171,26 +151,6 @@ input[type=number]::-webkit-outer-spin-button {
 /*________________________END________________________ */
 
 
-/*________________________Banner properties________________________ */
-
-.banner {
-    height: 60px;
-    width: 80%;
-    margin: 12px 309px;
-    background-color: #068de5;
-}
-
-.banner2 {
-    height: 60px;
-    width: 80%;
-    margin: 15px 309px;
-    background-color: #068de5;
-}
-
-
-/*________________________END________________________ */
-
-
 /*________________________different size of container________________________ */
 
 .container-large {
@@ -244,3 +204,119 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 /*________________________END________________________ */
+
+
+/*________________________Container Properties________________________ */
+
+.container-style {
+    margin: 29px 158px;
+}
+
+.container-style label {
+    margin: 29px 0;
+}
+
+
+/*________________________END________________________ */
+
+
+/*________________________Banner properties________________________ */
+
+@media only screen and (min-width: 1200px) {
+    .banner {
+        height: 60px;
+        width: 80%;
+        margin: 12px 309px;
+        background-color: #068de5;
+    }
+    .banner2 {
+        height: 60px;
+        width: 80%;
+        margin: 15px 309px;
+        background-color: #068de5;
+    }
+    .container {
+        margin: 2px 308px;
+        width: 80%;
+        background: white;
+        height: 692px;
+        border-radius: 2px;
+        box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 20%);
+    }
+}
+
+
+/*________________________different size of container________________________ */
+
+.container-large {
+    height: 730px;
+}
+
+.container-medium {
+    height: 560px;
+}
+
+.container-small {
+    height: 450px;
+}
+
+.container-xsmall {
+    height: 250px;
+}
+
+.container-xmedium {
+    height: 610px;
+}
+
+
+/*________________________END________________________ */
+
+@media only screen and (min-width: 1900px) {
+    .banner {
+        height: 60px;
+        width: 83.4%;
+        margin: 12px 309px;
+        background-color: #068de5;
+    }
+    .banner2 {
+        height: 60px;
+        width: 80%;
+        margin: 15px 309px;
+        background-color: #068de5;
+    }
+    /*________________________different size of container________________________ */
+    .container-large {
+        height: 730px;
+    }
+    .container-medium {
+        height: 560px;
+        margin: 2px 308px;
+        width: 83.3%;
+        background: white;
+        height: 692px;
+        border-radius: 2px;
+        box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 20%);
+    }
+    .container-small {
+        height: 450px;
+    }
+    .container-xsmall {
+        height: 250px;
+    }
+    .container-xmedium {
+        height: 610px;
+    }
+    /*________________________END________________________ */
+    .search-bg {
+        height: 95px;
+        width: 100%;
+        display: flex;
+        margin: 10px 23px;
+    }
+    .search {
+        margin: 16px 287px;
+    }
+    .form {
+        margin: 23px 0;
+    }
+}

@@ -125,7 +125,7 @@ $pdo = $classPayroll->openConnection();
             <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
     </div>
-    <div class="container container-medium">
+    <div class="container-medium">
 
         <?php
         $activeForm = true;
@@ -166,7 +166,7 @@ $pdo = $classPayroll->openConnection();
                 </div>
             </form>
 
-                <form action="../php/process.php" method="post">
+                <form class="form" action="../php/process.php" method="post">
                     <label>
                         <input class="input-style inpt-pl20" type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID; ?>">
                         <p>Employee ID</p>
