@@ -1,3 +1,11 @@
+html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+
 /*________________________Input Properties________________________ */
 
 .input-style {
@@ -28,6 +36,26 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+.int-red {
+    height: 41px;
+    width: 117px;
+    border: none;
+    border: 1px solid rgb(254, 0, 0);
+    outline: none;
+    border-radius: 2px;
+    padding: 19px;
+}
+
+.int-green {
+    height: 41px;
+    width: 117px;
+    border: none;
+    border: 1px solid green;
+    outline: none;
+    border-radius: 2px;
+    padding: 19px;
 }
 
 .inpt-pl20 {
@@ -143,10 +171,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 /*________________________different size of container________________________ */
 
-.container-large {
-    height: 730px;
-}
-
 .container-xsmall {
     height: 250px;
 }
@@ -203,12 +227,14 @@ input[type=number]::-webkit-outer-spin-button {
 @media only screen and (min-width: 1200px) {
     /*________________________Banner properties________________________ */
     .banner {
+        position: relative;
         height: 60px;
         width: 78%;
         margin: 7px 309px;
         background-color: #068de5;
     }
     .banner2 {
+        position: relative;
         height: 60px;
         width: 78%;
         margin: 9px 309px;
@@ -222,7 +248,7 @@ input[type=number]::-webkit-outer-spin-button {
         background: white;
         height: 432px;
         border-radius: 2px;
-        box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 20%);
+        box-shadow: 1px 6px 5px #00000078;
     }
     .container-sSmall {
         margin: 10px 308px;
@@ -231,7 +257,7 @@ input[type=number]::-webkit-outer-spin-button {
         background: white;
         height: 381px;
         border-radius: 2px;
-        box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 20%);
+        box-shadow: 1px 6px 5px #00000078;
     }
     .container-sSmall2 {
         margin: 10px 308px;
@@ -239,7 +265,7 @@ input[type=number]::-webkit-outer-spin-button {
         background: white;
         height: 432px;
         border-radius: 2px;
-        box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 20%);
+        box-shadow: 1px 6px 5px #00000078;
     }
     .container-medium {
         margin: 2px 308px;
@@ -247,7 +273,7 @@ input[type=number]::-webkit-outer-spin-button {
         background: white;
         height: 749px;
         border-radius: 2px;
-        box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 20%);
+        box-shadow: 1px 6px 5px #00000078;
     }
     .container-medium-result {
         margin: 2px 308px;
@@ -255,15 +281,16 @@ input[type=number]::-webkit-outer-spin-button {
         background: white;
         height: 792px;
         border-radius: 2px;
-        box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 20%);
+        box-shadow: 1px 6px 5px #00000078;
     }
     .container-xmedium {
         margin: 2px 308px;
         width: 78%;
+        position: relative;
         background: white;
         height: 519px;
         border-radius: 2px;
-        box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 20%);
+        box-shadow: 1px 6px 5px #00000078;
     }
     .container-xmedium-result {
         margin: 2px 308px;
@@ -271,7 +298,15 @@ input[type=number]::-webkit-outer-spin-button {
         background: white;
         height: 562px;
         border-radius: 2px;
-        box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 20%);
+        box-shadow: 1px 6px 5px #00000078;
+    }
+    .container-large {
+        height: 891px;
+        margin: 2px 308px;
+        width: 78%;
+        background: white;
+        border-radius: 2px;
+        box-shadow: 1px 6px 5px #00000078;
     }
     .go-btn {
         height: 15px;
@@ -315,7 +350,7 @@ input[type=number]::-webkit-outer-spin-button {
     /*________________________Search properties________________________ */
     .search-bg {
         height: 95px;
-        width: 100%;
+        width: 36%;
         display: flex;
         margin: 10px 23px;
     }
@@ -332,6 +367,13 @@ input[type=number]::-webkit-outer-spin-button {
         border-radius: 2px;
         float: right;
         margin: 87px 18px;
+    }
+    .output {
+        height: 315px;
+        box-shadow: 1px 6px 5px #00000078;
+    }
+    .tophead {
+        width: 100%;
     }
 }
 

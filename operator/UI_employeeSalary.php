@@ -58,7 +58,6 @@
             <ul>
             <li>
                 <a href="#">
-                    <!-- <i class='bx bx-bar-chart-square bx-flip-horizontal' style='color:#ffffff'  ></i> -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" style="padding-left: 16px;float: left;fill: rgba(255, 255, 255, 1);transform: scaleX(-1);msFilter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);"><path d="M3 5v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2zm16.001 14H5V5h14l.001 14z"></path><path d="M11 7h2v10h-2zm4 3h2v7h-2zm-8 2h2v5H7z"></path></svg>
                     <p>Dashboard</p>
                 </a>
@@ -86,7 +85,6 @@
                 <a href="../operator/UI_payroll.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" style="padding-left: 16px; float:left;fill: rgba(255, 255, 255, 1);transform: scaleX(-1);msFilter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);"><path d="M20 6c0-2.168-3.663-4-8-4S4 3.832 4 6v2c0 2.168 3.663 4 8 4s8-1.832 8-4V6zm-8 13c-4.337 0-8-1.832-8-4v3c0 2.168 3.663 4 8 4s8-1.832 8-4v-3c0 2.168-3.663 4-8 4z"></path><path d="M20 10c0 2.168-3.663 4-8 4s-8-1.832-8-4v3c0 2.168 3.663 4 8 4s8-1.832 8-4v-3z"></path></svg>
                     <p>Payroll Management</p>
-                    <!-- style="padding-left: 16px; float:left;fill: rgba(255, 255, 255, 1);transform: scaleX(-1);msFilter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1); -->
                 </a>
             </li>
             <li>
@@ -108,19 +106,137 @@
                 </a>
             </li>
             </ul>
-           
         </div>
+        <!--_________________________________END OF TOPBAR___________________________________________-->
+        <!--_________________________________END OF DASHBOARD__________________________________________-->
         
-    <div class="banner">
+        <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-    </div> <!--this is the banner -->
+        </div>
 
-<!--_________________________________END OF TOPBAR___________________________________________-->
+        <div class="container-large">
+                        <form action="UI_payroll.php" method="post">
+                            <!-- form search-->
+                            <div class="search-bg">
+                                <div class="search">
+                                    <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                                    <button type="submit" name="search" id="search_e"><i class='bx bx-search bx-margin'></i></button>
+                                </div>
+                            </div>
+                        </form>
+
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="" id="" required readonly> 
+                                <p>Employee ID</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="text" name="fname" id="fname" required readonly>
+                                <p>First Name</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="text" name="lname" id="lname" required readonly>
+                                <p>Last Name</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20 removearrow" type="number" name="contact" id="contact" required readonly>
+                                <p>Contact</p>
+                            </label>
+                            
+                            <label>
+                                <input class="input-style inpt-pl20 removearrow" type="number" name="hours_work" id="hours_work" required readonly>
+                                <p>Employee Department</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20 removearrow" type="number" name="hours_work" id="hours_work" required readonly>
+                                <p>Position</p>
+                            </label>
+                            <br>
+
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Overtime</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Holidays Works</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Allowance</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Work Hours</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Days Work</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Leave Days</p>
+                            </label>
+                            <br> 
+                            <!-- Pay -->
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Days Work Pay</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Over Time Pay</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Holidays Pay</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Leave Days Pay</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Allowance Pay</p>
+                            </label>
+                            <label>
+                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                                <p>Bacis Pay</p>
+                            </label>
+                            <br><br>
+                            
+                            <label>
+                                <input class="b-size" type="button"  name="" id="" required>
+                                <p>Regular</p>
+                            </label>
+                            <label>
+                                <input class="b-size" type="button" name="" id="" required>
+                                <p>Contructual</p>
+                            </label>
+                            <br><br>
+                                <label>
+                                    <input class="int-red" type="number" name="" id="" required>
+                                    <p>Deduction Total</p>
+                                </label>
+                                <label>
+                                    <input class="int-green" type="number" name="" id="" required>
+                                    <p>NetPay</p>
+                                </label>
+                                <button class="button" disabled>Save</button>
+                                <button class="button" disabled>Update</button>
+                                <button class="button" disabled>Delete</button>
+                                
+                            </div>
 
 
-<!--_________________________________END OF DASHBOARD__________________________________________-->
+
+        <section class="banner2"><h2>Database Table</h2></section> <!--this is the banner -->
+    <!-- ________________________________DATABASE TABLE_______________________________ -->
+                        <div class="output">
+
+                        </div>
+
 
 
         

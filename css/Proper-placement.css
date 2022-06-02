@@ -166,10 +166,11 @@
         .output {
             padding: 1px;
             position: relative;
-            left: 310px;
+            left: 309px;
             top: -15px;
             width: 83.3%;
             background: white;
-            height: 355px;
+            height: 315px;
+            box-shadow: 1px 6px 5px #00000078;
         }
     }

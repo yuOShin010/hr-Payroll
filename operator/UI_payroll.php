@@ -340,7 +340,7 @@ $pdo = $classPayroll->openConnection();
                                 <button class="button" disabled>Save</button>
                                 <button class="button" disabled>Update</button>
                                 <button class="button" disabled>Delete</button>
-                                </div>
+                        </div>
                         </form>
 
                     <section class="banner2"></section> <!--this is the banner -->
