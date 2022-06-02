@@ -1,15 +1,27 @@
 <?php
     require_once ('classes/payrollClass.php');
     $pdo = $classPayroll->openConnection();
+?>
+
+<!DOCTYPE html>
+<head>
+    <script src="../sweet_alert/jquery-3.6.0.min.js"></script>
+    <script src="../sweet_alert/sweetalert2.all.min.js"></script>
+    <title>SymTech</title>
+</head>
+<body>
 
 
+<?php
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
                                 // for employee management module process --
 
-
+        if(isset($_POST['addEmployee'])){
+            $classPayroll->addEmployee();              // add employee infromation --
+        }
+                                
         if(isset($_POST['editEmployee'])){
             $classPayroll->update_employee_module();  // update employee information --
-                header("Location: ../operator/UI_addEmployee.php");
         } 
         
         if(isset($_POST['deleteEmployee'])){
@@ -17,10 +29,6 @@
                  header("Location: ../operator/UI_addEmployee.php");
         }
 
-        if(isset($_POST['addEmployee'])){
-            $classPayroll->addEmployee();              // add employee infromation --
-                header('location: ../operator/UI_addEmployee.php');
-        }
 
 
 
@@ -39,8 +47,22 @@
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$E_ID, $dept_ID, $position_ID]);
     
-            echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Set Department..');
-                window.location.href='../operator/UI_setDepartment.php'; </script>");
+                echo "<script>";
+                echo "Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Department has been saved',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then((result) => {
+                            if(result) {
+                                window.location.href='../operator/UI_setDepartment.php';
+                            }
+                        })";
+                echo "</script>";
+
+            // echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Set Department..');
+            //     window.location.href='../operator/UI_setDepartment.php'; </script>");
         }
       
                 
@@ -53,8 +75,22 @@
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$dept_ID, $position_ID, $E_ID]);
     
-            echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Update Department..');
-                window.location.href='../operator/UI_setDepartment.php'; </script>");
+            echo "<script>";
+                echo "Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Update successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then((result) => {
+                            if(result) {
+                                window.location.href='../operator/UI_setDepartment.php';
+                            }
+                        })";
+                echo "</script>";
+            
+            // echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Update Department..');
+            //     window.location.href='../operator/UI_setDepartment.php'; </script>");
         }
 
 
@@ -82,8 +118,20 @@
                 $stmt2 = $pdo->prepare($sql2);
                 $stmt2->execute([$work_hrs, $E_ID, $d_from, $d_to, $daysWork]);
     
-                echo ("<script LANGUAGE='JavaScript'> window.alert('Successful Set Schedule ....');
-                window.location.href='../operator/UI_schedule.php'; </script>");
+                echo "<script>";
+                echo "Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Schedule data has been saved',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then((result) => {
+                            if(result) {
+                                window.location.href='../operator/UI_schedule.php';
+                            }
+                        })";
+                echo "</script>";
+                
             } else {
                 echo "Wrong Statement!";
             }
@@ -99,14 +147,25 @@
             $sql = "UPDATE schedule SET total_workHrs = ?, d_from = ?, d_to = ?, days_works = ? WHERE employee_id = ? ";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$work_hrs, $d_from, $d_to, $daysWork, $E_ID]);
-    
-            echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Update Schedule..');
-                window.location.href='../operator/UI_schedule.php'; </script>");
-    
+
+                echo "<script>";
+                echo "Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Update successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then((result) => {
+                        if(result) {
+                            window.location.href='../operator/UI_schedule.php';
+                        }
+                    })";
+                echo "</script>";
+
         }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-                            //  PAYROLL MANAGEMENT PROCESS MODULE --
+                                //  PAYROLL MANAGEMENT PROCESS MODULE --
 
         if(isset($_POST['addPayroll'])){    // Save Button in Payroll management active
             $E_ID = $_POST['E_ID'];
@@ -138,13 +197,27 @@
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$E_ID, $overtime, $allowance, $holidays_work, $leave_days, $sss, $tax, $pag_ibig, $phil_health, $sss_loan, $tax_loan, $pag_ibig_loan, $phil_health_loan, $others, $total_deductions]);
 
-                echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Insert payroll Data..');
-                    window.location.href='../operator/UI_payroll.php'; </script>");
-           
+                // echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Insert payroll Data..');
+                //     window.location.href='../operator/UI_payroll.php'; </script>");
+                
+                echo "<script>";
+                echo "Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Payroll data has been saved',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then((result) => {
+                            if(result) {
+                                window.location.href='../operator/UI_payroll.php';
+                            }
+                        })";
+                echo "</script>";
 
         }
 
         if(isset($_POST['updatePayroll'])){
+            
             $E_ID = $_POST['E_ID'];
             $overtime = $_POST['overtime'];
             $allowance = $_POST['allowance'];
@@ -166,10 +239,26 @@
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$overtime, $allowance, $holidays_work, $leave_days, $sss, $tax, $pag_ibig, $phil_health, $sss_loan, $tax_loan, $pag_ibig_loan, $phil_health_loan, $others, $total_deductions, $E_ID]);
 
-            echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Update payroll Data..');
-                    window.location.href='../operator/UI_payroll.php'; </script>");
+            // echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Update payroll Data..');
+            //         window.location.href='../operator/UI_payroll.php'; </script>");    
+                
+                echo "<script>";
+                echo "Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Update successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then((result) => {
+                            if(result) {
+                                window.location.href='../operator/UI_payroll.php';
+                            }
+                        })";
+                echo "</script>";
         }
            
-
+?>
+</body>
+</html>
 
 

@@ -82,8 +82,17 @@
 // ---------------------------------------------------- REGISTER OPERATOR ---------------------------------------------------- //
 
         public function register_op()
-        {
-
+        { 
+            ?>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+            <script src="../sweet_alert/jquery-3.6.0.min.js"></script>
+            <script src="../sweet_alert/sweetalert2.all.min.js"></script>
+            </head>
+            <body>
+                
+            <?php
             $pdo = $this->openConnection();
             if(isset($_POST['add_op']))
             {
@@ -100,20 +109,50 @@
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([$fname, $mname, $lname, $email, $pass, $user_type]);
 
-                    echo ("<script LANGUAGE='JavaScript'> window.alert('Succesful Register');
-                    window.location.href='../admin/UI_dashboard_ad.php'; </script>");
+                    ?>
+                        <script>
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'New employee has been saved',
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then((result) => {
+                                if(result) {
+                                    window.location.href='../admin/UI_register_OP.php';
+                                }
+                            })
+                        </script>
+                    <?php
+                    // echo ("<script LANGUAGE='JavaScript'> window.alert('Succesful Register');
+                    // window.location.href='../admin/UI_dashboard_ad.php'; </script>");
 
                 } else {
 
-                    echo ("<script LANGUAGE='JavaScript'> window.alert('Email is already exists ---->  Use other Email');
-                    window.location.href='../admin/UI_register_OP.php'; </script>");
+                    ?>
+                        <script>
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Email Exist!',
+                                text: 'Use Another Email to Register',
+                            }).then((result) => {
+                                if(result) {
+                                    window.location.href='../admin/UI_register_OP.php';
+                                }
+                            })
+                        </script> 
+                    <?php
+
+                    // echo ("<script LANGUAGE='JavaScript'> window.alert('Email is already exists ---->  Use other Email');
+                    // window.location.href='../admin/UI_register_OP.php'; </script>");
 
                 }
 
 
             }
-
-        
+            ?>
+            </body>
+            </html><?php
         }
 
 // ---------------------------------------------------- LOGIN OPERATOR ---------------------------------------------------- //
@@ -157,66 +196,138 @@
 // ---------------------------------------------------- LOGIN USERS ---------------------------------------------------- // 
 
         public function loginUsers()
-        {
-            $pdo = $this->openConnection();
-            session_start();
+        { ?>
+            <!DOCTYPE html>
+            <head>
+                <script src="sweet_alert/jquery-3.6.0.min.js"></script>
+                <script src="sweet_alert/sweetalert2.all.min.js"></script>
+            </head>
+            <body>
+                    
+                <?php
+                $pdo = $this->openConnection();
+                session_start();
 
-            if(isset($_POST['login']))
-            {
-                $username = $_POST["username"];
-                $password = $_POST["password"];
-                
-                if(empty($username) || empty($password))
+                if(isset($_POST['login']))
                 {
+                    $username = $_POST["username"];
+                    $password = $_POST["password"];
+                    
+                    if(empty($username) || empty($password))
+                    { ?>
+                        <script>
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Empty Fields',
+                                text: 'These field cannot be Empty!',
+                            })
+                        </script> <?php  
+                    } else {
 
-                    header("location:index.php?Empty= Please Fill in the Blanks");
+                        $sql = "SELECT * FROM users WHERE email_addr = ?";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([$username]);
+            
+                        if($stmt->rowCount() > 0){
+                            while($row = $stmt->fetch()){
 
-                } else {
+                                $_SESSION['User'] = $row['first_name'];
 
-                    $sql = "SELECT * FROM users WHERE email_addr = ?";
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute([$username]);
-        
-                    if($stmt->rowCount() > 0){
-                        while($row = $stmt->fetch()){
+                                if(($row['user_type'] == 2) && ($row['password'] == md5($password))){
+                                    ?>
+                                        <script>
+                                            swal.fire({
+                                                title: "OPERATOR",
+                                                text: "Successfully Login!",
+                                                icon: "success",
+                                                // button: "Aww yiss!",
+                                                showConfirmButton: false,
+                                                position: 'center',
+                                                timer: 1500,
+                                            }).then((result) => {
+                                                if(result) {
+                                                    window.location.href='operator/welcome_op.php';
+                                                }
+                                            })
+                                        </script>   
+                                    <?php
 
-                            $_SESSION['User'] = $row['first_name'];
+                                } elseif(($row['user_type'] == 1) && ($row['password'] == $password)){
+                                    ?>
+                                        <script>
+                                            swal.fire({
+                                                title: "ADMINISTRATOR",
+                                                text: "Successfully Login!",
+                                                icon: "success",
+                                                // button: "Aww yiss!",
+                                                showConfirmButton: false,
+                                                position: 'center',
+                                                timer: 1500,
+                                            }).then((result) => {
+                                                if(result) {
+                                                    window.location.href='admin/UI_dashboard_ad.php';
+                                                }
+                                            })
+                                        </script>   
+                                    <?php
 
-                            if(($row['user_type'] == 2) && ($row['password'] == md5($password))){
+                                } elseif(($row['user_type'] == 3) && ($row['password'] == $password)){
+                                    ?>
+                                        <script>
+                                            swal.fire({
+                                                title: "EMPLOYEE",
+                                                text: "Successfully Login!",
+                                                icon: "success",
+                                                // button: "Aww yiss!",
+                                                showConfirmButton: false,
+                                                position: 'center',
+                                                timer: 1500,
+                                            }).then((result) => {
+                                                if(result) {
+                                                    window.location.href='employee/welcome_employee.php';
+                                                }
+                                            })
+                                        </script>   
+                                    <?php
 
-                                header("location: operator/welcome_op.php");
+                                } else {
+                                    ?>
+                                    <script>
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Wrong Password',
+                                            text: 'Input Correct Password!',
+                                        })
+                                    </script> 
+                                    <?php
+                                }
 
-                            } elseif(($row['user_type'] == 1) && ($row['password'] == $password)){
-
-                                header("location: admin/UI_dashboard_ad.php");
-
-                            } elseif(($row['user_type'] == 3) && ($row['password'] == $password)){
-
-                                header("location: employee/welcome_employee.php");
+                                // if($row['user_type'] == '1'){
+                                //     header("location: admin/UI_dashboard_ad.php");   
+                                // }elseif($row['user_type'] == '2'){
+                                    
+                                // }
 
                             }
-                            
-                            else {
-                                header("location:index.php?Invalid= Please Enter Correct User Name and Password ");
-                            }
-
-                            // if($row['user_type'] == '1'){
-                            //     header("location: admin/UI_dashboard_ad.php");   
-                            // }elseif($row['user_type'] == '2'){
-                                
-                            // }
-
+                        }
+                        else
+                        {
+                            ?>
+                            <script>
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Invalid',
+                                    text: 'Input Correct Email & Password!',
+                                })
+                            </script> 
+                            <?php
                         }
                     }
-                    else
-                    {
-                        header("location:index.php?Invalid= Please Enter Correct User Name and Password ");
-                    }
-               }
-            }
-
+                }  ?>
+                   
+                </body>
+            </html> <?php
             
-
         }
 
 
@@ -239,80 +350,132 @@
     // add employee --   
         public function addEmployee()
         {
-            $pdo = $this->openConnection();
-            if(isset($_POST['addEmployee']))
-            {
-                $E_ID = $_POST["E_ID"];
-                $fname = $_POST["fname"];
-                $mi = $_POST["mi"];
-                $lname = $_POST["lname"];
-                $age = $_POST["age"];
-                $email = $_POST["email"];
-                $contact = $_POST["contact"];
-                $gender = $_POST["gender"];
-                $stats = $_POST["stats"];
-                $date = $_POST["date"];
-                $password = "#".substr($lname,0,2)."8080";
-                $user_type_id = '3';
-
+            ?> 
+            <!DOCTYPE html>
+            <head>
+            <script src="../sweet_alert/jquery-3.6.0.min.js"></script>
+            <script src="../sweet_alert/sweetalert2.all.min.js"></script>
+            </head>
+            <body>
             
-                // code here kapag may parehas di tutuloy
-                if(empty($this->check_email_exist($email))){
+                <?php
+                $pdo = $this->openConnection();
+                if(isset($_POST['addEmployee']))
+                {
+                    // $E_ID = $_POST["E_ID"];
+                    $fname = $_POST["fname"];
+                    $mi = $_POST["mi"];
+                    $lname = $_POST["lname"];
+                    $age = $_POST["age"];
+                    $email = $_POST["email"];
+                    $contact = $_POST["contact"];
+                    $gender = $_POST["gender"];
+                    $stats = $_POST["stats"];
+                    $date = $_POST["date"];
+                    $password = "#".substr($lname,0,2)."8080";
+                    $user_type_id = '3';
 
-                    $sql = "INSERT INTO employee (first_name, middle_in, last_name, age, email, `password`, contact, gender, stats, date_hired, user_type_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute([$fname, $mi, $lname, $age, $email, $password, $contact, $gender, $stats, $date, $user_type_id]);
+                
+                    // code here kapag may parehas di tutuloy
+                    if(empty($this->check_email_exist($email))){
 
-                // $sql = "INSERT INTO users ( first_name, middle_name, surname, email_addr, password,  user_type) VALUES (?,?,?,?,?,?);";
-                // $stmt = $pdo->prepare($sql);
-                // $stmt->execute([$fname, $mi, $lname, $email, $password, $user_type ]);
+                        $sql = "INSERT INTO employee (first_name, middle_in, last_name, age, email, `password`, contact, gender, stats, date_hired, user_type_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute([$fname, $mi, $lname, $age, $email, $password, $contact, $gender, $stats, $date, $user_type_id]);
 
-                    echo ("<script LANGUAGE='JavaScript'> window.alert('Succesful Register');
-                    window.location.href='../operator/ui_addemployee'; </script>");
+                        ?>
+                            <script>
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'New employee has been saved',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                }).then((result) => {
+                                    if(result) {
+                                        window.location.href='../operator/ui_addemployee.php';
+                                    }
+                                })
+                            </script>
+                        <?php
+                        
+                        // echo ("<script LANGUAGE='JavaScript'> window.alert('Succesful Register');
+                        // window.location.href='../operator/ui_addemployee.php'; </script>");
 
-                } else  {
-                    header("location: ../operator/ui_addemployee.php");
-                    echo "Email Exist";
-    
-                }
+                    } else  {
+                        ?>
+                            <script>
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Email Exist!',
+                                    text: 'Use Another Email to Register',
+                                }).then((result) => {
+                                    if(result) {
+                                        window.location.href='../operator/ui_addemployee.php';
+                                    }
+                                })
+                            </script> 
+                        <?php
+                    }
 
-            } 
-        
+                } 
+            ?>           
+            </body>
+            </html>
+            <?php
         }
 
 // ---------------------------------------------------- UPDATE SESSION ---------------------------------------------------- //
 
         public function update_employee_module()
         {
-            $pdo = $this->openConnection();
-            
-            if(isset($_POST['editEmployee']))
-            {
-                $E_ID = $_POST["E_ID"];
-                $fname = $_POST["fname"];
-                $mi = $_POST["mi"];
-                $lname = $_POST["lname"];
-                $age = $_POST["age"];
-                $email = $_POST["email"];
-                $contact = $_POST["contact"];
-                $gender = $_POST["gender"];
-                $stats = $_POST["stats"];
-                $date = $_POST["date"];
-            
-                $sql = "UPDATE employee SET first_name = ?, middle_in = ?, last_name = ?, age = ?, email = ?, contact = ?, gender = ?, stats = ?, date_hired = ?
-                WHERE employee_id = ?;";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([ $fname, $mi, $lname, $age, $email, $contact, $gender, $stats, $date, $E_ID]);
+            ?>
+            <!DOCTYPE html>
+            <head>
+            <script src="../sweet_alert/jquery-3.6.0.min.js"></script>
+            <script src="../sweet_alert/sweetalert2.all.min.js"></script>
+            </head>
+            <body>
+                
+                <?php
+                $pdo = $this->openConnection();
+                
+                if(isset($_POST['editEmployee']))
+                {
+                    $E_ID = $_POST["E_ID"];
+                    $fname = $_POST["fname"];
+                    $mi = $_POST["mi"];
+                    $lname = $_POST["lname"];
+                    $age = $_POST["age"];
+                    $email = $_POST["email"];
+                    $contact = $_POST["contact"];
+                    $gender = $_POST["gender"];
+                    $stats = $_POST["stats"];
+                    $date = $_POST["date"];
+                
+                    $sql = "UPDATE employee SET first_name = ?, middle_in = ?, last_name = ?, age = ?, email = ?, contact = ?, gender = ?, stats = ?, date_hired = ?
+                    WHERE employee_id = ?;";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([ $fname, $mi, $lname, $age, $email, $contact, $gender, $stats, $date, $E_ID]);
 
-                // $sql = "UPDATE users SET first_name = ?, middle_in = ?, last_name = ?, email = ?, WHERE employee_id = ?;";
-                // $stmt = $pdo->prepare($sql);
-                // $stmt->execute([ $fname, $mi, $lname, $email, $E_ID]);
-            
-                echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Update Credentials..');
-                window.location.href='../operator/UI_addEmployee.php'; </script>");
-              
-            } 
-
+                    ?>
+                        <script>
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Update successfully',
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then((result) => {
+                                if(result) {
+                                    window.location.href='../operator/ui_addemployee.php';
+                                }
+                            })
+                        </script>
+                    <?php
+                } ?>
+            </body>
+            </html> <?php
         }
 
 // ---------------------------------------------------- DELETE SESSION ---------------------------------------------------- //
@@ -320,8 +483,7 @@
         public function delete_employee_module()
         {
             $pdo = $this->openConnection(); 
-            
-            
+        
             if(isset($_POST['deleteEmployee']))
             {
                  // Soft Deletion
@@ -331,13 +493,7 @@
                  $stmt->execute([$E_ID]);
 
                  header("Location: ../operator/UI_addEmployee.php");
-                //  echo ("<script LANGUAGE='JavaScript'>window.location.href='http://localhost/hr_payroll/operator/UI_addEmployee.php'; </script>");  
-            }    // Hard Deletion
-                // $E_ID = $_POST["E_ID"];
-                // $sql = "DELETE FROM users WHERE userID = ?;";
-                // $stmt = $pdo->prepare($sql);
-                // $stmt->execute([$E_ID]);           
-                // header("Location: ../operator/UI_addEmployee.php");
+            }    
         }
 
     }

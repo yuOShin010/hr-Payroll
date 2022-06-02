@@ -7,7 +7,7 @@ class payroll_manage extends MyPayroll {
 
     // ------------------------------------------------- PAYROLL SAVE BTN ACTIVE ------------------------------------------------- // 
         public function active_save_payroll(){
-
+          
             require_once('../php/classes/payrollClass.php');
             $pdo = $this->openConnection();  
             $search_Eid = $_POST['search_E_ID'];
@@ -233,7 +233,6 @@ class payroll_manage extends MyPayroll {
                     </div>
 
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
                 <script>
 
                     function deductions_computation(){
@@ -252,7 +251,7 @@ class payroll_manage extends MyPayroll {
                         $("#total_deductions").val(total_deductions);
                     }
 
-                </script>
+                </script> 
 
             <?php
         }

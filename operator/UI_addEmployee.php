@@ -12,6 +12,8 @@ $pdo = $classPayroll->openConnection();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="../sweet_alert/jquery-3.6.0.min.js"></script>
+    <script src="../sweet_alert/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/proper-placement.css">
     <link rel="stylesheet" href="../css/default.css">
@@ -33,6 +35,21 @@ $pdo = $classPayroll->openConnection();
 
 <body>
     <!-- DASHBOARD -->
+    <header class="tophead">
+        <?php
+            if (isset($_SESSION['User'])) {
+                echo '<h1 class="greet">' . ' Welcome ' . $_SESSION['User'] . '</h1>';
+                echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg></a>';
+
+            } else {
+                header("location:../index.php");
+            }
+
+        ?>
+    </header>
+    
     <div id="navigation">
             <div class="title">
                 <h1 class="t-left">SymTech</h1>
@@ -104,22 +121,7 @@ $pdo = $classPayroll->openConnection();
     </div>
 
     <!-- END DASHBOARD -->
-    <header class="tophead">
-        <?php
-
-            if (isset($_SESSION['User'])) {
-                echo '<h1 class="greet">' . ' Welcome ' . $_SESSION['User'] . '</h1>'; ?>
-
-             <?php echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg></a>'; ?><?php
-
-            } else {
-                header("location:../index.php");
-            }
-
-        ?>
-    </header>
+    
     <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -152,6 +154,16 @@ $pdo = $classPayroll->openConnection();
                     $stats = $row['stats'];
                     $date = $row['date_hired'];
                 }
+            } else {
+                
+                    echo"<script>";
+                    echo"Swal.fire({
+                            icon: 'warning',
+                            title: 'No Employee Found',
+                            // text: 'Input Correct Password!',
+                        })";
+                    echo"</script>"; 
+                
             }
         ?>
 

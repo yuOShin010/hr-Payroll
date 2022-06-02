@@ -14,6 +14,8 @@ $pdo = $classPayroll->openConnection();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <script src="../sweet_alert/jquery-3.6.0.min.js"></script>
+    <script src="../sweet_alert/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/proper-placement.css">
     <link rel="stylesheet" href="../css/default.css">
@@ -30,6 +32,21 @@ $pdo = $classPayroll->openConnection();
 
 <!-- DASHBOARD -->
 
+<header class="tophead">
+        <!-- <p>top head</p> -->
+        <?php
+
+        if (isset($_SESSION['User'])) {
+            echo '<h1 class="greet">' . 'DEPARTMENT MANAGEMENT' . '</h1>';
+            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg></a>';
+        } else {
+            header("location:../index.php");
+        }
+
+        ?>
+    </header>
 <div id="navigation">
 
     <!-- <div class="toggle-btn" onclick="show()">
@@ -97,21 +114,7 @@ $pdo = $classPayroll->openConnection();
     </ul>
 
 </div>
-    <header class="tophead">
-        <!-- <p>top head</p> -->
-        <?php
-
-        if (isset($_SESSION['User'])) {
-            echo '<h1 class="greet">' . 'DEPARTMENT MANAGEMENT' . '</h1>';
-            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-            </svg></a>';
-        } else {
-            header("location:../index.php");
-        }
-
-        ?>
-    </header>
+   
 <!-- END DASHBOARD -->
     <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -178,132 +181,140 @@ $pdo = $classPayroll->openConnection();
                         $lname = $row['last_name'];
                         $email = $row['email'];
                         $contact = $row['contact'];
-                    }
-                } else {
-                    echo ("<script LANGUAGE='JavaScript'> window.alert('No employee Found ....');
-                window.location.href='../operator/UI_setDepartment.php'; </script>");
-                }
+                    }  ?>
 
-
-        ?>
-            <div class="container container-small">
-                <form action="../operator/UI_setDepartment.php" method="post">
-                    <!-- form search -->
-                    <div class="search-bg">
-                        <div class="search">
-                            <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                            <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
+                        <div class="container container-small">
+                            <form action="../operator/UI_setDepartment.php" method="post">
+                                <!-- form search -->
+                                <div class="search-bg">
+                                    <div class="search">
+                                        <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
+                                    </div>
+                                </div>
+                            </form>
+            
+                            <form action="../php/process.php" method="post">
+                                <!-- form set department -->
+                                <label>
+                                    <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
+                                    <p>Employee ID</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
+                                    <p>First Name</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
+                                    <p>Last Name</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20" readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
+                                    <p>Email Name</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
+                                    <p>Contact</p>
+                                </label><br>
+                                <label class="side-left">Employee Department:
+                                    <select class="option-size" name="dept_id" id="dept_id" required>
+                                        <option selected hidden value="">- Select -</option>
+                                        <option value="1">BSIT</option>
+                                        <option value="2">BSOA</option>
+                                        <option value="3">BSED</option>
+                                        <option value="4">BEED</option>
+                                        <option value="5">BSCRIM</option>
+                                        <option value="6">BSTM</option>
+                                    </select>
+                                </label
+                                <label class="options-right">Position:
+                                    <select class="option-size" name="position_id" id="position_id" required>
+                                        <option selected hidden value="">- Select -</option>
+                                        <option value="1">Dept. Head</option>
+                                        <option value="2">Teacher</option>
+                                        <option value="3">Office Staff</option>
+                                        <option value="4">Secretary</option>
+                                        <option value="5">Utility</option>
+                                    </select>
+                                </label>
+                                <button class="button" type="submit" name="setDepartment" onclick="undisableTxt()">Save</button>
+                                <button class="button" disabled type="submit" name="updateDept" id="updateDept">Update</button>
+                                <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
+                            </form>
+            
                         </div>
-                    </div>
-                </form>
+            
+                        <section class="banner2"></section> <!--this is the banner -->
+            
+                            <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
+            
+            
+                            <div class="output">
+                                <table class="table table-dark table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Employee ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Contact</th>
+                                            <th>Department</th>
+                                            <th>Position</th>
+                                        </tr>
+                                    </thead>
+            
+                                    <tbody>
+                                        <?php
+                                        $pdo = $classPayroll->openConnection();
+            
+                                        $sql = "SELECT
+                                        B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
+                                        C.dept_code, 
+                                        D.position_desc
+                                        FROM tbl_employee_department_position AS A 
+                                        LEFT JOIN employee AS B
+                                        ON A.employee_id = B.employee_id
+                                        LEFT JOIN department AS C
+                                        ON A.dept_id = C.dept_id
+                                        LEFT JOIN position AS D
+                                        ON A.position_id = D.position_id
+                                        WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
+            
+                                        $stmt = $pdo->prepare($sql);
+                                        $stmt->execute();
+            
+                                        if ($stmt->rowCount() > 0) {
+                                            while ($row = $stmt->fetch()) {
+                                        ?>
+                                                <tr>
+                                                    <td><?php echo $row['employee_id']; ?></td>
+                                                    <td><?php echo $row['first_name']; ?></td>
+                                                    <td><?php echo $row['last_name']; ?></td>
+                                                    <td><?php echo $row['email']; ?></td>
+                                                    <td><?php echo $row['contact']; ?></td>
+                                                    <td><?php echo $row['dept_code']; ?></td>
+                                                    <td><?php echo $row['position_desc']; ?></td>
+                                                </tr>
+                                        <?php }
+                                        } ?>
+                                    </tbody>
+                                </table>
+                            </div> <?php
 
-                <form action="../php/process.php" method="post">
-                    <!-- form set department -->
-                    <label>
-                        <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
-                        <p>Employee ID</p>
-                    </label>
-                    <label>
-                        <input class="input-style inpt-pl20" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
-                        <p>First Name</p>
-                    </label>
-                    <label>
-                        <input class="input-style inpt-pl20" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
-                        <p>Last Name</p>
-                    </label>
-                    <label>
-                        <input class="input-style inpt-pl20" readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
-                        <p>Email Name</p>
-                    </label>
-                    <label>
-                        <input class="input-style inpt-pl20" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
-                        <p>Contact</p>
-                    </label><br>
-                    <label class="side-left">Employee Department:
-                        <select class="option-size" name="dept_id" id="dept_id" required>
-                            <option selected hidden value="">- Select -</option>
-                            <option value="1">BSIT</option>
-                            <option value="2">BSOA</option>
-                            <option value="3">BSED</option>
-                            <option value="4">BEED</option>
-                            <option value="5">BSCRIM</option>
-                            <option value="6">BSTM</option>
-                        </select>
-                    </label
-                    <label class="options-right">Position:
-                        <select class="option-size" name="position_id" id="position_id" required>
-                            <option selected hidden value="">- Select -</option>
-                            <option value="1">Dept. Head</option>
-                            <option value="2">Teacher</option>
-                            <option value="3">Office Staff</option>
-                            <option value="4">Secretary</option>
-                            <option value="5">Utility</option>
-                        </select>
-                    </label>
-                    <button class="button" type="submit" name="setDepartment" onclick="undisableTxt()">Save</button>
-                    <button class="button" disabled type="submit" name="updateDept" id="updateDept">Update</button>
-                    <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
-                </form>
-
-            </div>
-
-            <section class="banner2"></section> <!--this is the banner -->
-
-                <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
-
-
-                <div class="output">
-                    <table class="table table-dark table-striped">
-                        <thead>
-                            <tr>
-                                <th>Employee ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Contact</th>
-                                <th>Department</th>
-                                <th>Position</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <?php
-                            $pdo = $classPayroll->openConnection();
-
-                            $sql = "SELECT
-                            B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
-                            C.dept_code, 
-                            D.position_desc
-                            FROM tbl_employee_department_position AS A 
-                            LEFT JOIN employee AS B
-                            ON A.employee_id = B.employee_id
-                            LEFT JOIN department AS C
-                            ON A.dept_id = C.dept_id
-                            LEFT JOIN position AS D
-                            ON A.position_id = D.position_id
-                            WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
-
-                            $stmt = $pdo->prepare($sql);
-                            $stmt->execute();
-
-                            if ($stmt->rowCount() > 0) {
-                                while ($row = $stmt->fetch()) {
-                            ?>
-                                    <tr>
-                                        <td><?php echo $row['employee_id']; ?></td>
-                                        <td><?php echo $row['first_name']; ?></td>
-                                        <td><?php echo $row['last_name']; ?></td>
-                                        <td><?php echo $row['email']; ?></td>
-                                        <td><?php echo $row['contact']; ?></td>
-                                        <td><?php echo $row['dept_code']; ?></td>
-                                        <td><?php echo $row['position_desc']; ?></td>
-                                    </tr>
-                            <?php }
-                            } ?>
-                        </tbody>
-                    </table>
-                </div>
-            <?php
+                } else {
+                    echo"<script>";
+                    echo"Swal.fire({
+                            icon: 'warning',
+                            title: 'No Employee Found',
+                            // text: 'Input Correct Password!',
+                        }).then((result) => {
+                            if(result){
+                                window.location.href='../operator/UI_setDepartment.php';
+                            }
+                        })";
+                    echo"</script>"; 
+                // window.location.href='../operator/UI_setDepartment.php'; </script>");
+                }
             }
 
             if ($setDepartment) {                 // UPDATE SET DEPARTMENT UPDATE OPTION -----

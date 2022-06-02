@@ -13,6 +13,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <script src="../sweet_alert/jquery-3.6.0.min.js"></script>
+        <script src="../sweet_alert/sweetalert2.all.min.js"></script>
         <link rel="stylesheet" href="../css/dashboard.css">
         <link rel="stylesheet" href="../css/proper-placement.css">
         <link rel="stylesheet" href="../css/default.css">
@@ -29,6 +31,21 @@
 
 <body>
     <!-- DASHBOARD-->
+    <header class="tophead">
+        <!-- <p>top head</p> -->
+        <?php
+
+        if (isset($_SESSION['User'])) {
+            echo '<h1 class="greet">' . 'SCHEDULING MANAGEMENT' . '</h1>';
+            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg></a>';
+        } else {
+            header("location:../index.php");
+        }
+
+        ?>
+    </header>
 
     <div id="navigation">
         <!-- <div class="toggle-btn" onclick="show()">
@@ -95,21 +112,7 @@
         </ul>
 
     </div>
-    <header class="tophead">
-        <!-- <p>top head</p> -->
-        <?php
-
-        if (isset($_SESSION['User'])) {
-            echo '<h1 class="greet">' . 'SCHEDULING MANAGEMENT' . '</h1>';
-            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg></a>';
-        } else {
-            header("location:../index.php");
-        }
-
-        ?>
-    </header>
+    
     <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -171,11 +174,9 @@
                     }
 
                 } elseif (isset($_POST['search_e'])) {          // SET SCHEDULE SAVE ACTIVE OPTION -----
-                    // $sql = "SELECT * FROM employee WHERE employee_id = ? AND isActive = 1";
-                    // $stmt = $pdo->prepare($sql);
-                    // $stmt->execute([$search_Eid]);
                     $setSchedule = false;
                     $search_Eid = $_POST['search_E_ID'];
+
                     $sql = "SELECT
                     A.id,
                     B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact, 
@@ -206,14 +207,139 @@
                             $position_id = $row['position_id'];
                             $position_desc = $row['position_desc'];
                         }
+                            ?>
+                            <div class="container container-medium">
+                                <form action="../operator/UI_schedule.php" method="post">
+                                    <div class="search-bg">
+                                            <div class="search">
+                                                <input input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID" >
+                                                <button class="srch-btn" type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
+                                            </div>
+                                    </div>
+                                </form>
 
-                    } 
-                    // elseif ($stmt->rowCount() <= 0) {
-                    //     echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Department first Before Setting Shedule ....');
-                    //     window.location.href='../operator/UI_schedule.php'; </script>");
+                                <form action="../php/process.php" method="post">   <!-- Throw in process.php -->
+                                
+                                        <label>
+                                            <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
+                                            <p>Employee ID</p>
+                                        </label>
+                                        <label>
+                                            <input class="input-style inpt-pl20" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
+                                            <p>First Name</p>
+                                        </label>
+                                        <label>
+                                            <input class="input-style inpt-pl20" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
+                                            <p>Last Name</p>
+                                        </label>
+                                        <label>
+                                            <input class="input-style inpt-pl20" readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
+                                            <p>Email</p>
+                                        </label>
+                                        <label>
+                                            <input class="input-style inpt-pl20" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
+                                            <p>Contact</p>
+                                        </label>
+                                        <label class="side-left">Employee Department:
+                                            <select class="option-size" name="dept_id" id="dept_id" required>
+                                                <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
+                                            </select>
+                                        </label>
+                                        <label class="options-right">
+                                            <select class="option-size" name="position_id" id="position_id" required>
+                                                <option selected hidden value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
+                                            </select>
+                                        </label>
+                                        <label>
+                                            <input class="input-style inpt-pl20" type="number" name="workHrs" id="workHrs">
+                                            <p>Work Hours</p>
+                                        </label>
+                                        <label>
+                                            <input class="input-style inpt-pl20" type="date" name="d_from" id="d_from">
+                                            <p>From</p>
+                                        </label>
+                                        <label>
+                                            <input class="input-style inpt-pl20" type="date" name="d_to" id="d_to">
+                                            <p>To</p>
+                                        </label>
+                                        <label>
+                                            <input type="button" onclick="computeDays()" id="btn" >
+                                        </label>
+                                        <label>
+                                            <input class="input-style inpt-pl20" readonly type="text" name="daysWork" id="daysWork" >
+                                            <p>Days of Work</p>
+                                        </label>
 
-                    // } 
-                    elseif (isset($_POST['search_e'])) {
+                                            <button class="button save" type="submit" name="set_schedule">Save</button>
+                                            <button disabled class="button" type="submit" name="updateDept" id="updateDept">Update</button>
+
+                                </form>              
+                            </div>           
+
+                            <section class="banner2"></section> <!--this is the banner -->
+                            <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
+                            <div class="output">
+                                <table class="table table-dark table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Employee ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Contact</th>
+                                            <th>Department</th>
+                                            <th>Position</th>
+                                            <th>Total WorkHrs</th>
+                                            <th>D-From</th>
+                                            <th>D-To</th>
+                                            <th>Days of Work</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody> 
+                                        <?php
+                                            $pdo = $classPayroll->openConnection();
+
+                                            $sql = "SELECT
+                                            B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
+                                            C.dept_code,
+                                            D.position_desc,
+                                            E.total_workHrs, E.d_from, E.d_to, E.days_works
+                                            FROM tbl_employee_schedule AS A 
+                                            LEFT JOIN employee AS B
+                                            ON A.employee_id = B.employee_id
+                                            LEFT JOIN department AS C
+                                            ON A.dept_id = C.dept_id
+                                            LEFT JOIN position AS D
+                                            ON A.position_id = D.position_id
+                                            LEFT JOIN schedule AS E
+                                            ON A.employee_id = E.employee_id
+                                            WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
+
+                                            $stmt = $pdo->prepare($sql);
+                                            $stmt->execute();
+
+                                            if($stmt->rowCount() > 0){
+                                                while($row = $stmt->fetch()){
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $row['employee_id']; ?></td>
+                                            <td><?php echo $row['first_name']; ?></td>
+                                            <td><?php echo $row['last_name']; ?></td>
+                                            <td><?php echo $row['email']; ?></td>
+                                            <td><?php echo $row['contact']; ?></td>
+                                            <td><?php echo $row['dept_code']; ?></td>
+                                            <td><?php echo $row['position_desc']; ?></td>
+                                            <td><?php echo $row['total_workHrs']; ?></td>
+                                            <td><?php echo $row['d_from']; ?></td>
+                                            <td><?php echo $row['d_to']; ?></td>
+                                            <td><?php echo $row['days_works']; ?></td>
+                                        </tr>
+                                        <?php }} ?>
+                                    </tbody>
+                                </table>
+                            </div> <?php
+                    } elseif (isset($_POST['search_e'])) {
                         $search_EID = $_POST['search_E_ID'];
                         $sql = "SELECT * FROM employee WHERE employee_id = ? AND isActive = 1";
                         $stmt = $pdo->prepare($sql);
@@ -221,150 +347,34 @@
                         
                         if ($stmt->rowCount() > 0){
                            
-                            echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Department first Before Setting Shedule ....');
-                        window.location.href='../operator/UI_schedule.php'; </script>");
+                            echo "<script>";
+                            echo "Swal.fire({
+                                    icon: 'info',
+                                    title: 'Oops!',
+                                    text: 'Set Department first Before Setting Shedule',
+                                }).then((result) => {
+                                    if(result) {
+                                        window.location.href='../operator/UI_schedule.php';
+                                    }
+                                })";
+                            echo "</script>";
     
-                        }else {
-                        echo ("<script LANGUAGE='JavaScript'> window.alert('No employee Found ....');
-                        window.location.href='../operator/UI_schedule.php'; </script>");
+                        } else {
+
+                            echo "<script>";
+                            echo "Swal.fire({
+                                        icon: 'warning',
+                                        title: 'No Employee Found',
+                                    }).then((result) => {
+                                        if(result) {
+                                            window.location.href='../operator/UI_schedule.php';
+                                        }
+                                    })";
+                            echo "</script>"; 
+
                         }
                     }
-
-            
-                ?>
-            <div class="container container-medium">
-                    <form action="../operator/UI_schedule.php" method="post">
-                        <div class="search-bg">
-                                <div class="search">
-                                    <input input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID" >
-                                    <button class="srch-btn" type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
-                                </div>
-                        </div>
-                    </form>
-
-                    <form action="../php/process.php" method="post">   <!-- Throw in process.php -->
-                    
-                            <label>
-                                <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
-                                <p>Employee ID</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" readonly type="text" name="fname" id="fname1" value="<?php echo $fname ?>">
-                                <p>First Name</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" readonly type="text" name="lname" id="lname1" value="<?php echo $lname ?>">
-                                <p>Last Name</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" readonly type="email" name="email" id="email1" value="<?php echo $email ?>">
-                                <p>Email</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
-                                <p>Contact</p>
-                            </label>
-                            <label class="side-left">Employee Department:
-                                <select class="option-size" name="dept_id" id="dept_id" required>
-                                    <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
-                                </select>
-                            </label>
-                            <label class="options-right">
-                                <select class="option-size" name="position_id" id="position_id" required>
-                                    <option selected hidden value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
-                                </select>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="workHrs" id="workHrs">
-                                <p>Work Hours</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="date" name="d_from" id="d_from">
-                                <p>From</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="date" name="d_to" id="d_to">
-                                <p>To</p>
-                            </label>
-                            <label>
-                                <input type="button save" onclick="computeDays()" id="btn" placeholder="go">
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" readonly type="text" name="daysWork" id="daysWork" >
-                                <p>Days of Work</p>
-                            </label>
-
-                                <button class="button save" type="submit" name="set_schedule">Save</button>
-                                <button disabled class="button" type="submit" name="updateDept" id="updateDept">Update</button>
-
-                    </form>              
-                </div>           
-
-                <section class="banner2"></section> <!--this is the banner -->
-        <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
-        <div class="output">
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>Employee ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Contact</th>
-                            <th>Department</th>
-                            <th>Position</th>
-                            <th>Total WorkHrs</th>
-                            <th>D-From</th>
-                            <th>D-To</th>
-                            <th>Days of Work</th>
-                        </tr>
-                    </thead>
-
-                    <tbody> 
-                        <?php
-                            $pdo = $classPayroll->openConnection();
-
-                            $sql = "SELECT
-                            B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
-                            C.dept_code,
-                            D.position_desc,
-                            E.total_workHrs, E.d_from, E.d_to, E.days_works
-                            FROM tbl_employee_schedule AS A 
-                            LEFT JOIN employee AS B
-                            ON A.employee_id = B.employee_id
-                            LEFT JOIN department AS C
-                            ON A.dept_id = C.dept_id
-                            LEFT JOIN position AS D
-                            ON A.position_id = D.position_id
-                            LEFT JOIN schedule AS E
-                            ON A.employee_id = E.employee_id
-                            WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
-
-                            $stmt = $pdo->prepare($sql);
-                            $stmt->execute();
-
-                            if($stmt->rowCount() > 0){
-                                while($row = $stmt->fetch()){
-                        ?>
-                        <tr>
-                            <td><?php echo $row['employee_id']; ?></td>
-                            <td><?php echo $row['first_name']; ?></td>
-                            <td><?php echo $row['last_name']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['contact']; ?></td>
-                            <td><?php echo $row['dept_code']; ?></td>
-                            <td><?php echo $row['position_desc']; ?></td>
-                            <td><?php echo $row['total_workHrs']; ?></td>
-                            <td><?php echo $row['d_from']; ?></td>
-                            <td><?php echo $row['d_to']; ?></td>
-                            <td><?php echo $row['days_works']; ?></td>
-                        </tr>
-                        <?php }} ?>
-                    </tbody>
-            </table>
-        </div>
-                
-            <?php    } 
+                } 
                 
 
                 if ($setSchedule){ ?>       <!-- UPDATE SCHEDULE ACTIVE UPDATE BTN ----->
@@ -435,233 +445,230 @@
                                 <button class="button update" type="submit" name="updateSchedule">Update</button>
                             </form>
                         </form>
-                </div>
+                    </div>
 
-        <section class="banner2"></section> <!--this is the banner -->
+                    <section class="banner2"></section> <!--this is the banner -->
 
-        <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
-        <div class="output">
-            <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>Employee ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Contact</th>
-                            <th>Department</th>
-                            <th>Position</th>
-                            <th>Total WorkHrs</th>
-                            <th>D-From</th>
-                            <th>D-To</th>
-                            <th>Days of Work</th>
-                        </tr>
-                    </thead>
+                    <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
+                    <div class="output">
+                        <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Employee ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Contact</th>
+                                        <th>Department</th>
+                                        <th>Position</th>
+                                        <th>Total WorkHrs</th>
+                                        <th>D-From</th>
+                                        <th>D-To</th>
+                                        <th>Days of Work</th>
+                                    </tr>
+                                </thead>
 
-                    <tbody> 
-                        <?php
-                            $pdo = $classPayroll->openConnection();
+                                <tbody> 
+                                    <?php
+                                        $pdo = $classPayroll->openConnection();
 
-                            $sql = "SELECT
-                            B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
-                            C.dept_code,
-                            D.position_desc,
-                            E.total_workHrs, E.d_from, E.d_to, E.days_works
-                            FROM tbl_employee_schedule AS A 
-                            LEFT JOIN employee AS B
-                            ON A.employee_id = B.employee_id
-                            LEFT JOIN department AS C
-                            ON A.dept_id = C.dept_id
-                            LEFT JOIN position AS D
-                            ON A.position_id = D.position_id
-                            LEFT JOIN schedule AS E
-                            ON A.employee_id = E.employee_id
-                            WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
+                                        $sql = "SELECT
+                                        B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
+                                        C.dept_code,
+                                        D.position_desc,
+                                        E.total_workHrs, E.d_from, E.d_to, E.days_works
+                                        FROM tbl_employee_schedule AS A 
+                                        LEFT JOIN employee AS B
+                                        ON A.employee_id = B.employee_id
+                                        LEFT JOIN department AS C
+                                        ON A.dept_id = C.dept_id
+                                        LEFT JOIN position AS D
+                                        ON A.position_id = D.position_id
+                                        LEFT JOIN schedule AS E
+                                        ON A.employee_id = E.employee_id
+                                        WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
 
-                            $stmt = $pdo->prepare($sql);
-                            $stmt->execute();
+                                        $stmt = $pdo->prepare($sql);
+                                        $stmt->execute();
 
-                            if($stmt->rowCount() > 0){
-                                while($row = $stmt->fetch()){
-                        ?>
-                        <tr>
-                            <td><?php echo $row['employee_id']; ?></td>
-                            <td><?php echo $row['first_name']; ?></td>
-                            <td><?php echo $row['last_name']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['contact']; ?></td>
-                            <td><?php echo $row['dept_code']; ?></td>
-                            <td><?php echo $row['position_desc']; ?></td>
-                            <td><?php echo $row['total_workHrs']; ?></td>
-                            <td><?php echo $row['d_from']; ?></td>
-                            <td><?php echo $row['d_to']; ?></td>
-                            <td><?php echo $row['days_works']; ?></td>
-                        </tr>
-                        <?php }} ?>
-                    </tbody>
-            </table>
-        </div>                               
+                                        if($stmt->rowCount() > 0){
+                                            while($row = $stmt->fetch()){
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $row['employee_id']; ?></td>
+                                        <td><?php echo $row['first_name']; ?></td>
+                                        <td><?php echo $row['last_name']; ?></td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo $row['contact']; ?></td>
+                                        <td><?php echo $row['dept_code']; ?></td>
+                                        <td><?php echo $row['position_desc']; ?></td>
+                                        <td><?php echo $row['total_workHrs']; ?></td>
+                                        <td><?php echo $row['d_from']; ?></td>
+                                        <td><?php echo $row['d_to']; ?></td>
+                                        <td><?php echo $row['days_works']; ?></td>
+                                    </tr>
+                                    <?php }} ?>
+                                </tbody>
+                        </table>
+                    </div>       <?php                        
 
-                <?php }
+                }
 
             }
         //  <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
 
                     if($activeform){    // This is the main user interface (no value indicated) --
-                ?>
-        
-        <div class="container container-medium">
-                <form action="../operator/UI_schedule.php" method="post">
-                        <div class="search-bg">
-                            <div class="search">
-                                <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                                <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
-                            </div>
-                        </div>
-                </form>
-                    <form action="" method="post"> 
-                        
-                        <label>
-                            <input class="input-style inpt-pl20" type="text" name="lname" id="lname1" >
-                            <p>Last Name</p>
-                        </label>
-                        <label>
-                            <input class="input-style inpt-pl20" type="email" name="email" id="email1" >
-                            <p>Email</p>
-                        </label>
-                        <label>
-                            <input class="input-style inpt-pl20" type="number" name="contact" id="contact1" >
-                            <p>Contact</p>
-                        </label>
-
-                        <label class="side-left">Employee Department:
-                            <select class="option-size" name="dept" id="dept" required>
-                                <option selected hidden value="">- Select -</option>
-                                <option value="1">BSIT</option>
-                                <option value="2">BSOA</option>
-                                <option value="3">BSED</option>
-                                <option value="4">BEED</option>
-                                <option value="5">BSCRIM</option>
-                                <option value="6">BSTM</option>
-                            </select>
-                            
-                        </label>
-                        <label class="options-right">Position:
-                            <select class="option-size" name="position" id="position" required>
-                                <option selected hidden value="">- Select -</option>
-                                <option value="1">Dept. Head</option>
-                                <option value="2">Teacher</option>
-                                <option value="3">Office Staff</option>
-                                <option value="4">Secretary</option>
-                                <option value="5">Utility</option>
-                            </select>
-                        </label>
-                        <label>
-                            <input class="input-style inpt-pl20" type="number" name="workHrs" id="workHrs">
-                            <p>Total WorkHrs</p>
-                        </label><br>
-                        <label>
-                            <input class="input-style inpt-pl20" type="date" name="d_from" id="d_from">
-                            <p>From</p>
-                        </label>
-                        <label>
-                            <input class="input-style inpt-pl20" type="date" name="d_to" id="d_to">
-                            <p>To</p>
-                        </label>
-                        <label>
-                            <input class="submit-btn save" type="button save" onclick="computeDays()" id="btn" placeholder="go" style="cursor: pointer;">
-                        </label>
-                        <label>
-                            <input class="input-style inpt-pl20" type="number" name="daysWork" id="daysWork">
-                            <p>Days Work</p>
-                        </label>
-                        <button class="button" disabled type="submit">Save</button>
-                        <button class="button" disabled type="submit">Update</button>
-                    </form>
-                </form>
-        </div>
-
-        <section class="banner2"></section> <!--this is the banner -->
-
-        <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
-        <div class="output">
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>Employee ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Contact</th>
-                            <th>Department</th>
-                            <th>Position</th>
-                            <th>Total WorkHrs</th>
-                            <th>D-From</th>
-                            <th>D-To</th>
-                            <th>Days of Work</th>
-                        </tr>
-                    </thead>
-
-                    <tbody> 
-                        <?php
-                            $pdo = $classPayroll->openConnection();
-
-                            $sql = "SELECT
-                            B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
-                            C.dept_code,
-                            D.position_desc,
-                            E.total_workHrs, E.d_from, E.d_to, E.days_works
-                            FROM tbl_employee_schedule AS A 
-                            LEFT JOIN employee AS B
-                            ON A.employee_id = B.employee_id
-                            LEFT JOIN department AS C
-                            ON A.dept_id = C.dept_id
-                            LEFT JOIN position AS D
-                            ON A.position_id = D.position_id
-                            LEFT JOIN schedule AS E
-                            ON A.employee_id = E.employee_id
-                            WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
-
-                            $stmt = $pdo->prepare($sql);
-                            $stmt->execute();
-
-                            if($stmt->rowCount() > 0){
-                                while($row = $stmt->fetch()){
                         ?>
-                        <tr>
-                            <td><?php echo $row['employee_id']; ?></td>
-                            <td><?php echo $row['first_name']; ?></td>
-                            <td><?php echo $row['last_name']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['contact']; ?></td>
-                            <td><?php echo $row['dept_code']; ?></td>
-                            <td><?php echo $row['position_desc']; ?></td>
-                            <td><?php echo $row['total_workHrs']; ?></td>
-                            <td><?php echo $row['d_from']; ?></td>
-                            <td><?php echo $row['d_to']; ?></td>
-                            <td><?php echo $row['days_works']; ?></td>
-                        </tr>
-                        <?php }} ?>
-                    </tbody>
-                </table>   
-        </div>
-        <?php } ?>
-
-    </body>
-
-<script>
-
-    function computeDays() {
-        var d1 = document.getElementById('d_from').value;
-        var d2 = document.getElementById('d_to').value;
         
-        const dateOne = new Date(d1);
-        const dateTwo = new Date(d2);
-        const time = Math.abs(dateTwo - dateOne);
-        const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-        document.getElementById("daysWork").value=days+1;
-    }
+                        <div class="container container-medium">
+                            <form action="../operator/UI_schedule.php" method="post">
+                                    <div class="search-bg">
+                                        <div class="search">
+                                            <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                                            <button type="submit" name="search_e" id="search_e"><i class='bx bx-search bx-margin'></i></button>
+                                        </div>
+                                    </div>
+                            </form>
+                                <form action="" method="post"> 
+                                    
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="text" name="lname" id="lname1" >
+                                        <p>Last Name</p>
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="email" name="email" id="email1" >
+                                        <p>Email</p>
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="number" name="contact" id="contact1" >
+                                        <p>Contact</p>
+                                    </label>
 
-</script>
+                                    <label class="side-left">Employee Department:
+                                        <select class="option-size" name="dept" id="dept" required>
+                                            <option selected hidden value="">- Select -</option>
+                                            <option value="1">BSIT</option>
+                                            <option value="2">BSOA</option>
+                                            <option value="3">BSED</option>
+                                            <option value="4">BEED</option>
+                                            <option value="5">BSCRIM</option>
+                                            <option value="6">BSTM</option>
+                                        </select>
+                                        
+                                    </label>
+                                    <label class="options-right">Position:
+                                        <select class="option-size" name="position" id="position" required>
+                                            <option selected hidden value="">- Select -</option>
+                                            <option value="1">Dept. Head</option>
+                                            <option value="2">Teacher</option>
+                                            <option value="3">Office Staff</option>
+                                            <option value="4">Secretary</option>
+                                            <option value="5">Utility</option>
+                                        </select>
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="number" name="workHrs" id="workHrs">
+                                        <p>Total WorkHrs</p>
+                                    </label><br>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="date" name="d_from" id="d_from">
+                                        <p>From</p>
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="date" name="d_to" id="d_to">
+                                        <p>To</p>
+                                    </label>
+                                    <label>
+                                        <input class="submit-btn save" type="button" onclick="computeDays()" id="btn" style="cursor: pointer;">
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="number" name="daysWork" id="daysWork">
+                                        <p>Days Work</p>
+                                    </label>
+                                    <button class="button" disabled type="submit">Save</button>
+                                    <button class="button" disabled type="submit">Update</button>
+                                </form>
+                            </form>
+                        </div>
 
+                        <section class="banner2"></section> <!--this is the banner -->
+
+                        <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
+                        <div class="output">
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Employee ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Contact</th>
+                                        <th>Department</th>
+                                        <th>Position</th>
+                                        <th>Total WorkHrs</th>
+                                        <th>D-From</th>
+                                        <th>D-To</th>
+                                        <th>Days of Work</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody> 
+                                    <?php
+                                        $pdo = $classPayroll->openConnection();
+
+                                        $sql = "SELECT
+                                        B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
+                                        C.dept_code,
+                                        D.position_desc,
+                                        E.total_workHrs, E.d_from, E.d_to, E.days_works
+                                        FROM tbl_employee_schedule AS A 
+                                        LEFT JOIN employee AS B
+                                        ON A.employee_id = B.employee_id
+                                        LEFT JOIN department AS C
+                                        ON A.dept_id = C.dept_id
+                                        LEFT JOIN position AS D
+                                        ON A.position_id = D.position_id
+                                        LEFT JOIN schedule AS E
+                                        ON A.employee_id = E.employee_id
+                                        WHERE B.isActive = 1 ORDER BY B.employee_id ASC;";
+
+                                        $stmt = $pdo->prepare($sql);
+                                        $stmt->execute();
+
+                                        if($stmt->rowCount() > 0){
+                                            while($row = $stmt->fetch()){
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $row['employee_id']; ?></td>
+                                        <td><?php echo $row['first_name']; ?></td>
+                                        <td><?php echo $row['last_name']; ?></td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo $row['contact']; ?></td>
+                                        <td><?php echo $row['dept_code']; ?></td>
+                                        <td><?php echo $row['position_desc']; ?></td>
+                                        <td><?php echo $row['total_workHrs']; ?></td>
+                                        <td><?php echo $row['d_from']; ?></td>
+                                        <td><?php echo $row['d_to']; ?></td>
+                                        <td><?php echo $row['days_works']; ?></td>
+                                    </tr>
+                                    <?php }} ?>
+                                </tbody>
+                            </table>   
+                        </div><?php
+                    } ?>
+    <script>
+
+        function computeDays() {
+            var d1 = document.getElementById('d_from').value;
+            var d2 = document.getElementById('d_to').value;
+            
+            const dateOne = new Date(d1);
+            const dateTwo = new Date(d2);
+            const time = Math.abs(dateTwo - dateOne);
+            const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+            document.getElementById("daysWork").value=days+1;
+        }
+
+    </script>
+</body>
 </html>

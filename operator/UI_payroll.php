@@ -7,31 +7,38 @@ $pdo = $classPayroll->openConnection();
 
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <script src="../sweet_alert/jquery-3.6.0.min.js"></script>
+        <script src="../sweet_alert/sweetalert2.all.min.js"></script>
         <link rel="stylesheet" href="../css/dashboard.css">
         <link rel="stylesheet" href="../css/proper-placement.css">
         <link rel="stylesheet" href="../css/default.css">
         <title>Payroll Management</title>
-
-
-        <!-- <script>
-            function show() {
-                document.getElementById('navigation').classList.toggle('active');
-            }
-        </script> -->
-
     </head>
 
     <body>
         <!-- DASHBOARD -->
+    <header class="tophead">
+        <!-- <p>top head</p> -->
+        <?php
+
+        if (isset($_SESSION['User'])) {
+            echo '<h1 class="greet">' . 'PAYROLL MANAGEMENT' . '</h1>';
+            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg></a>';
+        } else {
+            header("location:../index.php");
+        }
+
+        ?>
+    </header>
 
         <div id="navigation">
             <div class="title">
@@ -99,21 +106,7 @@ $pdo = $classPayroll->openConnection();
         </ul>
 
     </div>
-    <header class="tophead">
-        <!-- <p>top head</p> -->
-        <?php
-
-        if (isset($_SESSION['User'])) {
-            echo '<h1 class="greet">' . 'PAYROLL MANAGEMENT' . '</h1>';
-            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg></a>';
-        } else {
-            header("location:../index.php");
-        }
-
-        ?>
-    </header>
+    
     <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -204,22 +197,61 @@ $pdo = $classPayroll->openConnection();
                     $stmt->execute([$search_Eid]);
 
                     if ($stmt->rowCount() > 0) {
-                        echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Shedule First, Before inserting data in payroll management');
-                              window.location.href='../operator/UI_payroll.php'; </script>");
+                        
+                        echo    "<script>";
+                        echo    "Swal.fire({
+                                    icon: 'info',
+                                    title: 'Oops!',
+                                    text: 'Set Schedule First Before inserting data in payroll management',
+                                }).then((result) => {
+                                    if(result) {
+                                        window.location.href='../operator/UI_payroll.php';
+                                    }
+                                })";
+                        echo    "</script>"; 
+                        // echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Shedule First, Before inserting data in payroll management');
+                        //       window.location.href='../operator/UI_payroll.php'; </script>");
 
-                    }elseif (isset($_POST['search'])){
+                    } elseif (isset($_POST['search'])){
                         $search_EID = $_POST['search_E_ID'];
                         $sql = "SELECT * FROM employee WHERE employee_id = ? AND isActive = 1";
                         $stmt = $pdo->prepare($sql);
                         $stmt->execute([$search_EID]);
     
                         if ($stmt->rowCount() > 0){
-                            echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Department and Set Shedule, Before inserting data in payroll management');
-                                window.location.href='../operator/UI_payroll.php'; </script>");
+                            
+                            echo    "<script>";
+                            echo    "Swal.fire({
+                                        icon: 'info',
+                                        title: 'Oops!',
+                                        text: 'Set Department & Schedule First Before inserting data in payroll management',
+                                        // footer: 'Before inserting data in payroll management',
+                                    }).then((result) => {
+                                        if(result) {
+                                            window.location.href='../operator/UI_payroll.php';
+                                        }
+                                    })";
+                            echo    "</script>"; 
+                            
+                            // echo ("<script LANGUAGE='JavaScript'> window.alert('Please Set Department and Set Shedule, Before inserting data in payroll management');
+                            //     window.location.href='../operator/UI_payroll.php'; </script>");
+
                         } else {
-                            echo ("<script LANGUAGE='JavaScript'> window.alert('No employee Found ....');
-                            window.location.href='../operator/UI_payroll.php'; </script>");
-                        
+                            
+                            echo    "<script>";
+                            echo    "Swal.fire({
+                                        icon: 'warning',
+                                        title: 'No Employee Found',
+                                    }).then((result) => {
+                                        if(result) {
+                                            window.location.href='../operator/UI_payroll.php';
+                                        }
+                                    })";
+                            echo    "</script>"; 
+
+                            // echo ("<script LANGUAGE='JavaScript'> window.alert('No employee Found ....');
+                            // window.location.href='../operator/UI_payroll.php'; </script>");
+                            
                         }
                     }              
                 }
