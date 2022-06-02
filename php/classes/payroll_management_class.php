@@ -7,9 +7,6 @@ class payroll_manage extends MyPayroll {
 
     // ------------------------------------------------- PAYROLL SAVE BTN ACTIVE ------------------------------------------------- // 
         public function active_save_payroll(){
-<<<<<<< HEAD
-          
-=======
             ?>
             <!DOCTYPE html>
             <html lang="en">
@@ -23,7 +20,6 @@ class payroll_manage extends MyPayroll {
             </head>
             <body>
             <?php
->>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
             require_once('../php/classes/payrollClass.php');
             $pdo = $this->openConnection();  
             $search_Eid = $_POST['search_E_ID'];
@@ -285,14 +281,9 @@ class payroll_manage extends MyPayroll {
                         $("#total_deductions").val(total_deductions);
                     }
 
-<<<<<<< HEAD
-                </script> 
-
-=======
                 </script>
                 </body>
                 </html>
->>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
             <?php
         }
 
@@ -376,7 +367,7 @@ class payroll_manage extends MyPayroll {
 
                         <!-- form -->
                         <form action="../php/process.php" method="POST">
-                        
+                            <h3>Result:</h3>
                             <label>
                                 <input class="input-style" type="text" name="E_ID" id="E_ID" required readonly value="<?php echo $E_ID ?>">
                                 <p>E_ID</p>
@@ -420,6 +411,7 @@ class payroll_manage extends MyPayroll {
                     </div>
                     <section class="banner2"></section> <!--this is the banner -->
                     <div class="container-sSmall2">
+                        <h3>Possible to update this fields:</h3>
                             <label class="b1">
                                 <input class="b-size" type="number" name="overtime" id="overtime" required placeholder="0" value="<?php echo $overtime ?>">
                                 <p>Over Time</p>
@@ -460,16 +452,16 @@ class payroll_manage extends MyPayroll {
                                 <input class="b-size" type="number" name="tax_loan" id="tax_loan" required placeholder="0" value="<?php echo $tax_loan ?>">
                                 <p>TAX-Loan</p>
                             </label>
-                            <label class="b9">P
+                            <label class="b9">
                                 <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" required placeholder="0" value="<?php echo $pag_ibig_loan ?>">
-                                <p>ag-ibig loan</p>
+                                <p>Pag-ibig loan</p>
                             </label>
                             <label class="b10">
                                 <input class="b-size" type="number" name="phil_health_loan" id="phil_health_loan" required placeholder="0" value="<?php echo $phil_health_loan ?>">
                                 <p>Phil-Health Loan</p>
                             </label>
                             <label class="b11">
-                                <input class="b-size" type="Text" name="others" id="others" required placeholder="0" value="<?php echo $ohters ?>">
+                                <input class="b-size" type="number" name="others" id="others" required placeholder="0" value="<?php echo $ohters ?>">
                                 <p>Others</p>
                             </label>
                             <label>

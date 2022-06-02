@@ -34,7 +34,6 @@ $pdo = $classPayroll->openConnection();
     <header class="tophead">
         <!-- <p>top head</p> -->
         <?php
-<<<<<<< HEAD
 
         if (isset($_SESSION['User'])) {
             echo '<h1 class="greet">' . 'PAYSLIP REPORTS' . '</h1>';
@@ -47,8 +46,6 @@ $pdo = $classPayroll->openConnection();
 
         ?>
     </header>
-=======
->>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
 
         if (isset($_SESSION['User'])) {
             echo '<h1 class="greet">' . 'PAYSLIP REPORTS' . '</h1>';
@@ -127,11 +124,8 @@ $pdo = $classPayroll->openConnection();
         </ul>
 
     </div>
-<<<<<<< HEAD
-=======
     <!--_________________________________END OF TOPBAR___________________________________________-->
     <!--_________________________________END OF DASHBOARD__________________________________________-->
->>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
     
     <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
