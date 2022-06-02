@@ -29,7 +29,21 @@ $pdo = $classPayroll->openConnection();
 </head>
 
 <!-- DASHBOARD -->
+<header class="tophead">
+        <!-- <p>top head</p> -->
+        <?php
 
+        if (isset($_SESSION['User'])) {
+            echo '<h1 class="greet">' . 'DEPARTMENT MANAGEMENT' . '</h1>';
+            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg></a>';
+        } else {
+            header("location:../index.php");
+        }
+
+        ?>
+    </header>
 <div id="navigation">
 
     <!-- <div class="toggle-btn" onclick="show()">
@@ -97,22 +111,7 @@ $pdo = $classPayroll->openConnection();
     </ul>
 
 </div>
-    <header class="tophead">
-        <!-- <p>top head</p> -->
-        <?php
-
-        if (isset($_SESSION['User'])) {
-            echo '<h1 class="greet">' . 'DEPARTMENT MANAGEMENT' . '</h1>';
-            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-            </svg></a>';
-        } else {
-            header("location:../index.php");
-        }
-
-        ?>
-    </header>
-<!-- END DASHBOARD -->
+    
     <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -186,7 +185,7 @@ $pdo = $classPayroll->openConnection();
 
 
         ?>
-            <div class="container container-small">
+            <div class="container-small">
                 <form action="../operator/UI_setDepartment.php" method="post">
                     <!-- form search -->
                     <div class="search-bg">
@@ -309,7 +308,7 @@ $pdo = $classPayroll->openConnection();
             if ($setDepartment) {                 // UPDATE SET DEPARTMENT UPDATE OPTION -----
             ?>
 
-            <div class="container container-small">
+            <div class="container-small">
                     <form action="../operator/UI_setDepartment.php" method="post">
                         <!-- form search -->
                         <div class="search-bg">
@@ -436,7 +435,7 @@ $pdo = $classPayroll->openConnection();
             <!-- this is the 1st interface of set department module -->
 
             <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------  -->
-            <div class="container container-small">
+            <div class="container-small">
                 <form action="UI_setDepartment.php" method="post">
                     <!-- form search -->
                     <div class="search-bg">

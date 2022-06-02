@@ -32,7 +32,21 @@ $pdo = $classPayroll->openConnection();
 
     <body>
         <!-- DASHBOARD -->
+        <header class="tophead">
+        <!-- <p>top head</p> -->
+        <?php
 
+        if (isset($_SESSION['User'])) {
+            echo '<h1 class="greet">' . 'PAYROLL MANAGEMENT' . '</h1>';
+            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg></a>';
+        } else {
+            header("location:../index.php");
+        }
+
+        ?>
+    </header>
         <div id="navigation">
             <div class="title">
                 <h1 class="t-left">SymTech</h1>
@@ -99,21 +113,7 @@ $pdo = $classPayroll->openConnection();
         </ul>
 
     </div>
-    <header class="tophead">
-        <!-- <p>top head</p> -->
-        <?php
 
-        if (isset($_SESSION['User'])) {
-            echo '<h1 class="greet">' . 'PAYROLL MANAGEMENT' . '</h1>';
-            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg></a>';
-        } else {
-            header("location:../index.php");
-        }
-
-        ?>
-    </header>
     <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -228,7 +228,7 @@ $pdo = $classPayroll->openConnection();
         
         if($activeForm){ ?>       <!-- This is the main user interface (no value indicated) -->
 
-                    <div class="container container-small">
+                    <div class="container-small">
                         <form action="UI_payroll.php" method="post">
                             <!-- form search-->
                             <div class="search-bg">
@@ -281,11 +281,9 @@ $pdo = $classPayroll->openConnection();
                                 <p>Days Work</p>
                             </label>
                             <br><br>
-                                
-                        
                     </div>
-
-                    <div class="container container-style container-small">
+                    <section class="banner2"></section> <!--this is the banner -->
+                    <div class="container-sSmall">
                                 <label>
                                     <input class="b-size" type="number" name="" id="" required placeholder="0">
                                     <p>Over Time</p>
@@ -327,15 +325,15 @@ $pdo = $classPayroll->openConnection();
                                     <p>SSS-Loan</p>
                                 </label>
                                 <label>
-                                    <input class="b11-size" type="Text" name="" id="" required placeholder="0">
+                                    <input class="b-size" type="Text" name="" id="" required placeholder="0">
                                     <p>Phil-Health Loan</p>
                                 </label>
                                 <label>
-                                    <input class="b12-size" type="number" name="" id="" required>
+                                    <input class="b-size" type="number" name="" id="" required>
                                     <p>Others</p>
                                 </label>
                                 <label>
-                                    <input class="b12-size" type="number" name="" id="" required>
+                                    <input class="b-size" type="number" name="" id="" required>
                                     <p>Deduction Total</p>
                                 </label>
 

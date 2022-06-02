@@ -33,7 +33,24 @@ $pdo = $classPayroll->openConnection();
 
 <body>
     <!-- DASHBOARD -->
+    <header class="tophead">
+        <?php
+
+            if (isset($_SESSION['User'])) {
+                echo '<h1 class="greet">' . ' Welcome ' . $_SESSION['User'] . '</h1>'; ?>
+
+             <?php echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg></a>'; ?><?php
+
+            } else {
+                header("location:../index.php");
+            }
+
+        ?>
+    </header>
     <div id="navigation">
+
             <div class="title">
                 <h1 class="t-left">SymTech</h1>
                 <h1 class="dot">.</h1>
@@ -45,6 +62,7 @@ $pdo = $classPayroll->openConnection();
                 <span class="line buttom"></span>
             </div>
         </div> -->
+        
         <ul>
             <li>
                 <a href="#">
@@ -104,59 +122,44 @@ $pdo = $classPayroll->openConnection();
     </div>
 
     <!-- END DASHBOARD -->
-    <header class="tophead">
-        <?php
-
-            if (isset($_SESSION['User'])) {
-                echo '<h1 class="greet">' . ' Welcome ' . $_SESSION['User'] . '</h1>'; ?>
-
-             <?php echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg></a>'; ?><?php
-
-            } else {
-                header("location:../index.php");
-            }
-
-        ?>
-    </header>
+    
     <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
     </div>
-    <div class="container-medium">
+        
 
-        <?php
-        $activeForm = true;
+            <?php
+            $activeForm = true;
 
-        if (isset($_POST['search_e'])) {
-            $activeForm = false;
+            if (isset($_POST['search_e'])) {
+                $activeForm = false;
 
-            $search = $_POST["search_E_ID"];
-            $sql = "SELECT * FROM `employee` WHERE employee_id = ? AND isActive = 1";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$search]);
+                $search = $_POST["search_E_ID"];
+                $sql = "SELECT * FROM `employee` WHERE employee_id = ? AND isActive = 1";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$search]);
 
-            if ($stmt->rowCount() > 0) {
-                while ($row = $stmt->fetch()) {
+                if ($stmt->rowCount() > 0) {
+                    while ($row = $stmt->fetch()) {
 
-                    $E_ID = $row['employee_id'];
-                    $fname = $row['first_name'];
-                    $mi = $row['middle_in'];
-                    $lname = $row['last_name'];
-                    $age = $row['age'];
-                    $email = $row['email'];
-                    $contact = $row['contact'];
-                    $gender = $row['gender'];
-                    $stats = $row['stats'];
-                    $date = $row['date_hired'];
+                        $E_ID = $row['employee_id'];
+                        $fname = $row['first_name'];
+                        $mi = $row['middle_in'];
+                        $lname = $row['last_name'];
+                        $age = $row['age'];
+                        $email = $row['email'];
+                        $contact = $row['contact'];
+                        $gender = $row['gender'];
+                        $stats = $row['stats'];
+                        $date = $row['date_hired'];
+                    }
                 }
-            }
-        ?>
+            ?>
 
 
-
+        <div class="container-xmedium-result">
             <form action="UI_addEmployee.php" method="post">
                 <div class="search-bg">
                     <div class="search">
@@ -167,6 +170,7 @@ $pdo = $classPayroll->openConnection();
             </form>
 
                 <form class="form" action="../php/process.php" method="post">
+                    <h3>Result:</h3>
                     <label>
                         <input class="input-style inpt-pl20" type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID; ?>">
                         <p>Employee ID</p>
@@ -218,7 +222,7 @@ $pdo = $classPayroll->openConnection();
                     <button class="button update" type="submit" name="editEmployee">Update</button>
                     <button class="button delete" type="submit" name="deleteEmployee">Delete</button>
                 </form>
-    </div>
+        </div>
 
 
 
@@ -283,7 +287,7 @@ $pdo = $classPayroll->openConnection();
         ?>
 
 
-    
+        <div class="container-xmedium">
             <form action="UI_addEmployee.php" method="post">
                 <!-- form search-->
                 <div class="search-bg">
@@ -299,6 +303,7 @@ $pdo = $classPayroll->openConnection();
                     <input class="input-style" type="number" name="E_ID" id="E_ID" required>
                     <p>Employee ID</p>
                 </label> -->
+                
                 <label>
                     <input class="input-style inpt-pl20" type="text" name="fname" id="fname" required>
                     <p>First Name</p>
@@ -346,7 +351,7 @@ $pdo = $classPayroll->openConnection();
                     <button class="button" disabled="disabled">Delete</button>
                 </label>
             </form>
-    </div>
+        </div>
 
         <section class="banner2"></section> <!--this is the banner -->
             <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
@@ -397,10 +402,6 @@ $pdo = $classPayroll->openConnection();
                 </table>
             </div>
         <?php } ?>
-                        <footer>
-                            <i class='bx bxl-facebook' style='color:#fbfbfb'  ></i>
-                            <p>Facebook</p>
-                        </footer>
 </body>
 
 </html>

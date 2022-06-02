@@ -7,7 +7,19 @@ class payroll_manage extends MyPayroll {
 
     // ------------------------------------------------- PAYROLL SAVE BTN ACTIVE ------------------------------------------------- // 
         public function active_save_payroll(){
-
+            ?>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+                <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+                <link rel="stylesheet" href="../css/dashboard.css">
+                <link rel="stylesheet" href="../css/proper-placement.css">
+                <link rel="stylesheet" href="../css/default.css">
+            </head>
+            <body>
+            <?php
             require_once('../php/classes/payrollClass.php');
             $pdo = $this->openConnection();  
             $search_Eid = $_POST['search_E_ID'];
@@ -52,7 +64,7 @@ class payroll_manage extends MyPayroll {
                 } 
             }   ?>
 
-                    <div class="container container-style">
+                    <div class="container-small">
                         <form action="UI_payroll.php" method="post">
                             <!-- form search-->
                             <div class="search-bg">
@@ -65,7 +77,7 @@ class payroll_manage extends MyPayroll {
 
                         <!-- form -->
                         <form action="../php/process.php" method="POST">
-                        
+                            <h3>Result:</h3>
                             <label>
                                 <input class="input-style" type="number" name="E_ID" id="E_ID" required readonly value="<?php echo $E_ID ?>">
                                 <p>E_ID</p>
@@ -83,7 +95,7 @@ class payroll_manage extends MyPayroll {
                                 <p>Contact</p>
                             </label>
                             <label>
-                                <select name="dept_id" id="dept_id" required>
+                                <select class="sel-size" name="dept_id" id="dept_id" required>
                                     <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
                                 </select>
                                 <p>Employee Department</p>
@@ -106,58 +118,76 @@ class payroll_manage extends MyPayroll {
                             </label>
                             <br>
                             <br>
-
-                            <label class="b1">Over Time
+                        </div>
+                        <section class="banner2"></section> <!--this is the banner -->
+                        <div class="container-sSmall2">
+                            <h3>Please Fill Up this field: </h3>
+                            <label class="b1">
                                 <input class="b-size" type="number" name="overtime" id="overtime" value="0" required placeholder="0">
+                                <p>Over Time</p>
                             </label>
-                            <label class="b2">Allowance
+                            <label class="b2">
                                 <input class="b-size" type="number" name="allowance" id="allowance" value="0" required placeholder="0">
+                                <p>Allowance</p>
                             </label>
-                            <label class="b3">Holidays Work
+                            <label class="b3">
                                 <input class="b-size" type="number" name="holidays_work" id="holidays_work" value="0" required placeholder="0">
+                                <p>Holidays Work</p>
                             </label>
-                            <label class="b4">Leave Days
+                            <label class="b4">
                                 <input class="b-size" type="number" name="leave_days" id="leave_days" value="0" required placeholder="0">
+                                <p>Leave Days</p>
                             </label>
-                            <label class="b5">SSS
+                            <label class="b5">
                                 <input class="b-size" type="number" name="sss" id="sss" value="0" required placeholder="0">
+                                <p>SSS</p>
                             </label>
-                            <label class="b5">TAX
+                            <label class="b5">
                                 <input class="b-size" type="number" name="tax" id="tax" value="0" required placeholder="0">
+                                <p>TAX</p>
                             </label>
-                            <label class="b6">Pag-ibig
+                            <label class="b6">
                                 <input class="b-size" type="number" name="pag_ibig" id="pag_ibig" value="0" required placeholder="0">
+                                <p>Pag-ibig</p>
                             </label>
-                            <label class="b7">Phil-Health
+                            <label class="b7">
                                 <input class="b-size" type="number" name="phil_health" id="phil_health" value="0" required placeholder="0">
+                                <p>Phil-Health</p>
                             </label>
-                            <label class="b8">SSS-Loan
+                            <label class="b8">
                                 <input class="b-size" type="number" name="sss_loan" id="sss_loan" value="0" required placeholder="0">
+                                <p>SSS-Loan</p>
                             </label>
-                            <label class="b8">TAX-Loan
+                            <label class="b8">
                                 <input class="b-size" type="number" name="tax_loan" id="tax_loan" value="0" required placeholder="0">
+                                <p>TAX-Loan</p>
                             </label>
-                            <label class="b9">Pag-ibig loan
+                            <label class="b9">
                                 <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" value="0" required placeholder="0">
+                                <p>Pag-ibig loan</p>
                             </label>
-                            <label class="b10">Phil-Health Loan
+                            <label class="b10">
                                 <input class="b-size" type="number" name="phil_health_loan" id="phil_health_loan" value="0" required placeholder="0">
+                                <p>Phil-Health Loan</p>
                             </label>
-                            <label class="b11">Others
-                                <input class="b11-size" type="number" name="others" id="others" value="0" required placeholder="0">
+                            <label class="b11">
+                                <input class="b-size" type="text" name="others" id="others" value="0" required placeholder="0">
+                                <p>Others</p>
                             </label>
-
-                            <input type="button" onclick="deductions_computation()" style="height: 25px; width: 25px;"> <br>
-                            
-                            <label class="b12">Deduction Total
-                                <input class="b12-size" type="number" name="total_deductions" id="total_deductions" required readonly>
+                            <label>
+                                <input class="go-btn" type="button" onclick="deductions_computation()">
+                            </label>
+                            <label class="b12">Deduction Total:
+                                <input class="b-size" type="number" name="total_deductions" id="total_deductions" required readonly>
                             </label>
 
                             <button class="button save" type="submit" name="addPayroll">Save</button>
                             <button class="button" disabled>Update</button>
                             <button class="button" disabled>Delete</button>
+                        </div>
+                    </form>
 
-                        </form>
+                        <section class="banner2"></section> <!--this is the banner -->
 
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
                         <div class="output">
@@ -253,7 +283,8 @@ class payroll_manage extends MyPayroll {
                     }
 
                 </script>
-
+                </body>
+                </html>
             <?php
         }
 
@@ -324,7 +355,7 @@ class payroll_manage extends MyPayroll {
 
             }  ?>
 
-                    <div class="container container-style">
+                    <div class="container-small">
                         <form action="UI_payroll.php" method="post">
                             <!-- form search-->
                             <div class="search-bg">
@@ -355,7 +386,7 @@ class payroll_manage extends MyPayroll {
                                 <p>Contact</p>
                             </label>
                             <label>
-                                <select name="dept_id" id="dept_id" required>
+                                <select class="sel-size" name="dept_id" id="dept_id" required>
                                     <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
                                 </select>
                                 <p>Employee Department</p>
@@ -378,58 +409,74 @@ class payroll_manage extends MyPayroll {
                             </label>
                             <br>
                             <br>
-
-                            <label class="b1">Over Time
+                    </div>
+                    <section class="banner2"></section> <!--this is the banner -->
+                    <div class="container-sSmall2">
+                            <label class="b1">
                                 <input class="b-size" type="number" name="overtime" id="overtime" required placeholder="0" value="<?php echo $overtime ?>">
+                                <p>Over Time</p>
                             </label>
-                            <label class="b2">Allowance
+                            <label class="b2">
                                 <input class="b-size" type="number" name="allowance" id="allowance" required placeholder="0" value="<?php echo $allowance ?>">
+                                <p>Allowance</p>
                             </label>
-                            <label class="b3">Holidays Work
+                            <label class="b3">
                                 <input class="b-size" type="number" name="holidays_work" id="holidays_work" required placeholder="0" value="<?php echo $holidays_work ?>">
+                                <p>Holidays Work</p>
                             </label>
-                            <label class="b4">Leave Days
+                            <label class="b4">
                                 <input class="b-size" type="number" name="leave_days" id="leave_days" required placeholder="0" value="<?php echo $leave_days ?>">
+                                <p>Leave Days</p>
                             </label>
-                            <label class="b5">SSS
+                            <label class="b5">
                                 <input class="b-size" type="number" name="sss" id="sss" required placeholder="0" value="<?php echo $sss ?>">
+                                <p>SSS</p>
                             </label>
-                            <label class="b5">TAX
+                            <label class="b5">
                                 <input class="b-size" type="number" name="tax" id="tax" required placeholder="0" value="<?php echo $tax ?>">
+                                <p>TAX</p>
                             </label>
-                            <label class="b6">Pag-ibig
+                            <label class="b6">
                                 <input class="b-size" type="number" name="pag_ibig" id="pag_ibig" required placeholder="0" value="<?php echo $pag_ibig ?>">
+                                <p>Pag-ibig</p>
                             </label>
-                            <label class="b7">Phil-Health
+                            <label class="b7">
                                 <input class="b-size" type="number" name="phil_health" id="phil_health" required placeholder="0" value="<?php echo $phil_health ?>">
+                                <p>Phil-Health</p>
                             </label>
-                            <label class="b8">SSS-Loan
+                            <label class="b8">
                                 <input class="b-size" type="number" name="sss_loan" id="sss_loan" required placeholder="0" value="<?php echo $sss_loan ?>">
+                                <p>SSS-Loan</p>
                             </label>
-                            <label class="b8">TAX-Loan
+                            <label class="b8">
                                 <input class="b-size" type="number" name="tax_loan" id="tax_loan" required placeholder="0" value="<?php echo $tax_loan ?>">
+                                <p>TAX-Loan</p>
                             </label>
-                            <label class="b9">Pag-ibig loan
+                            <label class="b9">P
                                 <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" required placeholder="0" value="<?php echo $pag_ibig_loan ?>">
+                                <p>ag-ibig loan</p>
                             </label>
-                            <label class="b10">Phil-Health Loan
+                            <label class="b10">
                                 <input class="b-size" type="number" name="phil_health_loan" id="phil_health_loan" required placeholder="0" value="<?php echo $phil_health_loan ?>">
+                                <p>Phil-Health Loan</p>
                             </label>
-                            <label class="b11">Others
-                                <input class="b11-size" type="Text" name="others" id="others" required placeholder="0" value="<?php echo $ohters ?>">
+                            <label class="b11">
+                                <input class="b-size" type="Text" name="others" id="others" required placeholder="0" value="<?php echo $ohters ?>">
+                                <p>Others</p>
                             </label>
-
-                            <input type="button" onclick="deductions_computation()" style="height: 25px; width: 25px;"> <br>
-
-                            <label class="b12">Deduction Total
-                                <input class="b12-size" type="number" name="total_deductions" id="total_deductions" required value="<?php echo $total_deduction ?>">
+                            <label>
+                                <input class="go-btn" type="button" onclick="deductions_computation()">
+                            </label>
+                            <label class="b12">Deduction Total:
+                                <input class="b-size" type="number" name="total_deductions" id="total_deductions" required value="<?php echo $total_deduction ?>">
                             </label>
 
                             <button class="button" disabled>Save</button>
-                            <button class="button" type="submit" name="updatePayroll">Update</button>
+                            <button class="button update" type="submit" name="updatePayroll">Update</button>
                             <button class="button" disabled>Delete</button>
-
+                    </div>
                         </form>
+                        <section class="banner2"></section> <!--this is the banner -->
 
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
                         <div class="output">

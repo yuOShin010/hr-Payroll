@@ -29,7 +29,21 @@
 
 <body>
     <!-- DASHBOARD-->
+    <header class="tophead">
+        <!-- <p>top head</p> -->
+        <?php
 
+        if (isset($_SESSION['User'])) {
+            echo '<h1 class="greet">' . 'SCHEDULING MANAGEMENT' . '</h1>';
+            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg></a>';
+        } else {
+            header("location:../index.php");
+        }
+
+        ?>
+    </header>
     <div id="navigation">
         <!-- <div class="toggle-btn" onclick="show()">
             <span></span>
@@ -95,21 +109,7 @@
         </ul>
 
     </div>
-    <header class="tophead">
-        <!-- <p>top head</p> -->
-        <?php
-
-        if (isset($_SESSION['User'])) {
-            echo '<h1 class="greet">' . 'SCHEDULING MANAGEMENT' . '</h1>';
-            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg></a>';
-        } else {
-            header("location:../index.php");
-        }
-
-        ?>
-    </header>
+    
     <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -232,7 +232,7 @@
 
             
                 ?>
-            <div class="container container-medium">
+            <div class="container-medium">
                     <form action="../operator/UI_schedule.php" method="post">
                         <div class="search-bg">
                                 <div class="search">
@@ -243,7 +243,7 @@
                     </form>
 
                     <form action="../php/process.php" method="post">   <!-- Throw in process.php -->
-                    
+                            <h3>Result:</h3>
                             <label>
                                 <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
                                 <p>Employee ID</p>
@@ -269,7 +269,7 @@
                                     <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
                                 </select>
                             </label>
-                            <label class="options-right">
+                            <label class="options-right">Position:
                                 <select class="option-size" name="position_id" id="position_id" required>
                                     <option selected hidden value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
                                 </select>
@@ -278,6 +278,7 @@
                                 <input class="input-style inpt-pl20" type="number" name="workHrs" id="workHrs">
                                 <p>Work Hours</p>
                             </label>
+                            <h3>Set Your Starting Date From and End Date to Here: </h3>
                             <label>
                                 <input class="input-style inpt-pl20" type="date" name="d_from" id="d_from">
                                 <p>From</p>
@@ -287,7 +288,7 @@
                                 <p>To</p>
                             </label>
                             <label>
-                                <input type="button save" onclick="computeDays()" id="btn" placeholder="go">
+                                <input class="go-btn" type="button" onclick="computeDays()" id="btn" placeholder="go">
                             </label>
                             <label>
                                 <input class="input-style inpt-pl20" readonly type="text" name="daysWork" id="daysWork" >
@@ -370,7 +371,7 @@
                 if ($setSchedule){ ?>       <!-- UPDATE SCHEDULE ACTIVE UPDATE BTN ----->
 
                     <!-- // For Update Schedule -->
-                    <div class="container container-xmedium">        
+                    <div class="container-medium-result">        
                         <form action="../operator/UI_schedule.php" method="post">
                             <div class="search-bg">
                                 <div class="search">
@@ -381,6 +382,7 @@
                         </form>
                         
                             <form action="../php/process.php" method="post">   <!-- Throw in process.php -->
+                                <h3>Result:</h3>
                                 <label>
                                     <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
                                     <p>Employee ID</p>
@@ -412,10 +414,13 @@
                                         <option selected hidden value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
                                     </select>
                                 </label>
+                                <br>
+                                <h3>Please Set the Working Hours and the schedule of work here:</h3>
                                 <label>
                                     <input class="input-style inpt-pl20" type="number" name="workHrs" id="workHrs" value="<?php echo $total_workHrs ?>">
                                     <p>Total WorkHrs</p>
                                 </label>
+                                <br>
                                 <label>
                                     <input class="input-style inpt-pl20" type="date" name="d_from" id="d_from" value="<?php echo $d_from ?>">
                                     <p>From</p>
@@ -425,7 +430,7 @@
                                     <p>To</p>
                                 </label>
                                 <label>
-                                    <input class="submit-btn save" type="button save" onclick="computeDays()" id="btn" placeholder="go" style="cursor: pointer;">
+                                    <input class="go-btn" type="button" onclick="computeDays()" id="btn" style="cursor: pointer;">
                                 </label>
                                 <label>
                                     <input class="input-style inpt-pl20" readonly type="text" name="daysWork" id="daysWork" value="<?php echo $days_works ?>">
@@ -510,7 +515,7 @@
                     if($activeform){    // This is the main user interface (no value indicated) --
                 ?>
         
-        <div class="container container-medium">
+        <div class="container-xmedium">
                 <form action="../operator/UI_schedule.php" method="post">
                         <div class="search-bg">
                             <div class="search">
