@@ -353,7 +353,7 @@ class payroll_manage extends MyPayroll {
 
             }  ?>
 
-                    <div class="container-small">
+                    <div class="container-xsmall">
                         <form action="UI_payroll.php" method="post">
                             <!-- form search-->
                             <div class="search-bg">
@@ -452,7 +452,11 @@ class payroll_manage extends MyPayroll {
                                 <p>TAX-Loan</p>
                             </label>
                             <label class="b9">
+<<<<<<< HEAD
                                 <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" step="any" required placeholder="0" value="<?php echo $pag_ibig_loan ?>">
+=======
+                                <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" required placeholder="0" value="<?php echo $pag_ibig_loan ?>">
+>>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                                 <p>Pag-ibig loan</p>
                             </label>
                             <label class="b10">
@@ -460,7 +464,11 @@ class payroll_manage extends MyPayroll {
                                 <p>Phil-Health Loan</p>
                             </label>
                             <label class="b11">
+<<<<<<< HEAD
                                 <input class="b-size" type="number" name="others" id="others" step="any" required placeholder="0" value="<?php echo $ohters ?>">
+=======
+                                <input class="b-size" type="number" name="others" id="others" required placeholder="0" value="<?php echo $ohters ?>">
+>>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                                 <p>Others</p>
                             </label>
                             <label>
@@ -478,7 +486,7 @@ class payroll_manage extends MyPayroll {
                         <section class="banner2"></section> <!--this is the banner -->
 
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
-                        <div class="output">
+                        
                             <table class="table table-dark table-striped">
                                 <thead>
                                     <tr>
@@ -546,8 +554,8 @@ class payroll_manage extends MyPayroll {
                                     <?php }} ?>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
+                        
+                    
 
                     <script>
 

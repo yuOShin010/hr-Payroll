@@ -197,6 +197,7 @@ $pdo = $classPayroll->openConnection();
             
                             <form action="../php/process.php" method="post">
                                 <!-- form set department -->
+                                <h3>Result:</h3>
                                 <label>
                                     <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID1" value="<?php echo $E_ID ?>">
                                     <p>Employee ID</p>
@@ -217,6 +218,7 @@ $pdo = $classPayroll->openConnection();
                                     <input class="input-style inpt-pl20" readonly type="number" name="contact" id="contact1" value="<?php echo $contact ?>">
                                     <p>Contact</p>
                                 </label><br>
+                                <h3>Please Fill up this Field:</h3>
                                 <label class="side-left">Employee Department:
                                     <select class="option-size" name="dept_id" id="dept_id" required>
                                         <option selected hidden value="">- Select -</option>
@@ -238,7 +240,7 @@ $pdo = $classPayroll->openConnection();
                                         <option value="5">Utility</option>
                                     </select>
                                 </label>
-                                <button class="button" type="submit" name="setDepartment" onclick="undisableTxt()">Save</button>
+                                <button class="button save" type="submit" name="setDepartment" onclick="undisableTxt()">Save</button>
                                 <button class="button" disabled type="submit" name="updateDept" id="updateDept">Update</button>
                                 <!-- <button type="submit" name="deleteDept" id="deleteDept">Delete</button> -->
                             </form>
@@ -250,7 +252,7 @@ $pdo = $classPayroll->openConnection();
                             <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
             
             
-                            <div class="output">
+                           
                                 <table class="table table-dark table-striped">
                                     <thead>
                                         <tr>
@@ -300,7 +302,7 @@ $pdo = $classPayroll->openConnection();
                                         } ?>
                                     </tbody>
                                 </table>
-                            </div> <?php
+                             <?php
 
                 } else {
                     echo"<script>";
@@ -321,7 +323,7 @@ $pdo = $classPayroll->openConnection();
             if ($setDepartment) {                 // UPDATE SET DEPARTMENT UPDATE OPTION -----
             ?>
 
-            <div class="container-small">
+            <div class="container-small-result">
                     <form action="../operator/UI_setDepartment.php" method="post">
                         <!-- form search -->
                         <div class="search-bg">
@@ -335,6 +337,7 @@ $pdo = $classPayroll->openConnection();
 
                 <form action="../php/process.php" method="post">
                     <!-- form update department -->
+                    <h3>Result:</h3>
                     <label>
                         <input class="input-style inpt-pl20" readonly type="number" name="E_ID" id="E_ID2" value="<?php echo $E_ID ?>">
                         <p>Employee ID</p>
@@ -355,6 +358,7 @@ $pdo = $classPayroll->openConnection();
                         <input class="input-style inpt-pl20" readonly type="number" name="contact" id="contact2" value="<?php echo $contact ?>">
                         <p>Contact</p>
                     </label><br>
+                    <h3>Possible to update this field:</h3>
                     <label class="side-left">Employee Dept:
                         <select class="option-size" name="dept_id" id="dept_id" required>
                             <option selected hidden value="<?php echo $dept_id; ?>"><?php echo $dept_code; ?></option>
@@ -390,7 +394,7 @@ $pdo = $classPayroll->openConnection();
 
                 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
-            <div class="output">
+            
                 <table class="table table-dark table-striped">
                     <thead>
                         <tr>
@@ -438,7 +442,7 @@ $pdo = $classPayroll->openConnection();
                         } ?>
                     </tbody>
                 </table>
-            </div>
+            
             <?php
 
             }

@@ -54,6 +54,7 @@
             <h1 class="t-left">SymTech</h1>
             <h1 class="dot">.</h1>
         </div>
+<<<<<<< HEAD
         <!-- <div class="toggle-btn" onclick="show()">
             <span></span>
             <span></span>
@@ -353,6 +354,11 @@
     if($activeForm){
 
         ?>
+=======
+        <!--_________________________________END OF TOPBAR___________________________________________-->
+        <!--_________________________________END OF DASHBOARD__________________________________________-->
+        
+>>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
         <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -360,7 +366,11 @@
         </div>
 
         <div class="container-large">
+<<<<<<< HEAD
             <form action="UI_employeeSalary.php" method="post">
+=======
+            <form action="UI_payroll.php" method="post">
+>>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                 <!-- form search-->
                 <div class="search-bg">
                     <div class="search">
@@ -421,8 +431,12 @@
                     <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
                     <p>Leave Days</p>
                 </label>
+<<<<<<< HEAD
                 <br>
                 <h3>Start Here ..</h3>
+=======
+                <br> 
+>>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                 <!-- Pay -->
                 <label>
                     <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
@@ -430,10 +444,13 @@
                 </label>
                 <label>
                     <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+<<<<<<< HEAD
                     <p>Total Hours Pay</p>
                 </label>
                 <label>
                     <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+=======
+>>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                     <p>Over Time Pay</p>
                 </label>
                 <label>
@@ -450,7 +467,11 @@
                 </label>
                 <label>
                     <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+<<<<<<< HEAD
                     <p>Basic Pay</p>
+=======
+                    <p>Bacis Pay</p>
+>>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                 </label>
                 <br><br>
                 
@@ -474,7 +495,12 @@
                     <button class="button" disabled>Save</button>
                     <button class="button" disabled>Update</button>
                     <!-- <button class="button" disabled>Delete</button> -->
+<<<<<<< HEAD
         </div>
+=======
+                    
+                </div>
+>>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
 
 
 
