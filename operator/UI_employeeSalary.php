@@ -118,117 +118,117 @@
         </div>
 
         <div class="container-large">
-                        <form action="UI_payroll.php" method="post">
-                            <!-- form search-->
-                            <div class="search-bg">
-                                <div class="search">
-                                    <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                                    <button type="submit" name="search" id="search_e"><i class='bx bx-search bx-margin'></i></button>
-                                </div>
-                            </div>
-                        </form>
+            <form action="UI_payroll.php" method="post">
+                <!-- form search-->
+                <div class="search-bg">
+                    <div class="search">
+                        <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                        <button type="submit" name="search" id="search_e"><i class='bx bx-search bx-margin'></i></button>
+                    </div>
+                </div>
+            </form>
 
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="" id="" required readonly> 
-                                <p>Employee ID</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="text" name="fname" id="fname" required readonly>
-                                <p>First Name</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="text" name="lname" id="lname" required readonly>
-                                <p>Last Name</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20 removearrow" type="number" name="contact" id="contact" required readonly>
-                                <p>Contact</p>
-                            </label>
-                            
-                            <label>
-                                <input class="input-style inpt-pl20 removearrow" type="number" name="hours_work" id="hours_work" required readonly>
-                                <p>Employee Department</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20 removearrow" type="number" name="hours_work" id="hours_work" required readonly>
-                                <p>Position</p>
-                            </label>
-                            <br>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="" id="" required readonly> 
+                    <p>Employee ID</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="text" name="fname" id="fname" required readonly>
+                    <p>First Name</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="text" name="lname" id="lname" required readonly>
+                    <p>Last Name</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20 removearrow" type="number" name="contact" id="contact" required readonly>
+                    <p>Contact</p>
+                </label>
+                
+                <label>
+                    <input class="input-style inpt-pl20 removearrow" type="number" name="hours_work" id="hours_work" required readonly>
+                    <p>Employee Department</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20 removearrow" type="number" name="hours_work" id="hours_work" required readonly>
+                    <p>Position</p>
+                </label>
+                <br>
 
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Overtime</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Holidays Works</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Allowance</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Work Hours</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Days Work</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Leave Days</p>
-                            </label>
-                            <br> 
-                            <!-- Pay -->
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Days Work Pay</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Over Time Pay</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Holidays Pay</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Leave Days Pay</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Allowance Pay</p>
-                            </label>
-                            <label>
-                                <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                                <p>Bacis Pay</p>
-                            </label>
-                            <br><br>
-                            
-                            <label>
-                                <input class="b-size" type="button"  name="" id="" required>
-                                <p>Regular</p>
-                            </label>
-                            <label>
-                                <input class="b-size" type="button" name="" id="" required>
-                                <p>Contructual</p>
-                            </label>
-                            <br><br>
-                                <label>
-                                    <input class="int-red" type="number" name="" id="" required>
-                                    <p>Deduction Total</p>
-                                </label>
-                                <label>
-                                    <input class="int-green" type="number" name="" id="" required>
-                                    <p>NetPay</p>
-                                </label>
-                                <button class="button" disabled>Save</button>
-                                <button class="button" disabled>Update</button>
-                                <!-- <button class="button" disabled>Delete</button> -->
-                                
-                            </div>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Overtime</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Holidays Works</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Allowance</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Work Hours</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Days Work</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Leave Days</p>
+                </label>
+                <br> 
+                <!-- Pay -->
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Days Work Pay</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Over Time Pay</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Holidays Pay</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Leave Days Pay</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Allowance Pay</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Bacis Pay</p>
+                </label>
+                <br><br>
+                
+                <label>
+                    <input class="b-size" type="button"  name="" id="" required>
+                    <p>Regular</p>
+                </label>
+                <label>
+                    <input class="b-size" type="button" name="" id="" required>
+                    <p>Contructual</p>
+                </label>
+                <br><br>
+                    <label>
+                        <input class="int-red" type="number" name="" id="" required>
+                        <p>Deduction Total</p>
+                    </label>
+                    <label>
+                        <input class="int-green" type="number" name="" id="" required>
+                        <p>NetPay</p>
+                    </label>
+                    <button class="button" disabled>Save</button>
+                    <button class="button" disabled>Update</button>
+                    <!-- <button class="button" disabled>Delete</button> -->
+                    
+                </div>
 
 
 

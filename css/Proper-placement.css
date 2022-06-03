@@ -1,6 +1,8 @@
     body {
         background: rgb(241 241 241);
         display: grid;
+        padding: 0;
+        margin: 0;
     }
     
     @media only screen and (min-width: 1200px) {
@@ -14,7 +16,7 @@
             box-shadow: -1px -1px 20px 0px rgba(0, 0, 0, 0.196);
         }
         /* table properties */
-        .output {
+        /* .output {
             padding: 1px;
             position: relative;
             left: 309px;
@@ -22,9 +24,10 @@
             width: 78%;
             background: white;
             height: 355px;
-        }
+        } */
         body::-webkit-scrollbar {
             width: 9px;
+            overflow-x: hidden;
         }
         body::-webkit-scrollbar-track {
             background: #f1f1f1;
@@ -125,7 +128,9 @@
             transition: all 0.2s ease;
         }
         .logout:hover {
-            color: rgb(255, 255, 255);
+            color: rgb(4, 4, 4);
+            background: white;
+            border-radius: 400px;
         }
         /*________________________END________________________ */
         /*________________________Greetings Properties________________________ */

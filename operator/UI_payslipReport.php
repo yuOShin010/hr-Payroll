@@ -1,34 +1,33 @@
 <?php
-session_start();
-require_once('../php/classes/payrollClass.php');
-$pdo = $classPayroll->openConnection();
+    session_start();
+    require_once('../php/classes/payrollClass.php');
+    $pdo = $classPayroll->openConnection();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> 
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../css/proper-placement.css">
 
-    <title>Payslip</title>
+    <title>Payslip Report</title>
 
     <script>
+
         function show() {
             document.getElementById('navigation').classList.toggle('active');
-        }
-    </script>
+        }   
 
+</script>
 
 </head>
-
 <body>
     <!-- DASHBOARD -->
     <header class="tophead">
@@ -36,7 +35,7 @@ $pdo = $classPayroll->openConnection();
         <?php
 
         if (isset($_SESSION['User'])) {
-            echo '<h1 class="greet">' . 'PAYSLIP REPORTS' . '</h1>';
+            echo '<h1 class="greet">' . 'PAYSLIP REPORT' . '</h1>';
             echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
           </svg></a>';
@@ -47,32 +46,19 @@ $pdo = $classPayroll->openConnection();
         ?>
     </header>
 
-        if (isset($_SESSION['User'])) {
-            echo '<h1 class="greet">' . 'PAYSLIP REPORTS' . '</h1>';
-            echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg></a>';
-        } else {
-            header("location:../index.php");
-        }
-
-        ?>
-    </header>
-    <div id="navigation">
-
-        <!-- <div class="toggle-btn" onclick="show()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div> -->
-        <div class="title">
-            <h1 class="t-left">SymTech</h1>
-            <h1 class="dot">.</h1>
-        </div>
-        <ul>
-        <li>
+    <div id="navigation"> 
+            <div class="title">
+                <h1 class="t-left">SymTech</h1>
+                <h1 class="dot">.</h1>
+            </div>
+            <!-- <div class="toggle-btn" onclick="show()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div> -->
+            <ul>
+            <li>
                 <a href="#">
-                    <!-- <i class='bx bx-bar-chart-square bx-flip-horizontal' style='color:#ffffff'  ></i> -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" style="padding-left: 16px;float: left;fill: rgba(255, 255, 255, 1);transform: scaleX(-1);msFilter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);"><path d="M3 5v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2zm16.001 14H5V5h14l.001 14z"></path><path d="M11 7h2v10h-2zm4 3h2v7h-2zm-8 2h2v5H7z"></path></svg>
                     <p>Dashboard</p>
                 </a>
@@ -100,7 +86,6 @@ $pdo = $classPayroll->openConnection();
                 <a href="../operator/UI_payroll.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" style="padding-left: 16px; float:left;fill: rgba(255, 255, 255, 1);transform: scaleX(-1);msFilter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);"><path d="M20 6c0-2.168-3.663-4-8-4S4 3.832 4 6v2c0 2.168 3.663 4 8 4s8-1.832 8-4V6zm-8 13c-4.337 0-8-1.832-8-4v3c0 2.168 3.663 4 8 4s8-1.832 8-4v-3c0 2.168-3.663 4-8 4z"></path><path d="M20 10c0 2.168-3.663 4-8 4s-8-1.832-8-4v3c0 2.168 3.663 4 8 4s8-1.832 8-4v-3z"></path></svg>
                     <p>Payroll Management</p>
-                    <!-- style="padding-left: 16px; float:left;fill: rgba(255, 255, 255, 1);transform: scaleX(-1);msFilter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1); -->
                 </a>
             </li>
             <li>
@@ -121,21 +106,100 @@ $pdo = $classPayroll->openConnection();
                     <p>Company Report</p>
                 </a>
             </li>
-        </ul>
-
-    </div>
-    <!--_________________________________END OF TOPBAR___________________________________________-->
-    <!--_________________________________END OF DASHBOARD__________________________________________-->
-    
-    <div class="banner">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-    </div> <!--this is the banner -->
-        <div class="container-medium">
+            </ul>
+        </div>
+        <!--_________________________________END OF TOPBAR___________________________________________-->
+        <!--_________________________________END OF DASHBOARD__________________________________________-->
         
+        <div class="banner">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
         </div>
 
-</body>
+        <div class="container-large">
+            <form action="UI_payroll.php" method="post">
+                <!-- form search-->
+                <div class="search-bg">
+                    <div class="search">
+                        <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                        <button type="submit" name="search" id="search_e"><i class='bx bx-search bx-margin'></i></button>
+                    </div>
+                </div>
+            </form>
+                <h3>Basic Information:</h3>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="" id="" required readonly> 
+                    <p>Employee ID</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="text" name="fname" id="fname" required readonly>
+                    <p>First Name</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="text" name="lname" id="lname" required readonly>
+                    <p>Last Name</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20 removearrow" type="number" name="contact" id="contact" required readonly>
+                    <p>Contact</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20 removearrow" type="number" name="hours_work" id="hours_work" required readonly>
+                    <p>Employee Department</p>
+                </label> <br>
+                <label>
+                    <input class="int-red" type="number" name="" id="" required>
+                    <p>Deduction Total</p>
+                </label>
+                <br>
+                <br> 
+                <!-- Pay -->
+                <h3>Pay Information:</h3>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Days Work Pay</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Over Time Pay</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Holidays Work</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Leave Days Pay</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Allowance Pay</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
+                    <p>Basic Pay</p>
+                </label> <br>
+                    <label>
+                        <input class="int-green" type="number" name="" id="" required>
+                        <p>NetPay</p>
+                    </label>
+                    <button class="button save">Save</button>
+                    <button class="button update">Update</button>
+                    <button class="button save">Print</button>
+                    
+                </div>
 
+
+
+        <section class="banner2"><h2>Database Table</h2></section> <!--this is the banner -->
+    <!-- ________________________________DATABASE TABLE_______________________________ -->
+                        <div class="output">
+
+                        </div>
+
+
+
+        
+</body>
 </html>

@@ -377,7 +377,7 @@ $pdo = $classPayroll->openConnection();
 
                     <section class="banner2"></section> <!--this is the banner -->
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
-                        <div class="output">
+                        
                             <table class="table table-dark table-striped">
                                 <thead>
                                     <tr>
@@ -447,7 +447,7 @@ $pdo = $classPayroll->openConnection();
                                     <?php }} ?>
                                 </tbody>
                             </table>
-                        </div>
+                        
                     
             <?php 
         } ?>

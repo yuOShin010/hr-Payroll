@@ -1,11 +1,3 @@
-html {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    max-width: 100%;
-}
-
-
 /*________________________Input Properties________________________ */
 
 .input-style {
@@ -64,6 +56,101 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 /*________________________END________________________ */
+
+
+/*________________________Container properties________________________ */
+
+.container-small {
+    margin: 10px 308px;
+    width: 78%;
+    background: white;
+    height: 427px;
+    border-radius: 2px;
+    box-shadow: 0px 10px 6px -5px #00000078;
+}
+
+.container-xsmall {
+    margin: 10px 308px;
+    width: 78%;
+    background: white;
+    height: 444px;
+    border-radius: 2px;
+    box-shadow: 0px 10px 6px -5px #00000078;
+}
+
+.container-small-result {
+    margin: 10px 308px;
+    width: 78%;
+    background: white;
+    height: 595px;
+    border-radius: 2px;
+    box-shadow: 0px 10px 6px -5px #00000078;
+}
+
+.container-sSmall {
+    margin: 10px 308px;
+    padding: 55px;
+    width: 78%;
+    background: white;
+    height: 381px;
+    border-radius: 2px;
+    box-shadow: 0px 10px 6px -5px #00000078;
+}
+
+.container-sSmall2 {
+    margin: 10px 308px;
+    width: 78%;
+    background: white;
+    height: 432px;
+    border-radius: 2px;
+    box-shadow: 0px 10px 6px -5px #00000078;
+}
+
+.container-medium {
+    margin: 2px 308px;
+    width: 78%;
+    background: white;
+    height: 749px;
+    border-radius: 2px;
+    box-shadow: 0px 10px 6px -5px #00000078;
+}
+
+.container-medium-result {
+    margin: 2px 308px;
+    width: 78%;
+    background: white;
+    height: 792px;
+    border-radius: 2px;
+    box-shadow: 0px 10px 6px -5px #00000078;
+}
+
+.container-xmedium {
+    margin: 2px 308px;
+    width: 78%;
+    position: relative;
+    background: white;
+    height: 519px;
+    border-radius: 2px;
+    box-shadow: 0px 10px 6px -5px #00000078;
+}
+
+.container-xmedium-result {
+    margin: 2px 308px;
+    width: 78%;
+    background: white;
+    height: 584px;
+    border-radius: 2px;
+    box-shadow: 0px 10px 6px -5px #00000078;
+}
+
+.container-large {
+    height: 891px;
+    margin: 2px 308px;
+    width: 78%;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0px 10px 6px -5px #00000078;
+}
 
 
 /*________________________For Search Icon Properties________________________ */
@@ -169,11 +256,92 @@ input[type=number]::-webkit-outer-spin-button {
 /*________________________END________________________ */
 
 
-/*________________________different size of container________________________ */
+/*________________________Company Report Properties________________________ */
 
-.container-xsmall {
-    height: 250px;
+.ger-btn {
+    height: 55px;
+    width: 177px;
+    background: white;
+    border: none;
+    border-radius: 9px;
 }
+
+.save:hover {
+    box-shadow: 0px 12px 10px -10px #2e2e2e;
+}
+
+.btn-prop {
+    margin: 707px 980px;
+    width: 453px;
+    display: flow-root;
+    position: absolute;
+}
+
+.d-prop {
+    height: 55px;
+    padding: 10px;
+    border-radius: 9px;
+    border: 4px solid #f1f1f1;
+    transition: all 0.3s ease;
+}
+
+.d-prop:hover {
+    border: 4px solid rgb(30, 98, 255);
+    box-shadow: 0px 12px 10px -10px #2e2e2e;
+}
+
+.c-button {
+    height: 45px;
+    border: 4px;
+    background: #2f76f7;
+    border-radius: 9px;
+    width: 84px;
+    transition: all 0.2s ease;
+}
+
+.c-button:hover {
+    border: 4px solid #88b2ff;
+    box-shadow: 0px 12px 15px -10px #2e2e2e;
+}
+
+
+/*________________________END________________________ */
+
+
+/*________________________Banner Properties________________________ */
+
+.banner3 h1 {
+    margin: 23px 807px;
+    position: absolute;
+    width: 421px;
+    font-size: 23px;
+    text-align: center;
+    align-items: center;
+}
+
+.banner3 {
+    position: relative;
+    height: 60px;
+    width: 78%;
+    margin: 7px 309px;
+    background-color: #1ba9e1e0;
+    box-shadow: 0px 12px 15px -10px #2e2e2e;
+    border-radius: 6px 6px 0 0;
+}
+
+
+/*________________________END________________________ */
+
+.t-size {
+    font-size: 13.5px;
+}
+
+
+/* .tbl-btn-save {
+    height: 23px;
+    width: 50px;
+    border: none;
+} */
 
 
 /*________________________END________________________ */
@@ -181,11 +349,18 @@ input[type=number]::-webkit-outer-spin-button {
 
 /*________________________Table Properties________________________ */
 
-.output table {
-    width: 97%;
-    margin: 20px;
-    height: 266px;
+table {
+    margin: -8px 309px;
+    max-width: 78%;
+    box-shadow: 0px 12px 15px -10px #2e2e2e;
 }
+
+
+/* table2 {
+    margin: -8px 309px;
+    max-width: 78%;
+    box-shadow: 0px 5px 10px #000000;
+} */
 
 
 /*________________________END________________________ */
@@ -232,6 +407,7 @@ input[type=number]::-webkit-outer-spin-button {
         width: 78%;
         margin: 7px 309px;
         background-color: #068de5;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     .banner2 {
         position: relative;
@@ -239,6 +415,7 @@ input[type=number]::-webkit-outer-spin-button {
         width: 78%;
         margin: 9px 309px;
         background-color: #068de5;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     /*________________________END________________________ */
     /*________________________Container properties________________________ */
@@ -246,9 +423,25 @@ input[type=number]::-webkit-outer-spin-button {
         margin: 10px 308px;
         width: 78%;
         background: white;
-        height: 432px;
+        height: 427px;
         border-radius: 2px;
-        box-shadow: 1px 6px 5px #00000078;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
+    .container-xsmall {
+        margin: 10px 308px;
+        width: 78%;
+        background: white;
+        height: 444px;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
+    .container-small-result {
+        margin: 10px 308px;
+        width: 78%;
+        background: white;
+        height: 595px;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-sSmall {
         margin: 10px 308px;
@@ -257,7 +450,7 @@ input[type=number]::-webkit-outer-spin-button {
         background: white;
         height: 381px;
         border-radius: 2px;
-        box-shadow: 1px 6px 5px #00000078;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-sSmall2 {
         margin: 10px 308px;
@@ -265,7 +458,7 @@ input[type=number]::-webkit-outer-spin-button {
         background: white;
         height: 432px;
         border-radius: 2px;
-        box-shadow: 1px 6px 5px #00000078;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-medium {
         margin: 2px 308px;
@@ -273,7 +466,7 @@ input[type=number]::-webkit-outer-spin-button {
         background: white;
         height: 749px;
         border-radius: 2px;
-        box-shadow: 1px 6px 5px #00000078;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-medium-result {
         margin: 2px 308px;
@@ -281,7 +474,7 @@ input[type=number]::-webkit-outer-spin-button {
         background: white;
         height: 792px;
         border-radius: 2px;
-        box-shadow: 1px 6px 5px #00000078;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-xmedium {
         margin: 2px 308px;
@@ -290,15 +483,15 @@ input[type=number]::-webkit-outer-spin-button {
         background: white;
         height: 519px;
         border-radius: 2px;
-        box-shadow: 1px 6px 5px #00000078;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-xmedium-result {
         margin: 2px 308px;
         width: 78%;
         background: white;
-        height: 562px;
+        height: 584px;
         border-radius: 2px;
-        box-shadow: 1px 6px 5px #00000078;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-large {
         height: 891px;
@@ -306,7 +499,7 @@ input[type=number]::-webkit-outer-spin-button {
         width: 78%;
         background: white;
         border-radius: 2px;
-        box-shadow: 1px 6px 5px #00000078;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     .go-btn {
         height: 15px;
@@ -346,6 +539,18 @@ input[type=number]::-webkit-outer-spin-button {
     .container-xmedium h3 {
         margin: 25px 22px;
     }
+    .container-xmedium-result h3 {
+        margin: 25px 22px;
+    }
+    .container-small-result h3 {
+        margin: 25px 22px;
+    }
+    .container-xsmall h3 {
+        margin: 25px 22px;
+    }
+    .container-large h3 {
+        margin: 25px 22px;
+    }
     /* ____________________END____________________ */
     /*________________________Search properties________________________ */
     .search-bg {
@@ -367,13 +572,6 @@ input[type=number]::-webkit-outer-spin-button {
         border-radius: 2px;
         float: right;
         margin: 87px 18px;
-    }
-    .output {
-        height: 315px;
-        box-shadow: 1px 6px 5px #00000078;
-    }
-    .tophead {
-        width: 100%;
     }
 }
 

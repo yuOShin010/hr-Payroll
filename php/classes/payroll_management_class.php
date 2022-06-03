@@ -354,7 +354,7 @@ class payroll_manage extends MyPayroll {
 
             }  ?>
 
-                    <div class="container-small">
+                    <div class="container-xsmall">
                         <form action="UI_payroll.php" method="post">
                             <!-- form search-->
                             <div class="search-bg">
@@ -479,7 +479,7 @@ class payroll_manage extends MyPayroll {
                         <section class="banner2"></section> <!--this is the banner -->
 
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
-                        <div class="output">
+                        
                             <table class="table table-dark table-striped">
                                 <thead>
                                     <tr>
@@ -547,8 +547,8 @@ class payroll_manage extends MyPayroll {
                                     <?php }} ?>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
+                        
+                    
 
                     <script>
 

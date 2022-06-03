@@ -50,6 +50,7 @@ $classPayroll->loginUsers();
 
         <div class="container">
             <form action="" method="post">
+                
                 <div class="form-title">
                     <h1>SymTech</h1>
                     <h1>.</h1>
@@ -75,9 +76,9 @@ $classPayroll->loginUsers();
                     <input class="box-size" type="password" name="password" id="op_password" placeholder="Password">
                     </label>
                     <br>
-                    <label>
+                    <label class="checkbox">
                         <input class="check-box" type="checkbox" onclick="myFunction()"> <!--  this checkbox is for show password -->
-                        Show Password
+                        <p>Show Password</p>
                     </label>
                     <button class="login-btn" type="submit" name="login" id="login-button"> Login </button>
             </form>
