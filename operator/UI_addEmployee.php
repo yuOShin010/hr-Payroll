@@ -12,12 +12,9 @@ $pdo = $classPayroll->openConnection();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<<<<<<< HEAD
     <script src="../sweet_alert/jquery-3.6.0.min.js"></script>
     <script src="../sweet_alert/sweetalert2.all.min.js"></script>
-=======
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
->>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/proper-placement.css">
     <link rel="stylesheet" href="../css/default.css">
@@ -40,21 +37,11 @@ $pdo = $classPayroll->openConnection();
     <!-- DASHBOARD -->
     <header class="tophead">
         <?php
-<<<<<<< HEAD
             if (isset($_SESSION['User'])) {
                 echo '<h1 class="greet">' . ' Welcome ' . $_SESSION['User'] . '</h1>';
                 echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                 </svg></a>';
-=======
-
-            if (isset($_SESSION['User'])) {
-                echo '<h1 class="greet">' . ' Welcome ' . $_SESSION['User'] . '</h1>'; ?>
-
-             <?php echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg></a>'; ?><?php
->>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
 
             } else {
                 header("location:../index.php");
@@ -62,16 +49,13 @@ $pdo = $classPayroll->openConnection();
 
         ?>
     </header>
-<<<<<<< HEAD
     
-=======
->>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
     <div id="navigation">
 
-            <div class="title">
-                <h1 class="t-left">SymTech</h1>
-                <h1 class="dot">.</h1>
-            </div>
+        <div class="title">
+            <h1 class="t-left">SymTech</h1>
+            <h1 class="dot">.</h1>
+        </div>
         <!-- <div id="nav">
             <div class="toggle-btn" onclick="show()">
                 <span class="line top"></span>
@@ -172,146 +156,133 @@ $pdo = $classPayroll->openConnection();
                         $stats = $row['stats'];
                         $date = $row['date_hired'];
                     }
-                }
-<<<<<<< HEAD
-            } else {
+                        ?>
+                        <div class="container-xmedium-result">
+                            <form action="UI_addEmployee.php" method="post">
+                                <div class="search-bg">
+                                    <div class="search">
+                                        <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-margin bx-search'></i></button>
+                                    </div>
+                                </div>
+                            </form>
+
+                                <form class="form" action="../php/process.php" method="post">
+                                    <h3>Result:</h3>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID; ?>">
+                                        <p>Employee ID</p>
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="text" name="fname" id="fname" value="<?php echo $fname; ?>">
+                                        <p>First Name</p>
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="text" name="mi" id="mi" value="<?php echo $mi; ?>">
+                                        <p>Middle Name</p>
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="text" name="lname" id="lname" value="<?php echo $lname; ?>">
+                                        <p>Last Name</p>
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="number" name="age" id="age" value="<?php echo $age; ?>">
+                                        <p>Age</p>
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="email" name="email" id="email" value="<?php echo $email; ?>">
+                                        <p>Email</p>
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="number" name="contact" id="contact" value="<?php echo $contact; ?>">
+                                        <p>Contact</p>
+                                    </label>
+                                    <label>
+                                        <input class="input-style inpt-pl20" type="date" name="date" id="date" value="<?php echo $date; ?>">
+                                        <p>Date Hired</p>
+                                    </label><br>
+                                    <label class="side-left">
+                                        <select class="option-size" name="gender" id="gender" value="<?php echo $gender; ?>">
+                                            Gender:
+                                            <option selected hidden value="<?php echo $gender; ?>">Current: <?php echo $gender; ?></option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </label>
+                                    <label class="options-right">Employee Stats:
+                                        <select class="option-size" name="stats" id="stats">
+                                            <option selected hidden value="<?php echo $stats; ?>">Current: <?php echo $stats; ?></option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Contructual">Contructual</option>
+                                        </select>
+                                    </label>
+                                    <button class="button" disabled type="submit" name="addEmployee">Save</button>
+                                    <button class="button update" type="submit" name="editEmployee">Update</button>
+                                    <button class="button delete" type="submit" name="deleteEmployee">Delete</button>
+                                </form>
+                            </div>
+                            <section class="banner2"></section> <!--this is the banner -->
+                            <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ADD EMPLOYEE MODULE ---------------------------------------->
+
+                            <div class="output">
+                                <table class="table table-dark table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Employee ID</th>
+                                            <th>First Name</th>
+                                            <th>M.I</th>
+                                            <th>Last Name</th>
+                                            <th>Age</th>
+                                            <th>Email</th>
+                                            <th>Contact</th>
+                                            <th>Gender</th>
+                                            <th>Stats</th>
+                                            <th>Date Hired</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <?php
+                                        $sql = "SELECT * FROM employee WHERE isActive = 1 AND user_type_id = 3;";
+                                        $stmt = $pdo->prepare($sql);
+                                        $stmt->execute();
+
+                                        if ($stmt->rowCount() > 0) {
+                                            while ($row = $stmt->fetch()) {
+                                        ?>
+                                                <tr>
+                                                    <td><?php echo $row['employee_id']; ?></td>
+                                                    <td><?php echo $row['first_name']; ?></td>
+                                                    <td><?php echo $row['middle_in']; ?></td>
+                                                    <td><?php echo $row['last_name']; ?></td>
+                                                    <td><?php echo $row['age']; ?></td>
+                                                    <td><?php echo $row['email']; ?></td>
+                                                    <td><?php echo $row['contact']; ?></td>
+                                                    <td><?php echo $row['gender']; ?></td>
+                                                    <td><?php echo $row['stats']; ?></td>
+                                                    <td><?php echo $row['date_hired']; ?></td>
+                                                </tr>
+                                        <?php }
+                                        } ?>
+                                    </tbody>
+                                </table>
+                        </div> <?php
+                
+                } else {
                 
                     echo"<script>";
                     echo"Swal.fire({
                             icon: 'warning',
-                            title: 'No Employee Found',
-                            // text: 'Input Correct Password!',
+                            title: 'No Employee Found!',
+                        }).then((result) => {
+                            if(result) {
+                                window.location.href='../operator/UI_addemployee.php';
+                            }
                         })";
                     echo"</script>"; 
                 
             }
-        ?>
-
-=======
-            ?>
->>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
-
-
-        <div class="container-xmedium-result">
-            <form action="UI_addEmployee.php" method="post">
-                <div class="search-bg">
-                    <div class="search">
-                        <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
-                        <button type="submit" name="search_e" id="search_e"><i class='bx bx-margin bx-search'></i></button>
-                    </div>
-                </div>
-            </form>
-
-                <form class="form" action="../php/process.php" method="post">
-                    <h3>Result:</h3>
-                    <label>
-                        <input class="input-style inpt-pl20" type="number" name="E_ID" id="E_ID" value="<?php echo $E_ID; ?>">
-                        <p>Employee ID</p>
-                    </label>
-                    <label>
-                        <input class="input-style inpt-pl20" type="text" name="fname" id="fname" value="<?php echo $fname; ?>">
-                        <p>First Name</p>
-                    </label>
-                    <label>
-                        <input class="input-style inpt-pl20" type="text" name="mi" id="mi" value="<?php echo $mi; ?>">
-                        <p>Middle Name</p>
-                    </label>
-                    <label>
-                        <input class="input-style inpt-pl20" type="text" name="lname" id="lname" value="<?php echo $lname; ?>">
-                        <p>Last Name</p>
-                    </label>
-                    <label>
-                        <input class="input-style inpt-pl20" type="number" name="age" id="age" value="<?php echo $age; ?>">
-                        <p>Age</p>
-                    </label>
-                    <label>
-                        <input class="input-style inpt-pl20" type="email" name="email" id="email" value="<?php echo $email; ?>">
-                        <p>Email</p>
-                    </label>
-                    <label>
-                        <input class="input-style inpt-pl20" type="number" name="contact" id="contact" value="<?php echo $contact; ?>">
-                        <p>Contact</p>
-                    </label>
-                    <label>
-                        <input class="input-style inpt-pl20" type="date" name="date" id="date" value="<?php echo $date; ?>">
-                        <p>Date Hired</p>
-                    </label><br>
-                    <label class="side-left">
-                        <select class="option-size" name="gender" id="gender" value="<?php echo $gender; ?>">
-                            Gender:
-                            <option selected hidden value="<?php echo $gender; ?>">Current: <?php echo $gender; ?></option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
-                    </label>
-                    <label class="options-right">Employee Stats:
-                        <select class="option-size" name="stats" id="stats">
-                            <option selected hidden value="<?php echo $stats; ?>">Current: <?php echo $stats; ?></option>
-                            <option value="Regular">Regular</option>
-                            <option value="Contructual">Contructual</option>
-                        </select>
-                    </label>
-                    <button class="button" disabled type="submit" name="addEmployee">Save</button>
-                    <button class="button update" type="submit" name="editEmployee">Update</button>
-                    <button class="button delete" type="submit" name="deleteEmployee">Delete</button>
-                </form>
-        </div>
-
-
-
-
-
-                    <section class="banner2"></section> <!--this is the banner -->
-                    <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ADD EMPLOYEE MODULE ---------------------------------------->
-
-                    <div class="output">
-                        <table class="table table-dark table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Employee ID</th>
-                                    <th>First Name</th>
-                                    <th>M.I</th>
-                                    <th>Last Name</th>
-                                    <th>Age</th>
-                                    <th>Email</th>
-                                    <th>Contact</th>
-                                    <th>Gender</th>
-                                    <th>Stats</th>
-                                    <th>Date Hired</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <?php
-                                $sql = "SELECT * FROM employee WHERE isActive = 1 AND user_type_id = 3;";
-                                $stmt = $pdo->prepare($sql);
-                                $stmt->execute();
-
-                                if ($stmt->rowCount() > 0) {
-                                    while ($row = $stmt->fetch()) {
-                                ?>
-                                        <tr>
-                                            <td><?php echo $row['employee_id']; ?></td>
-                                            <td><?php echo $row['first_name']; ?></td>
-                                            <td><?php echo $row['middle_in']; ?></td>
-                                            <td><?php echo $row['last_name']; ?></td>
-                                            <td><?php echo $row['age']; ?></td>
-                                            <td><?php echo $row['email']; ?></td>
-                                            <td><?php echo $row['contact']; ?></td>
-                                            <td><?php echo $row['gender']; ?></td>
-                                            <td><?php echo $row['stats']; ?></td>
-                                            <td><?php echo $row['date_hired']; ?></td>
-                                        </tr>
-                                <?php }
-                                } ?>
-                            </tbody>
-                        </table>
-                    </div>
-                
-            
-
-
-        <?php
+        
         }
             // <!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
 

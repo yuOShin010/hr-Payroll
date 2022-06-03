@@ -7,14 +7,10 @@ class payroll_manage extends MyPayroll {
 
     // ------------------------------------------------- PAYROLL SAVE BTN ACTIVE ------------------------------------------------- // 
         public function active_save_payroll(){
-<<<<<<< HEAD
-          
-=======
             ?>
             <!DOCTYPE html>
             <html lang="en">
             <head>
-                
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
                 <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
                 <link rel="stylesheet" href="../css/dashboard.css">
@@ -23,7 +19,6 @@ class payroll_manage extends MyPayroll {
             </head>
             <body>
             <?php
->>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
             require_once('../php/classes/payrollClass.php');
             $pdo = $this->openConnection();  
             $search_Eid = $_POST['search_E_ID'];
@@ -127,11 +122,11 @@ class payroll_manage extends MyPayroll {
                         <div class="container-sSmall2">
                             <h3>Please Fill Up this field: </h3>
                             <label class="b1">
-                                <input class="b-size" type="number" name="overtime" id="overtime" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="overtime" id="overtime" step="any" value="0" required placeholder="0">
                                 <p>Over Time</p>
                             </label>
                             <label class="b2">
-                                <input class="b-size" type="number" name="allowance" id="allowance" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="allowance" id="allowance" step="any" value="0" required placeholder="0">
                                 <p>Allowance</p>
                             </label>
                             <label class="b3">
@@ -143,46 +138,46 @@ class payroll_manage extends MyPayroll {
                                 <p>Leave Days</p>
                             </label>
                             <label class="b5">
-                                <input class="b-size" type="number" name="sss" id="sss" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="sss" id="sss" step="any" value="0" required placeholder="0">
                                 <p>SSS</p>
                             </label>
                             <label class="b5">
-                                <input class="b-size" type="number" name="tax" id="tax" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="tax" id="tax" step="any" value="0" required placeholder="0">
                                 <p>TAX</p>
                             </label>
                             <label class="b6">
-                                <input class="b-size" type="number" name="pag_ibig" id="pag_ibig" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="pag_ibig" id="pag_ibig" step="any" value="0" required placeholder="0">
                                 <p>Pag-ibig</p>
                             </label>
                             <label class="b7">
-                                <input class="b-size" type="number" name="phil_health" id="phil_health" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="phil_health" id="phil_health" step="any" value="0" required placeholder="0">
                                 <p>Phil-Health</p>
                             </label>
                             <label class="b8">
-                                <input class="b-size" type="number" name="sss_loan" id="sss_loan" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="sss_loan" id="sss_loan" step="any" value="0" required placeholder="0">
                                 <p>SSS-Loan</p>
                             </label>
                             <label class="b8">
-                                <input class="b-size" type="number" name="tax_loan" id="tax_loan" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="tax_loan" id="tax_loan" step="any" value="0" required placeholder="0">
                                 <p>TAX-Loan</p>
                             </label>
                             <label class="b9">
-                                <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" step="any" value="0" required placeholder="0">
                                 <p>Pag-ibig loan</p>
                             </label>
                             <label class="b10">
-                                <input class="b-size" type="number" name="phil_health_loan" id="phil_health_loan" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="phil_health_loan" id="phil_health_loan" step="any" value="0" required placeholder="0">
                                 <p>Phil-Health Loan</p>
                             </label>
                             <label class="b11">
-                                <input class="b-size" type="text" name="others" id="others" value="0" required placeholder="0">
+                                <input class="b-size" type="text" name="others" id="others" step="any" value="0" required placeholder="0">
                                 <p>Others</p>
                             </label>
                             <label>
                                 <input class="go-btn" type="button" onclick="deductions_computation()">
                             </label>
                             <label class="b12">Deduction Total:
-                                <input class="b-size" type="number" name="total_deductions" id="total_deductions" required readonly>
+                                <input class="b-size" type="number" name="total_deductions" id="total_deductions" step="any" required readonly>
                             </label>
 
                             <button class="button save" type="submit" name="addPayroll">Save</button>
@@ -270,29 +265,24 @@ class payroll_manage extends MyPayroll {
                 <script>
 
                     function deductions_computation(){
-                        var sss = parseInt($("#sss").val());
-                        var tax = parseInt($("#tax").val());
-                        var pag_ibig = parseInt($("#pag_ibig").val());
-                        var phil_health = parseInt($("#phil_health").val());
-                        var sss_loan = parseInt($("#sss_loan").val());
-                        var tax_loan = parseInt($("#tax_loan").val());
-                        var pag_ibig_loan = parseInt($("#pag_ibig_loan").val());
-                        var phil_health_loan = parseInt($("#phil_health_loan").val());
-                        var others = parseInt($("#others").val());
+                        var sss = parseFloat($("#sss").val());
+                        var tax = parseFloat($("#tax").val());
+                        var pag_ibig = parseFloat($("#pag_ibig").val());
+                        var phil_health = parseFloat($("#phil_health").val());
+                        var sss_loan = parseFloat($("#sss_loan").val());
+                        var tax_loan = parseFloat($("#tax_loan").val());
+                        var pag_ibig_loan = parseFloat($("#pag_ibig_loan").val());
+                        var phil_health_loan = parseFloat($("#phil_health_loan").val());
+                        var others = parseFloat($("#others").val());
 
                         var total_deductions = sss + tax + pag_ibig + phil_health + sss_loan + tax_loan + pag_ibig_loan + phil_health_loan + others;
 
                         $("#total_deductions").val(total_deductions);
                     }
 
-<<<<<<< HEAD
-                </script> 
-
-=======
                 </script>
                 </body>
                 </html>
->>>>>>> 1b7172d61a7ea4abd8abef1a59c8d037ad5f8d07
             <?php
         }
 
@@ -376,7 +366,7 @@ class payroll_manage extends MyPayroll {
 
                         <!-- form -->
                         <form action="../php/process.php" method="POST">
-                        
+                            <h3>Result:</h3>
                             <label>
                                 <input class="input-style" type="text" name="E_ID" id="E_ID" required readonly value="<?php echo $E_ID ?>">
                                 <p>E_ID</p>
@@ -420,63 +410,64 @@ class payroll_manage extends MyPayroll {
                     </div>
                     <section class="banner2"></section> <!--this is the banner -->
                     <div class="container-sSmall2">
+                        <h3>Possible to update this fields:</h3>
                             <label class="b1">
-                                <input class="b-size" type="number" name="overtime" id="overtime" required placeholder="0" value="<?php echo $overtime ?>">
+                                <input class="b-size" type="number" name="overtime" id="overtime" step="any" required placeholder="0" value="<?php echo $overtime ?>">
                                 <p>Over Time</p>
                             </label>
                             <label class="b2">
-                                <input class="b-size" type="number" name="allowance" id="allowance" required placeholder="0" value="<?php echo $allowance ?>">
+                                <input class="b-size" type="number" name="allowance" id="allowance" step="any" required placeholder="0" value="<?php echo $allowance ?>">
                                 <p>Allowance</p>
                             </label>
                             <label class="b3">
-                                <input class="b-size" type="number" name="holidays_work" id="holidays_work" required placeholder="0" value="<?php echo $holidays_work ?>">
+                                <input class="b-size" type="number" name="holidays_work" id="holidays_work" step="any" required placeholder="0" value="<?php echo $holidays_work ?>">
                                 <p>Holidays Work</p>
                             </label>
                             <label class="b4">
-                                <input class="b-size" type="number" name="leave_days" id="leave_days" required placeholder="0" value="<?php echo $leave_days ?>">
+                                <input class="b-size" type="number" name="leave_days" id="leave_days" step="any" required placeholder="0" value="<?php echo $leave_days ?>">
                                 <p>Leave Days</p>
                             </label>
                             <label class="b5">
-                                <input class="b-size" type="number" name="sss" id="sss" required placeholder="0" value="<?php echo $sss ?>">
+                                <input class="b-size" type="number" name="sss" id="sss" step="any" required placeholder="0" value="<?php echo $sss ?>">
                                 <p>SSS</p>
                             </label>
                             <label class="b5">
-                                <input class="b-size" type="number" name="tax" id="tax" required placeholder="0" value="<?php echo $tax ?>">
+                                <input class="b-size" type="number" name="tax" id="tax" step="any" required placeholder="0" value="<?php echo $tax ?>">
                                 <p>TAX</p>
                             </label>
                             <label class="b6">
-                                <input class="b-size" type="number" name="pag_ibig" id="pag_ibig" required placeholder="0" value="<?php echo $pag_ibig ?>">
+                                <input class="b-size" type="number" name="pag_ibig" id="pag_ibig" step="any" required placeholder="0" value="<?php echo $pag_ibig ?>">
                                 <p>Pag-ibig</p>
                             </label>
                             <label class="b7">
-                                <input class="b-size" type="number" name="phil_health" id="phil_health" required placeholder="0" value="<?php echo $phil_health ?>">
+                                <input class="b-size" type="number" name="phil_health" id="phil_health" step="any" required placeholder="0" value="<?php echo $phil_health ?>">
                                 <p>Phil-Health</p>
                             </label>
                             <label class="b8">
-                                <input class="b-size" type="number" name="sss_loan" id="sss_loan" required placeholder="0" value="<?php echo $sss_loan ?>">
+                                <input class="b-size" type="number" name="sss_loan" id="sss_loan" step="any" required placeholder="0" value="<?php echo $sss_loan ?>">
                                 <p>SSS-Loan</p>
                             </label>
                             <label class="b8">
-                                <input class="b-size" type="number" name="tax_loan" id="tax_loan" required placeholder="0" value="<?php echo $tax_loan ?>">
+                                <input class="b-size" type="number" name="tax_loan" id="tax_loan" step="any" required placeholder="0" value="<?php echo $tax_loan ?>">
                                 <p>TAX-Loan</p>
                             </label>
-                            <label class="b9">P
-                                <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" required placeholder="0" value="<?php echo $pag_ibig_loan ?>">
-                                <p>ag-ibig loan</p>
+                            <label class="b9">
+                                <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" step="any" required placeholder="0" value="<?php echo $pag_ibig_loan ?>">
+                                <p>Pag-ibig loan</p>
                             </label>
                             <label class="b10">
-                                <input class="b-size" type="number" name="phil_health_loan" id="phil_health_loan" required placeholder="0" value="<?php echo $phil_health_loan ?>">
+                                <input class="b-size" type="number" name="phil_health_loan" id="phil_health_loan" step="any" required placeholder="0" value="<?php echo $phil_health_loan ?>">
                                 <p>Phil-Health Loan</p>
                             </label>
                             <label class="b11">
-                                <input class="b-size" type="Text" name="others" id="others" required placeholder="0" value="<?php echo $ohters ?>">
+                                <input class="b-size" type="number" name="others" id="others" step="any" required placeholder="0" value="<?php echo $ohters ?>">
                                 <p>Others</p>
                             </label>
                             <label>
                                 <input class="go-btn" type="button" onclick="deductions_computation()">
                             </label>
                             <label class="b12">Deduction Total:
-                                <input class="b-size" type="number" name="total_deductions" id="total_deductions" required value="<?php echo $total_deduction ?>">
+                                <input class="b-size" type="number" name="total_deductions" id="total_deductions" step="any" required value="<?php echo $total_deduction ?>">
                             </label>
 
                             <button class="button" disabled>Save</button>
@@ -561,15 +552,15 @@ class payroll_manage extends MyPayroll {
                     <script>
 
                     function deductions_computation(){
-                        var sss = parseInt($("#sss").val());
-                        var tax = parseInt($("#tax").val());
-                        var pag_ibig = parseInt($("#pag_ibig").val());
-                        var phil_health = parseInt($("#phil_health").val());
-                        var sss_loan = parseInt($("#sss_loan").val());
-                        var tax_loan = parseInt($("#tax_loan").val());
-                        var pag_ibig_loan = parseInt($("#pag_ibig_loan").val());
-                        var phil_health_loan = parseInt($("#phil_health_loan").val());
-                        var others = parseInt($("#others").val());
+                        var sss = parseFloat($("#sss").val());
+                        var tax = parseFloat($("#tax").val());
+                        var pag_ibig = parseFloat($("#pag_ibig").val());
+                        var phil_health = parseFloat($("#phil_health").val());
+                        var sss_loan = parseFloat($("#sss_loan").val());
+                        var tax_loan = parseFloat($("#tax_loan").val());
+                        var pag_ibig_loan = parseFloat($("#pag_ibig_loan").val());
+                        var phil_health_loan = parseFloat($("#phil_health_loan").val());
+                        var others = parseFloat($("#others").val());
 
                         var total_deductions = sss + tax + pag_ibig + phil_health + sss_loan + tax_loan + pag_ibig_loan + phil_health_loan + others;
 

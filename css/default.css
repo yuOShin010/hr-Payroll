@@ -301,7 +301,7 @@ input[type=number]::-webkit-outer-spin-button {
         box-shadow: 1px 6px 5px #00000078;
     }
     .container-large {
-        height: 891px;
+        height: 1000px;
         margin: 2px 308px;
         width: 78%;
         background: white;
