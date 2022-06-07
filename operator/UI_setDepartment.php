@@ -38,7 +38,7 @@ $pdo = $classPayroll->openConnection();
         <?php
 
         if (isset($_SESSION['User'])) {
-            echo '<h1 class="greet">' . 'DEPARTMENT MANAGEMENT' . '</h1>';
+            echo '<h1 class="greet">' . 'DEPARTMENT MANAGEMENT '. $_SESSION['User'] . '</h1>';
             echo '<a href="../logout.php?logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 logout" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
             </svg></a>';
@@ -184,7 +184,7 @@ $pdo = $classPayroll->openConnection();
                         $contact = $row['contact'];
                     }  ?>
 
-                        <div class="container-small">
+                        <div class="container-small-result">
                             <form action="../operator/UI_setDepartment.php" method="post">
                                 <!-- form search -->
                                 <div class="search-bg">

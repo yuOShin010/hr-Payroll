@@ -122,10 +122,12 @@ $pdo = $classPayroll->openConnection();
             // $setPayroll = true;
             $search_EID = $_POST['search_E_ID'];
 
+            $pdo = $classPayroll->openConnection();
             $sql = "SELECT
             A.id,
             B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
             C.dept_id, C.dept_code,
+            D.position_id, D.position_desc,
             E.total_workHrs, E.d_from, E.d_to, E.days_works,
             F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
             F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
@@ -134,6 +136,8 @@ $pdo = $classPayroll->openConnection();
             ON A.employee_id = B.employee_id
             LEFT JOIN department AS C
             ON A.dept_id = C.dept_id
+            LEFT JOIN position AS D
+            ON A.position_id = D.position_id
             LEFT JOIN schedule AS E
             ON A.employee_id = E.employee_id
             LEFT JOIN payroll AS F
@@ -406,6 +410,7 @@ $pdo = $classPayroll->openConnection();
                                     A.id,
                                     B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
                                     C.dept_id, C.dept_code,
+                                    D.position_id, D.position_desc,
                                     E.total_workHrs, E.d_from, E.d_to, E.days_works,
                                     F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
                                     F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
@@ -414,6 +419,8 @@ $pdo = $classPayroll->openConnection();
                                     ON A.employee_id = B.employee_id
                                     LEFT JOIN department AS C
                                     ON A.dept_id = C.dept_id
+                                    LEFT JOIN position AS D
+                                    ON A.position_id = D.position_id
                                     LEFT JOIN schedule AS E
                                     ON A.employee_id = E.employee_id
                                     LEFT JOIN payroll AS F

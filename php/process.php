@@ -170,6 +170,7 @@
         if(isset($_POST['addPayroll'])){    // Save Button in Payroll management active
             $E_ID = $_POST['E_ID'];
             $dept_ID = $_POST['dept_id'];
+            $position_id = $_POST['position_id'];
             $overtime = $_POST['overtime'];
             $allowance = $_POST['allowance'];
             $holidays_work = $_POST['holidays_work'];
@@ -186,9 +187,9 @@
             $total_deductions = $_POST['total_deductions'];
 
             // First insertion in table (tbl_employee_payroll)
-            $sql = "INSERT INTO tbl_employee_payroll (employee_id, dept_id) VALUES (?,?)";
+            $sql = "INSERT INTO tbl_employee_payroll (employee_id, dept_id, position_id) VALUES (?,?,?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$E_ID, $dept_ID]);
+            $stmt->execute([$E_ID, $dept_ID, $position_id]);
 
             // if($stmt){
             // First insertion in table (payroll)
@@ -248,7 +249,46 @@
                             icon: 'success',
                             title: 'Update successfully',
                             showConfirmButton: false,
-                            timer: 1500
+                            timer: 1700
+                        }).then((result) => {
+                            if(result) {
+                                window.location.href='../operator/UI_payroll.php';
+                            }
+                        })";
+                echo "</script>";
+        }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+                                //  SALARY REPORT PROCESS MODULE --
+
+        if(isset($_POST['save_salary'])){
+            $E_ID = $_POST['E_ID'];
+            $dept_id = $_POST['dept_id'];
+            $position_id = $_POST['position_id'];
+            $total_hrs_pay = $_POST['total_hrs_pay'];
+            $ot_pay = $_POST['ot_pay'];
+            $holidays_pay = $_POST['holidays_pay'];
+            $leave_pay = $_POST['leave_pay'];
+            $allowance_pay = $_POST['allowance_pay'];
+            $basic_pay = $_POST['basic_pay'];
+            $net_pay = $_POST['net_pay'];
+
+            $sql = "INSERT INTO tbl_employee_salary (employee_id, dept_id, position_id) VALUES (?,?,?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$E_ID, $dept_id, $position_id]);
+
+            $sql = "INSERT INTO salary_report (employee_id, hours_pay, ot_pay, holidays_pay, leave_days_pay, allowance_pay, basic_pay, net_pay)
+            VALUES (?,?,?,?,?,?,?,?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$E_ID, $total_hrs_pay, $ot_pay, $holidays_pay, $leave_pay, $allowance_pay, $basic_pay, $net_pay]);
+
+            echo "<script>";
+                echo "Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Data inserted into database',
+                            showConfirmButton: false,
+                            timer: 1700
                         }).then((result) => {
                             if(result) {
                                 window.location.href='../operator/UI_payroll.php';
