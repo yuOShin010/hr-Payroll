@@ -50,11 +50,12 @@ class payroll_manage extends MyPayroll {
                     $E_ID = $row['employee_id'];
                     $fname = $row['first_name'];
                     $lname = $row['last_name'];
-                    // $email = $row['email'];
                     $contact = $row['contact'];
                     // For Updating data Below Credentials    
                     $dept_id = $row['dept_id'];
                     $dept_code = $row['dept_code'];
+                    $position_id = $row['position_id'];
+                    $position_desc = $row['position_desc'];
                     // For updating Credentials
                     $total_workHrs = $row['total_workHrs'];
                     $d_from = $row['d_from'];
@@ -98,6 +99,12 @@ class payroll_manage extends MyPayroll {
                                     <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
                                 </select>
                                 <p>Employee Department</p>
+                            </label>
+                            <label>
+                                <select class="sel-size" name="position_id" id="position_id" required>
+                                    <option selected hidden value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
+                                </select>
+                                <p>Position</p>
                             </label>
                             <label>
                                 <input class="input-style removearrow" type="number" name="hours_work" id="hours_work" required readonly value="<?php echo $total_workHrs ?>">
@@ -190,15 +197,15 @@ class payroll_manage extends MyPayroll {
 
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
                         <div class="output">
-                            <table class="table table-dark table-striped">
+                        <table class="table table-dark table-striped">
                                 <thead>
                                     <tr>
                                         <th>Employee ID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
-                                        <!-- <th>Email</th> -->
                                         <th>Contact</th>
                                         <th>Emp Dept</th>
+                                        <th>Position</th>
                                         <th>Hrs_Wrks</th>
                                         <th>D_Frm</th>
                                         <th>D_To</th>
@@ -213,11 +220,13 @@ class payroll_manage extends MyPayroll {
 
                                 <tbody>
                                     <?php
+                                    $pdo = $this->openConnection();
                                     // $pdo = $classPayroll->openConnection();
                                     $sql = "SELECT
                                     A.id,
                                     B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
                                     C.dept_id, C.dept_code,
+                                    D.position_id, D.position_desc,
                                     E.total_workHrs, E.d_from, E.d_to, E.days_works,
                                     F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
                                     F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
@@ -226,6 +235,8 @@ class payroll_manage extends MyPayroll {
                                     ON A.employee_id = B.employee_id
                                     LEFT JOIN department AS C
                                     ON A.dept_id = C.dept_id
+                                    LEFT JOIN position AS D
+                                    ON A.position_id = D.position_id
                                     LEFT JOIN schedule AS E
                                     ON A.employee_id = E.employee_id
                                     LEFT JOIN payroll AS F
@@ -234,17 +245,16 @@ class payroll_manage extends MyPayroll {
                                     $stmt = $pdo->prepare($sql);
                                     $stmt->execute();
 
-
                                     if ($stmt->rowCount() > 0) {
-                                        while ($row = $stmt->fetch()) {
+                                        foreach($stmt as $row) {
                                     ?>
                                         <tr>
                                             <td><?php echo $row['employee_id']; ?></td>
                                             <td><?php echo $row['first_name']; ?></td>
                                             <td><?php echo $row['last_name']; ?></td>
-                                            <!-- <td><?php // echo $row['email']; ?></td> -->
                                             <td><?php echo $row['contact']; ?></td>
                                             <td><?php echo $row['dept_code']; ?></td>
+                                            <td><?php echo $row['position_desc']; ?></td>
                                             <td><?php echo $row['total_workHrs']; ?></td>
                                             <td><?php echo $row['d_from']; ?></td>
                                             <td><?php echo $row['d_to']; ?></td>
@@ -298,6 +308,7 @@ class payroll_manage extends MyPayroll {
             A.id,
             B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
             C.dept_id, C.dept_code,
+            D.position_id, D.position_desc,
             E.total_workHrs, E.d_from, E.d_to, E.days_works,
             F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
             F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
@@ -306,6 +317,8 @@ class payroll_manage extends MyPayroll {
             ON A.employee_id = B.employee_id
             LEFT JOIN department AS C
             ON A.dept_id = C.dept_id
+            LEFT JOIN position AS D
+            ON A.position_id = D.position_id
             LEFT JOIN schedule AS E
             ON A.employee_id = E.employee_id
             LEFT JOIN payroll AS F
@@ -327,8 +340,8 @@ class payroll_manage extends MyPayroll {
                     $contact = $row['contact'];
                     $dept_id = $row['dept_id'];
                     $dept_code = $row['dept_code'];
-                    // $position_id = $row['position_id'];
-                    // $position_desc = $row['position_desc'];
+                    $position_id = $row['position_id'];
+                    $position_desc = $row['position_desc'];
                     $total_workHrs = $row['total_workHrs'];
                     $d_from = $row['d_from'];
                     $d_to = $row['d_to'];
@@ -388,6 +401,12 @@ class payroll_manage extends MyPayroll {
                                     <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
                                 </select>
                                 <p>Employee Department</p>
+                            </label>
+                            <label>
+                                <select class="sel-size" name="position_id" id="position_id" required>
+                                    <option selected hidden value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
+                                </select>
+                                <p>Position</p>
                             </label>
                             <label>
                                 <input class="input-style removearrow" type="number" name="hours_work" id="hours_work" required readonly value="<?php echo $total_workHrs ?>">
@@ -452,11 +471,7 @@ class payroll_manage extends MyPayroll {
                                 <p>TAX-Loan</p>
                             </label>
                             <label class="b9">
-<<<<<<< HEAD
                                 <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" step="any" required placeholder="0" value="<?php echo $pag_ibig_loan ?>">
-=======
-                                <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" required placeholder="0" value="<?php echo $pag_ibig_loan ?>">
->>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                                 <p>Pag-ibig loan</p>
                             </label>
                             <label class="b10">
@@ -464,11 +479,7 @@ class payroll_manage extends MyPayroll {
                                 <p>Phil-Health Loan</p>
                             </label>
                             <label class="b11">
-<<<<<<< HEAD
                                 <input class="b-size" type="number" name="others" id="others" step="any" required placeholder="0" value="<?php echo $ohters ?>">
-=======
-                                <input class="b-size" type="number" name="others" id="others" required placeholder="0" value="<?php echo $ohters ?>">
->>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                                 <p>Others</p>
                             </label>
                             <label>
@@ -493,9 +504,9 @@ class payroll_manage extends MyPayroll {
                                         <th>Employee ID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
-                                        <!-- <th>Email</th> -->
                                         <th>Contact</th>
                                         <th>Emp Dept</th>
+                                        <th>Position</th>
                                         <th>Hrs_Wrks</th>
                                         <th>D_Frm</th>
                                         <th>D_To</th>
@@ -511,10 +522,12 @@ class payroll_manage extends MyPayroll {
                                 <tbody>
                                     <?php
                                     // $pdo = $this->openConnection();
+                                    // $pdo = $classPayroll->openConnection();
                                     $sql = "SELECT
                                     A.id,
                                     B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
                                     C.dept_id, C.dept_code,
+                                    D.position_id, D.position_desc,
                                     E.total_workHrs, E.d_from, E.d_to, E.days_works,
                                     F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
                                     F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
@@ -523,6 +536,8 @@ class payroll_manage extends MyPayroll {
                                     ON A.employee_id = B.employee_id
                                     LEFT JOIN department AS C
                                     ON A.dept_id = C.dept_id
+                                    LEFT JOIN position AS D
+                                    ON A.position_id = D.position_id
                                     LEFT JOIN schedule AS E
                                     ON A.employee_id = E.employee_id
                                     LEFT JOIN payroll AS F
@@ -538,9 +553,9 @@ class payroll_manage extends MyPayroll {
                                             <td><?php echo $row['employee_id']; ?></td>
                                             <td><?php echo $row['first_name']; ?></td>
                                             <td><?php echo $row['last_name']; ?></td>
-                                            <!-- <td><?php // echo $row['email']; ?></td> -->
                                             <td><?php echo $row['contact']; ?></td>
                                             <td><?php echo $row['dept_code']; ?></td>
+                                            <td><?php echo $row['position_desc']; ?></td>
                                             <td><?php echo $row['total_workHrs']; ?></td>
                                             <td><?php echo $row['d_from']; ?></td>
                                             <td><?php echo $row['d_to']; ?></td>

@@ -106,25 +106,10 @@
                     <p>Company Report</p>
                 </a>
             </li>
-<<<<<<< HEAD
-        </ul>
-
-    </div>
-    <!--_________________________________END OF TOPBAR___________________________________________-->
-    <!--_________________________________END OF DASHBOARD__________________________________________-->
-    
-    <div class="banner">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-    </div> <!--this is the banner -->
-        <div class="container-medium">
-=======
             </ul>
         </div>
         <!--_________________________________END OF TOPBAR___________________________________________-->
         <!--_________________________________END OF DASHBOARD__________________________________________-->
->>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
         
         <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

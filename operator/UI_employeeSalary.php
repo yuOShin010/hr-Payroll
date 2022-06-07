@@ -54,7 +54,6 @@
             <h1 class="t-left">SymTech</h1>
             <h1 class="dot">.</h1>
         </div>
-<<<<<<< HEAD
         <!-- <div class="toggle-btn" onclick="show()">
             <span></span>
             <span></span>
@@ -131,7 +130,7 @@
             E.total_workHrs, E.d_from, E.d_to, E.days_works,
             F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
             F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction,
-            G.days_work_pay, G.hours_pay, G.ot_pay, G.holidays_pay, G.leave_days_pay, G.allowance_pay, G.basic_pay, G.net_pay
+            G.hours_pay, G.ot_pay, G.holidays_pay, G.leave_days_pay, G.allowance_pay, G.basic_pay, G.net_pay
             FROM tbl_employee_salary AS A
             LEFT JOIN employee AS B
             ON A.employee_id = B.employee_id
@@ -218,6 +217,7 @@
                 if($stmt->rowCount() > 0){
     
                     // call Save class salary
+                    $salary_class->active_save_salary();
     
                     while($row = $stmt->fetch()){
 
@@ -354,11 +354,6 @@
     if($activeForm){
 
         ?>
-=======
-        <!--_________________________________END OF TOPBAR___________________________________________-->
-        <!--_________________________________END OF DASHBOARD__________________________________________-->
-        
->>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
         <div class="banner">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -366,11 +361,7 @@
         </div>
 
         <div class="container-large">
-<<<<<<< HEAD
             <form action="UI_employeeSalary.php" method="post">
-=======
-            <form action="UI_payroll.php" method="post">
->>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                 <!-- form search-->
                 <div class="search-bg">
                     <div class="search">
@@ -431,26 +422,19 @@
                     <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
                     <p>Leave Days</p>
                 </label>
-<<<<<<< HEAD
                 <br>
                 <h3>Start Here ..</h3>
-=======
-                <br> 
->>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                 <!-- Pay -->
-                <label>
+                <!-- <label>
                     <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
                     <p>Days Work Pay</p>
-                </label>
+                </label> -->
                 <label>
                     <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-<<<<<<< HEAD
                     <p>Total Hours Pay</p>
                 </label>
                 <label>
                     <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-=======
->>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                     <p>Over Time Pay</p>
                 </label>
                 <label>
@@ -467,21 +451,15 @@
                 </label>
                 <label>
                     <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-<<<<<<< HEAD
                     <p>Basic Pay</p>
-=======
-                    <p>Bacis Pay</p>
->>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
                 </label>
                 <br><br>
                 
                 <label>
-                    <input class="b-size" type="button"  name="" id="" required>
-                    <p>Regular</p>
+                    <input value="Regular" type="button"  name="" id="" required>
                 </label>
                 <label>
-                    <input class="b-size" type="button" name="" id="" required>
-                    <p>Contructual</p>
+                    <input value="Contractual" type="button" name="" id="" required>
                 </label>
                 <br><br>
                     <label>
@@ -495,12 +473,7 @@
                     <button class="button" disabled>Save</button>
                     <button class="button" disabled>Update</button>
                     <!-- <button class="button" disabled>Delete</button> -->
-<<<<<<< HEAD
         </div>
-=======
-                    
-                </div>
->>>>>>> 1d6210f4072c6b751490b69444b2e10d76ebe25d
 
 
 
@@ -516,7 +489,7 @@
                                 <th>Contact</th>
                                 <th>Dept</th>
                                 <th>Position</th>
-                                <th>Days_work Pay</th>
+                                <!-- <th>Days_work Pay</th> -->
                                 <th>Total_wrkHrs Pay</th>
                                 <th>O.T Pay</th>
                                 <th>Hlldy_wrk Pay</th>
@@ -539,7 +512,7 @@
                             E.total_workHrs, E.d_from, E.d_to, E.days_works,
                             F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
                             F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction,
-                            G.days_work_pay, G.hours_pay, G.ot_pay, G.holidays_pay, G.leave_days_pay, G.allowance_pay, G.basic_pay, G.net_pay
+                            G.hours_pay, G.ot_pay, G.holidays_pay, G.leave_days_pay, G.allowance_pay, G.basic_pay, G.net_pay
                             FROM tbl_employee_salary AS A
                             LEFT JOIN employee AS B
                             ON A.employee_id = B.employee_id
@@ -569,7 +542,6 @@
                                     <td><?php echo $row['contact']; ?></td>
                                     <td><?php echo $row['dept_code']; ?></td>
                                     <td><?php echo $row['position_desc']; ?></td>
-                                    <td><?php echo $row['days_work_pay']; ?></td>
                                     <td><?php echo $row['hours_pay']; ?></td>
                                     <td><?php echo $row['ot_pay']; ?></td>
                                     <td><?php echo $row['holidays_pay']; ?></td>

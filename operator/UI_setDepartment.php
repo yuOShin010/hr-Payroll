@@ -184,7 +184,7 @@ $pdo = $classPayroll->openConnection();
                         $contact = $row['contact'];
                     }  ?>
 
-                        <div class="container-small">
+                        <div class="container-small-result">
                             <form action="../operator/UI_setDepartment.php" method="post">
                                 <!-- form search -->
                                 <div class="search-bg">
