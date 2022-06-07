@@ -477,12 +477,7 @@
 
 
 
-<<<<<<< HEAD
         <section class="banner"><h2>Database Table</h2></section> <!--this is the banner -->
-    <!-- ________________________________DATABASE TABLE_______________________________ -->
-                        <div class="output">
-=======
-        <section class="banner2"><h2>Database Table</h2></section> <!--this is the banner -->
         <!-- ________________________________DATABASE TABLE_______________________________ -->
                 <div class="output">
                     <table class="table table-dark table-striped">
@@ -505,7 +500,6 @@
                                 <th>Net_Pay</th>
                             </tr>
                         </thead>
->>>>>>> 23012652b0f92748d664cf7ad9eb24087537bc29
 
                         <tbody>
                             <?php

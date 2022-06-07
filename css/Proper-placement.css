@@ -13,7 +13,7 @@
         .container {
             left: 151px;
             top: 2px;
-            width: 80%;
+            width: 79%;
             background: white;
             height: 692px;
             border-radius: 2px;
@@ -163,8 +163,8 @@
     @media only screen and (min-width: 1900px) {
         .banner {
             height: 60px;
-            width: 83.3%;
-            margin: 12px 309px;
+            width: 81.9%;
+            margin: 12px 336px;
             background-color: #068de5;
         }
         .container {
