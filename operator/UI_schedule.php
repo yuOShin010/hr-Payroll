@@ -207,7 +207,7 @@
                             $position_desc = $row['position_desc'];
                         }
                             ?>
-                            <div class="container-medium">
+                            <div class="container-smedium">
                                 <form action="../operator/UI_schedule.php" method="post">
                                     <div class="search-bg">
                                             <div class="search">
@@ -450,7 +450,7 @@
                         </form>
                     </div>
 
-                    <section class="banner2"></section> <!--this is the banner -->
+                    <section class="banner"></section> <!--this is the banner -->
 
                     <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
                     <div class="output">
@@ -594,7 +594,7 @@
                 </form>
         </div>
 
-        <section class="banner2"></section> <!--this is the banner -->
+        <section class="banner"></section> <!--this is the banner -->
 
         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
         <div class="output">

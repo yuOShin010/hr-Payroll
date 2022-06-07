@@ -260,7 +260,7 @@ $pdo = $classPayroll->openConnection();
         
         if($activeForm){ ?>       <!-- This is the main user interface (no value indicated) -->
 
-                    <div class="container-small">
+                    <div class="container-smaller">
                         <form action="UI_payroll.php" method="post">
                             <!-- form search-->
                             <div class="search-bg">
@@ -314,7 +314,7 @@ $pdo = $classPayroll->openConnection();
                             </label>
                             <br><br>
                     </div>
-                    <section class="banner2"></section> <!--this is the banner -->
+                    <section class="banner"></section> <!--this is the banner -->
                     <div class="container-sSmall">
                                 <label>
                                     <input class="b-size" type="number" name="" id="" required placeholder="0">
@@ -375,7 +375,7 @@ $pdo = $classPayroll->openConnection();
                         </div>
                         </form>
 
-                    <section class="banner2"></section> <!--this is the banner -->
+                    <section class="banner"></section> <!--this is the banner -->
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
                         
                             <table class="table table-dark table-striped">

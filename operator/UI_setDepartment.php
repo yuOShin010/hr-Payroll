@@ -247,7 +247,7 @@ $pdo = $classPayroll->openConnection();
             
                         </div>
             
-                        <section class="banner2"></section> <!--this is the banner -->
+                        <section class="banner"></section> <!--this is the banner -->
             
                             <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
             
@@ -390,7 +390,7 @@ $pdo = $classPayroll->openConnection();
                 </form>
             </div>
 
-            <section class="banner2"></section> <!--this is the banner -->
+            <section class="banner"></section> <!--this is the banner -->
 
                 <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
@@ -513,7 +513,7 @@ $pdo = $classPayroll->openConnection();
                     </form>
             </div>
 
-            <section class="banner2"></section> <!--this is the banner -->
+            <section class="banner"></section> <!--this is the banner -->
 
             <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE (tbl_employee_department_position) ---------------------------------------->
 
