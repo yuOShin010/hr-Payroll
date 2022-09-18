@@ -525,7 +525,7 @@ table {
     }
     .sel-size {
         height: 42px;
-        width: 60%;
+        width: auto;
         border: none;
         background: #d5dbe1;
         border-radius: 8px;
@@ -558,6 +558,14 @@ table {
         margin: 25px 22px;
     }
     .container-large h3 {
+        margin: 25px 22px;
+    }
+
+    .container-xlarge h3{
+        margin: 25px 22px;
+    }
+
+    .container-slarge h3 {
         margin: 25px 22px;
     }
     /* ____________________END____________________ */
@@ -602,20 +610,20 @@ table {
     /*________________________Banner Properties________________________ */
     .banner {
         height: 60px;
-        width: 81.9%;
+        width: 82.9%;
         margin: 7px 336px;
         background-color: #068de5;
     }
     .banner2 {
         height: 60px;
-        width: 81.9%;
+        width: 82.9%;
         margin: 15px 336px;
         background-color: #068de5;
     }
     .banner3 {
         position: relative;
         height: 60px;
-        width: 81.9%;
+        width: 82.9%;
         margin: 7px 336px;
         background-color: #1ba9e1e0;
         box-shadow: 0px 12px 15px -10px #2e2e2e;
@@ -626,7 +634,7 @@ table {
     .container-sSmall {
         margin: 2px 336px;
         padding: 55px;
-        width: 81.9%;
+        width:82.9%;
         background: white;
         height: 381px;
         border-radius: 2px;
@@ -635,7 +643,7 @@ table {
     .container-medium {
         height: 560px;
         margin: 2px 336px;
-        width: 81.9%;
+        width: 82.9%;
         background: white;
         height: 692px;
         border-radius: 2px;
@@ -643,7 +651,7 @@ table {
     }
     .container-smedium {
         margin: 2px 336px;
-        width: 81.9%;
+        width: 82.9%;
         background: white;
         height: 510px;
         border-radius: 2px;
@@ -652,20 +660,20 @@ table {
     .container-xmedium {
         height: 440px;
         margin: 0 336px;
-        width: 81.9%;
+        width: 82.9%;
     }
     .container-sSmall {
         margin: 2px 336px;
         padding: 55px;
-        width: 81.9%;
+        width: 82.9%;
         background: white;
-        height: 290px;
+        height: 220px;
         border-radius: 2px;
         box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-smaller {
         margin: 2px 336px;
-        width: 81.9%;
+        width: 82.9%;
         background: white;
         height: 414px;
         border-radius: 2px;
@@ -673,35 +681,36 @@ table {
     }
     .container-medium-result {
         margin: 2px 336px;
-        width: 81.9%;
+        width: 82.9%;
         background: white;
         height: 715px;
         border-radius: 2px;
         box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-xsmall {
-        height: 250px;
-        width: 81.9%;
+        height: 437px;
+        width: 82.9%;
+        margin: 0 336px;
     }
     .container-small-result {
         margin: 10px 336px;
-        width: 81.9%;
+        width: 82.9%;
         background: white;
         height: 595px;
         border-radius: 2px;
         box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-sSmall2 {
-        margin: 10px 336px;
-        width: 81.9%;
+        margin: -11px 336px;
+        width: 82.9%;
         background: white;
-        height: 337px;
+        height: 281px;
         border-radius: 2px;
         box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-small {
         margin: 1px 336px;
-        width: 81.9%;
+        width: 82.9%;
         background: white;
         height: 427px;
         border-radius: 2px;
@@ -709,20 +718,39 @@ table {
     }
     .container-xmedium-result {
         margin: 2px 336px;
-        width: 81.9%;
+        width: 82.9%;
         background: white;
         height: 584px;
         border-radius: 2px;
         box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-large {
-        height: 891px;
+        height: 1061px;
         margin: 2px 336px;
-        width: 81.9%;
+        width: 82.9%;
         background: white;
         border-radius: 2px;
         box-shadow: 0px 10px 6px -5px #00000078;
     }
+
+    .container-xlarge {
+        height: 962px;
+        margin: 2px 336px;
+        width: 82.9%;
+        background: white;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
+
+    .container-slarge {
+        height: 999px;
+        margin: 2px 336px;
+        width: 82.9%;
+        background: white;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
+    
     /*________________________END________________________ */
     /*________________________Search properties________________________ */
     .search-bg {
@@ -756,7 +784,7 @@ table {
     /*________________________table properties________________________ */
     table {
         margin: -8px 335px;
-        max-width: 81.9%;
+        max-width: 82.9%;
         box-shadow: 0px 12px 15px -10px #2e2e2e;
     }
     /*________________________END________________________ */

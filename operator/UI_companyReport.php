@@ -153,7 +153,7 @@
     <!-- __________________________________END_______________________________________ -->
     <!-- __________________TABLE FOR EMPLOYEE PAYROLL REPORT_____________________ -->
 
-    <div class="banner">
+    <div class="banner3">
         <h1>Employee Payroll Table Report</h1>
     </div>
 
@@ -199,7 +199,7 @@
 
     <!-- __________________TABLE FOR EMPLOYEE PAYCHEQUE REPORT_____________________ -->
 
-    <div class="banner">
+    <div class="banner3">
         <h1>Employee Paycheque Table Report</h1>
     </div>
 

@@ -246,7 +246,7 @@ input.check-box:hover {
 
 .checkbox {
     display: flex;
-    margin: 5px 177px;
+    margin: 5px 209px;
     width: 144px;
 }
 
@@ -262,7 +262,7 @@ input.check-box:hover {
 }
 
 .login-btn {
-    margin: 96px 186px;
+    margin: 96px 216px;
     width: 126px;
     height: 41px;
     color: white;
@@ -288,7 +288,7 @@ input.check-box:hover {
         padding: 0 12px;
         border-radius: 3px;
         border: 2px solid rgb(193, 193, 193);
-        margin: 10px 48px;
+        margin: 10px 58px;
         font-size: 19px;
         border-bottom: 2px solid rgb(30, 30, 30);
         transition: all 0.1s ease;

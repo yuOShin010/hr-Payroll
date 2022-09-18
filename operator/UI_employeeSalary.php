@@ -128,9 +128,9 @@
             C.dept_id, C.dept_code,
             D.position_desc,
             E.total_workHrs, E.d_from, E.d_to, E.days_works,
-            F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
-            F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction,
-            G.hours_pay, G.ot_pay, G.holidays_pay, G.leave_days_pay, G.allowance_pay, G.basic_pay, G.net_pay
+            F.overtime, F.allowance, F.holidays_work, F.leave_days, 
+            G.hours_pay, G.ot_pay, G.holidays_pay, G.leave_days_pay, G.allowance_pay,
+            G.sss, G.tax, G.pag_ibig, G.phil_health, G.others, G.total_deductions, G.gross_pay, G.net_pay
             FROM tbl_employee_salary AS A
             LEFT JOIN employee AS B
             ON A.employee_id = B.employee_id
@@ -174,15 +174,15 @@
                     $holidays_work = $row['holidays_work'];
                     $leave_days = $row['leave_days'];
                     // Deductions Below
-                    $total_deduction = $row['total_deduction'];
+                    $total_deduction = $row['total_deductions'];
                     // pay
-                    $days_work_pay = $row['days_work_pay'];
+                    // $days_work_pay = $row['days_work_pay'];
                     $hours_pay = $row['hours_pay'];
                     $ot_pay = $row['ot_pay'];
                     $holidays_pay = $row['holidays_pay'];
                     $leave_days_pay = $row['leave_days_pay'];
                     $allowance_pay = $row['allowance_pay'];
-                    $basic_pay = $row['basic_pay'];
+                    $basic_pay = $row['gross_pay'];
                     $net_pay = $row['net_pay'];
                     
                 }
@@ -196,8 +196,7 @@
                 C.dept_id, C.dept_code,
                 D.position_desc,
                 E.total_workHrs, E.d_from, E.d_to, E.days_works,
-                F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
-                F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
+                F.overtime, F.allowance, F.holidays_work, F.leave_days
                 FROM tbl_employee_payroll AS A
                 LEFT JOIN employee AS B
                 ON A.employee_id = B.employee_id
@@ -239,7 +238,7 @@
                         $holidays_work = $row['holidays_work'];
                         $leave_days = $row['leave_days'];
                         // Deductions Below
-                        $total_deduction = $row['total_deduction'];
+                        // $total_deduction = $row['total_deduction'];
                         
                     }
                 } elseif (isset($_POST['search'])) {
@@ -360,7 +359,7 @@
         </svg>
         </div>
 
-        <div class="container-large">
+        <div class="container-slarge">
             <form action="UI_employeeSalary.php" method="post">
                 <!-- form search-->
                 <div class="search-bg">
@@ -390,7 +389,7 @@
                 
                 <label>
                     <input class="input-style inpt-pl20 removearrow" type="number" name="hours_work" id="hours_work" required readonly>
-                    <p>Employee Department</p>
+                    <p>Department</p>
                 </label>
                 <label>
                     <input class="input-style inpt-pl20 removearrow" type="number" name="hours_work" id="hours_work" required readonly>
@@ -450,11 +449,38 @@
                     <p>Allowance Pay</p>
                 </label>
                 <label>
+                    <input class="input-style inpt-pl20" type="number" name="sss" id="sss" step="any" required readonly>
+                    <p>SSS</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="sss" id="sss" step="any" required readonly>
+                    <p>TAX</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="sss" id="sss" step="any" required readonly>
+                    <p>Pag-ibig</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="sss" id="sss" step="any" required readonly>
+                    <p>Phil-health</p>
+                </label>
+                <label>
+                    <input class="input-style inpt-pl20" type="number" name="sss" id="sss" step="any" required readonly>
+                    <p>Others</p>
+                </label>
+                <label>
                     <input class="input-style inpt-pl20" type="number" name="days_work" id="days_work" required readonly>
-                    <p>Basic Pay</p>
+                    <p>Gross Pay</p>
+                </label>
+                <label>
+                    <input class="int-red" type="number" name="" id="" required>
+                    <p>Deduction Total</p>
+                </label>
+                <label>
+                    <input class="int-green" type="number" name="" id="" required>
+                    <p>NetPay</p>
                 </label>
                 <br><br>
-                
                 <label>
                     <input value="Regular" type="button"  name="" id="" required>
                 </label>
@@ -462,14 +488,6 @@
                     <input value="Contractual" type="button" name="" id="" required>
                 </label>
                 <br><br>
-                    <label>
-                        <input class="int-red" type="number" name="" id="" required>
-                        <p>Deduction Total</p>
-                    </label>
-                    <label>
-                        <input class="int-green" type="number" name="" id="" required>
-                        <p>NetPay</p>
-                    </label>
                     <button class="button" disabled>Save</button>
                     <button class="button" disabled>Update</button>
                     <!-- <button class="button" disabled>Delete</button> -->
@@ -495,7 +513,7 @@
                                 <th>Hlldy_wrk Pay</th>
                                 <th>Leave Pay</th>
                                 <th>Allwnce_Pay</th>
-                                <th>Basic_Pay</th>
+                                <th>Gross_Pay</th>
                                 <th>Deductions</th>
                                 <th>Net_Pay</th>
                             </tr>
@@ -510,9 +528,9 @@
                             C.dept_id, C.dept_code,
                             D.position_desc,
                             E.total_workHrs, E.d_from, E.d_to, E.days_works,
-                            F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
-                            F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction,
-                            G.hours_pay, G.ot_pay, G.holidays_pay, G.leave_days_pay, G.allowance_pay, G.basic_pay, G.net_pay
+                            F.overtime, F.allowance, F.holidays_work, F.leave_days, 
+                            G.hours_pay, G.ot_pay, G.holidays_pay, G.leave_days_pay, G.allowance_pay,
+                            G.sss, G.tax, G.pag_ibig, G.phil_health, G.others, G.total_deductions, G.gross_pay, G.net_pay
                             FROM tbl_employee_salary AS A
                             LEFT JOIN employee AS B
                             ON A.employee_id = B.employee_id
@@ -547,8 +565,8 @@
                                     <td><?php echo $row['holidays_pay']; ?></td>
                                     <td><?php echo $row['leave_days_pay']; ?></td>
                                     <td><?php echo $row['allowance_pay']; ?></td>
-                                    <td><?php echo $row['basic_pay']; ?></td>
-                                    <td><?php echo $row['total_deduction']; ?></td>
+                                    <td><?php echo $row['gross_pay']; ?></td>
+                                    <td><?php echo $row['total_deductions']; ?></td>
                                     <td><?php echo $row['net_pay']; ?></td>
                                 </tr>
                             <?php }} ?>

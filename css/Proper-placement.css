@@ -6,7 +6,6 @@
         background: url(https://images.unsplash.com/photo-1503951458645-643d53bfd90f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJ1aWxkaW5nc3xlbnwwfHwwfHw%3D&w=1000&q=80);
         background-repeat: no-repeat;
         background-size: cover;
-        backdrop-filter: blur(2px);
     }
     
     @media only screen and (min-width: 1200px) {
@@ -161,12 +160,7 @@
     /*________________________END________________________ */
     
     @media only screen and (min-width: 1900px) {
-        .banner {
-            height: 60px;
-            width: 81.9%;
-            margin: 12px 336px;
-            background-color: #068de5;
-        }
+        
         .container {
             left: 151px;
             top: 2px;
