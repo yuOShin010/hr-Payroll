@@ -110,13 +110,10 @@
         </div>
         <!--_________________________________END OF TOPBAR___________________________________________-->
         <!--_________________________________END OF DASHBOARD__________________________________________-->
-        
-        <div class="banner">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        </div>
+ <?php 
+        $activeForm = true;
 
+<<<<<<< HEAD
         <div class="container-large">
             <form action="UI_payroll.php" method="post">
                 <!-- form search-->
@@ -195,11 +192,286 @@
         <section class="banner"><h2>Database Table</h2></section> <!--this is the banner -->
     <!-- ________________________________DATABASE TABLE_______________________________ -->
                         <div class="output">
+=======
+        if(isset($_POST['search'])){
+            $activeForm = false;
 
+            $search_EID = $_POST['search_E_ID'];
+            $sql = "SELECT
+            A.id,
+            B.employee_id, B.isActive, B.first_name, B.last_name, B.contact, B.stats, B.email,
+            C.dept_id, C.dept_code,
+            D.position_id, D.position_desc,
+            E.total_workHrs, E.d_from, E.d_to, E.days_works,
+            F.overtime, F.allowance, F.holidays_work, F.leave_days, 
+            G.hours_pay, G.ot_pay, G.holidays_pay, G.leave_days_pay, G.allowance_pay,
+            G.sss, G.tax, G.pag_ibig, G.phil_health, G.others, G.total_deductions, G.gross_pay, G.net_pay
+            FROM tbl_employee_salary AS A
+            LEFT JOIN employee AS B
+            ON A.employee_id = B.employee_id
+            LEFT JOIN department AS C
+            ON A.dept_id = C.dept_id
+            LEFT JOIN position AS D
+            ON A.position_id = D.position_id
+            LEFT JOIN schedule AS E
+            ON A.employee_id = E.employee_id
+            LEFT JOIN payroll AS F
+            ON A.employee_id = F.employee_id
+            LEFT JOIN salary_report AS G
+            ON A.employee_id = G.employee_id
+            WHERE B.employee_id = ? AND B.isActive = 1 AND A.id > 0";
+
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$search_EID]);
+
+            if($stmt->rowCount() > 0)
+            {
+
+                // call update class salary
+                // $salary_class->active_update_salary();
+
+                while($row = $stmt->fetch()){
+                    $E_ID = $row['employee_id'];
+                    $fname = $row['first_name'];
+                    $lname = $row['last_name'];
+                    $contact = $row['contact'];
+                    $email = $row['email'];
+                    $stats = $row['stats'];
+                    $dept_id = $row['dept_id'];
+                    $dept_code = $row['dept_code'];
+                    $position_id = $row['position_id'];
+                    $position_desc = $row['position_desc'];
+                    $total_workHrs = $row['total_workHrs'];
+                    $d_from = $row['d_from'];
+                    $d_to = $row['d_to'];
+                    $days_works = $row['days_works'];
+                    // for update credential
+                    $overtime = $row['overtime'];
+                    $allowance = $row['allowance'];
+                    $holidays_work = $row['holidays_work'];
+                    $leave_days = $row['leave_days'];
+                    // Deductions Below
+                    $total_deduction = $row['total_deductions'];
+                    // pay
+                    // $days_work_pay = $row['days_work_pay'];
+                    $hours_pay = $row['hours_pay'];
+                    $ot_pay = $row['ot_pay'];
+                    $holidays_pay = $row['holidays_pay'];
+                    $leave_days_pay = $row['leave_days_pay'];
+                    $allowance_pay = $row['allowance_pay'];
+                    $sss = $row['sss'];
+                    $tax = $row['tax'];
+                    $pagibig = $row['pag_ibig'];
+                    $philhealth = $row['phil_health'];
+                    $others = $row['others'];
+                    
+                    $gross_pay = $row['gross_pay'];
+                    $net_pay = $row['net_pay'];
+                    
+                } ?>
+>>>>>>> 903f417e878d8eabdc295f7825e53dd02c7d839a
+
+                        <div class="banner">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
                         </div>
 
+                        <div class="container-xlarge">
+                            <form action="UI_payslipReport.php" method="post">
+                                <!-- form search-->
+                                <div class="search-bg">
+                                    <div class="search">
+                                        <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                                        <button type="submit" name="search" id="search_e"><i class='bx bx-search bx-margin'></i></button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form action="../generating_pdf.php" method="post">
+                                <h3>Basic Information:</h3>
+                                <label>
+                                    <input class="input-style inpt-pl20" type="number" name="employee_id" id="" required readonly value="<?php echo $E_ID; ?>"> 
+                                    <p>Employee ID</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20" type="text" name="fname" id="fname" required readonly value="<?php echo $fname; ?>">
+                                    <p>First Name</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20" type="text" name="lname" id="lname" required readonly value="<?php echo $lname; ?>">
+                                    <p>Last Name</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="number" name="contact" id="contact" required readonly value="<?php echo $contact; ?>">
+                                    <p>Contact</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="email" name="email" id="email" required readonly value="<?php echo $email; ?>">
+                                    <p>Email</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="text" name="dept_code" id="dept_code" required readonly value="<?php echo $dept_code; ?>">
+                                    <p>Department</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="text" name="position_desc" id="position_desc" required readonly value="<?php echo $position_desc; ?>">
+                                    <p>Position</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="text" name="stats" id="email" required readonly value="<?php echo $stats; ?>">
+                                    <p>Status</p>
+                                </label>
+                                <!-- <label>
+                                    <select class="option-size" name="dept_id" id="dept_id" required>
+                                        <option selected hidden  value="<?php echo $dept_id; ?>"> <?php echo $dept_code; ?> </option>
+                                    </select>
+                                    <p>Department</p>
+                                </label>
+                                <label class="options-right">
+                                    <select class="option-size" name="position" id="position_id" required>
+                                        <option selected hidden value="<?php echo $position_id; ?>"> <?php echo $position_desc; ?> </option>
+                                    </select>
+                                    <p>Position</p>
+                                </label> 
+                                <label class="options-right">
+                                    <select class="option-size" name="status" id="status" required>
+                                        <option selected hidden value="<?php echo $stats; ?>"> <?php echo $stats; ?> </option>
+                                    </select>
+                                    <p>Status</p>
+                                </label>  -->
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="date" name="d_from" id="d_from" required readonly value="<?php echo $d_from; ?>">
+                                    <p>Date From</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="date" name="d_to" id="d_to" required readonly value="<?php echo $d_to; ?>">
+                                    <p>Date To</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="number" name="days_works" id="days_works" required readonly value="<?php echo $days_works; ?>">
+                                    <p>Total Work Days</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="number" name="hours_work" id="hours_work" required readonly value="<?php echo $total_workHrs; ?>">
+                                    <p>Total Work hours</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="number" name="overtime" id="overtime" required readonly value="<?php echo $overtime; ?>">
+                                    <p>Overtime</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="number" name="holidays" id="holidays" required readonly value="<?php echo $holidays_work; ?>">
+                                    <p>Holidays Work</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20 removearrow" type="number" name="leave" id="leave" required readonly value="<?php echo $leave_days; ?>">
+                                    <p>Leave Days</p>
+                                </label>
+
+                                <br>
+                                <br>
+                                <br> 
+                                <!-- Pay -->
+                                <h3>Pay Information:</h3>
+                                <label>
+                                    <input class="input-style inpt-pl20" type="number" name="hours_pay" id="hours_pay" step="any" required readonly value="<?php echo $hours_pay; ?>">
+                                    <p>Total Hours Pay</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20" type="number" name="ot_pay" id="ot_pay" step="any" required readonly value="<?php echo $ot_pay; ?>">
+                                    <p>Over Time Pay</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20" type="number" name="holiday_pay" id="holiday_pay" step="any" required readonly value="<?php echo $holidays_pay; ?>">
+                                    <p>Holidays Work Pay</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20" type="number" name="leave_pay" id="leave_pay" step="any" required readonly value="<?php echo $leave_days_pay; ?>">
+                                    <p>Leave Days Pay</p>
+                                </label>
+                                <label>
+                                    <input class="input-style inpt-pl20" type="number" name="allowance_pay" id="allowance_pay" step="any" required readonly value="<?php echo $allowance_pay; ?>">
+                                    <p>Allowance Pay</p>
+                                </label>
+
+                                <label>
+                                    <input class="b-size" type="number" name="sss" id="sss" step="any" required placeholder="0" value="<?php echo $sss; ?>">
+                                    <p>SSS</p>
+                                </label>
+                                <label>
+                                    <input class="b-size" type="number" name="tax" id="tax" step="any" required placeholder="0" value="<?php echo $tax; ?>">
+                                    <p>TAX</p>
+                                </label>
+                                <label>
+                                    <input class="b-size" type="number" name="pagibig" id="pagibig" step="any" required placeholder="0" value="<?php echo $pagibig; ?>">
+                                    <p>Pag-ibig</p>
+                                </label>
+                                <label>
+                                    <input class="b-size" type="number" name="philhealth" id="philhealth" step="any" required placeholder="0" value="<?php echo $philhealth; ?>">
+                                    <p>Phil-Health</p>
+                                </label>
+                                <label>
+                                    <input class="b-size" type="number" name="others" id="others" step="any" required value="<?php echo $others; ?>">
+                                    <p>Others</p>
+                                </label>
+                                
+                                <label>
+                                    <input class="b-size" type="number" name="gross_pay" id="gross_pay" step="any" required readonly value="<?php echo $gross_pay; ?>">
+                                    <p>Gross Pay</p>
+                                </label> 
+                                <br>
+                                <label>
+                                    <input class="int-red" type="number" name="t_deduction" id="t_deduction" step="any" required value="<?php echo $total_deduction; ?>">
+                                    <p>Total Deduction</p>
+                                </label>
+                                    <label>
+                                        <input class="int-green" type="number" name="netpay" id="netpay" step="any" required value="<?php echo $net_pay; ?>">
+                                        <p>NetPay</p>
+                                    </label>
+                                    <!-- <button class="button save">Save</button>
+                                    <button class="button update">Update</button> -->
+                                    <button class="button save">Print</button>
+                            </form>    
+                                    
+                                </div> <?php
 
 
+            }
+
+
+
+        }
+  
+
+            if($activeForm){ ?>
+                <div class="banner">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 back-btn" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                </div>
+                    <div class="container-xlarge">
+                        <form action="UI_payslipReport.php" method="post">
+                            <!-- form search-->
+                            <div class="search-bg">
+                                <div class="search">
+                                    <input class="input-style search-style" placeholder="Search Employee ID" type="number" name="search_E_ID" id="search_E_ID">
+                                    <button type="submit" name="search" id="search_e"><i class='bx bx-search bx-margin'></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                <?php
+            } ?>
         
+
+
+
+        <!-- <section class="banner"><h2>Database Table</h2></section> this is the banner -->
+    <!-- ________________________________DATABASE TABLE_______________________________ -->
+                        <!-- <div class="output"> -->
+
+                        <!-- </div> -->
+      
 </body>
 </html>

@@ -138,7 +138,7 @@ $pdo = $classPayroll->openConnection();
                 $activeForm = false;
 
                 $search = $_POST["search_E_ID"];
-                $sql = "SELECT * FROM `employee` WHERE employee_id = ? AND isActive = 1";
+                $sql = "SELECT * FROM `employee` WHERE employee_id = ? AND isActive = 1 AND user_type_id = 3";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$search]);
 

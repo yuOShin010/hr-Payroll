@@ -222,7 +222,10 @@ ul li:hover {
     position: relative;
     height: 54px;
     width: 79%;
+<<<<<<< HEAD
     background: #dfdad8;
+=======
+>>>>>>> 903f417e878d8eabdc295f7825e53dd02c7d839a
     padding: 0 12px;
     border-radius: 9px;
     border: 2px solid rgb(193, 193, 193);
@@ -247,7 +250,11 @@ input.check-box:hover {
 
 .checkbox {
     display: flex;
+<<<<<<< HEAD
     margin: 5px 177px;
+=======
+    margin: 5px 209px;
+>>>>>>> 903f417e878d8eabdc295f7825e53dd02c7d839a
     width: 144px;
 }
 
@@ -263,7 +270,11 @@ input.check-box:hover {
 }
 
 .login-btn {
+<<<<<<< HEAD
     margin: 96px 186px;
+=======
+    margin: 96px 216px;
+>>>>>>> 903f417e878d8eabdc295f7825e53dd02c7d839a
     width: 126px;
     height: 41px;
     color: white;
@@ -289,7 +300,11 @@ input.check-box:hover {
         padding: 0 12px;
         border-radius: 3px;
         border: 2px solid rgb(193, 193, 193);
+<<<<<<< HEAD
         margin: 10px 48px;
+=======
+        margin: 10px 58px;
+>>>>>>> 903f417e878d8eabdc295f7825e53dd02c7d839a
         font-size: 19px;
         border-bottom: 2px solid rgb(30, 30, 30);
         transition: all 0.1s ease;

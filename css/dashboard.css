@@ -64,6 +64,10 @@
         position: fixed;
         width: 327px;
         height: 100vh;
+<<<<<<< HEAD
+=======
+        min-height: 100vh;
+>>>>>>> 903f417e878d8eabdc295f7825e53dd02c7d839a
         background: #00323c;
         transition: all 0.3s ease-in-out;
     }
@@ -107,7 +111,7 @@
     .footer {
         height: 79px;
         background: #021316f7;
-        margin: -4px 0;
+        margin:410px 0;
     }
     /*________________________END________________________ */
 }

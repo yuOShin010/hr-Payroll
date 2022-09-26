@@ -13,8 +13,8 @@
 
 
 <?php
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-                                // for employee management module process --
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - for employee management module process - - - - - - - - - - - - - - - - - - - - - - - - - //
+                               
 
         if(isset($_POST['addEmployee'])){
             $classPayroll->addEmployee();              // add employee infromation --
@@ -32,9 +32,7 @@
 
 
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-                                // for set department management module process --
-
+// - - - - - - - - - - - - - - - - - - - - - - - - - for set department management module process - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
 
         if(isset($_POST['setDepartment'])){    // for Set Department
@@ -94,8 +92,8 @@
         }
 
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-                                // for scheduling management module process --
+// - - - - - - - - - - - - - - - - - - - - - - - - - - for scheduling management module process - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+
 
 
         if (isset($_POST['set_schedule'])){     // for set Schedule
@@ -164,38 +162,29 @@
 
         }
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-                                //  PAYROLL MANAGEMENT PROCESS MODULE --
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - PAYROLL MANAGEMENT PROCESS MODULE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+
 
         if(isset($_POST['addPayroll'])){    // Save Button in Payroll management active
             $E_ID = $_POST['E_ID'];
             $dept_ID = $_POST['dept_id'];
+            $position_id = $_POST['position_id'];
             $overtime = $_POST['overtime'];
             $allowance = $_POST['allowance'];
             $holidays_work = $_POST['holidays_work'];
             $leave_days = $_POST['leave_days'];
-            $sss = $_POST['sss'];
-            $tax = $_POST['tax'];
-            $pag_ibig = $_POST['pag_ibig'];
-            $phil_health = $_POST['phil_health'];
-            $sss_loan = $_POST['sss_loan'];
-            $tax_loan = $_POST['tax_loan'];
-            $pag_ibig_loan = $_POST['pag_ibig_loan'];
-            $phil_health_loan = $_POST['phil_health_loan'];
-            $others = $_POST['others'];
-            $total_deductions = $_POST['total_deductions'];
 
             // First insertion in table (tbl_employee_payroll)
-            $sql = "INSERT INTO tbl_employee_payroll (employee_id, dept_id) VALUES (?,?)";
+            $sql = "INSERT INTO tbl_employee_payroll (employee_id, dept_id, position_id) VALUES (?,?,?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$E_ID, $dept_ID]);
+            $stmt->execute([$E_ID, $dept_ID, $position_id]);
 
             // if($stmt){
             // First insertion in table (payroll)
-                $sql = " INSERT INTO payroll (employee_id, overtime, allowance, holidays_work, leave_days, sss, tax, pag_ibig, phil_health, sss_loan, tax_loan, pag_ibig_loan, phil_health_loan, others, total_deduction) 
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                $sql = " INSERT INTO payroll (employee_id, overtime, allowance, holidays_work, leave_days) 
+                VALUES (?,?,?,?,?)";
                 $stmt = $pdo->prepare($sql);
-                $stmt->execute([$E_ID, $overtime, $allowance, $holidays_work, $leave_days, $sss, $tax, $pag_ibig, $phil_health, $sss_loan, $tax_loan, $pag_ibig_loan, $phil_health_loan, $others, $total_deductions]);
+                $stmt->execute([$E_ID, $overtime, $allowance, $holidays_work, $leave_days]);
 
                 // echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Insert payroll Data..');
                 //     window.location.href='../operator/UI_payroll.php'; </script>");
@@ -223,21 +212,10 @@
             $allowance = $_POST['allowance'];
             $holidays_work = $_POST['holidays_work'];
             $leave_days = $_POST['leave_days'];
-            $sss = $_POST['sss'];
-            $tax = $_POST['tax'];
-            $pag_ibig = $_POST['pag_ibig'];
-            $phil_health = $_POST['phil_health'];
-            $sss_loan = $_POST['sss_loan'];
-            $tax_loan = $_POST['tax_loan'];
-            $pag_ibig_loan = $_POST['pag_ibig_loan'];
-            $phil_health_loan = $_POST['phil_health_loan'];
-            $others = $_POST['others'];
-            $total_deductions = $_POST['total_deductions'];
 
-            $sql = "UPDATE payroll SET overtime = ?, allowance = ?, holidays_work = ?,  leave_days = ? , sss = ?, tax = ?, pag_ibig = ?, phil_health = ?, sss_loan = ?,
-            tax_loan = ?, pag_ibig_loan = ?, phil_health_loan = ?, others = ?, total_deduction = ? WHERE employee_id = ?";
+            $sql = "UPDATE payroll SET overtime = ?, allowance = ?, holidays_work = ?,  leave_days = ?  WHERE employee_id = ?";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$overtime, $allowance, $holidays_work, $leave_days, $sss, $tax, $pag_ibig, $phil_health, $sss_loan, $tax_loan, $pag_ibig_loan, $phil_health_loan, $others, $total_deductions, $E_ID]);
+            $stmt->execute([$overtime, $allowance, $holidays_work, $leave_days, $E_ID]);
 
             // echo ("<script LANGUAGE='JavaScript'> window.alert('Successfully Update payroll Data..');
             //         window.location.href='../operator/UI_payroll.php'; </script>");    
@@ -248,10 +226,56 @@
                             icon: 'success',
                             title: 'Update successfully',
                             showConfirmButton: false,
-                            timer: 1500
+                            timer: 1700
                         }).then((result) => {
                             if(result) {
                                 window.location.href='../operator/UI_payroll.php';
+                            }
+                        })";
+                echo "</script>";
+        }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - SALARY REPORT PROCESS MODULE - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+
+        if(isset($_POST['save_salary'])){
+            $E_ID = $_POST['E_ID'];
+            $dept_id = $_POST['dept_id'];
+            $position_id = $_POST['position_id'];
+            $total_hrs_pay = $_POST['total_hrs_pay'];
+            $ot_pay = $_POST['ot_pay'];
+            $holidays_pay = $_POST['holidays_pay'];
+            $leave_pay = $_POST['leave_pay'];
+            $allowance_pay = $_POST['allowance_pay'];
+            $gross_pay = $_POST['gross_pay'];
+            $total_deductions = $_POST['total_deduction'];
+            $net_pay = $_POST['net_pay'];
+            //deductions 
+            $sss = $_POST['sss'];
+            $tax = $_POST['tax'];
+            $pag_ibig = $_POST['pag_ibig'];
+            $phil_health = $_POST['phil_health'];
+            $others = $_POST['others'];
+
+            $sql = "INSERT INTO tbl_employee_salary (employee_id, dept_id, position_id) VALUES (?,?,?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$E_ID, $dept_id, $position_id]);
+
+            $sql = "INSERT INTO salary_report (employee_id, hours_pay, ot_pay, holidays_pay, leave_days_pay, allowance_pay, sss, tax, pag_ibig, phil_health,
+            others, gross_pay, total_deductions, net_pay)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$E_ID, $total_hrs_pay, $ot_pay, $holidays_pay, $leave_pay, $allowance_pay, $sss, $tax, $pag_ibig, $phil_health, $others, $gross_pay, $total_deductions, $net_pay]);
+
+            echo "<script>";
+                echo "Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Data inserted into database',
+                            showConfirmButton: false,
+                            timer: 1700
+                        }).then((result) => {
+                            if(result) {
+                                window.location.href='../operator/UI_employeeSalary.php';
                             }
                         })";
                 echo "</script>";

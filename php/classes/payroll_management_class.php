@@ -11,7 +11,6 @@ class payroll_manage extends MyPayroll {
             <!DOCTYPE html>
             <html lang="en">
             <head>
-                
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
                 <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
                 <link rel="stylesheet" href="../css/dashboard.css">
@@ -51,11 +50,12 @@ class payroll_manage extends MyPayroll {
                     $E_ID = $row['employee_id'];
                     $fname = $row['first_name'];
                     $lname = $row['last_name'];
-                    // $email = $row['email'];
                     $contact = $row['contact'];
                     // For Updating data Below Credentials    
                     $dept_id = $row['dept_id'];
                     $dept_code = $row['dept_code'];
+                    $position_id = $row['position_id'];
+                    $position_desc = $row['position_desc'];
                     // For updating Credentials
                     $total_workHrs = $row['total_workHrs'];
                     $d_from = $row['d_from'];
@@ -98,7 +98,13 @@ class payroll_manage extends MyPayroll {
                                 <select class="sel-size" name="dept_id" id="dept_id" required>
                                     <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
                                 </select>
-                                <p>Employee Department</p>
+                                <p>Department</p>
+                            </label>
+                            <label>
+                                <select class="sel-size" name="position_id" id="position_id" required>
+                                    <option selected hidden value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
+                                </select>
+                                <p>Position</p>
                             </label>
                             <label>
                                 <input class="input-style removearrow" type="number" name="hours_work" id="hours_work" required readonly value="<?php echo $total_workHrs ?>">
@@ -123,67 +129,67 @@ class payroll_manage extends MyPayroll {
                         <div class="container-sSmall2">
                             <h3>Please Fill Up this field: </h3>
                             <label class="b1">
-                                <input class="b-size" type="number" name="overtime" id="overtime" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="overtime" id="overtime" step="any" required placeholder="0">
                                 <p>Over Time</p>
                             </label>
                             <label class="b2">
-                                <input class="b-size" type="number" name="allowance" id="allowance" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="allowance" id="allowance" step="any" required placeholder="0">
                                 <p>Allowance</p>
                             </label>
                             <label class="b3">
-                                <input class="b-size" type="number" name="holidays_work" id="holidays_work" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="holidays_work" id="holidays_work" required placeholder="0">
                                 <p>Holidays Work</p>
                             </label>
                             <label class="b4">
-                                <input class="b-size" type="number" name="leave_days" id="leave_days" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="leave_days" id="leave_days" required placeholder="0">
                                 <p>Leave Days</p>
                             </label>
-                            <label class="b5">
-                                <input class="b-size" type="number" name="sss" id="sss" value="0" required placeholder="0">
+                            <!-- <label class="b5">
+                                <input class="b-size" type="number" name="sss" id="sss" step="any" value="0" required placeholder="0">
                                 <p>SSS</p>
                             </label>
                             <label class="b5">
-                                <input class="b-size" type="number" name="tax" id="tax" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="tax" id="tax" step="any" value="0" required placeholder="0">
                                 <p>TAX</p>
                             </label>
                             <label class="b6">
-                                <input class="b-size" type="number" name="pag_ibig" id="pag_ibig" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="pag_ibig" id="pag_ibig" step="any" value="0" required placeholder="0">
                                 <p>Pag-ibig</p>
                             </label>
                             <label class="b7">
-                                <input class="b-size" type="number" name="phil_health" id="phil_health" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="phil_health" id="phil_health" step="any" value="0" required placeholder="0">
                                 <p>Phil-Health</p>
                             </label>
                             <label class="b8">
-                                <input class="b-size" type="number" name="sss_loan" id="sss_loan" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="sss_loan" id="sss_loan" step="any" value="0" required placeholder="0">
                                 <p>SSS-Loan</p>
                             </label>
                             <label class="b8">
-                                <input class="b-size" type="number" name="tax_loan" id="tax_loan" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="tax_loan" id="tax_loan" step="any" value="0" required placeholder="0">
                                 <p>TAX-Loan</p>
                             </label>
                             <label class="b9">
-                                <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" step="any" value="0" required placeholder="0">
                                 <p>Pag-ibig loan</p>
                             </label>
                             <label class="b10">
-                                <input class="b-size" type="number" name="phil_health_loan" id="phil_health_loan" value="0" required placeholder="0">
+                                <input class="b-size" type="number" name="phil_health_loan" id="phil_health_loan" step="any" value="0" required placeholder="0">
                                 <p>Phil-Health Loan</p>
                             </label>
                             <label class="b11">
-                                <input class="b-size" type="text" name="others" id="others" value="0" required placeholder="0">
+                                <input class="b-size" type="text" name="others" id="others" step="any" value="0" required placeholder="0">
                                 <p>Others</p>
                             </label>
                             <label>
                                 <input class="go-btn" type="button" onclick="deductions_computation()">
                             </label>
                             <label class="b12">Deduction Total:
-                                <input class="b-size" type="number" name="total_deductions" id="total_deductions" required readonly>
-                            </label>
+                                <input class="b-size" type="number" name="total_deductions" id="total_deductions" step="any" required readonly>
+                            </label> -->
 
                             <button class="button save" type="submit" name="addPayroll">Save</button>
                             <button class="button" disabled>Update</button>
-                            <button class="button" disabled>Delete</button>
+                            <!-- <button class="button" disabled>Delete</button> -->
                         </div>
                     </form>
 
@@ -191,15 +197,15 @@ class payroll_manage extends MyPayroll {
 
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
                         <div class="output">
-                            <table class="table table-dark table-striped">
+                        <table class="table table-dark table-striped">
                                 <thead>
                                     <tr>
                                         <th>Employee ID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
-                                        <!-- <th>Email</th> -->
                                         <th>Contact</th>
                                         <th>Emp Dept</th>
+                                        <th>Position</th>
                                         <th>Hrs_Wrks</th>
                                         <th>D_Frm</th>
                                         <th>D_To</th>
@@ -208,25 +214,28 @@ class payroll_manage extends MyPayroll {
                                         <th>Allwnce</th>
                                         <th>Hlldy_wrk</th>
                                         <th>Lv.Dy</th>
-                                        <th>Deductions</th>
+                                        <!-- <th>Deductions</th> -->
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     <?php
+                                    $pdo = $this->openConnection();
                                     // $pdo = $classPayroll->openConnection();
                                     $sql = "SELECT
                                     A.id,
                                     B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
                                     C.dept_id, C.dept_code,
+                                    D.position_id, D.position_desc,
                                     E.total_workHrs, E.d_from, E.d_to, E.days_works,
-                                    F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
-                                    F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
+                                    F.overtime, F.allowance, F.holidays_work, F.leave_days
                                     FROM tbl_employee_payroll AS A
                                     LEFT JOIN employee AS B
                                     ON A.employee_id = B.employee_id
                                     LEFT JOIN department AS C
                                     ON A.dept_id = C.dept_id
+                                    LEFT JOIN position AS D
+                                    ON A.position_id = D.position_id
                                     LEFT JOIN schedule AS E
                                     ON A.employee_id = E.employee_id
                                     LEFT JOIN payroll AS F
@@ -235,17 +244,16 @@ class payroll_manage extends MyPayroll {
                                     $stmt = $pdo->prepare($sql);
                                     $stmt->execute();
 
-
                                     if ($stmt->rowCount() > 0) {
-                                        while ($row = $stmt->fetch()) {
+                                        foreach($stmt as $row) {
                                     ?>
                                         <tr>
                                             <td><?php echo $row['employee_id']; ?></td>
                                             <td><?php echo $row['first_name']; ?></td>
                                             <td><?php echo $row['last_name']; ?></td>
-                                            <!-- <td><?php // echo $row['email']; ?></td> -->
                                             <td><?php echo $row['contact']; ?></td>
                                             <td><?php echo $row['dept_code']; ?></td>
+                                            <td><?php echo $row['position_desc']; ?></td>
                                             <td><?php echo $row['total_workHrs']; ?></td>
                                             <td><?php echo $row['d_from']; ?></td>
                                             <td><?php echo $row['d_to']; ?></td>
@@ -254,7 +262,7 @@ class payroll_manage extends MyPayroll {
                                             <td><?php echo $row['allowance']; ?></td>
                                             <td><?php echo $row['holidays_work']; ?></td>
                                             <td><?php echo $row['leave_days']; ?></td>
-                                            <td><?php echo $row['total_deduction']; ?></td>
+                                            
                                         </tr>
                                     <?php }} ?>
                                 </tbody>
@@ -266,15 +274,15 @@ class payroll_manage extends MyPayroll {
                 <script>
 
                     function deductions_computation(){
-                        var sss = parseInt($("#sss").val());
-                        var tax = parseInt($("#tax").val());
-                        var pag_ibig = parseInt($("#pag_ibig").val());
-                        var phil_health = parseInt($("#phil_health").val());
-                        var sss_loan = parseInt($("#sss_loan").val());
-                        var tax_loan = parseInt($("#tax_loan").val());
-                        var pag_ibig_loan = parseInt($("#pag_ibig_loan").val());
-                        var phil_health_loan = parseInt($("#phil_health_loan").val());
-                        var others = parseInt($("#others").val());
+                        var sss = parseFloat($("#sss").val());
+                        var tax = parseFloat($("#tax").val());
+                        var pag_ibig = parseFloat($("#pag_ibig").val());
+                        var phil_health = parseFloat($("#phil_health").val());
+                        var sss_loan = parseFloat($("#sss_loan").val());
+                        var tax_loan = parseFloat($("#tax_loan").val());
+                        var pag_ibig_loan = parseFloat($("#pag_ibig_loan").val());
+                        var phil_health_loan = parseFloat($("#phil_health_loan").val());
+                        var others = parseFloat($("#others").val());
 
                         var total_deductions = sss + tax + pag_ibig + phil_health + sss_loan + tax_loan + pag_ibig_loan + phil_health_loan + others;
 
@@ -299,14 +307,16 @@ class payroll_manage extends MyPayroll {
             A.id,
             B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
             C.dept_id, C.dept_code,
+            D.position_id, D.position_desc,
             E.total_workHrs, E.d_from, E.d_to, E.days_works,
-            F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
-            F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
+            F.overtime, F.allowance, F.holidays_work, F.leave_days
             FROM tbl_employee_payroll AS A
             LEFT JOIN employee AS B
             ON A.employee_id = B.employee_id
             LEFT JOIN department AS C
             ON A.dept_id = C.dept_id
+            LEFT JOIN position AS D
+            ON A.position_id = D.position_id
             LEFT JOIN schedule AS E
             ON A.employee_id = E.employee_id
             LEFT JOIN payroll AS F
@@ -328,8 +338,8 @@ class payroll_manage extends MyPayroll {
                     $contact = $row['contact'];
                     $dept_id = $row['dept_id'];
                     $dept_code = $row['dept_code'];
-                    // $position_id = $row['position_id'];
-                    // $position_desc = $row['position_desc'];
+                    $position_id = $row['position_id'];
+                    $position_desc = $row['position_desc'];
                     $total_workHrs = $row['total_workHrs'];
                     $d_from = $row['d_from'];
                     $d_to = $row['d_to'];
@@ -340,16 +350,16 @@ class payroll_manage extends MyPayroll {
                     $holidays_work = $row['holidays_work'];
                     $leave_days = $row['leave_days'];
                     // Deductions Below
-                    $sss = $row['sss'];
-                    $tax = $row['tax'];
-                    $pag_ibig = $row['pag_ibig'];
-                    $phil_health = $row['phil_health'];
-                    $sss_loan = $row['sss_loan'];
-                    $tax_loan = $row['tax_loan'];
-                    $pag_ibig_loan = $row['pag_ibig_loan'];
-                    $phil_health_loan = $row['phil_health_loan'];
-                    $ohters = $row['others'];
-                    $total_deduction = $row['total_deduction'];
+                    // $sss = $row['sss'];
+                    // $tax = $row['tax'];
+                    // $pag_ibig = $row['pag_ibig'];
+                    // $phil_health = $row['phil_health'];
+                    // $sss_loan = $row['sss_loan'];
+                    // $tax_loan = $row['tax_loan'];
+                    // $pag_ibig_loan = $row['pag_ibig_loan'];
+                    // $phil_health_loan = $row['phil_health_loan'];
+                    // $ohters = $row['others'];
+                    // $total_deduction = $row['total_deduction'];
                 }
 
             }  ?>
@@ -388,7 +398,13 @@ class payroll_manage extends MyPayroll {
                                 <select class="sel-size" name="dept_id" id="dept_id" required>
                                     <option selected hidden value="<?php echo $dept_id ?>"><?php echo $dept_code ?></option>
                                 </select>
-                                <p>Employee Department</p>
+                                <p>Department</p>
+                            </label>
+                            <label>
+                                <select class="sel-size" name="position_id" id="position_id" required>
+                                    <option selected hidden value="<?php echo $position_id ?>"><?php echo $position_desc ?></option>
+                                </select>
+                                <p>Position</p>
                             </label>
                             <label>
                                 <input class="input-style removearrow" type="number" name="hours_work" id="hours_work" required readonly value="<?php echo $total_workHrs ?>">
@@ -408,75 +424,33 @@ class payroll_manage extends MyPayroll {
                             </label>
                             <br>
                             <br>
-                    </div>
-                    <section class="banner2"></section> <!--this is the banner -->
-                    <div class="container-sSmall2">
-                        <h3>Possible to update this fields:</h3>
-                            <label class="b1">
-                                <input class="b-size" type="number" name="overtime" id="overtime" required placeholder="0" value="<?php echo $overtime ?>">
-                                <p>Over Time</p>
-                            </label>
-                            <label class="b2">
-                                <input class="b-size" type="number" name="allowance" id="allowance" required placeholder="0" value="<?php echo $allowance ?>">
-                                <p>Allowance</p>
-                            </label>
-                            <label class="b3">
-                                <input class="b-size" type="number" name="holidays_work" id="holidays_work" required placeholder="0" value="<?php echo $holidays_work ?>">
-                                <p>Holidays Work</p>
-                            </label>
-                            <label class="b4">
-                                <input class="b-size" type="number" name="leave_days" id="leave_days" required placeholder="0" value="<?php echo $leave_days ?>">
-                                <p>Leave Days</p>
-                            </label>
-                            <label class="b5">
-                                <input class="b-size" type="number" name="sss" id="sss" required placeholder="0" value="<?php echo $sss ?>">
-                                <p>SSS</p>
-                            </label>
-                            <label class="b5">
-                                <input class="b-size" type="number" name="tax" id="tax" required placeholder="0" value="<?php echo $tax ?>">
-                                <p>TAX</p>
-                            </label>
-                            <label class="b6">
-                                <input class="b-size" type="number" name="pag_ibig" id="pag_ibig" required placeholder="0" value="<?php echo $pag_ibig ?>">
-                                <p>Pag-ibig</p>
-                            </label>
-                            <label class="b7">
-                                <input class="b-size" type="number" name="phil_health" id="phil_health" required placeholder="0" value="<?php echo $phil_health ?>">
-                                <p>Phil-Health</p>
-                            </label>
-                            <label class="b8">
-                                <input class="b-size" type="number" name="sss_loan" id="sss_loan" required placeholder="0" value="<?php echo $sss_loan ?>">
-                                <p>SSS-Loan</p>
-                            </label>
-                            <label class="b8">
-                                <input class="b-size" type="number" name="tax_loan" id="tax_loan" required placeholder="0" value="<?php echo $tax_loan ?>">
-                                <p>TAX-Loan</p>
-                            </label>
-                            <label class="b9">
-                                <input class="b-size" type="number" name="pag_ibig_loan" id="pag_ibig_loan" required placeholder="0" value="<?php echo $pag_ibig_loan ?>">
-                                <p>Pag-ibig loan</p>
-                            </label>
-                            <label class="b10">
-                                <input class="b-size" type="number" name="phil_health_loan" id="phil_health_loan" required placeholder="0" value="<?php echo $phil_health_loan ?>">
-                                <p>Phil-Health Loan</p>
-                            </label>
-                            <label class="b11">
-                                <input class="b-size" type="number" name="others" id="others" required placeholder="0" value="<?php echo $ohters ?>">
-                                <p>Others</p>
-                            </label>
-                            <label>
-                                <input class="go-btn" type="button" onclick="deductions_computation()">
-                            </label>
-                            <label class="b12">Deduction Total:
-                                <input class="b-size" type="number" name="total_deductions" id="total_deductions" required value="<?php echo $total_deduction ?>">
-                            </label>
-
-                            <button class="button" disabled>Save</button>
-                            <button class="button update" type="submit" name="updatePayroll">Update</button>
-                            <button class="button" disabled>Delete</button>
-                    </div>
+                        </div>
+                            <section class="banner2"></section> <!--this is the banner -->
+                                <div class="container-sSmall2">
+                                    <h3>Possible to update this fields:</h3>
+                                        <label class="b1">
+                                            <input class="b-size" type="number" name="overtime" id="overtime" step="any" required placeholder="0" value="<?php echo $overtime ?>">
+                                            <p>Over Time</p>
+                                        </label>
+                                        <label class="b2">
+                                            <input class="b-size" type="number" name="allowance" id="allowance" step="any" required placeholder="0" value="<?php echo $allowance ?>">
+                                            <p>Allowance</p>
+                                        </label>
+                                        <label class="b3">
+                                            <input class="b-size" type="number" name="holidays_work" id="holidays_work" step="any" required placeholder="0" value="<?php echo $holidays_work ?>">
+                                            <p>Holidays Work</p>
+                                        </label>
+                                        <label class="b4">
+                                            <input class="b-size" type="number" name="leave_days" id="leave_days" step="any" required placeholder="0" value="<?php echo $leave_days ?>">
+                                            <p>Leave Days</p>
+                                        </label>
+                                    
+                                        <button class="button" disabled>Save</button>
+                                        <button class="button update" type="submit" name="updatePayroll">Update</button>
+                                        <!-- <button class="button" disabled>Delete</button> -->
+                                </div>
                         </form>
-                        <section class="banner2"></section> <!--this is the banner -->
+                            <section class="banner2"></section> <!--this is the banner -->
 
                         <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
                         
@@ -486,9 +460,9 @@ class payroll_manage extends MyPayroll {
                                         <th>Employee ID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
-                                        <!-- <th>Email</th> -->
                                         <th>Contact</th>
                                         <th>Emp Dept</th>
+                                        <th>Position</th>
                                         <th>Hrs_Wrks</th>
                                         <th>D_Frm</th>
                                         <th>D_To</th>
@@ -497,25 +471,28 @@ class payroll_manage extends MyPayroll {
                                         <th>Allwnce</th>
                                         <th>Hlldy_wrk</th>
                                         <th>Lv.Dy</th>
-                                        <th>Deductions</th>
+                                        <!-- <th>Deductions</th> -->
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     <?php
                                     // $pdo = $this->openConnection();
+                                    // $pdo = $classPayroll->openConnection();
                                     $sql = "SELECT
                                     A.id,
                                     B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
                                     C.dept_id, C.dept_code,
+                                    D.position_id, D.position_desc,
                                     E.total_workHrs, E.d_from, E.d_to, E.days_works,
-                                    F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
-                                    F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
+                                    F.overtime, F.allowance, F.holidays_work, F.leave_days
                                     FROM tbl_employee_payroll AS A
                                     LEFT JOIN employee AS B
                                     ON A.employee_id = B.employee_id
                                     LEFT JOIN department AS C
                                     ON A.dept_id = C.dept_id
+                                    LEFT JOIN position AS D
+                                    ON A.position_id = D.position_id
                                     LEFT JOIN schedule AS E
                                     ON A.employee_id = E.employee_id
                                     LEFT JOIN payroll AS F
@@ -531,9 +508,9 @@ class payroll_manage extends MyPayroll {
                                             <td><?php echo $row['employee_id']; ?></td>
                                             <td><?php echo $row['first_name']; ?></td>
                                             <td><?php echo $row['last_name']; ?></td>
-                                            <!-- <td><?php // echo $row['email']; ?></td> -->
                                             <td><?php echo $row['contact']; ?></td>
                                             <td><?php echo $row['dept_code']; ?></td>
+                                            <td><?php echo $row['position_desc']; ?></td>
                                             <td><?php echo $row['total_workHrs']; ?></td>
                                             <td><?php echo $row['d_from']; ?></td>
                                             <td><?php echo $row['d_to']; ?></td>
@@ -542,7 +519,6 @@ class payroll_manage extends MyPayroll {
                                             <td><?php echo $row['allowance']; ?></td>
                                             <td><?php echo $row['holidays_work']; ?></td>
                                             <td><?php echo $row['leave_days']; ?></td>
-                                            <td><?php echo $row['total_deduction']; ?></td>
                                         </tr>
                                     <?php }} ?>
                                 </tbody>
@@ -553,15 +529,15 @@ class payroll_manage extends MyPayroll {
                     <script>
 
                     function deductions_computation(){
-                        var sss = parseInt($("#sss").val());
-                        var tax = parseInt($("#tax").val());
-                        var pag_ibig = parseInt($("#pag_ibig").val());
-                        var phil_health = parseInt($("#phil_health").val());
-                        var sss_loan = parseInt($("#sss_loan").val());
-                        var tax_loan = parseInt($("#tax_loan").val());
-                        var pag_ibig_loan = parseInt($("#pag_ibig_loan").val());
-                        var phil_health_loan = parseInt($("#phil_health_loan").val());
-                        var others = parseInt($("#others").val());
+                        var sss = parseFloat($("#sss").val());
+                        var tax = parseFloat($("#tax").val());
+                        var pag_ibig = parseFloat($("#pag_ibig").val());
+                        var phil_health = parseFloat($("#phil_health").val());
+                        var sss_loan = parseFloat($("#sss_loan").val());
+                        var tax_loan = parseFloat($("#tax_loan").val());
+                        var pag_ibig_loan = parseFloat($("#pag_ibig_loan").val());
+                        var phil_health_loan = parseFloat($("#phil_health_loan").val());
+                        var others = parseFloat($("#others").val());
 
                         var total_deductions = sss + tax + pag_ibig + phil_health + sss_loan + tax_loan + pag_ibig_loan + phil_health_loan + others;
 

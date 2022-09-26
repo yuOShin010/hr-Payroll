@@ -127,13 +127,17 @@
                     <th class="t-size">First Name</th>
                     <th class="t-size">Last Name</th>
                     <th class="t-size">Contact</th>
+                    <th class="t-size">Email</th>
                     <th class="t-size">Department</th>
-                    <th class="t-size">Date Added</th>
+                    <th class="t-size">Position</th>
+                    <th class="t-size">Status</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

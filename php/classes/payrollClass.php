@@ -100,7 +100,7 @@
                 $mname = $_POST["op_mn"];
                 $lname = $_POST["op_ln"];
                 $email = $_POST["op_email"];
-                 $pass = md5($_POST["op_pass"]);
+                $pass = md5($_POST["op_pass"]);
                 $user_type = "2" ; 
 
                 if($this->check_email_exist($email) == 0){
@@ -114,7 +114,7 @@
                             Swal.fire({
                                 position: 'top-end',
                                 icon: 'success',
-                                title: 'New employee has been saved',
+                                title: 'New operator has been saved',
                                 showConfirmButton: false,
                                 timer: 1500
                             }).then((result) => {
@@ -317,7 +317,7 @@
                                 Swal.fire({
                                     icon: 'warning',
                                     title: 'Invalid',
-                                    text: 'Input Correct Email & Password!',
+                                    text: 'Please input correct email & password!',
                                 })
                             </script> 
                             <?php

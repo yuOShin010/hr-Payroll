@@ -57,7 +57,7 @@ ul li a {
     font-size: 20px;
     filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
     border-top: 5px solid rgb(236, 231, 231);
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.26, 0.2, 0.8, 0.92);
 }
 
 ul li a:hover {

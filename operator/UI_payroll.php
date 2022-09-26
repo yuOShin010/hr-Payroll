@@ -122,18 +122,21 @@ $pdo = $classPayroll->openConnection();
             // $setPayroll = true;
             $search_EID = $_POST['search_E_ID'];
 
+            $pdo = $classPayroll->openConnection();
             $sql = "SELECT
             A.id,
             B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
             C.dept_id, C.dept_code,
+            D.position_id, D.position_desc,
             E.total_workHrs, E.d_from, E.d_to, E.days_works,
-            F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
-            F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
+            F.overtime, F.allowance, F.holidays_work, F.leave_days
             FROM tbl_employee_payroll AS A
             LEFT JOIN employee AS B
             ON A.employee_id = B.employee_id
             LEFT JOIN department AS C
             ON A.dept_id = C.dept_id
+            LEFT JOIN position AS D
+            ON A.position_id = D.position_id
             LEFT JOIN schedule AS E
             ON A.employee_id = E.employee_id
             LEFT JOIN payroll AS F
@@ -282,20 +285,12 @@ $pdo = $classPayroll->openConnection();
                                 <input class="input-style inpt-pl20" type="text" name="lname" id="lname" required readonly>
                                 <p>Last Name</p>
                             </label>
-                            <!-- <label>
-                                <input class="input-style inpt-pl20" type="email" name="email" id="email" required readonly>
-                                <p>Email</p>
-                            </label> -->
+                
                             <label>
                                 <input class="input-style inpt-pl20 removearrow" type="number" name="contact" id="contact" required readonly>
                                 <p>Contact</p>
                             </label>
-                            <!-- <label>
-                                <select name="dept_id" id="dept_id" required>
-                                    <option selected hidden>  Select  </option>
-                                </select>
-                                <p>Employee Department</p>
-                            </label><br> -->
+
                             <label>
                                 <input class="input-style inpt-pl20 removearrow" type="number" name="hours_work" id="hours_work" required readonly>
                                 <p>Hours Work</p>
@@ -332,7 +327,7 @@ $pdo = $classPayroll->openConnection();
                                     <input class="b-size" type="number" name="" id="" required placeholder="0">
                                     <p>Leave Days</p>
                                 </label>
-                                <label>
+                                <!-- <label>
                                     <input class="b-size" type="number" name="" id="" required placeholder="0">
                                     <p>SSS</p>
                                 </label>
@@ -359,19 +354,19 @@ $pdo = $classPayroll->openConnection();
                                 <label>
                                     <input class="b-size" type="Text" name="" id="" required placeholder="0">
                                     <p>Phil-Health Loan</p>
-                                </label>
-                                <label>
+                                </label> -->
+                                <!-- <label>
                                     <input class="b-size" type="number" name="" id="" required>
                                     <p>Others</p>
                                 </label>
                                 <label>
                                     <input class="b-size" type="number" name="" id="" required>
                                     <p>Deduction Total</p>
-                                </label>
+                                </label> -->
 
                                 <button class="button" disabled>Save</button>
                                 <button class="button" disabled>Update</button>
-                                <button class="button" disabled>Delete</button>
+                                <!-- <button class="button" disabled>Delete</button> -->
                         </div>
                         </form>
 
@@ -395,7 +390,7 @@ $pdo = $classPayroll->openConnection();
                                         <th>Allwnce</th>
                                         <th>Hlldy_wrk</th>
                                         <th>Lv.Dy</th>
-                                        <th>Deductions</th>
+                                        <!-- <th>Deductions</th> -->
                                     </tr>
                                 </thead>
 
@@ -406,14 +401,16 @@ $pdo = $classPayroll->openConnection();
                                     A.id,
                                     B.employee_id, B.isActive, B.first_name, B.last_name, B.email, B.contact,
                                     C.dept_id, C.dept_code,
+                                    D.position_id, D.position_desc,
                                     E.total_workHrs, E.d_from, E.d_to, E.days_works,
-                                    F.overtime, F.allowance, F.holidays_work, F.leave_days, F.sss, F.tax, F.pag_ibig, F.phil_health,
-                                    F.sss_loan, F.tax_loan, F.pag_ibig_loan, F.phil_health_loan, F.others, F.total_deduction
+                                    F.overtime, F.allowance, F.holidays_work, F.leave_days
                                     FROM tbl_employee_payroll AS A
                                     LEFT JOIN employee AS B
                                     ON A.employee_id = B.employee_id
                                     LEFT JOIN department AS C
                                     ON A.dept_id = C.dept_id
+                                    LEFT JOIN position AS D
+                                    ON A.position_id = D.position_id
                                     LEFT JOIN schedule AS E
                                     ON A.employee_id = E.employee_id
                                     LEFT JOIN payroll AS F
@@ -442,7 +439,6 @@ $pdo = $classPayroll->openConnection();
                                             <td><?php echo $row['allowance']; ?></td>
                                             <td><?php echo $row['holidays_work']; ?></td>
                                             <td><?php echo $row['leave_days']; ?></td>
-                                            <td><?php echo $row['total_deduction']; ?></td>
                                         </tr>
                                     <?php }} ?>
                                 </tbody>
