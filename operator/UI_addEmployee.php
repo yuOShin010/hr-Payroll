@@ -221,7 +221,7 @@ $pdo = $classPayroll->openConnection();
                                     <button class="button delete" type="submit" name="deleteEmployee">Delete</button>
                                 </form>
                             </div>
-                            <section class="banner2"></section> <!--this is the banner -->
+                            <section class="banner"></section> <!--this is the banner -->
                             <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ADD EMPLOYEE MODULE ---------------------------------------->
 
                             <div class="output">
@@ -357,7 +357,7 @@ $pdo = $classPayroll->openConnection();
             </form>
         </div>
 
-        <section class="banner2"></section> <!--this is the banner -->
+        <section class="banner"></section> <!--this is the banner -->
             <!------------------------------------------ TABLE BELOW IS FOR SHOWING DATA FROM DATABASE ---------------------------------------->
             <div class="output">
                 <table class="table table-dark table-striped">

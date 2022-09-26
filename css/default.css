@@ -61,8 +61,8 @@ input[type=number]::-webkit-outer-spin-button {
 /*________________________Container properties________________________ */
 
 .container-small {
-    margin: 10px 308px;
-    width: 78%;
+    margin: 10px 336px;
+    width: 81%;
     background: white;
     height: 427px;
     border-radius: 2px;
@@ -70,8 +70,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container-xsmall {
-    margin: 10px 308px;
-    width: 78%;
+    margin: 10px 336px;
+    width: 81%;
     background: white;
     height: 444px;
     border-radius: 2px;
@@ -79,8 +79,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container-small-result {
-    margin: 10px 308px;
-    width: 78%;
+    margin: 10px 336px;
+    width: 81%;
     background: white;
     height: 595px;
     border-radius: 2px;
@@ -88,9 +88,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container-sSmall {
-    margin: 10px 308px;
+    margin: 10px 336px;
     padding: 55px;
-    width: 78%;
+    width: 81%;
     background: white;
     height: 381px;
     border-radius: 2px;
@@ -98,8 +98,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container-sSmall2 {
-    margin: 10px 308px;
-    width: 78%;
+    margin: 10px 336px;
+    width: 81%;
     background: white;
     height: 432px;
     border-radius: 2px;
@@ -107,8 +107,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container-medium {
-    margin: 2px 308px;
-    width: 78%;
+    margin: 2px 336px;
+    width: 81%;
     background: white;
     height: 749px;
     border-radius: 2px;
@@ -116,8 +116,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container-medium-result {
-    margin: 2px 308px;
-    width: 78%;
+    margin: 2px 336px;
+    width: 81%;
     background: white;
     height: 792px;
     border-radius: 2px;
@@ -125,8 +125,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container-xmedium {
-    margin: 2px 308px;
-    width: 78%;
+    margin: 2px 336px;
+    width: 81%;
     position: relative;
     background: white;
     height: 519px;
@@ -135,8 +135,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container-xmedium-result {
-    margin: 2px 308px;
-    width: 78%;
+    margin: 2px 336px;
+    width: 81%;
     background: white;
     height: 584px;
     border-radius: 2px;
@@ -145,8 +145,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .container-large {
     height: 891px;
-    margin: 2px 308px;
-    width: 78%;
+    margin: 2px 336px;
+    width: 81%;
     background: white;
     border-radius: 2px;
     box-shadow: 0px 10px 6px -5px #00000078;
@@ -213,7 +213,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .bx-margin {
-    margin: 17px 15px;
+    margin: 19px 9px;
 }
 
 
@@ -313,7 +313,7 @@ input[type=number]::-webkit-outer-spin-button {
 .banner3 h1 {
     margin: 23px 807px;
     position: absolute;
-    width: 421px;
+    width: 81%;
     font-size: 23px;
     text-align: center;
     align-items: center;
@@ -322,7 +322,7 @@ input[type=number]::-webkit-outer-spin-button {
 .banner3 {
     position: relative;
     height: 60px;
-    width: 78%;
+    width: 81%;
     margin: 7px 309px;
     background-color: #1ba9e1e0;
     box-shadow: 0px 12px 15px -10px #2e2e2e;
@@ -351,7 +351,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 table {
     margin: -8px 309px;
-    max-width: 78%;
+    max-width: 81%;
     box-shadow: 0px 12px 15px -10px #2e2e2e;
 }
 
@@ -404,7 +404,7 @@ table {
     .banner {
         position: relative;
         height: 60px;
-        width: 78%;
+        width: 81%;
         margin: 7px 309px;
         background-color: #068de5;
         box-shadow: 0px 10px 6px -5px #00000078;
@@ -412,16 +412,24 @@ table {
     .banner2 {
         position: relative;
         height: 60px;
-        width: 78%;
+        width: 81%;
         margin: 9px 309px;
         background-color: #068de5;
         box-shadow: 0px 10px 6px -5px #00000078;
     }
     /*________________________END________________________ */
     /*________________________Container properties________________________ */
+    .container-smaller {
+        margin: 2px 308px;
+        width: 81%;
+        background: white;
+        height: 414px;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
     .container-small {
-        margin: 10px 308px;
-        width: 78%;
+        margin: -1px 308px;
+        width: 81%;
         background: white;
         height: 427px;
         border-radius: 2px;
@@ -429,7 +437,7 @@ table {
     }
     .container-xsmall {
         margin: 10px 308px;
-        width: 78%;
+        width: 81%;
         background: white;
         height: 444px;
         border-radius: 2px;
@@ -437,24 +445,25 @@ table {
     }
     .container-small-result {
         margin: 10px 308px;
-        width: 78%;
+        width: 81%;
         background: white;
         height: 595px;
         border-radius: 2px;
         box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-sSmall {
-        margin: 10px 308px;
-        padding: 55px;
-        width: 78%;
+        margin: 3px 308px;
+        padding: 20px;
+        width: 81%;
         background: white;
-        height: 381px;
+        height: 258px;
         border-radius: 2px;
         box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-sSmall2 {
+        padding: 29px;
         margin: 10px 308px;
-        width: 78%;
+        width: 81%;
         background: white;
         height: 432px;
         border-radius: 2px;
@@ -462,7 +471,7 @@ table {
     }
     .container-medium {
         margin: 2px 308px;
-        width: 78%;
+        width: 81%;
         background: white;
         height: 749px;
         border-radius: 2px;
@@ -470,7 +479,7 @@ table {
     }
     .container-medium-result {
         margin: 2px 308px;
-        width: 78%;
+        width: 81%;
         background: white;
         height: 792px;
         border-radius: 2px;
@@ -478,7 +487,7 @@ table {
     }
     .container-xmedium {
         margin: 2px 308px;
-        width: 78%;
+        width: 81%;
         position: relative;
         background: white;
         height: 519px;
@@ -487,7 +496,7 @@ table {
     }
     .container-xmedium-result {
         margin: 2px 308px;
-        width: 78%;
+        width: 81%;
         background: white;
         height: 584px;
         border-radius: 2px;
@@ -496,7 +505,7 @@ table {
     .container-large {
         height: 891px;
         margin: 2px 308px;
-        width: 78%;
+        width: 81%;
         background: white;
         border-radius: 2px;
         box-shadow: 0px 10px 6px -5px #00000078;
@@ -573,6 +582,12 @@ table {
         float: right;
         margin: 87px 18px;
     }
+    .btn-prop {
+        margin: 801px 1174px;
+        width: 453px;
+        display: flow-root;
+        position: absolute;
+    }
 }
 
 
@@ -582,35 +597,126 @@ table {
     /*________________________Banner Properties________________________ */
     .banner {
         height: 60px;
-        width: 83.4%;
-        margin: 12px 309px;
+        width: 81.9%;
+        margin: 7px 336px;
         background-color: #068de5;
     }
     .banner2 {
         height: 60px;
-        width: 83.3%;
-        margin: 15px 309px;
+        width: 81.9%;
+        margin: 15px 336px;
         background-color: #068de5;
+    }
+    .banner3 {
+        position: relative;
+        height: 60px;
+        width: 81.9%;
+        margin: 7px 336px;
+        background-color: #1ba9e1e0;
+        box-shadow: 0px 12px 15px -10px #2e2e2e;
+        border-radius: 6px 6px 0 0;
     }
     /*________________________END________________________ */
     /*________________________Container Properties________________________ */
+    .container-sSmall {
+        margin: 2px 336px;
+        padding: 55px;
+        width: 81.9%;
+        background: white;
+        height: 381px;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
     .container-medium {
         height: 560px;
-        margin: 2px 308px;
-        width: 83.3%;
+        margin: 2px 336px;
+        width: 81.9%;
         background: white;
         height: 692px;
         border-radius: 2px;
         box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 20%);
     }
-    .container-small {
-        height: 450px;
+    .container-smedium {
+        margin: 2px 336px;
+        width: 81.9%;
+        background: white;
+        height: 510px;
+        border-radius: 2px;
+        box-shadow: -1px -1px 20px 0px rgb(0 0 0 / 20%);
+    }
+    .container-xmedium {
+        height: 440px;
+        margin: 0 336px;
+        width: 81.9%;
+    }
+    .container-sSmall {
+        margin: 2px 336px;
+        padding: 55px;
+        width: 81.9%;
+        background: white;
+        height: 290px;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
+    .container-smaller {
+        margin: 2px 336px;
+        width: 81.9%;
+        background: white;
+        height: 414px;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
+    .container-medium-result {
+        margin: 2px 336px;
+        width: 81.9%;
+        background: white;
+        height: 715px;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     .container-xsmall {
         height: 250px;
+        width: 81.9%;
     }
-    .container-xmedium {
-        height: 610px;
+    .container-small-result {
+        margin: 10px 336px;
+        width: 81.9%;
+        background: white;
+        height: 595px;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
+    .container-sSmall2 {
+        margin: 10px 336px;
+        width: 81.9%;
+        background: white;
+        height: 337px;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
+    .container-small {
+        margin: 1px 336px;
+        width: 81.9%;
+        background: white;
+        height: 427px;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
+    .container-xmedium-result {
+        margin: 2px 336px;
+        width: 81.9%;
+        background: white;
+        height: 584px;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
+    }
+    .container-large {
+        height: 891px;
+        margin: 2px 336px;
+        width: 81.9%;
+        background: white;
+        border-radius: 2px;
+        box-shadow: 0px 10px 6px -5px #00000078;
     }
     /*________________________END________________________ */
     /*________________________Search properties________________________ */
@@ -634,6 +740,19 @@ table {
         border-radius: 2px;
         float: right;
         margin: 26 3px 18px;
+    }
+    .btn-prop {
+        margin: 882px 1420px;
+        width: 453px;
+        display: flow-root;
+        position: absolute;
+    }
+    /*________________________END________________________ */
+    /*________________________table properties________________________ */
+    table {
+        margin: -8px 335px;
+        max-width: 81.9%;
+        box-shadow: 0px 12px 15px -10px #2e2e2e;
     }
     /*________________________END________________________ */
 }

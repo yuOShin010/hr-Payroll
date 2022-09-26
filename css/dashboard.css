@@ -52,9 +52,9 @@
     }
     /*________________________footer properties________________________ */
     .footer {
-        height: 364px;
+        height: 72px;
         background: #021316f7;
-        margin: -58px 0;
+        margin: -9px 0;
     }
     /*________________________END________________________ */
 }
@@ -62,11 +62,10 @@
 @media only screen and (min-width: 1900px) {
     #navigation {
         position: fixed;
-        width: 300px;
+        width: 327px;
         height: 100vh;
-        box-shadow: 2px 0px 4px #383838;
-        left: 0;
-        transition: all 0.3s ease;
+        background: #00323c;
+        transition: all 0.3s ease-in-out;
     }
     ul {
         margin: 93px -14px;
@@ -80,7 +79,7 @@
     }
     #navigation ul li a:hover {
         text-align: center;
-        width: 308px;
+        width: 333px;
         background-color: #004452f7;
     }
     #navigation ul li a {
@@ -88,7 +87,7 @@
         font-size: 17px;
         list-style-type: none;
         display: block;
-        width: 301px;
+        width: 333px;
         color: #03b1d4f7;
         text-align: justify;
         transition: all 0.2s ease;

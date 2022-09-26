@@ -232,7 +232,7 @@
 
 
 
-        <section class="banner2"><h2>Database Table</h2></section> <!--this is the banner -->
+        <section class="banner"><h2>Database Table</h2></section> <!--this is the banner -->
     <!-- ________________________________DATABASE TABLE_______________________________ -->
                         <div class="output">
 

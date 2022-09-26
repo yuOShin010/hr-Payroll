@@ -1,8 +1,11 @@
     body {
-        background: rgb(241 241 241);
         display: grid;
         padding: 0;
         margin: 0;
+        min-width: auto;
+        background: url(https://images.unsplash.com/photo-1503951458645-643d53bfd90f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJ1aWxkaW5nc3xlbnwwfHwwfHw%3D&w=1000&q=80);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     
     @media only screen and (min-width: 1200px) {
@@ -168,14 +171,16 @@
             top: 2px;
             width: 80%;
         }
-        .output {
-            padding: 1px;
-            position: relative;
-            left: 309px;
-            top: -15px;
-            width: 83.3%;
-            background: white;
-            height: 315px;
-            box-shadow: 1px 6px 5px #00000078;
+        .greet {
+            margin: 0 352px;
+            font-weight: lighter;
+            color: #dfe3e7;
+        }
+        .logout {
+            position: absolute;
+            margin: -34px 1855px;
+            height: 31px;
+            color: #d8d5c0;
+            transition: all 0.2s ease;
         }
     }

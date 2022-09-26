@@ -129,7 +129,7 @@
             </form>
                 <h3>Basic Information:</h3>
                 <label>
-                    <input class="input-style inpt-pl20" type="number" name="" id="" required readonly> 
+                    <input class="input-style inpt-pl20" type="number" name="employee_id" id="" required readonly> 
                     <p>Employee ID</p>
                 </label>
                 <label>
@@ -192,7 +192,7 @@
 
 
 
-        <section class="banner2"><h2>Database Table</h2></section> <!--this is the banner -->
+        <section class="banner"><h2>Database Table</h2></section> <!--this is the banner -->
     <!-- ________________________________DATABASE TABLE_______________________________ -->
                         <div class="output">
 

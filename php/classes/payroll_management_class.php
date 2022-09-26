@@ -64,7 +64,7 @@ class payroll_manage extends MyPayroll {
                 } 
             }   ?>
 
-                    <div class="container-small">
+                    <div class="container-smaller">
                         <form action="UI_payroll.php" method="post">
                             <!-- form search-->
                             <div class="search-bg">
@@ -119,7 +119,7 @@ class payroll_manage extends MyPayroll {
                             <br>
                             <br>
                         </div>
-                        <section class="banner2"></section> <!--this is the banner -->
+                        <section class="banner"></section> <!--this is the banner -->
                         <div class="container-sSmall2">
                             <h3>Please Fill Up this field: </h3>
                             <label class="b1">

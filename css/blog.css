@@ -2,11 +2,36 @@ html {
     scroll-behavior: smooth;
 }
 
+body::-webkit-scrollbar {
+    width: 9px;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 8px;
+    height: 50vh;
+}
+
+body {
+    background: url(https://images.unsplash.com/photo-1503951458645-643d53bfd90f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJ1aWxkaW5nc3xlbnwwfHwwfHw%3D&w=1000&q=80);
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Leelawadee UI;
+}
+
+.container {
+    height: 77vh;
 }
 
 .topbar {
@@ -66,13 +91,13 @@ ul li a:hover {
     border-radius: 8px;
 } */
 
-.container {
-    height: 74vh;
-}
-
 .content {
     margin: 231px 153px;
     width: 80%;
+    background: rgba(0, 0, 0, 0.385);
+    color: white;
+    font-size: 24px;
+    text-align: center;
 }
 
 .logout-right {
@@ -93,12 +118,16 @@ ul li a:hover {
 
 .s-content {
     height: 100vh;
-    background-color: rgb(9, 57, 57);
+    background: url('https://dataart.com.ar/media/2812358/news-team-big-1600x960.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .t-content {
     height: 100vh;
-    background-color: rgb(20, 34, 34);
+    background: url('https://cdn.wallpapersafari.com/29/76/7wTsnh.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .f-content {
@@ -108,7 +137,9 @@ ul li a:hover {
 
 .fth-content {
     height: 100vh;
-    background-color: rgb(9, 9, 9);
+    background: url('https://img.freepik.com/free-photo/aerial-view-business-team_53876-124515.jpg?t=st=1654503664~exp=1654504264~hmac=f9a90be1eccdb359f831eaad2fa84955aef718e508c2517709cf7cd80390e074&w=900');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .cont2-fh1 {
@@ -129,6 +160,8 @@ ul li a:hover {
 
 .welcome h1 {
     font-weight: lighter;
+    font-size: 72px;
+    filter: drop-shadow(2px 4px 6px black);
 }
 
 .getting h1 a {
@@ -136,11 +169,9 @@ ul li a:hover {
     text-decoration: none;
     background-color: transparent;
     transition: all 0.3s ease;
-    color: rgb(7, 119, 205);
+    color: rgb(10, 141, 242);
 }
 
 .getting a:hover {
-    color: #00cafe;
-    text-shadow: 2px 2px black;
-    filter: drop-shadow(-29px 25px 2px rgba(0, 0, 0, 0.637));
+    color: #21c1c1;
 }
